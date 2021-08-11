@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//User Fontt
 Route::get('/', [HomeController::class, 'index']);
+
+//Admin Font
+
+Route::get('/admin', [AdminController::class, 'index']);
