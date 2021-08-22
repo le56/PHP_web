@@ -14,13 +14,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//User Fontt
+
 Route::get('/', [HomeController::class, 'index']);
 
 //Admin Font
 
+// route get show index admin dashboard
 Route::get('/admin', [AdminController::class, 'index']);
+// route get show dashboard
 Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
+// route post check login account
 Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
+// route get login account
 Route::get('/logout', [AdminController::class, 'logout']);
 
