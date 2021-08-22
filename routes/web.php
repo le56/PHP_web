@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 //User Fontt
 Route::get('/', [HomeController::class, 'index']);
+
+//Store Navbar Controller
+
+Route::get('/store', [StoreController::class, 'index']);
+Route::get('/cart', [StoreController::class, 'cart']);
+Route::get('/checkout', [StoreController::class, 'checkout']);
+Route::get('/catalog', [StoreController::class, 'catalog']);
+Route::get('/product', [StoreController::class, 'product']);
+Route::get('/catalogAlt', [StoreController::class, 'catalogAlt']);
 
 //Admin Font
 
