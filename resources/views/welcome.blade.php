@@ -288,32 +288,31 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="gallery.html">
+                            <a href="{{URL::to('/gallery')}}">
                                 Gallery
-
                             </a>
                         </li>
                         <li class=" nk-drop-item">
-                            <a href="tournaments.html">
+                            <a href="{{URL::to('/tournament')}}">
                                 Tournaments
 
                             </a>
                             <ul class="dropdown">
 
                                 <li>
-                                    <a href="tournaments.html">
+                                    <a href="{{URL::to('/tournament')}}">
                                         Tournament
 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="tournaments-teams.html">
+                                    <a href="{{URL::to('/teams')}}">
                                         Teams
 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="tournaments-teammate.html">
+                                    <a href="{{URL::to('/teammate')}}">
                                         Teammate
 
                                     </a>
@@ -400,6 +399,7 @@
     </div>
     <!-- END: Navbar Mobile -->
     <div class="nk-main">
+        <!-- Store -->
         @yield('store')
         @yield('content')
         @yield('product')
@@ -407,6 +407,15 @@
         @yield('catalogAlt')
         @yield('checkout')
         @yield('cart')
+        <!--Gallery-->
+        @yield('gallery')
+
+        <!--Tournament-->
+
+        @yield('tournament')
+        @yield('teams')
+        @yield('teammate')
+
         <!-- START: Footer -->
         <footer class="nk-footer">
 
