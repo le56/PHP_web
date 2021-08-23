@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\TournamentsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\productController;
 
@@ -17,6 +20,25 @@ use App\Http\Controllers\productController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+
+//Store Navbar Controller
+
+Route::get('/store', [StoreController::class, 'index']);
+Route::get('/cart', [StoreController::class, 'cart']);
+Route::get('/checkout', [StoreController::class, 'checkout']);
+Route::get('/catalog', [StoreController::class, 'catalog']);
+Route::get('/product', [StoreController::class, 'product']);
+Route::get('/catalogAlt', [StoreController::class, 'catalogAlt']);
+
+//Gallery Navbar Controller
+
+Route::get('/gallery', [GalleryController::class, 'index']);
+
+//Tournament Navbar Controller
+
+Route::get('/tournament', [TournamentsController::class, 'index']);
+Route::get('/teams', [TournamentsController::class, 'team']);
+Route::get('/teammate', [TournamentsController::class, 'teammate']);
 
 //Admin Font
 

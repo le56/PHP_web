@@ -13,7 +13,7 @@
     <meta name="keywords" content="game, gaming, template, HTML template, responsive, Bootstrap, premium">
     <meta name="author" content="_nK">
 
-    <link rel="icon" type="image/png" href="{{('public/assets/images/favicon.png')}}">
+    <link rel="icon" type="image/png" href="{{URL::asset('public/assets/images/favicon.png')}}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,36 +23,38 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7cOpen+Sans:400,700" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{('public/assets/vendor/bootstrap/dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('public/assets/vendor/bootstrap/dist/css/bootstrap.min.css')}}">
 
     <!-- FontAwesome -->
-    <script defer src="{{('public/assets/vendor/fontawesome-free/js/all.js')}}"></script>
-    <script defer src="{{('public/assets/vendor/fontawesome-free/js/v4-shims.js')}}"></script>
+    <script defer src="{{URL::asset('public/assets/vendor/fontawesome-free/js/all.js')}}"></script>
+    <script defer src="{{URL::asset('public/assets/vendor/fontawesome-free/js/v4-shims.js')}}"></script>
 
     <!-- IonIcons -->
-    <link rel="stylesheet" href="{{('public/assets/vendor/ionicons/css/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('public/assets/vendor/ionicons/css/ionicons.min.css')}}">
 
     <!-- Flickity -->
-    <link rel="stylesheet" href="{{('public/assets/vendor/flickity/dist/flickity.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('public/assets/vendor/flickity/dist/flickity.min.css')}}">
 
     <!-- Photoswipe -->
-    <link rel="stylesheet" type="text/css" href="{{('public/assets/vendor/photoswipe/dist/photoswipe.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{('public/assets/vendor/photoswipe/dist/default-skin/default-skin.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('public/assets/vendor/photoswipe/dist/photoswipe.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('public/assets/vendor/photoswipe/dist/default-skin/default-skin.css')}}">
 
     <!-- Seiyria Bootstrap Slider -->
-    <link rel="stylesheet" href="{{('public/assets/vendor/bootstrap-slider/dist/css/bootstrap-slider.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('public/assets/vendor/bootstrap-slider/dist/css/bootstrap-slider.min.css')}}">
 
     <!-- Summernote -->
-    <link rel="stylesheet" type="text/css" href="{{('public/assets/vendor/summernote/dist/summernote-bs4.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('public/assets/vendor/summernote/dist/summernote-bs4.css')}}">
 
     <!-- GoodGames -->
-    <link rel="stylesheet" href="{{('public/assets/css/goodgames.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('public/assets/css/goodgames.css')}}">
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="{{('public/assets/css/custom.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('public/assets/css/custom.css')}}">
+
+    
     <!-- END: Styles -->
     <!-- jQuery -->
-    <script src="{{('public/assets/vendor/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{URL::asset('public/assets/vendor/jquery/dist/jquery.min.js')}}"></script>
 
 
 </head>
@@ -89,31 +91,6 @@
                         <li><a class="nk-social-google-plus" href="#"><span class="fab fa-google-plus"></span></a></li>
                         <li><a class="nk-social-twitter" href="#" target="_blank"><span class="fab fa-twitter"></span></a></li>
                         <li><a class="nk-social-pinterest" href="#"><span class="fab fa-pinterest-p"></span></a></li>
-
-                        <!-- Additional Social Buttons
-                    <li><a class="nk-social-behance" href="#"><span class="fab fa-behance"></span></a></li>
-                    <li><a class="nk-social-bitbucket" href="#"><span class="fab fa-bitbucket"></span></a></li>
-                    <li><a class="nk-social-dropbox" href="#"><span class="fab fa-dropbox"></span></a></li>
-                    <li><a class="nk-social-dribbble" href="#"><span class="fab fa-dribbble"></span></a></li>
-                    <li><a class="nk-social-deviantart" href="#"><span class="fab fa-deviantart"></span></a></li>
-                    <li><a class="nk-social-flickr" href="#"><span class="fab fa-flickr"></span></a></li>
-                    <li><a class="nk-social-foursquare" href="#"><span class="fab fa-foursquare"></span></a></li>
-                    <li><a class="nk-social-github" href="#"><span class="fab fa-github"></span></a></li>
-                    <li><a class="nk-social-instagram" href="#"><span class="fab fa-instagram"></span></a></li>
-                    <li><a class="nk-social-linkedin" href="#"><span class="fab fa-linkedin"></span></a></li>
-                    <li><a class="nk-social-medium" href="#"><span class="fab fa-medium"></span></a></li>
-                    <li><a class="nk-social-odnoklassniki" href="#"><span class="fab fa-odnoklassniki"></span></a></li>
-                    <li><a class="nk-social-paypal" href="#"><span class="fab fa-paypal"></span></a></li>
-                    <li><a class="nk-social-reddit" href="#"><span class="fab fa-reddit"></span></a></li>
-                    <li><a class="nk-social-skype" href="#"><span class="fab fa-skype"></span></a></li>
-                    <li><a class="nk-social-soundcloud" href="#"><span class="fab fa-soundcloud"></span></a></li>
-                    <li><a class="nk-social-slack" href="#"><span class="fab fa-slack"></span></a></li>
-                    <li><a class="nk-social-tumblr" href="#"><span class="fab fa-tumblr"></span></a></li>
-                    <li><a class="nk-social-vimeo" href="#"><span class="fab fa-vimeo"></span></a></li>
-                    <li><a class="nk-social-vk" href="#"><span class="fab fa-vk"></span></a></li>
-                    <li><a class="nk-social-wordpress" href="#"><span class="fab fa-wordpress"></span></a></li>
-                    <li><a class="nk-social-youtube" href="#"><span class="fab fa-youtube"></span></a></li>
-                -->
                     </ul>
                 </div>
                 <div class="nk-contacts-right">
@@ -191,7 +168,7 @@
             <div class="container">
                 <div class="nk-nav-table">
 
-                    <a href="{{URL::to('/trang-chu')}}" class="nk-nav-logo">
+                    <a href="{{URL::to('/')}}" class="nk-nav-logo">
                         <img src="{{('public/assets/images/logo.png')}}" alt="GoodGames" width="199">
                     </a>
 
@@ -200,7 +177,6 @@
                         <li class=" nk-drop-item">
                             <a href="elements.html">
                                 Features
-
                             </a>
                             <ul class="dropdown">
 
@@ -312,32 +288,31 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="gallery.html">
+                            <a href="{{URL::to('/gallery')}}">
                                 Gallery
-
                             </a>
                         </li>
                         <li class=" nk-drop-item">
-                            <a href="tournaments.html">
+                            <a href="{{URL::to('/tournament')}}">
                                 Tournaments
 
                             </a>
                             <ul class="dropdown">
 
                                 <li>
-                                    <a href="tournaments.html">
+                                    <a href="{{URL::to('/tournament')}}">
                                         Tournament
 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="tournaments-teams.html">
+                                    <a href="{{URL::to('/teams')}}">
                                         Teams
 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="tournaments-teammate.html">
+                                    <a href="{{URL::to('/teammate')}}">
                                         Teammate
 
                                     </a>
@@ -345,44 +320,42 @@
                             </ul>
                         </li>
                         <li class=" nk-drop-item">
-                            <a href="store.html">
+                            <a href="{{URL::to('/store')}}">
                                 Store
-
                             </a>
                             <ul class="dropdown">
 
                                 <li>
-                                    <a href="store.html">
+                                    <a href="{{URL::to('/store')}}">
                                         Store
-
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="store-product.html">
+                                    <a href="{{URL::to('/product')}}">
                                         Product
 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="store-catalog.html">
+                                    <a href="{{URL::to('/catalog')}}">
                                         Catalog
 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="store-catalog-alt.html">
+                                    <a href="{{URL::to('/catalogAlt')}}">
                                         Catalog Alt
 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="store-checkout.html">
+                                    <a href="{{URL::to('/checkout')}}">
                                         Checkout
 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="store-cart.html">
+                                    <a href="{{URL::to('/cart')}}">
                                         Cart
 
                                     </a>
@@ -410,18 +383,6 @@
         <!-- END: Navbar -->
 
     </header>
-
-
-
-    <!--
-    START: Navbar Mobile
-
-    Additional Classes:
-        .nk-navbar-left-side
-        .nk-navbar-right-side
-        .nk-navbar-lg
-        .nk-navbar-overlay-content
--->
     <div id="nk-nav-mobile" class="nk-navbar nk-navbar-side nk-navbar-right-side nk-navbar-overlay-content d-lg-none">
         <div class="nano">
             <div class="nano-content">
@@ -437,12 +398,23 @@
         </div>
     </div>
     <!-- END: Navbar Mobile -->
-
-    @yield('content')
-
-
     <div class="nk-main">
+        <!-- Store -->
+        @yield('store')
+        @yield('content')
+        @yield('product')
+        @yield('catalog')
+        @yield('catalogAlt')
+        @yield('checkout')
+        @yield('cart')
+        <!--Gallery-->
+        @yield('gallery')
 
+        <!--Tournament-->
+
+        @yield('tournament')
+        @yield('teams')
+        @yield('teammate')
 
         <!-- START: Footer -->
         <footer class="nk-footer">
@@ -537,52 +509,20 @@
                             <li><a class="nk-social-twitter" href="#" target="_blank"><span class="fab fa-twitter"></span></a></li>
                             <li><a class="nk-social-pinterest" href="#"><span class="fab fa-pinterest-p"></span></a></li>
 
-                            <!-- Additional Social Buttons
-                        <li><a class="nk-social-behance" href="#"><span class="fab fa-behance"></span></a></li>
-                        <li><a class="nk-social-bitbucket" href="#"><span class="fab fa-bitbucket"></span></a></li>
-                        <li><a class="nk-social-dropbox" href="#"><span class="fab fa-dropbox"></span></a></li>
-                        <li><a class="nk-social-dribbble" href="#"><span class="fab fa-dribbble"></span></a></li>
-                        <li><a class="nk-social-deviantart" href="#"><span class="fab fa-deviantart"></span></a></li>
-                        <li><a class="nk-social-flickr" href="#"><span class="fab fa-flickr"></span></a></li>
-                        <li><a class="nk-social-foursquare" href="#"><span class="fab fa-foursquare"></span></a></li>
-                        <li><a class="nk-social-github" href="#"><span class="fab fa-github"></span></a></li>
-                        <li><a class="nk-social-instagram" href="#"><span class="fab fa-instagram"></span></a></li>
-                        <li><a class="nk-social-linkedin" href="#"><span class="fab fa-linkedin"></span></a></li>
-                        <li><a class="nk-social-medium" href="#"><span class="fab fa-medium"></span></a></li>
-                        <li><a class="nk-social-odnoklassniki" href="#"><span class="fab fa-odnoklassniki"></span></a></li>
-                        <li><a class="nk-social-paypal" href="#"><span class="fab fa-paypal"></span></a></li>
-                        <li><a class="nk-social-reddit" href="#"><span class="fab fa-reddit"></span></a></li>
-                        <li><a class="nk-social-skype" href="#"><span class="fab fa-skype"></span></a></li>
-                        <li><a class="nk-social-soundcloud" href="#"><span class="fab fa-soundcloud"></span></a></li>
-                        <li><a class="nk-social-slack" href="#"><span class="fab fa-slack"></span></a></li>
-                        <li><a class="nk-social-tumblr" href="#"><span class="fab fa-tumblr"></span></a></li>
-                        <li><a class="nk-social-vimeo" href="#"><span class="fab fa-vimeo"></span></a></li>
-                        <li><a class="nk-social-vk" href="#"><span class="fab fa-vk"></span></a></li>
-                        <li><a class="nk-social-wordpress" href="#"><span class="fab fa-wordpress"></span></a></li>
-                        <li><a class="nk-social-youtube" href="#"><span class="fab fa-youtube"></span></a></li>
-                    -->
+                       
                         </ul>
                     </div>
                 </div>
             </div>
         </footer>
         <!-- END: Footer -->
-
-
     </div>
-
-
-
-
     <!-- START: Page Background -->
 
     <img class="nk-page-background-top" src="assets/images/bg-top.png" alt="">
     <img class="nk-page-background-bottom" src="assets/images/bg-bottom.png" alt="">
 
     <!-- END: Page Background -->
-
-
-
 
     <!-- START: Search Modal -->
     <div class="nk-modal modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-hidden="true">
@@ -727,6 +667,7 @@
     <!-- GoodGames -->
     <script src="{{('public/assets/js/goodgames.min.js')}}"></script>
     <script src="{{('public/assets/js/goodgames-init.js')}}"></script>
+
     <!-- END: Scripts -->
 
 
