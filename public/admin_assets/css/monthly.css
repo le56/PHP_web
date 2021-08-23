@@ -1,3 +1,5 @@
+
+
 /* Overall wrapper */
 .monthly {
 	background: #F3F3F5;
@@ -125,7 +127,7 @@
     text-decoration: none;
 }
 .monthly-day-event {
-    padding-top: 17px !important; 
+    padding-top: 17px !important;
 }
 /* Trick to make the days' width equal their height */
 .monthly-day:before {

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\productController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,19 @@ Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
 Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 // route get login account
 Route::get('/logout', [AdminController::class, 'logout']);
+// test CRUD product
+Route::prefix('/admin/product')->group(function () {
+    Route::get('/list-product', [productController::class, 'showAll']);
+
+    Route::get('/create', [productController::class, 'showCreateProduct']);
+    Route::post('/create', [productController::class, 'store'])->middleware('validation_product');
+
+    Route::put('/update', [productController::class, 'update'])->name('product.update')->middleware('validation_product');
+
+    Route::get('/search', [productController::class, 'searchProduct'])->name('product.search');
+    Route::get('/getByID', [productController::class, 'getByID'])->name('product.getByID');
+
+    Route::delete('/delete', [productController::class, 'delete'])->name('product.delete');
+});
+
 
