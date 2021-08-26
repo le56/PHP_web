@@ -163,6 +163,7 @@
             .nk-navbar-sticky
             .nk-navbar-transparent
             .nk-navbar-autohide
+            Hello
     -->
         <nav class="nk-navbar nk-navbar-top nk-navbar-sticky nk-navbar-autohide">
             <div class="container">
