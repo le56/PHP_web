@@ -40,6 +40,8 @@ Route::get('/tournament', [TournamentsController::class, 'index']);
 Route::get('/teams', [TournamentsController::class, 'team']);
 Route::get('/teammate', [TournamentsController::class, 'teammate']);
 
+
+
 //Admin Font
 
 // route get show index admin dashboard
@@ -51,6 +53,7 @@ Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 // route get login account
 Route::get('/logout', [AdminController::class, 'logout']);
 // test CRUD product
+
 Route::prefix('/admin/product')->group(function () {
     Route::get('/list-product', [productController::class, 'showAll']);
 
@@ -64,5 +67,3 @@ Route::prefix('/admin/product')->group(function () {
 
     Route::delete('/delete', [productController::class, 'delete'])->name('product.delete');
 });
-
-
