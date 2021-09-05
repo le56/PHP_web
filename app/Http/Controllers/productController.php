@@ -29,7 +29,7 @@ class productController extends Controller
             "rate" => $request->input("rate"),
             "price" => $request->input("price"),
         ]);
-        return redirect()->back();  
+        return redirect()->back();
     }
 
     // put update product
