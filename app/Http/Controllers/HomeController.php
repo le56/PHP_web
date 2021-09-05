@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Home_slider;
+use App\Models\Latest_new;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,6 +14,11 @@ class HomeController extends Controller
             $str = str_replace('-md.','-square.',$slider->image);
             $slider->image = $str;
         }
-        return view('pages.Home',['ListImageXS'=>$allSlider,'sliders'=>Home_slider::all()]);
+        $allNewLatest = Latest_new::all();
+        foreach ($allNewLatest as $new) {
+            $str = str_replace('-md.','-square.',$new->image);
+            $new->image = $str;
+        }
+        return view('pages.Home',['ListImageXS'=>$allSlider,'sliders'=>Home_slider::all(),'newLatest'=>Latest_new::all()]);
     }
 };
