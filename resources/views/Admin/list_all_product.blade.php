@@ -105,7 +105,7 @@
 
                             <div class="form-group">
                                 <label for="content">Rate</label>
-                                <input type="number" class="form-control" aria-describedby="nameHelp" readonly value="0"
+                                <input type="number" class="form-control" aria-describedby="nameHelp" readonly
                                        name="rate">
                             </div>
 
@@ -170,6 +170,7 @@
                 $('#update_product input[name="title"]').val(data.title)
                 $('#update_product input[name="content"]').val(data.content)
                 $('#update_product input[name="price"]').val(data.price)
+                $('#update_product input[name="rate"]').val(data.rate)
                 $('input[name="image"]').val(data.image)
                 $('input[name="_id_product"]').val(data.id)
             })

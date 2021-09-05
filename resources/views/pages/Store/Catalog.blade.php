@@ -3,92 +3,92 @@
 <div class="nk-gap-1"></div>
 <div class="container">
     <ul class="nk-breadcrumbs">
-        
-        
+
+
         <li><a href="index.html">Home</a></li>
-        
-        
+
+
         <li><span class="fa fa-angle-right"></span></li>
-        
+
         <li><a href="store.html">Store</a></li>
-        
-        
+
+
         <li><span class="fa fa-angle-right"></span></li>
-        
+
         <li><span>Action Games</span></li>
-        
+
     </ul>
 </div>
 <div class="nk-gap-1"></div>
 <!-- END: Breadcrumbs -->
 
-        
 
-        
+
+
 <div class="container">
 
     <!-- START: Image Slider -->
     <div class="nk-image-slider" data-autoplay="8000">
-        
-        
+
+
         <div class="nk-image-slider-item">
             <img src="assets/images/slide-1.jpg" alt="" class="nk-image-slider-img" data-thumb="assets/images/slide-1-thumb.jpg">
-            
+
             <div class="nk-image-slider-content">
-                
+
         <h3 class="h4">As we Passed, I remarked</h3>
         <p class="text-white">As we passed, I remarked a beautiful church-spire rising above some old elms in the park; and before them, in the midst of a lawn, chimneys covered with ivy, and the windows shining in the sun.</p>
         <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">Read More</a>
-        
+
             </div>
-            
+
         </div>
-        
+
         <div class="nk-image-slider-item">
             <img src="assets/images/slide-2.jpg" alt="" class="nk-image-slider-img" data-thumb="assets/images/slide-2-thumb.jpg">
-            
+
             <div class="nk-image-slider-content">
-                
+
         <h3 class="h4">He made his passenger captain of one</h3>
         <p class="text-white">Now the races of these two have been for some ages utterly extinct, and besides to discourse any further of them would not be at all to my purpose. But the concern I have most at heart is for our Corporation of Poets, from whom I am preparing a petition to your Highness,  to be subscribed with the names of one...</p>
         <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">Read More</a>
-        
+
             </div>
-            
+
         </div>
-        
+
         <div class="nk-image-slider-item">
             <img src="assets/images/slide-3.jpg" alt="" class="nk-image-slider-img" data-thumb="assets/images/slide-3-thumb.jpg">
-            
+
         </div>
-        
+
         <div class="nk-image-slider-item">
             <img src="assets/images/slide-4.jpg" alt="" class="nk-image-slider-img" data-thumb="assets/images/slide-4-thumb.jpg">
-            
+
             <div class="nk-image-slider-content">
-                
+
         <h3 class="h4">At length one of them called out in a clear</h3>
         <p class="text-white">TJust then her head struck against the roof of the hall: in fact she was now more than nine feet high...</p>
         <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">Read More</a>
-        
+
             </div>
-            
+
         </div>
-        
+
         <div class="nk-image-slider-item">
             <img src="assets/images/slide-5.jpg" alt="" class="nk-image-slider-img" data-thumb="assets/images/slide-5-thumb.jpg">
-            
+
             <div class="nk-image-slider-content">
-                
+
         <h3 class="h4">For good, too though, in consequence</h3>
         <p class="text-white">She gave my mother such a turn, that I have always been convinced I am indebted to Miss Betsey for having been born on a Friday. The word was appropriate to the moment.</p>
         <p class="text-white">My mother was so much worse that Peggotty, coming in with the teaboard and candles, and seeing at a glance how ill she was, - as Miss Betsey might have done sooner if there had been light enough, - conveyed her upstairs to her own room with all speed; and immediately dispatched Ham Peggotty, her nephew, who had been for some days past secreted in the house...</p>
         <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">Read More</a>
-        
+
             </div>
-            
+
         </div>
-        
+
     </div>
     <!-- END: Image Slider -->
 
@@ -136,279 +136,279 @@
         <div class="col-lg-8">
             <!-- START: Products -->
             <div class="row vertical-gap">
-                
+                 @foreach($products as $product)
                 <div class="col-md-6">
                     <div class="nk-product-cat">
                         <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-1-xs.jpg" alt="So saying he unbuckled">
+                            <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="{{$product->title}}">
                         </a>
                         <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">So saying he unbuckled</a></h3>
+                            <h3 class="nk-product-title h5"><a href="store-product.html">{{$product->title}}</a></h3>
                             <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
+                            <div class="nk-product-rating" data-rating="{{$product->rate}}"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
                             <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 23.00</div>
+                            <div class="nk-product-price">€ {{$product->price}}</div>
                             <div class="nk-gap-1"></div>
                             <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-2-xs.jpg" alt="However, I have reason">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">However, I have reason</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="2.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 32.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-3-xs.jpg" alt="It was some time before">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">It was some time before</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 14.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-4-xs.jpg" alt="She was bouncing">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">She was bouncing</a></h3>
-                            <div class="nk-gap-1"></div>
-                            
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 20.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-5-xs.jpg" alt="In all revolutions of">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">In all revolutions of</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 23.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-6-xs.jpg" alt="Just then her head ">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">Just then her head </a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 32.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-7-xs.jpg" alt="With what mingled joy">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">With what mingled joy</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="3.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 14.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-8-xs.jpg" alt="She was bouncing away">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">She was bouncing away</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 20.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-9-xs.jpg" alt="The word was">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">The word was</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 23.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-10-xs.jpg" alt="My mother was so much">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">My mother was so much</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="3.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 32.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-11-xs.jpg" alt="She gave my mother">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">She gave my mother</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 14.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-12-xs.jpg" alt="A hundred thousand">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">A hundred thousand</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 20.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-13-xs.jpg" alt="So saying he unbuckled">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">So saying he unbuckled</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 23.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-14-xs.jpg" alt="However, I have reason">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">However, I have reason</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="1.5"> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 32.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-15-xs.jpg" alt="At first, for some time">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">At first, for some time</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 14.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-16-xs.jpg" alt="When the last &#39;natural&#39;">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">When the last &#39;natural&#39;</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i></div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 20.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-                
+                @endforeach
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-2-xs.jpg" alt="However, I have reason">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">However, I have reason</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="2.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 32.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-3-xs.jpg" alt="It was some time before">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">It was some time before</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 14.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-4-xs.jpg" alt="She was bouncing">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">She was bouncing</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 20.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-5-xs.jpg" alt="In all revolutions of">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">In all revolutions of</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 23.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-6-xs.jpg" alt="Just then her head ">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">Just then her head </a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 32.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-7-xs.jpg" alt="With what mingled joy">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">With what mingled joy</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="3.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 14.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-8-xs.jpg" alt="She was bouncing away">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">She was bouncing away</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 20.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-9-xs.jpg" alt="The word was">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">The word was</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 23.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-10-xs.jpg" alt="My mother was so much">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">My mother was so much</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="3.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 32.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-11-xs.jpg" alt="She gave my mother">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">She gave my mother</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 14.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-12-xs.jpg" alt="A hundred thousand">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">A hundred thousand</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 20.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-13-xs.jpg" alt="So saying he unbuckled">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">So saying he unbuckled</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 23.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-14-xs.jpg" alt="However, I have reason">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">However, I have reason</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="1.5"> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 32.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-15-xs.jpg" alt="At first, for some time">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">At first, for some time</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 14.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="nk-product-cat">--}}
+{{--                        <a class="nk-product-image" href="store-product.html">--}}
+{{--                            <img src="assets/images/product-16-xs.jpg" alt="When the last &#39;natural&#39;">--}}
+{{--                        </a>--}}
+{{--                        <div class="nk-product-cont">--}}
+{{--                            <h3 class="nk-product-title h5"><a href="store-product.html">When the last &#39;natural&#39;</a></h3>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i></div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <div class="nk-product-price">€ 20.00</div>--}}
+{{--                            <div class="nk-gap-1"></div>--}}
+{{--                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
             </div>
             <!-- END: Products -->
 
@@ -547,7 +547,7 @@
 <div class="nk-widget nk-widget-highlighted">
     <h4 class="nk-widget-title"><span><span class="text-main-1">Most</span> Popular</span></h4>
     <div class="nk-widget-content">
-        
+
         <div class="nk-widget-post">
             <a href="store-product.html" class="nk-post-image">
                 <img src="assets/images/product-1-xs.jpg" alt="So saying he unbuckled">
@@ -556,7 +556,7 @@
             <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
             <div class="nk-product-price">€ 23.00</div>
         </div>
-        
+
         <div class="nk-widget-post">
             <a href="store-product.html" class="nk-post-image">
                 <img src="assets/images/product-2-xs.jpg" alt="However, I have reason">
@@ -565,7 +565,7 @@
             <div class="nk-product-rating" data-rating="2.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
             <div class="nk-product-price">€ 32.00</div>
         </div>
-        
+
         <div class="nk-widget-post">
             <a href="store-product.html" class="nk-post-image">
                 <img src="assets/images/product-3-xs.jpg" alt="It was some time before">
@@ -574,7 +574,7 @@
             <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
             <div class="nk-product-price">€ 14.00</div>
         </div>
-        
+
     </div>
 </div>
 <div class="nk-widget nk-widget-highlighted">
