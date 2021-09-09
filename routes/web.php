@@ -7,6 +7,8 @@ use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TournamentsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\productController;
+use App\Http\Controllers\BlogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -66,4 +68,8 @@ Route::prefix('/admin/product')->group(function () {
     Route::get('/getByID', [productController::class, 'getByID'])->name('product.getByID');
 
     Route::delete('/delete', [productController::class, 'delete'])->name('product.delete');
+});
+
+Route::prefix('/blog')->group(function () {
+    Route::get('/',[blogController::class,'showBlog']);
 });

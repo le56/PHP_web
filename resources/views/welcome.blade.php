@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{URL::asset('public/assets/vendor/bootstrap/dist/css/bootstrap.min.css')}}">
 
     <!-- FontAwesome -->
-    <script defer src="{{URL::asset('public/assets/vendor/fontawesome-free/js/all.js')}}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="{{URL::asset('public/assets/vendor/fontawesome-free/js/v4-shims.js')}}"></script>
 
     <!-- IonIcons -->
@@ -51,7 +51,7 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{URL::asset('public/assets/css/custom.css')}}">
 
-    
+
     <!-- END: Styles -->
     <!-- jQuery -->
     <script src="{{URL::asset('public/assets/vendor/jquery/dist/jquery.min.js')}}"></script>
@@ -444,7 +444,7 @@
                             <li><a class="nk-social-twitter" href="#" target="_blank"><span class="fab fa-twitter"></span></a></li>
                             <li><a class="nk-social-pinterest" href="#"><span class="fab fa-pinterest-p"></span></a></li>
 
-                       
+
                         </ul>
                     </div>
                 </div>

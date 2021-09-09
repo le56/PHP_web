@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class products extends Model
+class category extends Model
 {
     use HasFactory;
-    protected $table = 'products';
+    protected $table = 'categories';
     protected $primaryKey = 'id';
-    protected $fillable = ['title','content','rate','price','image','category'];
+    protected $fillable = ['nameCategory'];
     public $incrementing = true;
     public $timestamps = true;
 }

@@ -14,7 +14,6 @@ class StoreController extends Controller
             $product->image = $str;
         }
         return view('pages.Store.Store',['ListImageXS'=>$allProduct,'products'=>products::all()]);
-//        return view('pages.Store.Store');
     }
     public function product(){
         return view('pages.Store.Product');

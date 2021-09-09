@@ -38,6 +38,18 @@
                     <option value="5">5</option>
                 </select>
             </div>
+            @error('category')
+            <p class="text-danger mt-3">{{ $message }}</p>
+            @enderror
+            <div class="form-group">
+                <label for="content">Category</label>
+                <select class="form-control" name="category" aria-label="form-select-lg example">
+                    @foreach($categories as $item)
+                        <option value="{{$item->id}}">{{$item->nameCategory}}</option>
+                    @endforeach
+
+                </select>
+            </div>
             @error('price')
             <p class="text-danger mt-3">{{ $message }}</p>
             @enderror

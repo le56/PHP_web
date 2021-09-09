@@ -109,6 +109,16 @@
                                        name="rate">
                             </div>
 
+
+                            <div class="form-group">
+                                <label for="content">Category</label>
+                                <select class="form-control" name="category" aria-label="form-select-lg example">
+                                    @foreach($categories as $item)
+                                        <option value="{{$item->id}}">{{$item->nameCategory}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="form-group">
                                 <label for="content">Price</label>
                                 <input type="number" class="form-control" aria-describedby="nameHelp"

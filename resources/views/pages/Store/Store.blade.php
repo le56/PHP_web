@@ -132,21 +132,7 @@
         <div class="nk-gap"></div>
         <div class="nk-carousel nk-carousel-x4" data-autoplay="5000" data-dots="false" data-cell-align="left" data-arrows="true">
             <div class="nk-carousel-inner">
-{{--                <div>--}}
-{{--                    <div class="pl-5 pr-5">--}}
-{{--                        <div class="nk-product-cat-3">--}}
-{{--                            <a class="nk-product-image" href="store-product.html">--}}
-{{--                                <img src="assets/images/product-1-xs.jpg" alt="So saying he unbuckled">--}}
-{{--                            </a>--}}
-{{--                            <div class="nk-product-cont">--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <h3 class="nk-product-title h5"><a href="store-product.html">So saying he unbuckled</a></h3>--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <div class="nk-product-price">€ 23.00</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+
 
                 @foreach($ListImageXS as $product)
                 <div>
@@ -165,141 +151,6 @@
                     </div>
                 </div>
                 @endforeach
-
-{{--                <div>--}}
-{{--                    <div class="pl-5 pr-5">--}}
-{{--                        <div class="nk-product-cat-3">--}}
-{{--                            <a class="nk-product-image" href="store-product.html">--}}
-{{--                                <img src="assets/images/product-3-xs.jpg" alt="It was some time before">--}}
-{{--                            </a>--}}
-{{--                            <div class="nk-product-cont">--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <h3 class="nk-product-title h5"><a href="store-product.html">It was some time before</a></h3>--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <div class="nk-product-price">€ 14.00</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-
-{{--                <div>--}}
-{{--                    <div class="pl-5 pr-5">--}}
-{{--                        <div class="nk-product-cat-3">--}}
-{{--                            <a class="nk-product-image" href="store-product.html">--}}
-{{--                                <img src="assets/images/product-4-xs.jpg" alt="She was bouncing">--}}
-{{--                            </a>--}}
-{{--                            <div class="nk-product-cont">--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <h3 class="nk-product-title h5"><a href="store-product.html">She was bouncing</a></h3>--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <div class="nk-product-price">€ 20.00</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-
-{{--                <div>--}}
-{{--                    <div class="pl-5 pr-5">--}}
-{{--                        <div class="nk-product-cat-3">--}}
-{{--                            <a class="nk-product-image" href="store-product.html">--}}
-{{--                                <img src="assets/images/product-5-xs.jpg" alt="In all revolutions of">--}}
-{{--                            </a>--}}
-{{--                            <div class="nk-product-cont">--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <h3 class="nk-product-title h5"><a href="store-product.html">In all revolutions of</a></h3>--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <div class="nk-product-price">€ 23.00</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-
-{{--                <div>--}}
-{{--                    <div class="pl-5 pr-5">--}}
-{{--                        <div class="nk-product-cat-3">--}}
-{{--                            <a class="nk-product-image" href="store-product.html">--}}
-{{--                                <img src="assets/images/product-6-xs.jpg" alt="Just then her head ">--}}
-{{--                            </a>--}}
-{{--                            <div class="nk-product-cont">--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <h3 class="nk-product-title h5"><a href="store-product.html">Just then her head </a></h3>--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <div class="nk-product-price">€ 32.00</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-
-{{--                <div>--}}
-{{--                    <div class="pl-5 pr-5">--}}
-{{--                        <div class="nk-product-cat-3">--}}
-{{--                            <a class="nk-product-image" href="store-product.html">--}}
-{{--                                <img src="assets/images/product-7-xs.jpg" alt="With what mingled joy">--}}
-{{--                            </a>--}}
-{{--                            <div class="nk-product-cont">--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <h3 class="nk-product-title h5"><a href="store-product.html">With what mingled joy</a></h3>--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <div class="nk-product-price">€ 14.00</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-
-{{--                <div>--}}
-{{--                    <div class="pl-5 pr-5">--}}
-{{--                        <div class="nk-product-cat-3">--}}
-{{--                            <a class="nk-product-image" href="store-product.html">--}}
-{{--                                <img src="assets/images/product-8-xs.jpg" alt="She was bouncing away">--}}
-{{--                            </a>--}}
-{{--                            <div class="nk-product-cont">--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <h3 class="nk-product-title h5"><a href="store-product.html">She was bouncing away</a></h3>--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <div class="nk-product-price">€ 20.00</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-
-{{--                <div>--}}
-{{--                    <div class="pl-5 pr-5">--}}
-{{--                        <div class="nk-product-cat-3">--}}
-{{--                            <a class="nk-product-image" href="store-product.html">--}}
-{{--                                <img src="assets/images/product-9-xs.jpg" alt="The word was">--}}
-{{--                            </a>--}}
-{{--                            <div class="nk-product-cont">--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <h3 class="nk-product-title h5"><a href="store-product.html">The word was</a></h3>--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <div class="nk-product-price">€ 23.00</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-
-{{--                <div>--}}
-{{--                    <div class="pl-5 pr-5">--}}
-{{--                        <div class="nk-product-cat-3">--}}
-{{--                            <a class="nk-product-image" href="store-product.html">--}}
-{{--                                <img src="assets/images/product-10-xs.jpg" alt="My mother was so much">--}}
-{{--                            </a>--}}
-{{--                            <div class="nk-product-cont">--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <h3 class="nk-product-title h5"><a href="store-product.html">My mother was so much</a></h3>--}}
-{{--                                <div class="nk-gap-1"></div>--}}
-{{--                                <div class="nk-product-price">€ 32.00</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
 
             </div>
         </div>
@@ -321,7 +172,14 @@
                     <div class="nk-product-cont">
                         <h3 class="nk-product-title h5"><a href="store-product.html">{{$product->title}}</a></h3>
                         <div class="nk-gap-1"></div>
-                        <div class="nk-product-rating" data-rating="{{$product->rate}}"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i></div>
+                        <div class="nk-product-rating">
+                            @for ($i = 1; $i <=5; $i++)
+                                @if ($i < $product->rate)
+                                    <i class="fa fa-star"></i>
+                                @elseif($i === $product->rate) <i class="fas fa-star-half-alt"></i>
+                                @else  <i class="far fa-star"></i>
+                                @endif
+                            @endfor</div>
                         <div class="nk-gap-1"></div>
                         {{$product->content}}
                         <div class="nk-gap-2"></div>
@@ -412,7 +270,15 @@
                     <div class="nk-product-cont">
                         <h3 class="nk-product-title h5"><a href="store-product.html">{{$product->title}}</a></h3>
                         <div class="nk-gap-1"></div>
-                        <div class="nk-product-rating" data-rating="{{$product->rate}}"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
+                        <div class="nk-product-rating">
+                            @for ($i = 1; $i <=5; $i++)
+                                @if ($i < $product->rate)
+                                    <i class="fa fa-star"></i>
+                                @elseif($i === $product->rate) <i class="fas fa-star-half-alt"></i>
+                                @else  <i class="far fa-star"></i>
+                                @endif
+                            @endfor
+                        </div>
                         <div class="nk-gap-1"></div>
                         <div class="nk-product-price">€ {{$product->price}}</div>
                     </div>
