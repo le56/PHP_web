@@ -512,7 +512,8 @@
 
                                 <ul class="nk-social-links-2">
                                     <li><a class="nk-social-facebook" href="#"><span class="fab fa-facebook"></span></a></li>
-                                    <li><a class="nk-social-google-plus" href="#"><span class="fab fa-google-plus"></span></a></li>
+                                    <li>
+                                        <a class="nk-social-google-plus" href="{{ url('auth/google') }}"><span class="fab fa-google-plus"></span></a></li>
                                     <li><a class="nk-social-twitter" href="#"><span class="fab fa-twitter"></span></a></li>
                                 </ul>
                             </div>

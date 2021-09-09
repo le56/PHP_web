@@ -8,7 +8,7 @@ use App\Http\Controllers\TournamentsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\BlogController;
-
+use App\Http\Controllers\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +42,10 @@ Route::get('/tournament', [TournamentsController::class, 'index']);
 Route::get('/teams', [TournamentsController::class, 'team']);
 Route::get('/teammate', [TournamentsController::class, 'teammate']);
 
+//Google PHP
 
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 //Admin Font
 
