@@ -59,6 +59,27 @@ class GoogleController extends Controller
         return redirect('/');
     }
 
+      public function redirectToGithub()
+    {
+
+        return Socialite::driver('github')->redirect();
+    }
+        
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+
+    public function handleGithubCallback()
+    {
+        $user = Socialite::driver('github')->user();
+
+        $this->_registerOrLoginUser($user);
+
+        // Return home after login
+        return redirect('/');
+    }
 
     protected function _registerOrLoginUser($data)
     {

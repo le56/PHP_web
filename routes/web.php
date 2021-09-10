@@ -52,6 +52,12 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 Route::get('auth/facebook', [GoogleController::class, 'redirectToFacebook']);
 Route::get('auth/facebook/callback', [GoogleController::class, 'handleFacebookCallback']);
 
+//Github PHP
+
+Route::get('auth/github', [GoogleController::class, 'redirectToGithub']);
+Route::get('auth/github/callback', [GoogleController::class, 'handleGithubCallback']);
+
+
 //Admin Font
 
 // route get show index admin dashboard

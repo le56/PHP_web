@@ -27,4 +27,9 @@ return [
         'client_secret' => '61c224710f0ccc5544346b861b623dd3',
         'redirect' => 'http://localhost/PHP_web/auth/facebook/callback',
     ],
+    'github' => [
+        'client_id' => 'aeb232331764d557d742',
+        'client_secret' => '128c792c305178977e5b16c3469a9063b26a1938',
+        'redirect' => 'http://localhost/PHP_web/auth/github/callback',
+    ],
 ];

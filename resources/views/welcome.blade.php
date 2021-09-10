@@ -514,7 +514,7 @@
                                     <li><a class="nk-social-facebook" href="{{ url('auth/facebook') }}"><span class="fab fa-facebook"></span></a></li>
                                     <li>
                                         <a class="nk-social-google-plus" href="{{ url('auth/google') }}"><span class="fab fa-google-plus"></span></a></li>
-                                    <li><a class="nk-social-twitter" href="#"><span class="fab fa-twitter"></span></a></li>
+                                    <li><a class="nk-social-github" href="{{ url('auth/github') }}"><i class="fab fa-github"></i></span></a></li>
                                 </ul>
                             </div>
                         </div>
