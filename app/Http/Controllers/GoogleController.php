@@ -36,6 +36,30 @@ class GoogleController extends Controller
         // Return home after login
         return redirect('/');
     }
+
+    public function redirectToFacebook()
+    {
+
+        return Socialite::driver('facebook')->redirect();
+    }
+        
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+
+    public function handleFacebookCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        $this->_registerOrLoginUser($user);
+
+        // Return home after login
+        return redirect('/');
+    }
+
+
     protected function _registerOrLoginUser($data)
     {
         $user = User::where('email', '=', $data->email)->first();

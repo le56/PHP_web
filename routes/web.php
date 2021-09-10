@@ -47,6 +47,11 @@ Route::get('/teammate', [TournamentsController::class, 'teammate']);
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
+//Facebook PHP
+
+Route::get('auth/facebook', [GoogleController::class, 'redirectToFacebook']);
+Route::get('auth/facebook/callback', [GoogleController::class, 'handleFacebookCallback']);
+
 //Admin Font
 
 // route get show index admin dashboard

@@ -22,4 +22,9 @@ return [
         'client_secret' => '2seuKEGWqb_-1NeLFskBaJKP',
         'redirect' => 'http://localhost/PHP_web/auth/google/callback',
     ],
+    'facebook' => [
+        'client_id' => '1616250578580756',
+        'client_secret' => '61c224710f0ccc5544346b861b623dd3',
+        'redirect' => 'http://localhost/PHP_web/auth/facebook/callback',
+    ],
 ];
