@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Home_slider;
 use App\Models\Latest_new;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,6 +20,13 @@ class HomeController extends Controller
             $str = str_replace('-md.','-square.',$new->image);
             $new->image = $str;
         }
-        return view('pages.Home',['ListImageXS'=>$allSlider,'sliders'=>Home_slider::all(),'newLatest'=>Latest_new::all()]);
+        return view('pages.Home',
+        [
+            'ListImageXS'=>$allSlider,'sliders'=>Home_slider::all(),
+            'newLatest'=>Latest_new::all(),
+            'recents'=>Latest_new::orderBy('created_at', 'asc')->limit(3)->get(),
+            'postList'=>Post::orderBy('created_at', 'asc')->limit(4)->get(),
+            'lastpost'=>Post::orderBy('created_at', 'desc')->limit(2)->get()
+    ],);
     }
 };
