@@ -31,7 +31,7 @@
         <!-- START: Post -->
         <div class="nk-blog-post">
             <a href="blog-article.html" class="nk-post-img">
-                <img src="assets/images/post-1-fw.jpg" alt="Smell magic in the air. Or maybe barbecue">
+                <img src="public/assets/images/post-1-fw.jpg" alt="Smell magic in the air. Or maybe barbecue">
                 <span class="nk-post-comments-count">4</span>
             </a>
             <div class="nk-gap-2"></div>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <div class="nk-post-by">
-                        <img src="assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="60">
+                        <img src="public/assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="60">
                         by <a href="#">Hitman</a>
 
                         <br> in Sep 18, 2018
@@ -63,7 +63,7 @@
         <!-- START: Post -->
         <div class="nk-blog-post">
             <a href="blog-article.html" class="nk-post-img">
-                <img src="assets/images/post-2-fw.jpg" alt="Grab your sword and fight the Horde">
+                <img src="public/assets/images/post-2-fw.jpg" alt="Grab your sword and fight the Horde">
                 <span class="nk-post-comments-count">7</span>
             </a>
             <div class="nk-gap-2"></div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <div class="nk-post-by">
-                        <img src="assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="60">
+                        <img src="public/assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="60">
                         by <a href="#">Witch Murder</a>
 
                         <br> in Sep 5, 2018
@@ -95,7 +95,7 @@
         <!-- START: Post -->
         <div class="nk-blog-post">
             <a href="blog-article.html" class="nk-post-img">
-                <img src="assets/images/post-3-fw.jpg" alt="We found a witch! May we burn her?">
+                <img src="public/assets/images/post-3-fw.jpg" alt="We found a witch! May we burn her?">
                 <span class="nk-post-comments-count">7</span>
             </a>
             <div class="nk-gap-2"></div>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <div class="nk-post-by">
-                        <img src="assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="60">
+                        <img src="public/assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="60">
                         by <a href="#">Wolfenstein</a>
 
                         <br> in Aug 27, 2018
@@ -127,7 +127,7 @@
         <!-- START: Post -->
         <div class="nk-blog-post">
             <a href="blog-article.html" class="nk-post-img">
-                <img src="assets/images/post-4-fw.jpg" alt="For good, too though, in consequence">
+                <img src="public/assets/images/post-4-fw.jpg" alt="For good, too though, in consequence">
                 <span class="nk-post-comments-count">23</span>
             </a>
             <div class="nk-gap-2"></div>
@@ -141,7 +141,7 @@
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <div class="nk-post-by">
-                        <img src="assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="60">
+                        <img src="public/assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="60">
                         by <a href="#">Hitman</a>
 
                         <br> in Aug 14, 2018
@@ -159,7 +159,7 @@
         <!-- START: Post -->
         <div class="nk-blog-post">
             <a href="blog-article.html" class="nk-post-img">
-                <img src="assets/images/post-5-fw.jpg" alt="He made his passenger captain of one">
+                <img src="public/assets/images/post-5-fw.jpg" alt="He made his passenger captain of one">
                 <span class="nk-post-comments-count">13</span>
             </a>
             <div class="nk-gap-2"></div>
@@ -173,7 +173,7 @@
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <div class="nk-post-by">
-                        <img src="assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="60">
+                        <img src="public/assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="60">
                         by <a href="#">Wolfenstein</a>
 
                         <br> in Jul 23, 2018
@@ -191,7 +191,7 @@
         <!-- START: Post -->
         <div class="nk-blog-post">
             <a href="blog-article.html" class="nk-post-img">
-                <img src="assets/images/post-6-fw.jpg" alt="At first, for some time, I was not able to answer">
+                <img src="public/assets/images/post-6-fw.jpg" alt="At first, for some time, I was not able to answer">
                 <span class="nk-post-comments-count">0</span>
             </a>
             <div class="nk-gap-2"></div>
@@ -205,7 +205,7 @@
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <div class="nk-post-by">
-                        <img src="assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="60">
+                        <img src="public/assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="60">
                         by <a href="#">Wolfenstein</a>
 
                         <br> in Jul 3, 2018

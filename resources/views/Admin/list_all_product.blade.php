@@ -182,6 +182,7 @@
                 $('#update_product input[name="price"]').val(data.price)
                 $('#update_product input[name="rate"]').val(data.rate)
                 $('input[name="image"]').val(data.image)
+                $('select[name="category"]').val(data.category)
                 $('input[name="_id_product"]').val(data.id)
             })
         })

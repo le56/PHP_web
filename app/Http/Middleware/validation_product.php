@@ -22,6 +22,7 @@ class validation_product
             "content" => "required",
             "rate" => "required",
             "price" => "required",
+            "category" => "required"
         ]);
         return $next($request);
     }

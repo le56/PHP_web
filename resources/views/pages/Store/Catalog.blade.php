@@ -32,7 +32,7 @@
 
 
         <div class="nk-image-slider-item">
-            <img src="assets/images/slide-1.jpg" alt="" class="nk-image-slider-img" data-thumb="assets/images/slide-1-thumb.jpg">
+            <img src="public/assets/images/slide-1.jpg" alt="" class="nk-image-slider-img" data-thumb="public/assets/images/slide-1-thumb.jpg">
 
             <div class="nk-image-slider-content">
 
@@ -45,7 +45,7 @@
         </div>
 
         <div class="nk-image-slider-item">
-            <img src="assets/images/slide-2.jpg" alt="" class="nk-image-slider-img" data-thumb="assets/images/slide-2-thumb.jpg">
+            <img src="public/assets/images/slide-2.jpg" alt="" class="nk-image-slider-img" data-thumb="public/assets/images/slide-2-thumb.jpg">
 
             <div class="nk-image-slider-content">
 
@@ -58,12 +58,12 @@
         </div>
 
         <div class="nk-image-slider-item">
-            <img src="assets/images/slide-3.jpg" alt="" class="nk-image-slider-img" data-thumb="assets/images/slide-3-thumb.jpg">
+            <img src="public/assets/images/slide-3.jpg" alt="" class="nk-image-slider-img" data-thumb="public/assets/images/slide-3-thumb.jpg">
 
         </div>
 
         <div class="nk-image-slider-item">
-            <img src="assets/images/slide-4.jpg" alt="" class="nk-image-slider-img" data-thumb="assets/images/slide-4-thumb.jpg">
+            <img src="public/assets/images/slide-4.jpg" alt="" class="nk-image-slider-img" data-thumb="public/assets/images/slide-4-thumb.jpg">
 
             <div class="nk-image-slider-content">
 
@@ -76,7 +76,7 @@
         </div>
 
         <div class="nk-image-slider-item">
-            <img src="assets/images/slide-5.jpg" alt="" class="nk-image-slider-img" data-thumb="assets/images/slide-5-thumb.jpg">
+            <img src="public/assets/images/slide-5.jpg" alt="" class="nk-image-slider-img" data-thumb="public/assets/images/slide-5-thumb.jpg">
 
             <div class="nk-image-slider-content">
 
@@ -98,7 +98,7 @@
         <div class="col-lg-4">
             <div class="nk-feature-1">
                 <div class="nk-feature-icon">
-                    <img src="assets/images/icon-mouse.png" alt="">
+                    <img src="public/assets/images/icon-mouse.png" alt="">
                 </div>
                 <div class="nk-feature-cont">
                     <h3 class="nk-feature-title"><a href="#">PC</a></h3>
@@ -109,7 +109,7 @@
         <div class="col-lg-4">
             <div class="nk-feature-1">
                 <div class="nk-feature-icon">
-                    <img src="assets/images/icon-gamepad.png" alt="">
+                    <img src="public/assets/images/icon-gamepad.png" alt="">
                 </div>
                 <div class="nk-feature-cont">
                     <h3 class="nk-feature-title"><a href="#">PS4</a></h3>
@@ -120,7 +120,7 @@
         <div class="col-lg-4">
             <div class="nk-feature-1">
                 <div class="nk-feature-icon">
-                    <img src="assets/images/icon-gamepad-2.png" alt="">
+                    <img src="public/assets/images/icon-gamepad-2.png" alt="">
                 </div>
                 <div class="nk-feature-cont">
                     <h3 class="nk-feature-title"><a href="#">Xbox</a></h3>
@@ -169,18 +169,16 @@
             <!-- START: Pagination -->
             <div class="nk-gap-3"></div>
             <div class="nk-pagination nk-pagination-center">
-                <a href="#" class="nk-pagination-prev">
+                <a href="?page={{$currentPage - 1}}" class="nk-pagination-prev">
                     <span class="ion-ios-arrow-back"></span>
                 </a>
                 <nav>
-                    <a class="nk-pagination-current" href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <span>...</span>
-                    <a href="#">14</a>
+                
+                    @for ($i = 1; $i <= $countPage; $i++)
+                    <a href="?page={{$i}}" class="@if($currentPage == $i)<?php echo 'nk-pagination-current'?>@endif">{{ $i }}</a>
+                    @endfor
                 </nav>
-                <a href="#" class="nk-pagination-next">
+                <a href="?page={{$currentPage + 1}}" class="nk-pagination-next">
                     <span class="ion-ios-arrow-forward"></span>
                 </a>
             </div>
@@ -198,9 +196,9 @@
             <aside class="nk-sidebar nk-sidebar-right nk-sidebar-sticky">
                 <div class="nk-widget">
     <div class="nk-widget-content">
-        <form action="#" class="nk-form nk-form-style-1" novalidate="novalidate">
+        <form class="nk-form nk-form-style-1" novalidate="novalidate">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Type something...">
+                <input type="text" class="form-control" name='search' placeholder="Type something...">
                 <button class="nk-btn nk-btn-color-main-1"><span class="ion-search"></span></button>
             </div>
         </form>
@@ -210,7 +208,7 @@
     <h4 class="nk-widget-title"><span><span class="text-main-1">Category</span> Menu</span></h4>
     <div class="nk-widget-content">
         <ul class="nk-widget-categories">
-            <li><a href="#">RTS</a></li>
+            <!-- <li><a href="#">RTS</a></li>
             <li><a href="#">Action</a></li>
             <li><a href="#">RPG</a></li>
             <li><a href="#">MMO</a></li>
@@ -219,7 +217,10 @@
             <li><a href="#">Indie</a></li>
             <li><a href="#">Strategy</a></li>
             <li><a href="#">Racing</a></li>
-            <li><a href="#">Simulator</a></li>
+            <li><a href="#">Simulator</a></li> -->
+            @foreach ($categories as $category)
+            <li><a href="#">{{$category->nameCategory}}</a></li>
+            @endforeach
         </ul>
     </div>
 </div>
@@ -304,7 +305,7 @@
 
         <div class="nk-widget-post">
             <a href="store-product.html" class="nk-post-image">
-                <img src="assets/images/product-1-xs.jpg" alt="So saying he unbuckled">
+                <img src="public/assets/images/product-1-xs.jpg" alt="So saying he unbuckled">
             </a>
             <h3 class="nk-post-title"><a href="store-product.html">So saying he unbuckled</a></h3>
             <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
@@ -313,7 +314,7 @@
 
         <div class="nk-widget-post">
             <a href="store-product.html" class="nk-post-image">
-                <img src="assets/images/product-2-xs.jpg" alt="However, I have reason">
+                <img src="public/assets/images/product-2-xs.jpg" alt="However, I have reason">
             </a>
             <h3 class="nk-post-title"><a href="store-product.html">However, I have reason</a></h3>
             <div class="nk-product-rating" data-rating="2.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
@@ -322,7 +323,7 @@
 
         <div class="nk-widget-post">
             <a href="store-product.html" class="nk-post-image">
-                <img src="assets/images/product-3-xs.jpg" alt="It was some time before">
+                <img src="public/assets/images/product-3-xs.jpg" alt="It was some time before">
             </a>
             <h3 class="nk-post-title"><a href="store-product.html">It was some time before</a></h3>
             <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
@@ -351,4 +352,12 @@
 </div>
 
 <div class="nk-gap-2"></div>
+
+<form id='form_filter'>
+  
+</form>
+
+<script>
+  
+</script>
 @endsection

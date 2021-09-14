@@ -50,7 +50,7 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{URL::asset('public/assets/css/custom.css')}}">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- END: Styles -->
     <!-- jQuery -->
@@ -545,64 +545,64 @@
 
     <!-- START: Scripts -->
 
-    <script src="{{('public/assets/vendor/object-fit-images/dist/ofi.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/object-fit-images/dist/ofi.min.js')}}"></script>
 
     <!-- GSAP -->
-    <script src="{{('public/assets/vendor/gsap/src/minified/TweenMax.min.js')}}"></script>
-    <script src="{{('public/assets/vendor/gsap/src/minified/plugins/ScrollToPlugin.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/gsap/src/minified/TweenMax.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/gsap/src/minified/plugins/ScrollToPlugin.min.js')}}"></script>
 
     <!-- Popper -->
-    <script src="{{('public/assets/vendor/popper.js/dist/umd/popper.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/popper.js/dist/umd/popper.min.js')}}"></script>
 
     <!-- Bootstrap -->
-    <script src="{{('public/assets/vendor/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
     <!-- Sticky Kit -->
-    <script src="{{('public/assets/vendor/sticky-kit/dist/sticky-kit.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/sticky-kit/dist/sticky-kit.min.js')}}"></script>
 
     <!-- Jarallax -->
-    <script src="{{('public/assets/vendor/jarallax/dist/jarallax.min.js')}}"></script>
-    <script src="{{('public/assets/vendor/jarallax/dist/jarallax-video.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/jarallax/dist/jarallax.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/jarallax/dist/jarallax-video.min.js')}}"></script>
 
     <!-- imagesLoaded -->
-    <script src="{{('public/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
 
     <!-- Flickity -->
-    <script src="{{('public/assets/vendor/flickity/dist/flickity.pkgd.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/flickity/dist/flickity.pkgd.min.js')}}"></script>
 
     <!-- Photoswipe -->
-    <script src="{{('public/assets/vendor/photoswipe/dist/photoswipe.min.js')}}"></script>
-    <script src="{{('public/assets/vendor/photoswipe/dist/photoswipe-ui-default.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/photoswipe/dist/photoswipe.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/photoswipe/dist/photoswipe-ui-default.min.js')}}"></script>
 
     <!-- Jquery Validation -->
-    <script src="{{('public/assets/vendor/jquery-validation/dist/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/jquery-validation/dist/jquery.validate.min.js')}}"></script>
 
     <!-- Jquery Countdown + Moment -->
-    <script src="{{('public/assets/vendor/jquery-countdown/dist/jquery.countdown.min.js')}}"></script>
-    <script src="{{('public/assets/vendor/moment/min/moment.min.js')}}"></script>
-    <script src="{{('public/assets/vendor/moment-timezone/builds/moment-timezone-with-data.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/jquery-countdown/dist/jquery.countdown.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/moment/min/moment.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/moment-timezone/builds/moment-timezone-with-data.min.js')}}"></script>
 
     <!-- Hammer.js -->
-    <script src="{{('public/assets/vendor/hammerjs/hammer.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/hammerjs/hammer.min.js')}}"></script>
 
     <!-- NanoSroller -->
-    <script src="{{('public/assets/vendor/nanoscroller/bin/javascripts/jquery.nanoscroller.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/nanoscroller/bin/javascripts/jquery.nanoscroller.js')}}"></script>
 
     <!-- SoundManager2 -->
-    <script src="{{('public/assets/vendor/soundmanager2/script/soundmanager2-nodebug-jsmin.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/soundmanager2/script/soundmanager2-nodebug-jsmin.js')}}"></script>
 
     <!-- Seiyria Bootstrap Slider -->
-    <script src="{{('public/assets/vendor/bootstrap-slider/dist/bootstrap-slider.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/bootstrap-slider/dist/bootstrap-slider.min.js')}}"></script>
 
     <!-- Summernote -->
-    <script src="{{('public/assets/vendor/summernote/dist/summernote-bs4.min.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/summernote/dist/summernote-bs4.min.js')}}"></script>
 
     <!-- nK Share -->
-    <script src="{{('public/assets/plugins/nk-share/nk-share.js')}}"></script>
+    <script src="{{asset('public/assets/plugins/nk-share/nk-share.js')}}"></script>
 
     <!-- GoodGames -->
-    <script src="{{('public/assets/js/goodgames.min.js')}}"></script>
-    <script src="{{('public/assets/js/goodgames-init.js')}}"></script>
+    <script src="{{asset('public/assets/js/goodgames.min.js')}}"></script>
+    <script src="{{asset('public/assets/js/goodgames-init.js')}}"></script>
 
     <!-- END: Scripts -->
 

@@ -21,6 +21,9 @@ class CreateProductsTable extends Migration
             $table->integer('rate');
             $table->float('price');
             $table->integer('category');
+            // $table->string('image1');
+            // $table->string('image2');
+            // $table->string('image3');
             $table->timestamps();
         });
     }

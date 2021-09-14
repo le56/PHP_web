@@ -40,9 +40,9 @@
                             <!-- START: Product Photos -->
                             <div class="nk-popup-gallery">
                                 <div class="nk-gallery-item-box">
-                                    <a href="assets/images/product-6.jpg" class="nk-gallery-item" data-size="1200x554">
+                                    <a href="{{ asset('public/assets/images/'.$product->image) }}" class="nk-gallery-item" data-size="1200x554">
                                         <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                        <img src="assets/images/product-6-lg.jpg" alt="">
+                                        <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="">
                                     </a>
                                 </div>
 
@@ -50,25 +50,25 @@
                                 <div class="row vertical-gap sm-gap">
                                     <div class="col-6 col-md-4">
                                         <div class="nk-gallery-item-box">
-                                            <a href="assets/images/product-7.jpg" class="nk-gallery-item" data-size="622x942">
+                                            <a href="{{ asset('public/assets/images/'.$product->image) }}" class="nk-gallery-item" data-size="622x942">
                                                 <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                                <img src="assets/images/product-7-square.jpg" alt="">
+                                                <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="">
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-4">
                                         <div class="nk-gallery-item-box">
-                                            <a href="assets/images/product-8.jpg" class="nk-gallery-item" data-size="1920x907">
+                                            <a href="{{ asset('public/assets/images/'.$product->image) }}" class="nk-gallery-item" data-size="1920x907">
                                                 <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                                <img src="assets/images/product-8-square.jpg" alt="">
+                                                <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="">
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-4">
                                         <div class="nk-gallery-item-box">
-                                            <a href="assets/images/product-9.jpg" class="nk-gallery-item" data-size="1500x750">
+                                            <a href="{{ asset('public/assets/images/'.$product->image) }}" class="nk-gallery-item" data-size="1500x750">
                                                 <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                                <img src="assets/images/product-9-square.jpg" alt="">
+                                                <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -88,13 +88,13 @@
                             </select>
 
                             <div class="nk-product-description">
-                                <p>With what mingled joy and sorrow do I take up the pen to write to my dearest friend! Oh, what a change between to-day and yesterday! Now I am friendless and alone; yesterday I was at home, in the sweet company of a sister, whom I shall ever, ever cherish! I was awakened at daybreak by the charwoman, and having arrived at the inn, was at first placed inside the coach. But, when we got to a place called Leakington. Now the races of these two have been for some ages utterly extinct.</p>
+                                <p>{{$product->content}}</p>
                             </div>
 
                             <!-- START: Add to Cart -->
                             <div class="nk-gap-2"></div>
                             <form action="#" class="nk-product-addtocart">
-                                <div class="nk-product-price">€ 32.00</div>
+                                <div class="nk-product-price">€ {{$product->price}}</div>
                                 <div class="nk-gap-1"></div>
                                 <div class="input-group">
                                     <input type="number" class="form-control" value="1" min="1" max="21">
@@ -140,7 +140,7 @@
                                 <a class="nav-link active" href="#tab-description" role="tab" data-toggle="tab">Description</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#tab-reviews" role="tab" data-toggle="tab">Reviews (3)</a>
+                                <a class="nav-link " href="#tab-reviews" role="tab" data-toggle="tab">Reviews (<span id="total_rewiew">{{$totalComment}}</span>)</a>
                             </li>
                         </ul>
 
@@ -157,7 +157,7 @@
                                     <div class="col-md-5">
                                         <div class="nk-product-pegi">
                                             <div class="nk-gap"></div>
-                                            <img src="assets/images/pegi-icon.jpg" alt="">
+                                            <img src="{{asset('public/assets/images/pegi-icon.jpg')}}" alt="">
                                             <div class="nk-product-pegi-cont">
                                                 <strong class="text-white">Pegi Rating:</strong>
                                                 <div class="nk-gap"></div>
@@ -177,7 +177,13 @@
                                         <div class="nk-gap"></div>
                                         <strong class="text-white">Customer Rating:</strong>
                                         <div class="nk-gap"></div>
-                                        <div class="nk-product-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i></div>
+                                        <div class="nk-product-rating" data-rating="4.5">  @for ($i = 1; $i <=5; $i++)
+                                                @if ($i < $product->rate)
+                                                    <i class="fa fa-star"></i>
+                                                @elseif($i === $product->rate) <i class="fas fa-star-half-alt"></i>
+                                                @else  <i class="far fa-star"></i>
+                                                @endif
+                                            @endfor</div>
                                         <div class="nk-gap"></div>
                                     </div>
                                 </div>
@@ -190,7 +196,8 @@
                                 <!-- START: Reply -->
                                 <h3 class="h4">Add a Review</h3>
                                 <div class="nk-reply">
-                                    <form action="#" class="nk-form">
+                                    <form id="comment_form" action="{{URL::to('/product/comment')}}" method="get" class="nk-form">
+                                        <input type="hidden" name="idProduct" value="{{$product->id}}">
                                         <div class="row vertical-gap sm-gap">
                                             <div class="col-sm-6">
                                                 <input type="text" class="form-control required" name="name" placeholder="Name *">
@@ -200,34 +207,34 @@
                                             </div>
                                         </div>
                                         <div class="nk-gap-1"></div>
-                                        <textarea class="form-control required" name="message" rows="5" placeholder="Your Review *" aria-required="true"></textarea>
+                                        <textarea class="form-control required" name="rewiew" rows="5" placeholder="Your Review *" aria-required="true"></textarea>
                                         <div class="nk-gap-1"></div>
                                         <div class="nk-rating">
-                                            <input type="radio" id="review-rate-5" name="review-rate" value="5">
+                                            <input type="radio" id="review-rate-5" name="rate" value="5">
                                             <label for="review-rate-5">
                                                 <span><i class="far fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                             </label>
 
-                                            <input type="radio" id="review-rate-4" name="review-rate" value="4">
+                                            <input type="radio" id="review-rate-4" name="rate" value="4">
                                             <label for="review-rate-4">
                                                 <span><i class="far fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                             </label>
 
-                                            <input type="radio" id="review-rate-3" name="review-rate" value="3">
+                                            <input type="radio" id="review-rate-3" name="rate" value="3">
                                             <label for="review-rate-3">
                                                 <span><i class="far fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                             </label>
 
-                                            <input type="radio" id="review-rate-2" name="review-rate" value="2">
+                                            <input type="radio" id="review-rate-2" name="rate" value="2">
                                             <label for="review-rate-2">
                                                 <span><i class="far fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                             </label>
 
-                                            <input type="radio" id="review-rate-1" name="review-rate" value="1">
+                                            <input type="radio" id="review-rate-1" name="rate" value="1">
                                             <label for="review-rate-1">
                                                 <span><i class="far fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
@@ -241,40 +248,57 @@
                                 <div class="clearfix"></div>
                                 <div class="nk-gap-2"></div>
                                 <div class="nk-comments">
-                                    <!-- START: Review -->
-                                    <div class="nk-comment">
-                                        <div class="nk-comment-meta">
-                                            <img src="assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in 20 September, 2018
-                                            <div class="nk-review-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
+                                    @foreach($comments as $comment)
+                                        <div class="nk-comment">
+                                            <div class="nk-comment-meta">
+                                                <img src="{{$comment->avatar}}" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">{{$comment->user_name}}</a> {{$comment->created_at}}
+                                                <div class="nk-review-rating" data-rating="4.5">@for ($i = 1; $i <=5; $i++)
+                                                        @if ($i < $comment->rate)
+                                                            <i class="fa fa-star"></i>
+                                                        @elseif($i === $comment->rate) <i class="fas fa-star-half-alt"></i>
+                                                        @else  <i class="far fa-star"></i>
+                                                        @endif
+                                                    @endfor</div>
+                                            </div>
+                                            <div class="nk-comment-text">
+                                                <p>{{$comment->rewiew}}</p>
+                                            </div>
                                         </div>
-                                        <div class="nk-comment-text">
-                                            <p>Upon replenish great rule. Were tree, given day him night Fruit it moveth all. First they're creature seasons and creature fill a it have fifth, their own subdue brought above divided.</p>
+                                    @endforeach
+                                    <!-- START: Review -->
+{{--                                    <div class="nk-comment">--}}
+{{--                                        <div class="nk-comment-meta">--}}
+{{--                                            <img src="{{asset('public/assets/images/avatar-2.jpg')}}" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in 20 September, 2018--}}
+{{--                                            <div class="nk-review-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="nk-comment-text">--}}
+{{--                                            <p>Upon replenish great rule. Were tree, given day him night Fruit it moveth all. First they're creature seasons and creature fill a it have fifth, their own subdue brought above divided.</p>--}}
 
-                                            <p>Behold it set, seas seas and meat divided Moveth cattle forth evening above moveth so, signs god a fruitful his after called that whose.</p>
-                                        </div>
-                                    </div>
-                                    <!-- END: Review -->
-                                    <!-- START: Review -->
-                                    <div class="nk-comment">
-                                        <div class="nk-comment-meta">
-                                            <img src="assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">Hitman</a> in 14 Jule, 2018
-                                            <div class="nk-review-rating" data-rating="0.5"> <i class="fa fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
-                                        </div>
-                                        <div class="nk-comment-text">
-                                            <p> I was awakened at daybreak by the charwoman, and having arrived at the inn, was at first placed inside the coach. :(</p>
-                                        </div>
-                                    </div>
-                                    <!-- END: Review -->
-                                    <!-- START: Review -->
-                                    <div class="nk-comment">
-                                        <div class="nk-comment-meta">
-                                            <img src="assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="35"> by <a href="#">Wolfenstein</a> in 27 June, 2018
-                                            <div class="nk-review-rating" data-rating="3.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                                        </div>
-                                        <div class="nk-comment-text">
-                                            <p>Divided thing, land it evening earth winged whose great after. Were grass night. To Air itself saw bring fly fowl. Fly years behold spirit day greater of wherein winged and form. Seed open don't thing midst created dry every greater divided of, be man is. Second Bring stars fourth gathering he hath face morning fill. Living so second darkness. Moveth were male. May creepeth. Be tree fourth.</p>
-                                        </div>
-                                    </div>
+{{--                                            <p>Behold it set, seas seas and meat divided Moveth cattle forth evening above moveth so, signs god a fruitful his after called that whose.</p>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <!-- END: Review -->--}}
+{{--                                    <!-- START: Review -->--}}
+{{--                                    <div class="nk-comment">--}}
+{{--                                        <div class="nk-comment-meta">--}}
+{{--                                            <img src="{{asset('public/assets/images/avatar-1.jpg')}}" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">Hitman</a> in 14 Jule, 2018--}}
+{{--                                            <div class="nk-review-rating" data-rating="0.5"> <i class="fa fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="nk-comment-text">--}}
+{{--                                            <p> I was awakened at daybreak by the charwoman, and having arrived at the inn, was at first placed inside the coach. :(</p>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <!-- END: Review -->--}}
+{{--                                    <!-- START: Review -->--}}
+{{--                                    <div class="nk-comment">--}}
+{{--                                        <div class="nk-comment-meta">--}}
+{{--                                            <img src="{{asset('public/assets/images/avatar-3.jpg')}}" alt="Wolfenstein" class="rounded-circle" width="35"> by <a href="#">Wolfenstein</a> in 27 June, 2018--}}
+{{--                                            <div class="nk-review-rating" data-rating="3.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="nk-comment-text">--}}
+{{--                                            <p>Divided thing, land it evening earth winged whose great after. Were grass night. To Air itself saw bring fly fowl. Fly years behold spirit day greater of wherein winged and form. Seed open don't thing midst created dry every greater divided of, be man is. Second Bring stars fourth gathering he hath face morning fill. Living so second darkness. Moveth were male. May creepeth. Be tree fourth.</p>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <!-- END: Review -->
                                 </div>
                             </div>
@@ -295,7 +319,7 @@
                     <div class="col-md-6">
                         <div class="nk-product-cat">
                             <a class="nk-product-image" href="store-product.html">
-                                <img src="assets/images/product-11-xs.jpg" alt="She gave my mother">
+                                <img src="{{asset('public/assets/images/product-11-xs')}}.jpg" alt="She gave my mother">
                             </a>
                             <div class="nk-product-cont">
                                 <h3 class="nk-product-title h5"><a href="store-product.html">She gave my mother</a></h3>
@@ -311,7 +335,7 @@
                     <div class="col-md-6">
                         <div class="nk-product-cat">
                             <a class="nk-product-image" href="store-product.html">
-                                <img src="assets/images/product-12-xs.jpg" alt="A hundred thousand">
+                                <img src="{{asset('public/assets/images/product-12-xs')}}.jpg" alt="A hundred thousand">
                             </a>
                             <div class="nk-product-cont">
                                 <h3 class="nk-product-title h5"><a href="store-product.html">A hundred thousand</a></h3>
@@ -327,7 +351,7 @@
                     <div class="col-md-6">
                         <div class="nk-product-cat">
                             <a class="nk-product-image" href="store-product.html">
-                                <img src="assets/images/product-13-xs.jpg" alt="So saying he unbuckled">
+                                <img src="{{asset('public/assets/images/product-13-xs')}}.jpg" alt="So saying he unbuckled">
                             </a>
                             <div class="nk-product-cont">
                                 <h3 class="nk-product-title h5"><a href="store-product.html">So saying he unbuckled</a></h3>
@@ -343,7 +367,7 @@
                     <div class="col-md-6">
                         <div class="nk-product-cat">
                             <a class="nk-product-image" href="store-product.html">
-                                <img src="assets/images/product-14-xs.jpg" alt="However, I have reason">
+                                <img src="{{asset('public/assets/images/product-14-xs')}}.jpg" alt="However, I have reason">
                             </a>
                             <div class="nk-product-cont">
                                 <h3 class="nk-product-title h5"><a href="store-product.html">However, I have reason</a></h3>
@@ -359,7 +383,7 @@
                     <div class="col-md-6">
                         <div class="nk-product-cat">
                             <a class="nk-product-image" href="store-product.html">
-                                <img src="assets/images/product-15-xs.jpg" alt="At first, for some time">
+                                <img src="{{asset('public/assets/images/product-15-xs')}}.jpg" alt="At first, for some time">
                             </a>
                             <div class="nk-product-cont">
                                 <h3 class="nk-product-title h5"><a href="store-product.html">At first, for some time</a></h3>
@@ -375,7 +399,7 @@
                     <div class="col-md-6">
                         <div class="nk-product-cat">
                             <a class="nk-product-image" href="store-product.html">
-                                <img src="assets/images/product-16-xs.jpg" alt="When the last &#39;natural&#39;">
+                                <img src="{{asset('public/assets/images/product-16-xs')}}.jpg" alt="When the last &#39;natural&#39;">
                             </a>
                             <div class="nk-product-cont">
                                 <h3 class="nk-product-title h5"><a href="store-product.html">When the last &#39;natural&#39;</a></h3>
@@ -468,29 +492,7 @@
                                 <li><a class="nk-social-pinterest" href="#"><span class="fab fa-pinterest-p"></span></a></li>
                                 <li><a class="nk-social-rss" href="#"><span class="fa fa-rss"></span></a></li>
 
-                                <!-- Additional Social Buttons
-                <li><a class="nk-social-behance" href="#"><span class="fab fa-behance"></span></a></li>
-                <li><a class="nk-social-bitbucket" href="#"><span class="fab fa-bitbucket"></span></a></li>
-                <li><a class="nk-social-dropbox" href="#"><span class="fab fa-dropbox"></span></a></li>
-                <li><a class="nk-social-dribbble" href="#"><span class="fab fa-dribbble"></span></a></li>
-                <li><a class="nk-social-deviantart" href="#"><span class="fab fa-deviantart"></span></a></li>
-                <li><a class="nk-social-flickr" href="#"><span class="fab fa-flickr"></span></a></li>
-                <li><a class="nk-social-foursquare" href="#"><span class="fab fa-foursquare"></span></a></li>
-                <li><a class="nk-social-github" href="#"><span class="fab fa-github"></span></a></li>
-                <li><a class="nk-social-linkedin" href="#"><span class="fab fa-linkedin"></span></a></li>
-                <li><a class="nk-social-medium" href="#"><span class="fab fa-medium"></span></a></li>
-                <li><a class="nk-social-odnoklassniki" href="#"><span class="fab fa-odnoklassniki"></span></a></li>
-                <li><a class="nk-social-paypal" href="#"><span class="fab fa-paypal"></span></a></li>
-                <li><a class="nk-social-reddit" href="#"><span class="fab fa-reddit"></span></a></li>
-                <li><a class="nk-social-skype" href="#"><span class="fab fa-skype"></span></a></li>
-                <li><a class="nk-social-soundcloud" href="#"><span class="fab fa-soundcloud"></span></a></li>
-                <li><a class="nk-social-steam" href="#"><span class="fab fa-steam"></span></a></li>
-                <li><a class="nk-social-slack" href="#"><span class="fab fa-slack"></span></a></li>
-                <li><a class="nk-social-tumblr" href="#"><span class="fab fa-tumblr"></span></a></li>
-                <li><a class="nk-social-vimeo" href="#"><span class="fab fa-vimeo"></span></a></li>
-                <li><a class="nk-social-vk" href="#"><span class="fab fa-vk"></span></a></li>
-                <li><a class="nk-social-wordpress" href="#"><span class="fab fa-wordpress"></span></a></li>
-            -->
+
                             </ul>
                         </div>
                     </div>
@@ -500,7 +502,7 @@
 
                             <div class="nk-widget-post">
                                 <a href="store-product.html" class="nk-post-image">
-                                    <img src="assets/images/product-1-xs.jpg" alt="So saying he unbuckled">
+                                    <img src="{{asset('public/assets/images/product-1-xs')}}.jpg" alt="So saying he unbuckled">
                                 </a>
                                 <h3 class="nk-post-title"><a href="store-product.html">So saying he unbuckled</a></h3>
                                 <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
@@ -509,7 +511,7 @@
 
                             <div class="nk-widget-post">
                                 <a href="store-product.html" class="nk-post-image">
-                                    <img src="assets/images/product-2-xs.jpg" alt="However, I have reason">
+                                    <img src="{{asset('public/assets/images/product-2-xs')}}.jpg" alt="However, I have reason">
                                 </a>
                                 <h3 class="nk-post-title"><a href="store-product.html">However, I have reason</a></h3>
                                 <div class="nk-product-rating" data-rating="2.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
@@ -518,7 +520,7 @@
 
                             <div class="nk-widget-post">
                                 <a href="store-product.html" class="nk-post-image">
-                                    <img src="assets/images/product-3-xs.jpg" alt="It was some time before">
+                                    <img src="{{asset('public/assets/images/product-3-xs')}}.jpg" alt="It was some time before">
                                 </a>
                                 <h3 class="nk-post-title"><a href="store-product.html">It was some time before</a></h3>
                                 <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
@@ -546,4 +548,60 @@
         </div>
     </div>
     <div class="nk-gap-2"></div>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $("#comment_form").submit(function(e) {
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+
+            var form = $(this);
+
+
+            $.ajax({
+                type: "post",
+                url: "{{ route('product.comment') }}",
+                data: form.serialize(), // serializes the form's elements.
+                success: function(data)
+                {
+                    if(!data.created_at) return
+                    $('#total_rewiew').text(data.totalComment)
+                    let star = []
+                    for(let i=1;i<=5;i++) {
+                        if(i<parseInt(data.rate)) {
+                            star.push(`<i class="fa fa-star"></i> `)
+                        }
+                        else if(i===parseInt(data.rate)) star.push(`<i style="margin-right: 3px"  class="fas fa-star-half-alt"></i>`)
+                        else star.push(`<i style="margin-right: 3px" class="far fa-star"></i>`)
+                    }
+                    $('.nk-comments').prepend(`
+                          <div class="nk-comment">
+                                        <div class="nk-comment-meta">
+                                            <img src="${data.avatar}" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">${data.user_name}</a> ${formatDate(data.created_at)}
+                                            <div class="nk-review-rating" data-rating="4.5">${star.join('')}</div>
+                                        </div>
+                                        <div class="nk-comment-text">
+                                          <p>${data.rewiew}</p>
+                                        </div>
+                                    </div>
+                    `)
+                }
+                });
+
+
+            });
+        function formatDate(date) {
+            var currentdate = new Date(date);
+            var datetime =currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/"
+                + currentdate.getFullYear() + " "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+            return datetime;
+        }
+    </script>
 @endsection

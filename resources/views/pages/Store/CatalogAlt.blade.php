@@ -31,7 +31,7 @@
         <div class="col-lg-4">
             <div class="nk-feature-1">
                 <div class="nk-feature-icon">
-                    <img src="assets/images/icon-mouse.png" alt="">
+                    <img src="public/assets/images/icon-mouse.png" alt="">
                 </div>
                 <div class="nk-feature-cont">
                     <h3 class="nk-feature-title"><a href="#">PC</a></h3>
@@ -42,7 +42,7 @@
         <div class="col-lg-4">
             <div class="nk-feature-1">
                 <div class="nk-feature-icon">
-                    <img src="assets/images/icon-gamepad.png" alt="">
+                    <img src="public/assets/images/icon-gamepad.png" alt="">
                 </div>
                 <div class="nk-feature-cont">
                     <h3 class="nk-feature-title"><a href="#">PS4</a></h3>
@@ -53,7 +53,7 @@
         <div class="col-lg-4">
             <div class="nk-feature-1">
                 <div class="nk-feature-icon">
-                    <img src="assets/images/icon-gamepad-2.png" alt="">
+                    <img src="public/assets/images/icon-gamepad-2.png" alt="">
                 </div>
                 <div class="nk-feature-cont">
                     <h3 class="nk-feature-title"><a href="#">Xbox</a></h3>
@@ -184,7 +184,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="nk-product-cat">
                 <a class="nk-product-image" href="store-product.html">
-                    <img src="assets/images/product-11-xs.jpg" alt="She gave my mother">
+                    <img src="public/assets/images/product-11-xs.jpg" alt="She gave my mother">
                 </a>
                 <div class="nk-product-cont">
                     <h3 class="nk-product-title h5"><a href="store-product.html">She gave my mother</a></h3>
@@ -200,7 +200,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="nk-product-cat">
                 <a class="nk-product-image" href="store-product.html">
-                    <img src="assets/images/product-12-xs.jpg" alt="A hundred thousand">
+                    <img src="public/assets/images/product-12-xs.jpg" alt="A hundred thousand">
                 </a>
                 <div class="nk-product-cont">
                     <h3 class="nk-product-title h5"><a href="store-product.html">A hundred thousand</a></h3>
@@ -216,7 +216,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="nk-product-cat">
                 <a class="nk-product-image" href="store-product.html">
-                    <img src="assets/images/product-13-xs.jpg" alt="So saying he unbuckled">
+                    <img src="public/assets/images/product-13-xs.jpg" alt="So saying he unbuckled">
                 </a>
                 <div class="nk-product-cont">
                     <h3 class="nk-product-title h5"><a href="store-product.html">So saying he unbuckled</a></h3>
@@ -232,7 +232,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="nk-product-cat">
                 <a class="nk-product-image" href="store-product.html">
-                    <img src="assets/images/product-14-xs.jpg" alt="However, I have reason">
+                    <img src="public/assets/images/product-14-xs.jpg" alt="However, I have reason">
                 </a>
                 <div class="nk-product-cont">
                     <h3 class="nk-product-title h5"><a href="store-product.html">However, I have reason</a></h3>
@@ -248,7 +248,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="nk-product-cat">
                 <a class="nk-product-image" href="store-product.html">
-                    <img src="assets/images/product-15-xs.jpg" alt="At first, for some time">
+                    <img src="public/assets/images/product-15-xs.jpg" alt="At first, for some time">
                 </a>
                 <div class="nk-product-cont">
                     <h3 class="nk-product-title h5"><a href="store-product.html">At first, for some time</a></h3>
@@ -264,7 +264,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="nk-product-cat">
                 <a class="nk-product-image" href="store-product.html">
-                    <img src="assets/images/product-16-xs.jpg" alt="When the last &#39;natural&#39;">
+                    <img src="public/assets/images/product-16-xs.jpg" alt="When the last &#39;natural&#39;">
                 </a>
                 <div class="nk-product-cont">
                     <h3 class="nk-product-title h5"><a href="store-product.html">When the last &#39;natural&#39;</a></h3>

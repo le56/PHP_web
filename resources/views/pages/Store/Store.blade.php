@@ -29,7 +29,7 @@
             <div class="col-lg-4">
                 <div class="nk-feature-1">
                     <div class="nk-feature-icon">
-                        <img src="assets/images/icon-mouse.png" alt="">
+                        <img src="public/assets/images/icon-mouse.png" alt="">
                     </div>
                     <div class="nk-feature-cont">
                         <h3 class="nk-feature-title"><a href="#">PC</a></h3>
@@ -40,7 +40,7 @@
             <div class="col-lg-4">
                 <div class="nk-feature-1">
                     <div class="nk-feature-icon">
-                        <img src="assets/images/icon-gamepad.png" alt="">
+                        <img src="public/assets/images/icon-gamepad.png" alt="">
                     </div>
                     <div class="nk-feature-cont">
                         <h3 class="nk-feature-title"><a href="#">PS4</a></h3>
@@ -51,7 +51,7 @@
             <div class="col-lg-4">
                 <div class="nk-feature-1">
                     <div class="nk-feature-icon">
-                        <img src="assets/images/icon-gamepad-2.png" alt="">
+                        <img src="public/assets/images/icon-gamepad-2.png" alt="">
                     </div>
                     <div class="nk-feature-cont">
                         <h3 class="nk-feature-title"><a href="#">Xbox</a></h3>
@@ -69,7 +69,7 @@
                 <div class="nk-gallery-item-box">
                     <a href="store-product.html" class="nk-gallery-item">
                         <span class="nk-gallery-item-overlay"><span><span class="nk-icon-circles"></span></span></span>
-                        <img src="assets/images/product-4-lg.jpg" alt="She was bouncing">
+                        <img src="public/assets/images/product-4-lg.jpg" alt="She was bouncing">
                     </a>
                     <div class="nk-gallery-item-label">
                         <h4 class="mb-0">She was bouncing</h4>
@@ -80,7 +80,7 @@
                 <div class="nk-gallery-item-box">
                     <a href="store-product.html" class="nk-gallery-item">
                         <span class="nk-gallery-item-overlay"><span><span class="nk-icon-circles"></span></span></span>
-                        <img src="assets/images/product-2-lg.jpg" alt="However, I have reason">
+                        <img src="public/assets/images/product-2-lg.jpg" alt="However, I have reason">
                     </a>
                     <div class="nk-gallery-item-label">
                         <h4 class="mb-0">However, I have reason</h4>
@@ -93,7 +93,7 @@
                         <div class="nk-gallery-item-box">
                             <a href="store-product.html" class="nk-gallery-item">
                                 <span class="nk-gallery-item-overlay"><span><span class="nk-icon-circles"></span></span></span>
-                                <img src="assets/images/product-3-lg.jpg" alt="It was some time before">
+                                <img src="public/assets/images/product-3-lg.jpg" alt="It was some time before">
                             </a>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                         <div class="nk-gallery-item-box">
                             <a href="store-product.html" class="nk-gallery-item">
                                 <span class="nk-gallery-item-overlay"><span><span class="nk-icon-circles"></span></span></span>
-                                <img src="assets/images/product-1-lg.jpg" alt="So saying he unbuckled">
+                                <img src="public/assets/images/product-1-lg.jpg" alt="So saying he unbuckled">
                             </a>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                         <div class="nk-gallery-item-box">
                             <a href="store-product.html" class="nk-gallery-item">
                                 <span class="nk-gallery-item-overlay"><span><span class="nk-icon-circles"></span></span></span>
-                                <img src="assets/images/product-5-lg.jpg" alt="In all revolutions of">
+                                <img src="public/assets/images/product-5-lg.jpg" alt="In all revolutions of">
                             </a>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                         <div class="nk-gallery-item-box">
                             <a href="store-product.html" class="nk-gallery-item">
                                 <span class="nk-gallery-item-overlay"><span><span class="nk-icon-circles"></span></span></span>
-                                <img src="assets/images/product-6-lg.jpg" alt="Just then her head ">
+                                <img src="public/assets/images/product-6-lg.jpg" alt="Just then her head ">
                             </a>
                         </div>
                     </div>
@@ -138,12 +138,12 @@
                 <div>
                     <div class="pl-5 pr-5">
                         <div class="nk-product-cat-3">
-                            <a class="nk-product-image" href="store-product.html">
+                            <a class="nk-product-image" href="product/{{$product->id}}">
                                 <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="{{$product->title}}">
                             </a>
                             <div class="nk-product-cont">
                                 <div class="nk-gap-1"></div>
-                                <h3 class="nk-product-title h5"><a href="store-product.html">{{$product->title}}</a></h3>
+                                <h3 class="nk-product-title h5"><a href="product/{{$product->id}}">{{$product->title}}</a></h3>
                                 <div class="nk-gap-1"></div>
                                 <div class="nk-product-price">€ {{$product->price}}</div>
                             </div>
@@ -166,11 +166,11 @@
 
             <div class="col-lg-6">
                 <div class="nk-product-cat-2">
-                    <a class="nk-product-image" href="store-product.html">
+                    <a class="nk-product-image" href="product/{{$product->id}}">
                         <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="{{$product->title}}">
                     </a>
                     <div class="nk-product-cont">
-                        <h3 class="nk-product-title h5"><a href="store-product.html">{{$product->title}}</a></h3>
+                        <h3 class="nk-product-title h5"><a href="product/{{$product->id}}">{{$product->title}}</a></h3>
                         <div class="nk-gap-1"></div>
                         <div class="nk-product-rating">
                             @for ($i = 1; $i <=5; $i++)
@@ -192,64 +192,7 @@
                 @break($loop->index == 3)
             @endforeach
 
-{{--            <div class="col-lg-6">--}}
-{{--                <div class="nk-product-cat-2">--}}
-{{--                    <a class="nk-product-image" href="store-product.html">--}}
-{{--                        <img src="assets/images/product-8-md.jpg" alt="She was bouncing away">--}}
-{{--                    </a>--}}
-{{--                    <div class="nk-product-cont">--}}
-{{--                        <h3 class="nk-product-title h5"><a href="store-product.html">She was bouncing away</a></h3>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <div class="nk-product-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i></div>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        For good, too; though, in consequence of my previous emotions, I was still occasionally seized with a stormy sob. After we had jogged on for some little time--}}
-{{--                        <div class="nk-gap-2"></div>--}}
-{{--                        <div class="nk-product-price">€ 20.00</div>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
 
-
-{{--            <div class="col-lg-6">--}}
-{{--                <div class="nk-product-cat-2">--}}
-{{--                    <a class="nk-product-image" href="store-product.html">--}}
-{{--                        <img src="assets/images/product-9-md.jpg" alt="The word was">--}}
-{{--                    </a>--}}
-{{--                    <div class="nk-product-cont">--}}
-{{--                        <h3 class="nk-product-title h5"><a href="store-product.html">The word was</a></h3>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        With what mingled joy and sorrow do I take up the pen to write to my dearest friend! Oh, what a change between to-day and yesterday! Now I am friendless and alone--}}
-{{--                        <div class="nk-gap-2"></div>--}}
-{{--                        <div class="nk-product-price">€ 23.00</div>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-
-{{--            <div class="col-lg-6">--}}
-{{--                <div class="nk-product-cat-2">--}}
-{{--                    <a class="nk-product-image" href="store-product.html">--}}
-{{--                        <img src="assets/images/product-10-md.jpg" alt="My mother was so much">--}}
-{{--                    </a>--}}
-{{--                    <div class="nk-product-cont">--}}
-{{--                        <h3 class="nk-product-title h5"><a href="store-product.html">My mother was so much</a></h3>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <div class="nk-product-rating" data-rating="3.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i></div>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        A hundred thousand grateful loves to your dear papa and mamma . Is your poor brother recovered of his rack - punch ? Oh, dear!Oh, dear!How men should beware of wicked--}}
-{{--                        <div class="nk-gap-2"></div>--}}
-{{--                        <div class="nk-product-price">€ 32.00</div>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
 
         </div>
         <!-- END: Featured Games -->
@@ -264,11 +207,11 @@
                 @break($loop->index == 6)
             <div class="col-lg-4 col-md-6">
                 <div class="nk-product-cat">
-                    <a class="nk-product-image" href="store-product.html">
+                    <a class="nk-product-image" href="product/{{$product->id}}">
                         <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="{{$product->title}}">
                     </a>
                     <div class="nk-product-cont">
-                        <h3 class="nk-product-title h5"><a href="store-product.html">{{$product->title}}</a></h3>
+                        <h3 class="nk-product-title h5"><a href="product/{{$product->id}}">{{$product->title}}</a></h3>
                         <div class="nk-gap-1"></div>
                         <div class="nk-product-rating">
                             @for ($i = 1; $i <=5; $i++)
@@ -286,86 +229,7 @@
             </div>
             @endforeach
 
-{{--            <div class="col-lg-4 col-md-6">--}}
-{{--                <div class="nk-product-cat">--}}
-{{--                    <a class="nk-product-image" href="store-product.html">--}}
-{{--                        <img src="assets/images/product-12-xs.jpg" alt="A hundred thousand">--}}
-{{--                    </a>--}}
-{{--                    <div class="nk-product-cont">--}}
-{{--                        <h3 class="nk-product-title h5"><a href="store-product.html">A hundred thousand</a></h3>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <div class="nk-product-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i></div>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <div class="nk-product-price">€ 20.00</div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
 
-
-{{--            <div class="col-lg-4 col-md-6">--}}
-{{--                <div class="nk-product-cat">--}}
-{{--                    <a class="nk-product-image" href="store-product.html">--}}
-{{--                        <img src="assets/images/product-13-xs.jpg" alt="So saying he unbuckled">--}}
-{{--                    </a>--}}
-{{--                    <div class="nk-product-cont">--}}
-{{--                        <h3 class="nk-product-title h5"><a href="store-product.html">So saying he unbuckled</a></h3>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <div class="nk-product-price">€ 23.00</div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-
-{{--            <div class="col-lg-4 col-md-6">--}}
-{{--                <div class="nk-product-cat">--}}
-{{--                    <a class="nk-product-image" href="store-product.html">--}}
-{{--                        <img src="assets/images/product-14-xs.jpg" alt="However, I have reason">--}}
-{{--                    </a>--}}
-{{--                    <div class="nk-product-cont">--}}
-{{--                        <h3 class="nk-product-title h5"><a href="store-product.html">However, I have reason</a></h3>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <div class="nk-product-rating" data-rating="1.5"> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <div class="nk-product-price">€ 32.00</div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-
-{{--            <div class="col-lg-4 col-md-6">--}}
-{{--                <div class="nk-product-cat">--}}
-{{--                    <a class="nk-product-image" href="store-product.html">--}}
-{{--                        <img src="assets/images/product-15-xs.jpg" alt="At first, for some time">--}}
-{{--                    </a>--}}
-{{--                    <div class="nk-product-cont">--}}
-{{--                        <h3 class="nk-product-title h5"><a href="store-product.html">At first, for some time</a></h3>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <div class="nk-product-price">€ 14.00</div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-
-{{--            <div class="col-lg-4 col-md-6">--}}
-{{--                <div class="nk-product-cat">--}}
-{{--                    <a class="nk-product-image" href="store-product.html">--}}
-{{--                        <img src="assets/images/product-16-xs.jpg" alt="When the last &#39;natural&#39;">--}}
-{{--                    </a>--}}
-{{--                    <div class="nk-product-cont">--}}
-{{--                        <h3 class="nk-product-title h5"><a href="store-product.html">When the last &#39;natural&#39;</a></h3>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <div class="nk-product-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i></div>--}}
-{{--                        <div class="nk-gap-1"></div>--}}
-{{--                        <div class="nk-product-price">€ 20.00</div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--        </div>--}}
         <!-- END: Most Popular -->
     </div>
 

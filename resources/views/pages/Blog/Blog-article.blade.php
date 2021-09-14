@@ -31,12 +31,12 @@
                 <!-- START: Post Text -->
                 <div class="nk-post-text mt-0">
                     <div class="nk-post-img">
-                        <img src="assets/images/post-2.jpg" alt="Grab your sword and fight the Horde">
+                        <img src="public/assets/images/post-2.jpg" alt="Grab your sword and fight the Horde">
                     </div>
                     <div class="nk-gap-1"></div>
                     <h1 class="nk-post-title h4">Grab your sword and fight the Horde</h1>
                     <div class="nk-post-by">
-                        <img src="assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in Sep 5, 2018
+                        <img src="public/assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in Sep 5, 2018
 
                         
                         <div class="nk-post-categories">
@@ -62,7 +62,7 @@
 
 <div class="nk-gap"></div>
 
-<img class="float-left mt-0" src="assets/images/post-inner-img.jpg" alt="">
+<img class="float-left mt-0" src="public/assets/images/post-inner-img.jpg" alt="">
 <h3 class="h4">Now the races of these two have been</h3>
 
 <p>I confess this side of the country was much pleasanter than mine; but yet I had not the least inclination to remove, for as I was fixed in my habitation it became natural to me, and I seemed all the while I was here to be as it were upon a journey, and from home. However, I travelled along the shore she clutched the matron by the arm, and forcing her into a chair by the bedside, was about to speak, wh en looking round, she caught sight of the two old women bending forward in the attitude of eager list eners.They belong to the old gentleman, said Oliver, wringing his hands; "to the good, kind, old gentle man who took me into his house, and had me nursed, when I was near dying of the fever . Oh, pray send them back; send him back the books and money</p>
@@ -103,7 +103,7 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="assets/images/post-3-mid.jpg" alt="We found a witch! May we burn her?">
+                                <img src="public/assets/images/post-3-mid.jpg" alt="We found a witch! May we burn her?">
                                 <span class="nk-post-comments-count">7</span>
                                 
                                 <span class="nk-post-categories">
@@ -121,7 +121,7 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="assets/images/post-4-mid.jpg" alt="For good, too though, in consequence">
+                                <img src="public/assets/images/post-4-mid.jpg" alt="For good, too though, in consequence">
                                 <span class="nk-post-comments-count">23</span>
                                 
                                 <span class="nk-post-categories">
@@ -146,7 +146,7 @@
                     <!-- START: Comment -->
                     <div class="nk-comment">
                         <div class="nk-comment-meta">
-                            <img src="assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in 20 September, 2018
+                            <img src="public/assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in 20 September, 2018
                             <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 float-right">Reply</a>
                         </div>
                         <div class="nk-comment-text">
@@ -156,7 +156,7 @@
                         <!-- START: Comment -->
                         <div class="nk-comment">
                             <div class="nk-comment-meta">
-                                <img src="assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">Hitman</a> in 20 September, 2018
+                                <img src="public/assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">Hitman</a> in 20 September, 2018
                                 <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 float-right">Reply</a>
                             </div>
                             <div class="nk-comment-text">
@@ -170,7 +170,7 @@
                     <!-- START: Comment -->
                     <div class="nk-comment">
                         <div class="nk-comment-meta">
-                            <img src="assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="35"> by <a href="#">Wolfenstein</a> in 21 September, 2018
+                            <img src="public/assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="35"> by <a href="#">Wolfenstein</a> in 21 September, 2018
                             <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 float-right">Reply</a>
                         </div>
                         <div class="nk-comment-text">
@@ -290,7 +290,7 @@
         
             <div class="nk-widget-post">
                 <a href="blog-article.html" class="nk-post-image">
-                    <img src="assets/images/post-1-sm.jpg" alt="">
+                    <img src="public/assets/images/post-1-sm.jpg" alt="">
                 </a>
                 <h3 class="nk-post-title"><a href="blog-article.html">Smell magic in the air. Or maybe barbecue</a></h3>
                 <div class="nk-post-date"><span class="fa fa-calendar"></span> Sep 18, 2018</div>
@@ -298,7 +298,7 @@
         
             <div class="nk-widget-post">
                 <a href="blog-article.html" class="nk-post-image">
-                    <img src="assets/images/post-2-sm.jpg" alt="">
+                    <img src="public/assets/images/post-2-sm.jpg" alt="">
                 </a>
                 <h3 class="nk-post-title"><a href="blog-article.html">Grab your sword and fight the Horde</a></h3>
                 <div class="nk-post-date"><span class="fa fa-calendar"></span> Sep 5, 2018</div>
@@ -306,7 +306,7 @@
         
             <div class="nk-widget-post">
                 <a href="blog-article.html" class="nk-post-image">
-                    <img src="assets/images/post-3-sm.jpg" alt="">
+                    <img src="public/assets/images/post-3-sm.jpg" alt="">
                 </a>
                 <h3 class="nk-post-title"><a href="blog-article.html">We found a witch! May we burn her?</a></h3>
                 <div class="nk-post-date"><span class="fa fa-calendar"></span> Aug 27, 2018</div>
@@ -321,9 +321,9 @@
             <div class="row sm-gap vertical-gap">
                 <div class="col-sm-6">
                     <div class="nk-gallery-item-box">
-                        <a href="assets/images/gallery-1.jpg" class="nk-gallery-item" data-size="1016x572">
+                        <a href="public/assets/images/gallery-1.jpg" class="nk-gallery-item" data-size="1016x572">
                             <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                            <img src="assets/images/gallery-1-thumb.jpg" alt="">
+                            <img src="public/assets/images/gallery-1-thumb.jpg" alt="">
                         </a>
                         <div class="nk-gallery-item-description">
                             <h4>Called Let</h4>
@@ -333,9 +333,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="nk-gallery-item-box">
-                        <a href="assets/images/gallery-2.jpg" class="nk-gallery-item" data-size="1188x594">
+                        <a href="public/assets/images/gallery-2.jpg" class="nk-gallery-item" data-size="1188x594">
                             <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                            <img src="assets/images/gallery-2-thumb.jpg" alt="">
+                            <img src="public/assets/images/gallery-2-thumb.jpg" alt="">
                         </a>
                         <div class="nk-gallery-item-description">
                             Seed open don't thing midst created dry every greater divided of, be man is. Second Bring stars fourth gathering he hath face morning fill. Living so second darkness. Moveth were male. May creepeth. Be tree fourth.
@@ -344,33 +344,33 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="nk-gallery-item-box">
-                        <a href="assets/images/gallery-3.jpg" class="nk-gallery-item" data-size="625x350">
+                        <a href="public/assets/images/gallery-3.jpg" class="nk-gallery-item" data-size="625x350">
                             <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                            <img src="assets/images/gallery-3-thumb.jpg" alt="">
+                            <img src="public/assets/images/gallery-3-thumb.jpg" alt="">
                         </a>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="nk-gallery-item-box">
-                        <a href="assets/images/gallery-4.jpg" class="nk-gallery-item" data-size="873x567">
+                        <a href="public/assets/images/gallery-4.jpg" class="nk-gallery-item" data-size="873x567">
                             <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                            <img src="assets/images/gallery-4-thumb.jpg" alt="">
+                            <img src="public/assets/images/gallery-4-thumb.jpg" alt="">
                         </a>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="nk-gallery-item-box">
-                        <a href="assets/images/gallery-5.jpg" class="nk-gallery-item" data-size="471x269">
+                        <a href="public/assets/images/gallery-5.jpg" class="nk-gallery-item" data-size="471x269">
                             <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                            <img src="assets/images/gallery-5-thumb.jpg" alt="">
+                            <img src="public/assets/images/gallery-5-thumb.jpg" alt="">
                         </a>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="nk-gallery-item-box">
-                        <a href="assets/images/gallery-6.jpg" class="nk-gallery-item" data-size="472x438">
+                        <a href="public/assets/images/gallery-6.jpg" class="nk-gallery-item" data-size="472x438">
                             <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                            <img src="assets/images/gallery-6-thumb.jpg" alt="">
+                            <img src="public/assets/images/gallery-6-thumb.jpg" alt="">
                         </a>
                     </div>
                 </div>
@@ -386,11 +386,11 @@
                 <span class="nk-widget-match-left">
                     <span class="nk-widget-match-teams">
                         <span class="nk-widget-match-team-logo">
-                            <img src="assets/images/team-1.jpg" alt="">
+                            <img src="public/assets/images/team-1.jpg" alt="">
                         </span>
                         <span class="nk-widget-match-vs">VS</span>
                         <span class="nk-widget-match-team-logo">
-                            <img src="assets/images/team-2.jpg" alt="">
+                            <img src="public/assets/images/team-2.jpg" alt="">
                         </span>
                     </span>
                     <span class="nk-widget-match-date">CS:GO - Apr 28, 2018 8:00 pm</span>
@@ -408,11 +408,11 @@
                 <span class="nk-widget-match-left">
                     <span class="nk-widget-match-teams">
                         <span class="nk-widget-match-team-logo">
-                            <img src="assets/images/team-3.jpg" alt="">
+                            <img src="public/assets/images/team-3.jpg" alt="">
                         </span>
                         <span class="nk-widget-match-vs">VS</span>
                         <span class="nk-widget-match-team-logo">
-                            <img src="assets/images/team-2.jpg" alt="">
+                            <img src="public/assets/images/team-2.jpg" alt="">
                         </span>
                     </span>
                     <span class="nk-widget-match-date">LoL - Apr 24, 2018 7:20 pm</span>
@@ -430,11 +430,11 @@
                 <span class="nk-widget-match-left">
                     <span class="nk-widget-match-teams">
                         <span class="nk-widget-match-team-logo">
-                            <img src="assets/images/team-1.jpg" alt="">
+                            <img src="public/assets/images/team-1.jpg" alt="">
                         </span>
                         <span class="nk-widget-match-vs">VS</span>
                         <span class="nk-widget-match-team-logo">
-                            <img src="assets/images/team-4.jpg" alt="">
+                            <img src="public/assets/images/team-4.jpg" alt="">
                         </span>
                     </span>
                     <span class="nk-widget-match-date">Dota 2 - Apr 12, 2018 6:40 pm</span>
@@ -454,7 +454,7 @@
         
             <div class="nk-widget-post">
                 <a href="store-product.html" class="nk-post-image">
-                    <img src="assets/images/product-1-xs.jpg" alt="So saying he unbuckled">
+                    <img src="public/assets/images/product-1-xs.jpg" alt="So saying he unbuckled">
                 </a>
                 <h3 class="nk-post-title"><a href="store-product.html">So saying he unbuckled</a></h3>
                 <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
@@ -463,7 +463,7 @@
         
             <div class="nk-widget-post">
                 <a href="store-product.html" class="nk-post-image">
-                    <img src="assets/images/product-2-xs.jpg" alt="However, I have reason">
+                    <img src="public/assets/images/product-2-xs.jpg" alt="However, I have reason">
                 </a>
                 <h3 class="nk-post-title"><a href="store-product.html">However, I have reason</a></h3>
                 <div class="nk-product-rating" data-rating="2.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
@@ -472,7 +472,7 @@
         
             <div class="nk-widget-post">
                 <a href="store-product.html" class="nk-post-image">
-                    <img src="assets/images/product-3-xs.jpg" alt="It was some time before">
+                    <img src="public/assets/images/product-3-xs.jpg" alt="It was some time before">
                 </a>
                 <h3 class="nk-post-title"><a href="store-product.html">It was some time before</a></h3>
                 <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>

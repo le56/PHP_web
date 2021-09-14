@@ -29,7 +29,10 @@ Route::get('/store', [StoreController::class, 'index']);
 Route::get('/cart', [StoreController::class, 'cart']);
 Route::get('/checkout', [StoreController::class, 'checkout']);
 Route::get('/catalog', [StoreController::class, 'catalog']);
-Route::get('/product', [StoreController::class, 'product']);
+Route::get('product/{id}', [StoreController::class, 'product']);
+// handle comment
+Route::post('/product/comment', [StoreController::class, 'addComment'])->name('product.comment');
+
 Route::get('/catalogAlt', [StoreController::class, 'catalogAlt']);
 
 //Gallery Navbar Controller

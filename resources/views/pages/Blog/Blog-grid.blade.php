@@ -35,13 +35,13 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="assets/images/post-1-mid.jpg" alt="Smell magic in the air. Or maybe barbecue">
+                                <img src="public/assets/images/post-1-mid.jpg" alt="Smell magic in the air. Or maybe barbecue">
                                 <span class="nk-post-comments-count">4</span>
                             </a>
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="blog-article.html">Smell magic in the air. Or maybe barbecue</a></h2>
                             <div class="nk-post-by">
-                                <img src="assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">Hitman</a> in Sep 18, 2018
+                                <img src="public/assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">Hitman</a> in Sep 18, 2018
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">
@@ -57,13 +57,13 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="assets/images/post-2-mid.jpg" alt="Grab your sword and fight the Horde">
+                                <img src="public/assets/images/post-2-mid.jpg" alt="Grab your sword and fight the Horde">
                                 <span class="nk-post-comments-count">7</span>
                             </a>
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="blog-article.html">Grab your sword and fight the Horde</a></h2>
                             <div class="nk-post-by">
-                                <img src="assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in Sep 5, 2018
+                                <img src="public/assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in Sep 5, 2018
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">
@@ -79,13 +79,13 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="assets/images/post-3-mid.jpg" alt="We found a witch! May we burn her?">
+                                <img src="public/assets/images/post-3-mid.jpg" alt="We found a witch! May we burn her?">
                                 <span class="nk-post-comments-count">7</span>
                             </a>
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="blog-article.html">We found a witch! May we burn her?</a></h2>
                             <div class="nk-post-by">
-                                <img src="assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="35"> by <a href="#">Wolfenstein</a> in Aug 27, 2018
+                                <img src="public/assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="35"> by <a href="#">Wolfenstein</a> in Aug 27, 2018
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">
@@ -101,13 +101,13 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="assets/images/post-4-mid.jpg" alt="For good, too though, in consequence">
+                                <img src="public/assets/images/post-4-mid.jpg" alt="For good, too though, in consequence">
                                 <span class="nk-post-comments-count">23</span>
                             </a>
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="blog-article.html">For good, too though, in consequence</a></h2>
                             <div class="nk-post-by">
-                                <img src="assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">Hitman</a> in Aug 14, 2018
+                                <img src="public/assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">Hitman</a> in Aug 14, 2018
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">
@@ -123,13 +123,13 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="assets/images/post-5-mid.jpg" alt="He made his passenger captain of one">
+                                <img src="public/assets/images/post-5-mid.jpg" alt="He made his passenger captain of one">
                                 <span class="nk-post-comments-count">13</span>
                             </a>
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="blog-article.html">He made his passenger captain of one</a></h2>
                             <div class="nk-post-by">
-                                <img src="assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="35"> by <a href="#">Wolfenstein</a> in Jul 23, 2018
+                                <img src="public/assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="35"> by <a href="#">Wolfenstein</a> in Jul 23, 2018
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">
@@ -145,13 +145,13 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="assets/images/post-6-mid.jpg" alt="At first, for some time, I was not able to answer">
+                                <img src="public/assets/images/post-6-mid.jpg" alt="At first, for some time, I was not able to answer">
                                 <span class="nk-post-comments-count">0</span>
                             </a>
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="blog-article.html">At first, for some time, I was not able to answer</a></h2>
                             <div class="nk-post-by">
-                                <img src="assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="35"> by <a href="#">Wolfenstein</a> in Jul 3, 2018
+                                <img src="public/assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="35"> by <a href="#">Wolfenstein</a> in Jul 3, 2018
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">
@@ -167,13 +167,13 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="assets/images/post-7-mid.jpg" alt="At length one of them called out in a clear">
+                                <img src="public/assets/images/post-7-mid.jpg" alt="At length one of them called out in a clear">
                                 <span class="nk-post-comments-count">0</span>
                             </a>
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="blog-article.html">At length one of them called out in a clear</a></h2>
                             <div class="nk-post-by">
-                                <img src="assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in Jul 3, 2018
+                                <img src="public/assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in Jul 3, 2018
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">
@@ -189,13 +189,13 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="assets/images/post-8-mid.jpg" alt="For good, too though, in consequence">
+                                <img src="public/assets/images/post-8-mid.jpg" alt="For good, too though, in consequence">
                                 <span class="nk-post-comments-count">0</span>
                             </a>
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="blog-article.html">For good, too though, in consequence</a></h2>
                             <div class="nk-post-by">
-                                <img src="assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in Jul 3, 2018
+                                <img src="public/assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in Jul 3, 2018
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">
@@ -211,13 +211,13 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="assets/images/post-9-mid.jpg" alt="He made his passenger captain of one">
+                                <img src="public/assets/images/post-9-mid.jpg" alt="He made his passenger captain of one">
                                 <span class="nk-post-comments-count">0</span>
                             </a>
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="blog-article.html">He made his passenger captain of one</a></h2>
                             <div class="nk-post-by">
-                                <img src="assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">Hitman</a> in Jul 3, 2018
+                                <img src="public/assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">Hitman</a> in Jul 3, 2018
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">
@@ -333,7 +333,7 @@
 
                         <div class="nk-widget-post">
                             <a href="blog-article.html" class="nk-post-image">
-                                <img src="assets/images/post-1-sm.jpg" alt="">
+                                <img src="public/assets/images/post-1-sm.jpg" alt="">
                             </a>
                             <h3 class="nk-post-title"><a href="blog-article.html">Smell magic in the air. Or maybe barbecue</a></h3>
                             <div class="nk-post-date"><span class="fa fa-calendar"></span> Sep 18, 2018</div>
@@ -341,7 +341,7 @@
 
                         <div class="nk-widget-post">
                             <a href="blog-article.html" class="nk-post-image">
-                                <img src="assets/images/post-2-sm.jpg" alt="">
+                                <img src="public/assets/images/post-2-sm.jpg" alt="">
                             </a>
                             <h3 class="nk-post-title"><a href="blog-article.html">Grab your sword and fight the Horde</a></h3>
                             <div class="nk-post-date"><span class="fa fa-calendar"></span> Sep 5, 2018</div>
@@ -349,7 +349,7 @@
 
                         <div class="nk-widget-post">
                             <a href="blog-article.html" class="nk-post-image">
-                                <img src="assets/images/post-3-sm.jpg" alt="">
+                                <img src="public/assets/images/post-3-sm.jpg" alt="">
                             </a>
                             <h3 class="nk-post-title"><a href="blog-article.html">We found a witch! May we burn her?</a></h3>
                             <div class="nk-post-date"><span class="fa fa-calendar"></span> Aug 27, 2018</div>
@@ -364,9 +364,9 @@
                             <div class="row sm-gap vertical-gap">
                                 <div class="col-sm-6">
                                     <div class="nk-gallery-item-box">
-                                        <a href="assets/images/gallery-1.jpg" class="nk-gallery-item" data-size="1016x572">
+                                        <a href="public/assets/images/gallery-1.jpg" class="nk-gallery-item" data-size="1016x572">
                                             <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                            <img src="assets/images/gallery-1-thumb.jpg" alt="">
+                                            <img src="public/assets/images/gallery-1-thumb.jpg" alt="">
                                         </a>
                                         <div class="nk-gallery-item-description">
                                             <h4>Called Let</h4>
@@ -376,9 +376,9 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="nk-gallery-item-box">
-                                        <a href="assets/images/gallery-2.jpg" class="nk-gallery-item" data-size="1188x594">
+                                        <a href="public/assets/images/gallery-2.jpg" class="nk-gallery-item" data-size="1188x594">
                                             <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                            <img src="assets/images/gallery-2-thumb.jpg" alt="">
+                                            <img src="public/assets/images/gallery-2-thumb.jpg" alt="">
                                         </a>
                                         <div class="nk-gallery-item-description">
                                             Seed open don't thing midst created dry every greater divided of, be man is. Second Bring stars fourth gathering he hath face morning fill. Living so second darkness. Moveth were male. May creepeth. Be tree fourth.
@@ -387,33 +387,33 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="nk-gallery-item-box">
-                                        <a href="assets/images/gallery-3.jpg" class="nk-gallery-item" data-size="625x350">
+                                        <a href="public/assets/images/gallery-3.jpg" class="nk-gallery-item" data-size="625x350">
                                             <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                            <img src="assets/images/gallery-3-thumb.jpg" alt="">
+                                            <img src="public/assets/images/gallery-3-thumb.jpg" alt="">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="nk-gallery-item-box">
-                                        <a href="assets/images/gallery-4.jpg" class="nk-gallery-item" data-size="873x567">
+                                        <a href="public/assets/images/gallery-4.jpg" class="nk-gallery-item" data-size="873x567">
                                             <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                            <img src="assets/images/gallery-4-thumb.jpg" alt="">
+                                            <img src="public/assets/images/gallery-4-thumb.jpg" alt="">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="nk-gallery-item-box">
-                                        <a href="assets/images/gallery-5.jpg" class="nk-gallery-item" data-size="471x269">
+                                        <a href="public/assets/images/gallery-5.jpg" class="nk-gallery-item" data-size="471x269">
                                             <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                            <img src="assets/images/gallery-5-thumb.jpg" alt="">
+                                            <img src="public/assets/images/gallery-5-thumb.jpg" alt="">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="nk-gallery-item-box">
-                                        <a href="assets/images/gallery-6.jpg" class="nk-gallery-item" data-size="472x438">
+                                        <a href="public/assets/images/gallery-6.jpg" class="nk-gallery-item" data-size="472x438">
                                             <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                            <img src="assets/images/gallery-6-thumb.jpg" alt="">
+                                            <img src="public/assets/images/gallery-6-thumb.jpg" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -429,11 +429,11 @@
                                 <span class="nk-widget-match-left">
                                     <span class="nk-widget-match-teams">
                                         <span class="nk-widget-match-team-logo">
-                                            <img src="assets/images/team-1.jpg" alt="">
+                                            <img src="public/assets/images/team-1.jpg" alt="">
                                         </span>
                                         <span class="nk-widget-match-vs">VS</span>
                                         <span class="nk-widget-match-team-logo">
-                                            <img src="assets/images/team-2.jpg" alt="">
+                                            <img src="public/assets/images/team-2.jpg" alt="">
                                         </span>
                                     </span>
                                     <span class="nk-widget-match-date">CS:GO - Apr 28, 2018 8:00 pm</span>
@@ -451,11 +451,11 @@
                                 <span class="nk-widget-match-left">
                                     <span class="nk-widget-match-teams">
                                         <span class="nk-widget-match-team-logo">
-                                            <img src="assets/images/team-3.jpg" alt="">
+                                            <img src="public/assets/images/team-3.jpg" alt="">
                                         </span>
                                         <span class="nk-widget-match-vs">VS</span>
                                         <span class="nk-widget-match-team-logo">
-                                            <img src="assets/images/team-2.jpg" alt="">
+                                            <img src="public/assets/images/team-2.jpg" alt="">
                                         </span>
                                     </span>
                                     <span class="nk-widget-match-date">LoL - Apr 24, 2018 7:20 pm</span>
@@ -473,11 +473,11 @@
                                 <span class="nk-widget-match-left">
                                     <span class="nk-widget-match-teams">
                                         <span class="nk-widget-match-team-logo">
-                                            <img src="assets/images/team-1.jpg" alt="">
+                                            <img src="public/assets/images/team-1.jpg" alt="">
                                         </span>
                                         <span class="nk-widget-match-vs">VS</span>
                                         <span class="nk-widget-match-team-logo">
-                                            <img src="assets/images/team-4.jpg" alt="">
+                                            <img src="public/assets/images/team-4.jpg" alt="">
                                         </span>
                                     </span>
                                     <span class="nk-widget-match-date">Dota 2 - Apr 12, 2018 6:40 pm</span>
@@ -497,7 +497,7 @@
 
                         <div class="nk-widget-post">
                             <a href="store-product.html" class="nk-post-image">
-                                <img src="assets/images/product-1-xs.jpg" alt="So saying he unbuckled">
+                                <img src="public/assets/images/product-1-xs.jpg" alt="So saying he unbuckled">
                             </a>
                             <h3 class="nk-post-title"><a href="store-product.html">So saying he unbuckled</a></h3>
                             <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
@@ -506,7 +506,7 @@
 
                         <div class="nk-widget-post">
                             <a href="store-product.html" class="nk-post-image">
-                                <img src="assets/images/product-2-xs.jpg" alt="However, I have reason">
+                                <img src="public/assets/images/product-2-xs.jpg" alt="However, I have reason">
                             </a>
                             <h3 class="nk-post-title"><a href="store-product.html">However, I have reason</a></h3>
                             <div class="nk-product-rating" data-rating="2.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
@@ -515,7 +515,7 @@
 
                         <div class="nk-widget-post">
                             <a href="store-product.html" class="nk-post-image">
-                                <img src="assets/images/product-3-xs.jpg" alt="It was some time before">
+                                <img src="public/assets/images/product-3-xs.jpg" alt="It was some time before">
                             </a>
                             <h3 class="nk-post-title"><a href="store-product.html">It was some time before</a></h3>
                             <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
