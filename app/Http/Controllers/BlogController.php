@@ -18,6 +18,9 @@ class BlogController extends Controller
     }
 
     public function showBlog() {
-        return view('pages.Blog.Blog-article');
+        return view('pages.Blog.Blog-grid');
+    }
+    public function showBlogDetail($id) {
+       return view('pages.Blog.blog');
     }
 }

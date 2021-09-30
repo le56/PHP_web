@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\uploadImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,7 +78,7 @@ Route::prefix('/admin/product')->group(function () {
     Route::get('/list-product', [productController::class, 'showAll']);
 
     Route::get('/create', [productController::class, 'showCreateProduct']);
-    Route::post('/create', [productController::class, 'store'])->middleware('validation_product');
+    Route::post('/create', [productController::class, 'store'])->middleware('validation_product',"validation_create_product");
 
     Route::put('/update', [productController::class, 'update'])->name('product.update')->middleware('validation_product');
 
@@ -89,4 +90,12 @@ Route::prefix('/admin/product')->group(function () {
 
 Route::prefix('/blog')->group(function () {
     Route::get('/',[blogController::class,'showBlog']);
+    Route::get('/{id}',[blogController::class,'showBlogDetail']);
 });
+
+// upload image routes
+//   dropzone
+Route::post("/upload", [uploadImageController::class, 'store'])->name('upload');
+Route::post("/delete_upload", [uploadImageController::class, 'destroy'])->name('deleteUpload');
+// update image product
+Route::post("/update_imageProduct", [uploadImageController::class, 'updateImageUpload'])->name('update_imageProduct');

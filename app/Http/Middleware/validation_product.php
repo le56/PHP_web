@@ -18,7 +18,7 @@ class validation_product
     {
         $validated = $request->validate([
             "title" => "required",
-            "image" => "required",
+            "description" => "required",
             "content" => "required",
             "rate" => "required",
             "price" => "required",
