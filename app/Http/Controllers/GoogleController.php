@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
   
 class GoogleController extends Controller
 {
@@ -61,6 +62,7 @@ class GoogleController extends Controller
     {
 
         return Socialite::driver('github')->redirect();
+        
     }
         
     /**
