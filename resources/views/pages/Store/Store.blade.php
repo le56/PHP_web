@@ -19,10 +19,6 @@
     </div>
     <div class="nk-gap-1"></div>
     <!-- END: Breadcrumbs -->
-
-
-
-
     <div class="container">
         <!-- START: Categories -->
         <div class="row vertical-gap">
