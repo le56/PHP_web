@@ -1,7 +1,13 @@
 @extends('welcome')
 @section('store')
 <!-- END: Navbar Mobile -->
-
+  <style>
+     .nk-product-image img {
+          height:100% !important;
+          object-fit: cover;
+          border-radius: 5px;
+      }
+  </style>
     <!-- START: Breadcrumbs -->
     <div class="nk-gap-1"></div>
     <div class="container">
@@ -135,7 +141,7 @@
                     <div class="pl-5 pr-5">
                         <div class="nk-product-cat-3">
                             <a class="nk-product-image" href="product/{{$product->id}}">
-                                <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="{{$product->title}}">
+                                <img src="{{ asset('public/images/'.$product->image0) }}" alt="{{$product->title}}">
                             </a>
                             <div class="nk-product-cont">
                                 <div class="nk-gap-1"></div>
@@ -163,7 +169,7 @@
             <div class="col-lg-6">
                 <div class="nk-product-cat-2">
                     <a class="nk-product-image" href="product/{{$product->id}}">
-                        <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="{{$product->title}}">
+                        <img src="{{ asset('public/images/'.$product->image0) }}" alt="{{$product->title}}">
                     </a>
                     <div class="nk-product-cont">
                         <h3 class="nk-product-title h5"><a href="product/{{$product->id}}">{{$product->title}}</a></h3>
@@ -204,7 +210,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="nk-product-cat">
                     <a class="nk-product-image" href="product/{{$product->id}}">
-                        <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="{{$product->title}}">
+                        <img src="{{ asset('public/images/'.$product->image0) }}" alt="{{$product->title}}">
                     </a>
                     <div class="nk-product-cont">
                         <h3 class="nk-product-title h5"><a href="product/{{$product->id}}">{{$product->title}}</a></h3>

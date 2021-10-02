@@ -1,3 +1,5 @@
+@extends('welcome')
+@section('blog')
 <!-- START: Breadcrumbs -->
 <div class="nk-gap-1"></div>
 <div class="container">
@@ -550,3 +552,4 @@
 </div>
 
 <div class="nk-gap-2"></div>
+@endsection

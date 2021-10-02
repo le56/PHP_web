@@ -1,5 +1,12 @@
 @extends('welcome')
 @section('catalog')
+<style>
+   .nk-product-image img {
+        height: 100% !important;
+        object-fit: cover;
+        border-radius:5px
+    }
+</style>
 <div class="nk-gap-1"></div>
 <div class="container">
     <ul class="nk-breadcrumbs">
@@ -139,11 +146,11 @@
                  @foreach($products as $product)
                 <div class="col-md-6">
                     <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="{{$product->title}}">
+                        <a class="nk-product-image" href="product/{{$product->id}}">
+                            <img src="{{ asset('public/images/'.$product->image0) }}" alt="{{$product->title}}">
                         </a>
                         <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">{{$product->title}}</a></h3>
+                            <h3 class="nk-product-title h5"><a href="product/{{$product->id}}">{{$product->title}}</a></h3>
                             <div class="nk-gap-1"></div>
                             <div class="nk-product-rating" >
                                 @for ($i = 1; $i <=5; $i++)
@@ -185,14 +192,7 @@
             <!-- END: Pagination -->
         </div>
         <div class="col-lg-4">
-            <!--
-                START: Sidebar
-
-                Additional Classes:
-                    .nk-sidebar-left
-                    .nk-sidebar-right
-                    .nk-sidebar-sticky
-            -->
+           
             <aside class="nk-sidebar nk-sidebar-right nk-sidebar-sticky">
                 <div class="nk-widget">
     <div class="nk-widget-content">
@@ -208,16 +208,7 @@
     <h4 class="nk-widget-title"><span><span class="text-main-1">Category</span> Menu</span></h4>
     <div class="nk-widget-content">
         <ul class="nk-widget-categories">
-            <!-- <li><a href="#">RTS</a></li>
-            <li><a href="#">Action</a></li>
-            <li><a href="#">RPG</a></li>
-            <li><a href="#">MMO</a></li>
-            <li><a href="#">MOBA</a></li>
-            <li><a href="#">Adventure</a></li>
-            <li><a href="#">Indie</a></li>
-            <li><a href="#">Strategy</a></li>
-            <li><a href="#">Racing</a></li>
-            <li><a href="#">Simulator</a></li> -->
+         
             @foreach ($categories as $category)
             <li><a href="#">{{$category->nameCategory}}</a></li>
             @endforeach
@@ -254,15 +245,7 @@
 <div class="nk-widget nk-widget-highlighted">
     <h4 class="nk-widget-title"><span><span class="text-main-1">We</span> Are Social</span></h4>
     <div class="nk-widget-content">
-        <!--
-            Social Links 3
-
-            Additional Classes:
-                .nk-social-links-cols-5
-                .nk-social-links-cols-4
-                .nk-social-links-cols-3
-                .nk-social-links-cols-2
-        -->
+      
         <ul class="nk-social-links-3 nk-social-links-cols-4">
             <li><a class="nk-social-twitch" href="#"><span class="fab fa-twitch"></span></a></li>
             <li><a class="nk-social-instagram" href="#"><span class="fab fa-instagram"></span></a></li>
@@ -273,29 +256,7 @@
             <li><a class="nk-social-pinterest" href="#"><span class="fab fa-pinterest-p"></span></a></li>
             <li><a class="nk-social-rss" href="#"><span class="fa fa-rss"></span></a></li>
 
-            <!-- Additional Social Buttons
-                <li><a class="nk-social-behance" href="#"><span class="fab fa-behance"></span></a></li>
-                <li><a class="nk-social-bitbucket" href="#"><span class="fab fa-bitbucket"></span></a></li>
-                <li><a class="nk-social-dropbox" href="#"><span class="fab fa-dropbox"></span></a></li>
-                <li><a class="nk-social-dribbble" href="#"><span class="fab fa-dribbble"></span></a></li>
-                <li><a class="nk-social-deviantart" href="#"><span class="fab fa-deviantart"></span></a></li>
-                <li><a class="nk-social-flickr" href="#"><span class="fab fa-flickr"></span></a></li>
-                <li><a class="nk-social-foursquare" href="#"><span class="fab fa-foursquare"></span></a></li>
-                <li><a class="nk-social-github" href="#"><span class="fab fa-github"></span></a></li>
-                <li><a class="nk-social-linkedin" href="#"><span class="fab fa-linkedin"></span></a></li>
-                <li><a class="nk-social-medium" href="#"><span class="fab fa-medium"></span></a></li>
-                <li><a class="nk-social-odnoklassniki" href="#"><span class="fab fa-odnoklassniki"></span></a></li>
-                <li><a class="nk-social-paypal" href="#"><span class="fab fa-paypal"></span></a></li>
-                <li><a class="nk-social-reddit" href="#"><span class="fab fa-reddit"></span></a></li>
-                <li><a class="nk-social-skype" href="#"><span class="fab fa-skype"></span></a></li>
-                <li><a class="nk-social-soundcloud" href="#"><span class="fab fa-soundcloud"></span></a></li>
-                <li><a class="nk-social-steam" href="#"><span class="fab fa-steam"></span></a></li>
-                <li><a class="nk-social-slack" href="#"><span class="fab fa-slack"></span></a></li>
-                <li><a class="nk-social-tumblr" href="#"><span class="fab fa-tumblr"></span></a></li>
-                <li><a class="nk-social-vimeo" href="#"><span class="fab fa-vimeo"></span></a></li>
-                <li><a class="nk-social-vk" href="#"><span class="fab fa-vk"></span></a></li>
-                <li><a class="nk-social-wordpress" href="#"><span class="fab fa-wordpress"></span></a></li>
-            -->
+          
         </ul>
     </div>
 </div>

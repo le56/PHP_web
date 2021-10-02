@@ -1,5 +1,31 @@
 @extends('welcome')
 @section('product')
+<style>
+  #tab-description .display-desc img {
+      width: 100%;
+  }
+  .nk-popup-gallery {
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+  }
+  .nk-popup-gallery .vertical-gap {
+    flex-shrink: 0;
+    margin-top: 0px;
+  }
+  .nk-popup-gallery .nk-gallery-item-box {
+      flex : 1
+  }
+  .nk-popup-gallery .nk-gallery-item-box a {
+    height: 100%;
+    display: block;
+  }
+  .nk-popup-gallery .nk-gallery-item-box img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+</style>
     <!-- START: Breadcrumbs -->
     <div class="nk-gap-1"></div>
     <div class="container">
@@ -40,9 +66,9 @@
                             <!-- START: Product Photos -->
                             <div class="nk-popup-gallery">
                                 <div class="nk-gallery-item-box">
-                                    <a href="{{ asset('public/assets/images/'.$product->image) }}" class="nk-gallery-item" data-size="1200x554">
+                                    <a href="{{ asset('public/images/'.$product->image0) }}" class="nk-gallery-item" data-size="1200x554">
                                         <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                        <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="">
+                                        <img src="{{ asset('public/images/'.$product->image0) }}" alt="">
                                     </a>
                                 </div>
 
@@ -50,25 +76,25 @@
                                 <div class="row vertical-gap sm-gap">
                                     <div class="col-6 col-md-4">
                                         <div class="nk-gallery-item-box">
-                                            <a href="{{ asset('public/assets/images/'.$product->image) }}" class="nk-gallery-item" data-size="622x942">
+                                            <a href="{{ asset('public/images/'.$product->image1) }}" class="nk-gallery-item" data-size="622x942">
                                                 <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                                <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="">
+                                                <img src="{{ asset('public/images/'.$product->image1) }}" alt="">
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-4">
                                         <div class="nk-gallery-item-box">
-                                            <a href="{{ asset('public/assets/images/'.$product->image) }}" class="nk-gallery-item" data-size="1920x907">
+                                            <a href="{{ asset('public/images/'.$product->image2) }}" class="nk-gallery-item" data-size="1920x907">
                                                 <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                                <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="">
+                                                <img src="{{ asset('public/images/'.$product->image2) }}" alt="">
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-4">
                                         <div class="nk-gallery-item-box">
-                                            <a href="{{ asset('public/assets/images/'.$product->image) }}" class="nk-gallery-item" data-size="1500x750">
+                                            <a href="{{ asset('public/images/'.$product->image3) }}" class="nk-gallery-item" data-size="1500x750">
                                                 <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                                <img src="{{ asset('public/assets/images/'.$product->image) }}" alt="">
+                                                <img src="{{ asset('public/images/'.$product->image3) }}" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -107,7 +133,11 @@
                             <!-- START: Meta -->
                             <div class="nk-product-meta">
                                 <div><strong>SKU</strong>: 300-200-503</div>
-                                <div><strong>Categories</strong>: <a href="#">online</a>, <a href="#">FPS</a>, <a href="#">MMO</a>, <a href="#">Action games</a></div>
+                                <div><strong>Categories</strong>: 
+                                @foreach($categories as $category)
+                                  <a href="#">{{$category->nameCategory}}</a>, 
+                                @endforeach
+                            </div>
                                 <div><strong>Tags</strong>: <a href="#">blizzard</a>, <a href="#">action</a>, <a href="#">MMO</a></div>
                             </div>
                             <!-- END: Meta -->
@@ -151,7 +181,9 @@
                                 <div class="nk-gap"></div>
                                 <strong class="text-white">Release Date: 24/05/2018</strong>
                                 <div class="nk-gap"></div>
-                                <p>She gave my mother such a turn, that I have always been convinced I am indebted to Miss Betsey for having been born on a Friday. The word was appropriate to the moment. My mother was so much worse that Peggotty, coming in with the teaboard and candles, and seeing at a glance how ill she was, - as Miss Betsey might have done sooner if there had been light enough, - conveyed her upstairs to her own room with all speed; and immediately dispatched Ham Peggotty, her nephew, who had been for some days past secreted in the house, unknown to my mother, as a special messenger in case of emergency, to fetch the nurse and doctor.</p>
+                               <div class="display-desc">
+                               {!! $product->description !!}
+                               </div>
 
                                 <div class="nk-product-info-row row vertical-gap">
                                     <div class="col-md-5">
@@ -265,40 +297,7 @@
                                             </div>
                                         </div>
                                     @endforeach
-                                    <!-- START: Review -->
-{{--                                    <div class="nk-comment">--}}
-{{--                                        <div class="nk-comment-meta">--}}
-{{--                                            <img src="{{asset('public/assets/images/avatar-2.jpg')}}" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in 20 September, 2018--}}
-{{--                                            <div class="nk-review-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="nk-comment-text">--}}
-{{--                                            <p>Upon replenish great rule. Were tree, given day him night Fruit it moveth all. First they're creature seasons and creature fill a it have fifth, their own subdue brought above divided.</p>--}}
-
-{{--                                            <p>Behold it set, seas seas and meat divided Moveth cattle forth evening above moveth so, signs god a fruitful his after called that whose.</p>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <!-- END: Review -->--}}
-{{--                                    <!-- START: Review -->--}}
-{{--                                    <div class="nk-comment">--}}
-{{--                                        <div class="nk-comment-meta">--}}
-{{--                                            <img src="{{asset('public/assets/images/avatar-1.jpg')}}" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">Hitman</a> in 14 Jule, 2018--}}
-{{--                                            <div class="nk-review-rating" data-rating="0.5"> <i class="fa fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="nk-comment-text">--}}
-{{--                                            <p> I was awakened at daybreak by the charwoman, and having arrived at the inn, was at first placed inside the coach. :(</p>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <!-- END: Review -->--}}
-{{--                                    <!-- START: Review -->--}}
-{{--                                    <div class="nk-comment">--}}
-{{--                                        <div class="nk-comment-meta">--}}
-{{--                                            <img src="{{asset('public/assets/images/avatar-3.jpg')}}" alt="Wolfenstein" class="rounded-circle" width="35"> by <a href="#">Wolfenstein</a> in 27 June, 2018--}}
-{{--                                            <div class="nk-review-rating" data-rating="3.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="nk-comment-text">--}}
-{{--                                            <p>Divided thing, land it evening earth winged whose great after. Were grass night. To Air itself saw bring fly fowl. Fly years behold spirit day greater of wherein winged and form. Seed open don't thing midst created dry every greater divided of, be man is. Second Bring stars fourth gathering he hath face morning fill. Living so second darkness. Moveth were male. May creepeth. Be tree fourth.</p>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                              
                                     <!-- END: Review -->
                                 </div>
                             </div>
@@ -438,16 +437,9 @@
                         <h4 class="nk-widget-title"><span><span class="text-main-1">Category</span> Menu</span></h4>
                         <div class="nk-widget-content">
                             <ul class="nk-widget-categories">
-                                <li><a href="#">RTS</a></li>
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">RPG</a></li>
-                                <li><a href="#">MMO</a></li>
-                                <li><a href="#">MOBA</a></li>
-                                <li><a href="#">Adventure</a></li>
-                                <li><a href="#">Indie</a></li>
-                                <li><a href="#">Strategy</a></li>
-                                <li><a href="#">Racing</a></li>
-                                <li><a href="#">Simulator</a></li>
+                                @foreach($categories as $category)
+                                <li><a href="#">{{$category->nameCategory}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

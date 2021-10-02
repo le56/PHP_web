@@ -23,9 +23,13 @@ class productController extends Controller
     //    post store product
     public function store(Request $request)
     {
-        $product = products::create([
+         products::create([
             "title" => $request->input("title"),
-            "image" => $request->input("image"),
+            "image0" => $request->input("image0"),
+            "image1" => $request->input("image1"),
+            "image2" => $request->input("image2"),
+            "image3" => $request->input("image3"),
+            "description" => $request->description,
             "content" => $request->input("content"),
             "rate" => $request->input("rate"),
             "price" => $request->input("price"),
@@ -39,7 +43,7 @@ class productController extends Controller
     {
         $product = products::find($request->_id_product);
         $product->title = $request->title;
-        $product->image = $request->image;
+        $product->description = $request->description;
         $product->price = $request->price;
         $product->category = $request->category;
         $product->content = $request->input('content');
@@ -50,7 +54,13 @@ class productController extends Controller
     // delete delete product
     public function delete(Request $request)
     {
-        products::find($request->id)->delete();
+        $productDel = products::find($request->id);
+        for($i=0;$i<=3;$i++) {
+            $d = "image".(string)$i;
+            $path = public_path()."\images\\".$productDel->$d;
+           if(file_exists($path)) unlink($path);
+        }
+        $productDel->delete();
         return $request->id;
     }
 

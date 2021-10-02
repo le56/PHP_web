@@ -20,11 +20,10 @@ class StoreController extends Controller
     }
     public function product($id) {
         $product = products::where('id' , $id) ->first();
-        $str = str_replace('-md.','-square.',$product->image);
-        $product->image = $str;
         $comments = comment::where("idProduct",$id)->orderByDesc('created_at')->get();
+        $categories = category::all();
         $totalComment = count($comments);
-        return view('pages.Store.Product',['product' => $product,"comments" => $comments,"totalComment"=>$totalComment]);
+        return view('pages.Store.Product',['product' => $product,"categories"=>$categories,"comments" => $comments,"totalComment"=>$totalComment]);
     }
     // handle add comment
     public function addComment(Request $request) {

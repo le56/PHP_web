@@ -119,7 +119,7 @@
 
                                 <div class="nk-widget-post">
                                     <a href="store-product.html" class="nk-post-image">
-                                        <img src="assets/images/product-5-xs.jpg" alt="In all revolutions of">
+                                        <img src="{{asset('assets/images/product-5-xs.jpg')}}" alt="In all revolutions of">
                                     </a>
                                     <h3 class="nk-post-title">
                                         <a href="#" class="nk-cart-remove-item"><span class="ion-android-close"></span></a>
@@ -131,7 +131,7 @@
 
                                 <div class="nk-widget-post">
                                     <a href="store-product.html" class="nk-post-image">
-                                        <img src="assets/images/product-7-xs.jpg" alt="With what mingled joy">
+                                        <img src="{{asset('assets/images/product-7-xs.jpg')}}" alt="With what mingled joy">
                                     </a>
                                     <h3 class="nk-post-title">
                                         <a href="#" class="nk-cart-remove-item"><span class="ion-android-close"></span></a>
@@ -170,7 +170,7 @@
                 <div class="nk-nav-table">
 
                     <a href="{{URL::to('/')}}" class="nk-nav-logo">
-                        <img src="{{('public/assets/images/logo.png')}}" alt="GoodGames" width="199">
+                        <img src="{{asset('public/assets/images/logo.png')}}" alt="GoodGames" width="199">
                     </a>
 
                     <ul class="nk-nav nk-nav-right d-none d-lg-table-cell" data-nav-mobile="#nk-nav-mobile">
@@ -350,6 +350,11 @@
         @yield('tournament')
         @yield('teams')
         @yield('teammate')
+
+        <!-- blog -->
+        @yield('detailBlog')
+        @yield('blog')
+        <!-- end blog  -->
 
         <!-- START: Footer -->
         <footer class="nk-footer">
