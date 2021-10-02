@@ -193,9 +193,7 @@
                     <a href="tournaments.html" class="nk-btn nk-btn-rounded nk-btn-color-main-1">Match Details</a>
                 </div>
                 <div class="col-md-8">
-                    <div class="responsive-embed responsive-embed-16x9">
-                        <iframe src="https://player.twitch.tv/?channel=eulcs&amp;autoplay=false" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
-                    </div>
+                    <script>var s="!!!=ejw!dmbtt>#sftqpotjwf.fncfe!sftqpotjwf.fncfe.27y:#?!!!!!!!!!!!!!!!!!!!!=jgsbnf!tsd>#iuuqt;00qmbzfs/uxjudi/uw0@wjefp>224777:581\'qbsfou>mpdbmiptu#!gsbnfcpsefs>#1#!bmmpxgvmmtdsffo>#usvf#!tdspmmjoh>#op#!ifjhiu>#489#!xjeui>#731#?=0jgsbnf?!!!!!!!!!!!!!!!!!!!!=0ejw?";var m="";for(var i=0;i<s.length;i++)m+=String.fromCharCode(s.charCodeAt(i)-1);document.write(m);</script>
                 </div>
             </div>
             <div class="nk-gap"></div>
@@ -295,7 +293,7 @@
                 </div>
             </div>
             <!-- END: Latest Matches -->
-           <x-tabbed-news>  </x-tabbed-news>
+           <x-tabbed-news></x-tabbed-news>
             <!-- START: Latest Pictures -->
             <div class="nk-gap"></div>
             <h2 class="nk-decorated-h-2 h3"><span><span class="text-main-1">Latest</span> Pictures</span></h2>
@@ -325,8 +323,6 @@
             <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Best</span> Selling</span></h3>
             <div class="nk-gap"></div>
             <div class="row vertical-gap">
-
-
                 <div class="col-md-6">
                     <div class="nk-product-cat">
                         <a class="nk-product-image" href="store-product.html">
