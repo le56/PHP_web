@@ -315,7 +315,7 @@
             data.append('imagestt', data_id);
             data.append("getOriginalName",Date.now() + file.name)
             $.ajax({
-            url:"{{ route('update_imageProduct') }}",
+            url:"{{ route('update_image') }}",
             method:'POST',
             data:data,
             contentType:false,

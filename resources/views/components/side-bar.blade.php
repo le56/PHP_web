@@ -1,3 +1,10 @@
+<style>
+   .nk-widget-post .nk-post-image img,
+    .nk-widget-post-2 .nk-post-image img {
+          height: 110px;
+        object-fit: cover;
+   }
+</style>
 <div class="col-lg-4 nk-sidebar-sticky-parent">
     <aside class="nk-sidebar nk-sidebar-right nk-sidebar-sticky">
         <div class="">
@@ -79,9 +86,9 @@
                             @foreach($listScreenshots as $screenshot)
                             <div class="col-sm-6">
                                 <div class="nk-gallery-item-box">
-                                    <a href="{{ asset('public/assets/images/'.$screenshot->image) }}" class="nk-gallery-item" data-size="472x438">
+                                    <a href="{{ asset('public/images/'.$screenshot->image) }}" class="nk-gallery-item" data-size="472x438">
                                         <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                        <img src="{{ asset('public/assets/images/'.$screenshot->image_thumb) }}" alt="">
+                                        <img src="{{ asset('public/images/'.$screenshot->image_thumb) }}" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -166,7 +173,7 @@
                     @foreach($topProduct as $Product)
                     <div class="nk-widget-post">
                         <a href="store-product.html" class="nk-post-image">
-                            <img src="{{ asset('public/assets/images/'.$Product->image) }}" alt="However, I have reason">
+                            <img src="{{ asset('public/images/'.$Product->image0) }}" alt="However, I have reason">
                         </a>
                         <h3 class="nk-post-title"><a href="store-product.html">{{$Product->title}}</a></h3>
                         <div class="nk-product-rating" data-rating="2.5">

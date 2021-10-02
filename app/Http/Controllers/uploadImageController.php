@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Home_slider;
 use App\Models\products;
+use App\Models\Screenshots;
+use App\Models\Store_gallery;
 use Illuminate\Http\Request;
 
 class uploadImageController extends Controller
@@ -14,21 +17,40 @@ class uploadImageController extends Controller
         $image->move(public_path("images"),$imagename);
         return response()->json(["success" => $imagename]);
     }
-    // update image upload 
+    // update image upload product
     public function updateImageUpload(Request $request) { 
       if(isset($request->filenamedel)) {
         $path = public_path()."\images\\".$request->filenamedel;
         if(file_exists($path)) unlink($path);
       }
-        $orderImage = $request->imagestt;
+        $columnImage = $request->imagestt;
         $image = $request->file("file");
         $imagename = $request->getOriginalName;
         $image->move(public_path("images"),$imagename);
+        if($request->type === "screen") {
+        $screen = Screenshots::find($request->idScreen);
+        $screen->$columnImage = $imagename;
+        $screen->save();
+        return $imagename;
+        }
+        if($request->type === "slider_home") {
+          $screen = Home_slider::find($request->idSlider);
+          $screen->$columnImage = $imagename;
+          $screen->save();
+          return $imagename;
+         }
+        if($request->type === "storeGallery") {
+          $screen = Store_gallery::find($request->idStoreGallery);
+          $screen->$columnImage = $imagename;
+          $screen->save();
+          return $imagename;
+        }
         $updateProduct = products::find($request->idProduct);
-        $updateProduct->$orderImage = $imagename;
+        $updateProduct->$columnImage = $imagename;
         $updateProduct->save();
         return $imagename;
     }
+  
     // destroy image
     public function destroy(Request $request) {
       $filename = $request->get("filename");

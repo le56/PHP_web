@@ -10,6 +10,8 @@ use App\Http\Controllers\productController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\uploadImageController;
+use App\Http\Controllers\screenAndSliderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -93,9 +95,27 @@ Route::prefix('/blog')->group(function () {
     Route::get('/{id}',[blogController::class,'showBlogDetail']);
 });
 
+// screen 
+Route::prefix('/admin/screen')->group(function () {
+    Route::get('/{id}',[screenAndSliderController::class,"showUpdateScreen"]);
+    Route::get('/',[screenAndSliderController::class,"showListScreenHome"]);
+    Route::put("/{id}",[screenAndSliderController::class,"updateScreen"]);
+});
+// home slider 
+Route::prefix('/admin/home-slider')->group(function () {
+    Route::get('/{id}',[screenAndSliderController::class,"showUpdateHomeSlider"]);
+    Route::get('/',[screenAndSliderController::class,"showListHomeSlider"]);
+    Route::put("/{id}",[screenAndSliderController::class,"updateHomeSlider"]);
+});
+// store picture gallery 
+Route::prefix('/admin/store-gallery')->group(function () {
+    Route::get('/',[screenAndSliderController::class,"showListStoreGallery"]);
+    Route::put('/',[screenAndSliderController::class,"updateStoreGallery"])->name("updateStoreGallery");
+});
+
 // upload image routes
 //   dropzone
 Route::post("/upload", [uploadImageController::class, 'store'])->name('upload');
 Route::post("/delete_upload", [uploadImageController::class, 'destroy'])->name('deleteUpload');
 // update image product
-Route::post("/update_imageProduct", [uploadImageController::class, 'updateImageUpload'])->name('update_imageProduct');
+Route::post("/update_image", [uploadImageController::class, 'updateImageUpload'])->name('update_image');

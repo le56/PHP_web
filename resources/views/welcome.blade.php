@@ -175,11 +175,11 @@
 
                     <ul class="nk-nav nk-nav-right d-none d-lg-table-cell" data-nav-mobile="#nk-nav-mobile">
                         <li class=" nk-drop-item">
-                            <a href="blog-list.html">
+                            <a href="{{URL::to('/blog')}}">
                                 Blog
 
                             </a>
-                            <ul class="dropdown">
+                            <!-- <ul class="dropdown">
 
                                 <li>
                                     <a href="news.html">
@@ -220,7 +220,7 @@
 
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> -->
                         </li>
                         <li>
                             <a href="{{URL::to('/gallery')}}">
@@ -265,12 +265,7 @@
                                         Store
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="{{URL::to('/product')}}">
-                                        Product
-
-                                    </a>
-                                </li>
+                               
                                 <li>
                                     <a href="{{URL::to('/catalog')}}">
                                         Catalog

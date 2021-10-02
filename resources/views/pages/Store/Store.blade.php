@@ -67,62 +67,51 @@
         <!-- START: Some Products -->
         <div class="nk-gap-2"></div>
         <div class="row vertical-gap">
+        @foreach ($galleries as $gallery)
             <div class="col-md-6 col-lg-4">
                 <div class="nk-gallery-item-box">
-                    <a href="store-product.html" class="nk-gallery-item">
+                    <a href="{{ asset ('public/images/')}}/{{$gallery->image}}" class="nk-gallery-item">
                         <span class="nk-gallery-item-overlay"><span><span class="nk-icon-circles"></span></span></span>
-                        <img src="public/assets/images/product-4-lg.jpg" alt="She was bouncing">
+                        <img src="{{ asset ('public/images/')}}/{{$gallery->image}}" alt="{{$gallery->title}}">
                     </a>
                     <div class="nk-gallery-item-label">
-                        <h4 class="mb-0">She was bouncing</h4>
+                        <h4 class="mb-0">{{$gallery->title}}</h4>
                     </div>
                 </div>
             </div>
+            @break
+            @endforeach
+
+            @foreach ($galleries as $gallery)
+            @if($loop->index === 5)
             <div class="col-md-6 col-lg-4 order-lg-3">
                 <div class="nk-gallery-item-box">
-                    <a href="store-product.html" class="nk-gallery-item">
+                    <a href="{{ asset ('public/images/')}}/{{$gallery->image}}" class="nk-gallery-item">
                         <span class="nk-gallery-item-overlay"><span><span class="nk-icon-circles"></span></span></span>
-                        <img src="public/assets/images/product-2-lg.jpg" alt="However, I have reason">
+                        <img src="{{ asset ('public/images/')}}/{{$gallery->image}}" alt="{{$gallery->title}}">
                     </a>
                     <div class="nk-gallery-item-label">
-                        <h4 class="mb-0">However, I have reason</h4>
+                        <h4 class="mb-0">{{$gallery->title}}</h4>
                     </div>
                 </div>
             </div>
+            @endif
+            @endforeach
             <div class="col-md-12 col-lg-4">
                 <div class="row vertical-gap">
-                    <div class="col-md-6">
+                @foreach ($galleries as $gallery)
+                @if($loop->index > 0 && $loop->index < 5)
+                 <div class="col-md-6">
                         <div class="nk-gallery-item-box">
-                            <a href="store-product.html" class="nk-gallery-item">
+                            <a href="{{ asset ('public/images/')}}/{{$gallery->image}}" class="nk-gallery-item">
                                 <span class="nk-gallery-item-overlay"><span><span class="nk-icon-circles"></span></span></span>
-                                <img src="public/assets/images/product-3-lg.jpg" alt="It was some time before">
+                                <img src="{{ asset ('public/images/')}}/{{$gallery->image}}" alt="It was some time before">
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="nk-gallery-item-box">
-                            <a href="store-product.html" class="nk-gallery-item">
-                                <span class="nk-gallery-item-overlay"><span><span class="nk-icon-circles"></span></span></span>
-                                <img src="public/assets/images/product-1-lg.jpg" alt="So saying he unbuckled">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="nk-gallery-item-box">
-                            <a href="store-product.html" class="nk-gallery-item">
-                                <span class="nk-gallery-item-overlay"><span><span class="nk-icon-circles"></span></span></span>
-                                <img src="public/assets/images/product-5-lg.jpg" alt="In all revolutions of">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="nk-gallery-item-box">
-                            <a href="store-product.html" class="nk-gallery-item">
-                                <span class="nk-gallery-item-overlay"><span><span class="nk-icon-circles"></span></span></span>
-                                <img src="public/assets/images/product-6-lg.jpg" alt="Just then her head ">
-                            </a>
-                        </div>
-                    </div>
+                @endif
+               @endforeach
+                   
                 </div>
             </div>
         </div>

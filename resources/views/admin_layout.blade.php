@@ -298,12 +298,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-book"></i>
-                                <span>UI Elements</span>
+                                <span>Add data management</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="typography.html">Typography</a></li>
-                                <li><a href="glyphicon.html">glyphicon</a></li>
-                                <li><a href="grids.html">Grids</a></li>
+                                <li><a href="{{URL::to('/admin/product/create')}}">Create product</a></li>
+                             
                             </ul>
                         </li>
                         <li>
@@ -315,22 +314,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-th"></i>
-                                <span>Data Tables</span>
+                                <span>Data management</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="basic_table.html">Basic Table</a></li>
-                                <li><a href="responsive_table.html">Responsive Table</a></li>
+                                <li><a href="{{URL::to('/admin/product/list-product')}}">Product management</a></li>
+                                
                             </ul>
                         </li>
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-tasks"></i>
-                                <span>Form Components</span>
+                                <span>Component management</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="form_component.html">Form Elements</a></li>
-                                <li><a href="form_validation.html">Form Validation</a></li>
-                                <li><a href="dropzone.html">Dropzone</a></li>
+                                <li><a href="{{URL::to('/admin/home-slider')}}">Home and category slider</a></li>
+                                <li><a href="{{URL::to('/admin/screen')}}">Screen home</a></li>
+                                <li><a href="{{URL::to('/admin/store-gallery')}}">Screen home</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">
@@ -390,6 +389,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <section id="main-content">
             <section class="wrapper">
                 @yield('dashboard')
+                @yield('screen')
+                @yield('slider')
             </section>
             <!-- footer -->
             <div class="footer">

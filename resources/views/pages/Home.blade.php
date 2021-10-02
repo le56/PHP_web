@@ -2,20 +2,7 @@
 @section('content')
 <div class="nk-gap-2"></div>
 <div class="container">
-    <!-- START: Image Slider -->
-    <div class="nk-image-slider" data-autoplay="8000">
-        @foreach($sliders as $slider)
-        <div class="nk-image-slider-item">
-            <img src="{{ asset('public/assets/images/'.$slider->image) }}" alt="" class="nk-image-slider-img" data-thumb="{{ asset('public/assets/images/'.$slider->image_thumb) }}">
-            <div class="nk-image-slider-content" style="opacity: 1;">
-                <h3 class="h4">{{$slider->title}}</h3>
-                <p class="text-white">{{$slider->content}}</p>
-                <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">Read More</a>
-            </div>
-        </div>
-        @endforeach
-    </div>
-    <!-- END: Image Slider -->
+  <x-slider/>
     
     <!-- START: Categories -->
     <div class="nk-gap-2"></div>
@@ -318,9 +305,9 @@
                     @foreach($listScreenshots as $picture)
                     <div class="col-lg-4 col-md-6">
                         <div class="nk-gallery-item-box">
-                            <a href="{{ asset('public/assets/images/'.$picture->image) }}" class="nk-gallery-item" data-size="1016x572">
+                            <a href="{{ asset('public/images/'.$picture->image) }}" class="nk-gallery-item" data-size="1016x572">
                                 <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                <img src="{{ asset('public/assets/images/'.$picture->image_thumb) }}" alt="">
+                                <img src="{{ asset('public/images/'.$picture->image_thumb) }}" alt="">
                             </a>
                             <div class="nk-gallery-item-description">
                                 <h4>Called Let</h4>

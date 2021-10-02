@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\products;
 use App\Models\category;
 use App\Models\comment;
-
+use App\Models\Store_gallery;
 
 class StoreController extends Controller
 {
@@ -16,7 +16,7 @@ class StoreController extends Controller
             $str = str_replace('-md.','-square.',$product->image);
             $product->image = $str;
         }
-        return view('pages.Store.Store',['ListImageXS'=>$allProduct,'products'=>products::all()]);
+        return view('pages.Store.Store',['ListImageXS'=>$allProduct,"galleries"=>Store_gallery::all(),'products'=>products::all()]);
     }
     public function product($id) {
         $product = products::where('id' , $id) ->first();
