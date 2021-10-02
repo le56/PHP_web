@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Goutte\Client;
 use Illuminate\Http\Request;
 
 class TournamentsController extends Controller
 {
-    public function index(){
-        return view('pages.Tournament.Tournament');
+    public function index()
+    {
+        return view('pages.Tournament.Tournament',);
     }
-    public function team(){
+    public function team()
+    {
         return view('pages.Tournament.Teams');
     }
-    public function teammate(){
+    public function teammate()
+    {
         return view('pages.Tournament.teammate');
     }
 }
