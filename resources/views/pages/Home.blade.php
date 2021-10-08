@@ -177,19 +177,20 @@
                         Now Playing
                     </div>
                     <div class="nk-gap-2"></div>
+                    @foreach($nowMatch as $match)
                     <div class="nk-widget-match p-0">
                         <div class="nk-widget-match-teams">
                             <div class="nk-widget-match-team-logo">
-                                <img src="assets/images/team-1.jpg" alt="">
+                            <img src="{{ asset('public/assets/images/'.$match->logoTeam1) }}" alt="">
                             </div>
                             <div class="nk-widget-match-vs">VS</div>
                             <div class="nk-widget-match-team-logo">
-                                <img src="assets/images/team-2.jpg" alt="">
+                            <img src="{{ asset('public/assets/images/'.$match->logoTeam2) }}" alt="">
                             </div>
                         </div>
                     </div>
+                    @endforeach
                     <div class="nk-gap-2"></div>
-                    <p>As she said this she looked down at her hands and was surprised to see.</p>
                     <a href="tournaments.html" class="nk-btn nk-btn-rounded nk-btn-color-main-1">Match Details</a>
                 </div>
                 <div class="col-md-8">
@@ -197,101 +198,36 @@
                 </div>
             </div>
             <div class="nk-gap"></div>
+            @foreach($nextMatch as $match)
             <div class="nk-match">
                 <div class="nk-match-team-left">
                     <a href="#">
                         <span class="nk-match-team-logo">
-                            <img src="assets/images/team-1.jpg" alt="">
+                        <img src="{{ asset('public/assets/images/'.$match->logoTeam1) }}" alt="">
                         </span>
                         <span class="nk-match-team-name">
-                            SK Telecom T1
+                           {{$match->team1}}
                         </span>
                     </a>
                 </div>
                 <div class="nk-match-status">
                     <a href="#">
                         <span class="nk-match-status-vs">VS</span>
-                        <span class="nk-match-status-date">Apr 28, 2018 8:00 pm</span>
-                        <span class="nk-match-score bg-danger">
-                            2 : 17
-                        </span>
+                        <span class="nk-match-status-date">{{$match->created_at}}</span>
                     </a>
                 </div>
                 <div class="nk-match-team-right">
                     <a href="#">
                         <span class="nk-match-team-name">
-                            Cloud 9
+                        {{$match->team1}}
                         </span>
                         <span class="nk-match-team-logo">
-                            <img src="assets/images/team-2.jpg" alt="">
+                        <img src="{{ asset('public/assets/images/'.$match->logoTeam2) }}" alt="">
                         </span>
                     </a>
                 </div>
             </div>
-
-            <div class="nk-match">
-                <div class="nk-match-team-left">
-                    <a href="#">
-                        <span class="nk-match-team-logo">
-                            <img src="assets/images/team-3.jpg" alt="">
-                        </span>
-                        <span class="nk-match-team-name">
-                            Counted logic gaming
-                        </span>
-                    </a>
-                </div>
-                <div class="nk-match-status">
-                    <a href="#">
-                        <span class="nk-match-status-vs">VS</span>
-                        <span class="nk-match-status-date">Apr 15, 2018 9:00 pm</span>
-                        <span class="nk-match-score bg-success">
-                            28 : 19
-                        </span>
-                    </a>
-                </div>
-                <div class="nk-match-team-right">
-                    <a href="#">
-                        <span class="nk-match-team-name">
-                            SK Telecom T1
-                        </span>
-                        <span class="nk-match-team-logo">
-                            <img src="assets/images/team-1.jpg" alt="">
-                        </span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="nk-match">
-                <div class="nk-match-team-left">
-                    <a href="#">
-                        <span class="nk-match-team-logo">
-                            <img src="assets/images/team-4.jpg" alt="">
-                        </span>
-                        <span class="nk-match-team-name">
-                            Team SoloMid
-                        </span>
-                    </a>
-                </div>
-                <div class="nk-match-status">
-                    <a href="#">
-                        <span class="nk-match-status-vs">VS</span>
-                        <span class="nk-match-status-date">Apr 28, 2018 8:00 pm</span>
-                        <span class="nk-match-score bg-dark-1">
-                            13 : 13
-                        </span>
-                    </a>
-                </div>
-                <div class="nk-match-team-right">
-                    <a href="#">
-                        <span class="nk-match-team-name">
-                            SK Telecom T1
-                        </span>
-                        <span class="nk-match-team-logo">
-                            <img src="assets/images/team-1.jpg" alt="">
-                        </span>
-                    </a>
-                </div>
-            </div>
+            @endforeach
             <!-- END: Latest Matches -->
            <x-tabbed-news></x-tabbed-news>
             <!-- START: Latest Pictures -->
@@ -323,121 +259,32 @@
             <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Best</span> Selling</span></h3>
             <div class="nk-gap"></div>
             <div class="row vertical-gap">
+            @foreach($topsell as $product)
                 <div class="col-md-6">
                     <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-11-xs.jpg" alt="She gave my mother">
+                        <a class="nk-product-image" href="product/{{$product->id}}">
+                        <img src="{{ asset('public/images/'.$product->image0) }}" alt="{{$product->title}}">
                         </a>
                         <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">She gave my mother</a></h3>
+                            <h3 class="nk-product-title h5"><a href="product/{{$product->id}}">{{$product->title}}</a></h3>
                             <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="3"> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                </svg><!-- <i class="fa fa-star"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                </svg><!-- <i class="fa fa-star"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                </svg><!-- <i class="fa fa-star"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path>
-                                </svg><!-- <i class="far fa-star"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path>
-                                </svg><!-- <i class="far fa-star"></i> -->
+                            <div class="nk-product-rating" data-rating="3">
+                                @for ($i = 1; $i <=5; $i++)
+                                @if ($i < $product->rate)
+                                    <i class="fa fa-star"></i>
+                                @elseif($i === $product->rate)<!--  <i class="fas fa-star-half-alt"></i> --><i class="fa fa-star"></i>
+                                @else  <i class="far fa-star"></i>
+                                @endif
+                            @endfor
                             </div>
                             <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 14.00</div>
+                            <div class="nk-product-price">€ {{$product->price}}</div>
                             <div class="nk-gap-1"></div>
                             <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
                         </div>
                     </div>
                 </div>
-
-
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-12-xs.jpg" alt="A hundred thousand">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">A hundred thousand</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="4.5"> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                </svg><!-- <i class="fa fa-star"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                </svg><!-- <i class="fa fa-star"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                </svg><!-- <i class="fa fa-star"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                </svg><!-- <i class="fa fa-star"></i> --> <svg class="svg-inline--fa fa-star-half fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star-half" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M288 0c-11.4 0-22.8 5.9-28.7 17.8L194 150.2 47.9 171.4c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.1 23 46 46.4 33.7L288 439.6V0z"></path>
-                                </svg><!-- <i class="fas fa-star-half"></i> -->
-                            </div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 20.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-13-xs.jpg" alt="So saying he unbuckled">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">So saying he unbuckled</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="5"> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                </svg><!-- <i class="fa fa-star"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                </svg><!-- <i class="fa fa-star"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                </svg><!-- <i class="fa fa-star"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                </svg><!-- <i class="fa fa-star"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                </svg><!-- <i class="fa fa-star"></i> -->
-                            </div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 23.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-6">
-                    <div class="nk-product-cat">
-                        <a class="nk-product-image" href="store-product.html">
-                            <img src="assets/images/product-14-xs.jpg" alt="However, I have reason">
-                        </a>
-                        <div class="nk-product-cont">
-                            <h3 class="nk-product-title h5"><a href="store-product.html">However, I have reason</a></h3>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-rating" data-rating="1.5"> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                </svg><!-- <i class="fa fa-star"></i> --> <svg class="svg-inline--fa fa-star-half fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star-half" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M288 0c-11.4 0-22.8 5.9-28.7 17.8L194 150.2 47.9 171.4c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.1 23 46 46.4 33.7L288 439.6V0z"></path>
-                                </svg><!-- <i class="fas fa-star-half"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path>
-                                </svg><!-- <i class="far fa-star"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path>
-                                </svg><!-- <i class="far fa-star"></i> --> <svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path>
-                                </svg><!-- <i class="far fa-star"></i> -->
-                            </div>
-                            <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ 32.00</div>
-                            <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-
+            @endforeach
             </div>
             <!-- END: Best Selling -->
         </div>

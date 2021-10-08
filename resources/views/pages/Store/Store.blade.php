@@ -182,9 +182,6 @@
             </div>
                 @break($loop->index == 3)
             @endforeach
-
-
-
         </div>
         <!-- END: Featured Games -->
 

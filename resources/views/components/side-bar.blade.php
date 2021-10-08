@@ -1,9 +1,9 @@
 <style>
-   .nk-widget-post .nk-post-image img,
+    .nk-widget-post .nk-post-image img,
     .nk-widget-post-2 .nk-post-image img {
-          height: 110px;
+        height: 110px;
         object-fit: cover;
-   }
+    }
 </style>
 <div class="col-lg-4 nk-sidebar-sticky-parent">
     <aside class="nk-sidebar nk-sidebar-right nk-sidebar-sticky">
@@ -100,19 +100,20 @@
             <div class="nk-widget nk-widget-highlighted">
                 <h4 class="nk-widget-title"><span><span class="text-main-1">Next</span> Matches</span></h4>
                 <div class="nk-widget-content">
+                    @foreach($nextMatch as $match)
                     <div class="nk-widget-match">
                         <a href="#">
                             <span class="nk-widget-match-left">
                                 <span class="nk-widget-match-teams">
                                     <span class="nk-widget-match-team-logo">
-                                        <img src="assets/images/team-1.jpg" alt="">
+                                    <img src="{{ asset('public/assets/images/'.$match->logoTeam1) }}" alt="">
                                     </span>
                                     <span class="nk-widget-match-vs">VS</span>
                                     <span class="nk-widget-match-team-logo">
-                                        <img src="assets/images/team-2.jpg" alt="">
+                                    <img src="{{ asset('public/assets/images/'.$match->logoTeam2) }}" alt="">
                                     </span>
                                 </span>
-                                <span class="nk-widget-match-date">CS:GO - Apr 28, 2018 8:00 pm</span>
+                                <span class="nk-widget-match-date">{{$match->created_at}}</span>
                             </span>
                             <span class="nk-widget-match-right">
                                 <span class="nk-match-score">
@@ -121,50 +122,7 @@
                             </span>
                         </a>
                     </div>
-
-                    <div class="nk-widget-match">
-                        <a href="#">
-                            <span class="nk-widget-match-left">
-                                <span class="nk-widget-match-teams">
-                                    <span class="nk-widget-match-team-logo">
-                                        <img src="assets/images/team-3.jpg" alt="">
-                                    </span>
-                                    <span class="nk-widget-match-vs">VS</span>
-                                    <span class="nk-widget-match-team-logo">
-                                        <img src="assets/images/team-2.jpg" alt="">
-                                    </span>
-                                </span>
-                                <span class="nk-widget-match-date">LoL - Apr 24, 2018 7:20 pm</span>
-                            </span>
-                            <span class="nk-widget-match-right">
-                                <span class="nk-match-score">
-                                    Upcoming
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-
-                    <div class="nk-widget-match">
-                        <a href="#">
-                            <span class="nk-widget-match-left">
-                                <span class="nk-widget-match-teams">
-                                    <span class="nk-widget-match-team-logo">
-                                        <img src="assets/images/team-1.jpg" alt="">
-                                    </span>
-                                    <span class="nk-widget-match-vs">VS</span>
-                                    <span class="nk-widget-match-team-logo">
-                                        <img src="assets/images/team-4.jpg" alt="">
-                                    </span>
-                                </span>
-                                <span class="nk-widget-match-date">Dota 2 - Apr 12, 2018 6:40 pm</span>
-                            </span>
-                            <span class="nk-widget-match-right">
-                                <span class="nk-match-score bg-dark-1">
-                                    0 : 0
-                                </span>
-                            </span>
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="nk-widget nk-widget-highlighted">
@@ -177,11 +135,13 @@
                         </a>
                         <h3 class="nk-post-title"><a href="store-product.html">{{$Product->title}}</a></h3>
                         <div class="nk-product-rating" data-rating="2.5">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            @for ($i = 1; $i <=5; $i++) @if ($i < $Product->rate)
+                                <i class="fa fa-star"></i>
+                                @elseif($i === $Product->rate)
+                                <!--  <i class="fas fa-star-half-alt"></i> --><i class="fa fa-star"></i>
+                                @else <i class="far fa-star"></i>
+                                @endif
+                                @endfor
                         </div>
                         <div class="nk-product-price">€ {{$Product->price}}.00</div>
                     </div>
