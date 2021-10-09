@@ -11,7 +11,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\uploadImageController;
 use App\Http\Controllers\screenAndSliderController;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -119,3 +119,10 @@ Route::post("/upload", [uploadImageController::class, 'store'])->name('upload');
 Route::post("/delete_upload", [uploadImageController::class, 'destroy'])->name('deleteUpload');
 // update image product
 Route::post("/update_image", [uploadImageController::class, 'updateImageUpload'])->name('update_image');
+
+// user logout
+
+Route::get("/user-logout", function (){
+    Auth::logout();
+    return redirect('/');
+});

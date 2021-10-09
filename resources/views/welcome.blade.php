@@ -104,9 +104,13 @@
 
 
                         <li>
-                            <a href="#" data-toggle="modal" data-target="#modalLogin">
-                                <span class="fa fa-user"></span>
-                            </a>
+                        @if (Auth::check())
+                            <a href="{{  asset ('/user-logout')}}"><img src="{{Auth::user()->avatar}}" style="width:35px;height:35px;border-radius: 50%;" alt=""></a>
+                        @else 
+                        <a href="#" data-toggle="modal" data-target="#modalLogin">
+                            <span class="fa fa-user"></span>
+                        </a>
+                        @endif
                         </li>
 
 
@@ -433,6 +437,8 @@
         </div>
     </div>
     <!-- END: Search Modal -->
+    @unless (Auth::check())
+   
     <!-- START: Login Modal -->
     <div class="nk-modal modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
@@ -489,6 +495,7 @@
         </div>
     </div>
     <!-- END: Login Modal -->
+    @endunless
 
 
 

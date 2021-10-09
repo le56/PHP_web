@@ -6,6 +6,9 @@
         object-fit: cover;
         border-radius:5px
     }
+    .active  {
+        color: #dd163b !important;
+    }
 </style>
 <div class="nk-gap-1"></div>
 <div class="container">
@@ -108,50 +111,57 @@
                 @endforeach
 
             </div>
+            <div class="nk-gap-3"></div>
             <!-- END: Products -->
 
             <!-- START: Pagination -->
-            <div class="nk-gap-3"></div>
-            <div class="nk-pagination nk-pagination-center">
-                <a href="?page={{$currentPage - 1}}" class="nk-pagination-prev">
-                    <span class="ion-ios-arrow-back"></span>
-                </a>
-                <nav>
-                
-                    @for ($i = 1; $i <= $countPage; $i++)
-                    <a href="?page={{$i}}" class="@if($currentPage == $i)<?php echo 'nk-pagination-current'?>@endif">{{ $i }}</a>
-                    @endfor
-                </nav>
-                <a href="?page={{$currentPage + 1}}" class="nk-pagination-next">
-                    <span class="ion-ios-arrow-forward"></span>
-                </a>
-            </div>
+        
+            {{ $products->links('vendor.pagination.custom') }}
+
             <!-- END: Pagination -->
         </div>
         <div class="col-lg-4">
            
             <aside class="nk-sidebar nk-sidebar-right nk-sidebar-sticky">
+            <div class="nk-widget-content">
+                <a  href="{{asset('/catalog')}}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1 " style="display:block; margin-bottom: 1.5rem !important;">Reset filter</a>
+                </div>
                 <div class="nk-widget">
     <div class="nk-widget-content">
-        <form class="nk-form nk-form-style-1" novalidate="novalidate">
+        <form class="nk-form nk-form-style-1 " id = "search-form" novalidate="novalidate">
             <div class="input-group">
-                <input type="text" class="form-control" name='search' placeholder="Type something...">
+                <input type="text" value="{{request('search')}}" class="form-control" name='search' placeholder="Type something...">
                 <button class="nk-btn nk-btn-color-main-1"><span class="ion-search"></span></button>
             </div>
         </form>
     </div>
 </div>
 <div class="nk-widget nk-widget-highlighted">
+                    <select class="form-control" id="sort-select">
+                        <option value="" disabled selected>Sort</option>
+                        <option value="asc"><a href="">Price from low to high</a></option>
+                        <option value="desc">Price from high to low</option>
+                      
+                    </select>
+                    </div>
+<div class="nk-widget nk-widget-highlighted">
     <h4 class="nk-widget-title"><span><span class="text-main-1">Category</span> Menu</span></h4>
     <div class="nk-widget-content">
         <ul class="nk-widget-categories">
-         
+        <li ><a class="@if(!request('category')) active @endif" href="?allcate=true<?= ((request("search")) ? "&search=".request("search") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) ? "&pgt=".request("pgt") : "") ?><?= ((request("sort")) ? "&sort=".request("sort") : "") ?>"
+             >
+            All categories
+            </a></li>
             @foreach ($categories as $category)
-            <li><a href="#">{{$category->nameCategory}}</a></li>
+            <li><a href="?category={{$category->id}}<?= ((request("search")) ? "&search=".request("search") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) ? "&pgt=".request("pgt") : "") ?><?= ((request("sort")) ? "&sort=".request("sort") : "") ?>"
+             class="@if($category->id == request('category')) active @endif">
+             {{$category->nameCategory}}
+            </a></li>
             @endforeach
         </ul>
     </div>
 </div>
+
 <div class="nk-widget nk-widget-highlighted">
     <h4 class="nk-widget-title"><span><span class="text-main-1">Price</span> Filter</span></h4>
     <div class="nk-widget-content">
@@ -162,8 +172,9 @@
                 data-slider-min="0"
                 data-slider-max="1800"
                 data-slider-step="1"
-                data-slider-value="[200, 1200]"
+                data-slider-value="[<?php if(request('pgt')) echo request('pgt'); else echo 0; ?>,<?php if(request('plt')) echo request('plt'); else echo 1800; ?>]"
                 data-slider-tooltip="hide"
+                name="filter-price"
             >
             <div class="nk-gap"></div>
             <div>
@@ -173,7 +184,7 @@
                     -
                     <strong class="text-main-1">€ <span class="nk-input-slider-value-1"></span></strong>
                 </div>
-                <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white float-right">Apply</a>
+                <button class="nk-btn nk-btn-rounded nk-btn-color-white float-right" id="btn_filter_price">Apply</button>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -256,6 +267,18 @@
 </form>
 
 <script>
-  
+   $('#search-form').submit((e) => {
+       e.preventDefault();
+       location.href = `?search=${$("input[name=search]").val()}<?= ((request("category")) ? "&category=".request("category") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) || (request("pgt")==0) ? "&pgt=".request("pgt") : "") ?><?= ((request("sort")) ? "&sort=".request("sort") : "") ?>`;
+   })
+   $('#sort-select').change(() => {
+    location.href = `?sort=${$("#sort-select").val()}<?= ((request("category")) ? "&category=".request("category") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) || (request("pgt")==0)  ? "&pgt=".request("pgt") : "") ?><?= ((request("search")) ? "&search=".request("search") : "") ?>`
+   
+   })
+   $('#btn_filter_price').click(() => {
+    let minPrice = $(".nk-input-slider-value-0").text()
+    let maxPrice = $(".nk-input-slider-value-1").text()
+    location.href = `?pgt=${minPrice}&plt=${maxPrice}<?= ((request("category")) ? "&category=".request("category") : "") ?><?= ((request("sort")) ? "&sort=".request("sort") : "") ?><?= ((request("search")) ? "&search=".request("search") : "") ?>`;
+   })
 </script>
 @endsection
