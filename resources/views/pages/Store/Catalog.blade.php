@@ -104,7 +104,7 @@
                             <div class="nk-gap-1"></div>
                             <div class="nk-product-price">€ {{$product->price}}</div>
                             <div class="nk-gap-1"></div>
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
+                            <button data-add-product-cart="{{$product->id}}"  class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -148,12 +148,12 @@
     <h4 class="nk-widget-title"><span><span class="text-main-1">Category</span> Menu</span></h4>
     <div class="nk-widget-content">
         <ul class="nk-widget-categories">
-        <li ><a class="@if(!request('category')) active @endif" href="?allcate=true<?= ((request("search")) ? "&search=".request("search") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) ? "&pgt=".request("pgt") : "") ?><?= ((request("sort")) ? "&sort=".request("sort") : "") ?>"
+        <li ><a class="@if(!request('category')) active @endif" href="?allcate=true<?= ((request("search")) ? "&search=".request("search") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) || (request("pgt")==0)  ? "&pgt=".request("pgt") : "") ?><?= ((request("sort")) ? "&sort=".request("sort") : "") ?>"
              >
             All categories
             </a></li>
             @foreach ($categories as $category)
-            <li><a href="?category={{$category->id}}<?= ((request("search")) ? "&search=".request("search") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) ? "&pgt=".request("pgt") : "") ?><?= ((request("sort")) ? "&sort=".request("sort") : "") ?>"
+            <li><a href="?category={{$category->id}}<?= ((request("search")) ? "&search=".request("search") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) || (request("pgt")==0)  ? "&pgt=".request("pgt") : "") ?><?= ((request("sort")) ? "&sort=".request("sort") : "") ?>"
              class="@if($category->id == request('category')) active @endif">
              {{$category->nameCategory}}
             </a></li>

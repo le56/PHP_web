@@ -23,7 +23,8 @@ class StoreController extends Controller
         $comments = comment::where("idProduct",$id)->orderByDesc('created_at')->get();
         $categories = category::all();
         $totalComment = count($comments);
-        return view('pages.Store.Product',['product' => $product,"categories"=>$categories,"comments" => $comments,"totalComment"=>$totalComment]);
+        $relativeProducts = products::where("category",$product->category)->get();
+        return view('pages.Store.Product',['product' => $product,"categories"=>$categories,"relativeProducts"=>$relativeProducts,"comments" => $comments,"totalComment"=>$totalComment]);
     }
     // handle add comment
     public function addComment(Request $request) {
@@ -65,6 +66,7 @@ class StoreController extends Controller
       }
       if($request->has('sort')) {
           $product = $product->orderBy('price', $request->sort);
+          $queries["sort"] = $request->sort;
       }
 
       $product = $product->paginate(3)->appends($queries);
@@ -72,9 +74,7 @@ class StoreController extends Controller
       return view('pages.Store.Catalog',["products" => $product,"categories" => category::all()]);
 
     }
-    public function cart(){
-        return view('pages.Store.Cart');
-    }
+   
     public function checkout(){
         return view('pages.Store.Checkout');
     }

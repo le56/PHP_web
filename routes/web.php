@@ -8,6 +8,7 @@ use App\Http\Controllers\TournamentsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\cartController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\uploadImageController;
 use App\Http\Controllers\screenAndSliderController;
@@ -29,7 +30,6 @@ Route::get('/', [HomeController::class, 'index']);
 //Store Navbar Controller
 
 Route::get('/store', [StoreController::class, 'index']);
-Route::get('/cart', [StoreController::class, 'cart']);
 Route::get('/checkout', [StoreController::class, 'checkout']);
 Route::get('/catalog', [StoreController::class, 'catalog']);
 Route::get('product/{id}', [StoreController::class, 'product']);
@@ -74,8 +74,13 @@ Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
 Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 // route get login account
 Route::get('/logout', [AdminController::class, 'logout']);
-// test CRUD product
-
+// handle cart 
+Route::group(["prefix"=>"/cart","middleware"=>["authen"]],function() {
+    Route::get('/', [cartController::class, 'cart']);
+    Route::post("/", [cartController::class, 'createOrUpdate'])->name('cart.createOrUpdate');
+    Route::delete('/{id}', [cartController::class, 'delete']);
+});
+//  handle admin product
 Route::prefix('/admin/product')->group(function () {
     Route::get('/list-product', [productController::class, 'showAll']);
 
@@ -124,5 +129,5 @@ Route::post("/update_image", [uploadImageController::class, 'updateImageUpload']
 
 Route::get("/user-logout", function (){
     Auth::logout();
-    return redirect('/');
+    return redirect()->back();
 });

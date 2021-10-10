@@ -25,6 +25,14 @@
     object-fit: cover;
     border-radius: 4px;
   }
+  
+   .nk-product-image img {
+        height: 100% !important;
+        object-fit: cover;
+        border-radius:5px
+    }
+  
+
 </style>
     <!-- START: Breadcrumbs -->
     <div class="nk-gap-1"></div>
@@ -123,8 +131,8 @@
                                 <div class="nk-product-price">€ {{$product->price}}</div>
                                 <div class="nk-gap-1"></div>
                                 <div class="input-group">
-                                    <input type="number" class="form-control" value="1" min="1" max="21">
-                                    <button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Add to Cart</button>
+                                    <input type="number" id="input-addToCart-detailsPage" class="form-control" value="1" min="1" max="21">
+                                    <button id="btn-addToCart-detailsPage" data-add-product-cart-details="{{$product->id}}" class="nk-btn nk-btn-rounded nk-btn-color-main-1">Add to Cart</button>
                                 </div>
                             </form>
                             <div class="nk-gap-3"></div>
@@ -314,101 +322,34 @@
                 <div class="nk-gap"></div>
                 <div class="row vertical-gap">
 
-
-                    <div class="col-md-6">
-                        <div class="nk-product-cat">
-                            <a class="nk-product-image" href="store-product.html">
-                                <img src="{{asset('public/assets/images/product-11-xs')}}.jpg" alt="She gave my mother">
-                            </a>
-                            <div class="nk-product-cont">
-                                <h3 class="nk-product-title h5"><a href="store-product.html">She gave my mother</a></h3>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-rating" data-rating="3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-price">€ 14.00</div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-6">
-                        <div class="nk-product-cat">
-                            <a class="nk-product-image" href="store-product.html">
-                                <img src="{{asset('public/assets/images/product-12-xs')}}.jpg" alt="A hundred thousand">
-                            </a>
-                            <div class="nk-product-cont">
-                                <h3 class="nk-product-title h5"><a href="store-product.html">A hundred thousand</a></h3>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i></div>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-price">€ 20.00</div>
-                            </div>
-                        </div>
-                    </div>
+                  @foreach ($relativeProducts as $item)
+                  <div class="col-md-6">
+                      <div class="nk-product-cat">
+                          <a class="nk-product-image" href="/product/{{$item->id}}">
+                              <img src="{{asset('public/images/')}}/{{$item->image0}}" alt="She gave my mother">
+                          </a>
+                          <div class="nk-product-cont">
+                              <h3 class="nk-product-title h5"><a href="store-product.html">{{$item->title}}</a></h3>
+                              <div class="nk-gap-1"></div>
+                              <div class="nk-product-rating">
+                              @for ($i = 1; $i <=5; $i++)
+                                    @if ($i < $product->rate)
+                                        <i class="fa fa-star"></i>
+                                        @elseif($i === $product->rate) <i class="fas fa-star-half-alt"></i>
+                                        @else  <i class="far fa-star"></i>
+                                    @endif
+                                @endfor
+                              </div>
+                              <div class="nk-gap-1"></div>
+                              <div class="nk-product-price">$ {{$item->price}}</div>
+                          </div>
+                      </div>
+                  </div>
+                  @endforeach
 
 
-                    <div class="col-md-6">
-                        <div class="nk-product-cat">
-                            <a class="nk-product-image" href="store-product.html">
-                                <img src="{{asset('public/assets/images/product-13-xs')}}.jpg" alt="So saying he unbuckled">
-                            </a>
-                            <div class="nk-product-cont">
-                                <h3 class="nk-product-title h5"><a href="store-product.html">So saying he unbuckled</a></h3>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-price">€ 23.00</div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-6">
-                        <div class="nk-product-cat">
-                            <a class="nk-product-image" href="store-product.html">
-                                <img src="{{asset('public/assets/images/product-14-xs')}}.jpg" alt="However, I have reason">
-                            </a>
-                            <div class="nk-product-cont">
-                                <h3 class="nk-product-title h5"><a href="store-product.html">However, I have reason</a></h3>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-rating" data-rating="1.5"> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-price">€ 32.00</div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-6">
-                        <div class="nk-product-cat">
-                            <a class="nk-product-image" href="store-product.html">
-                                <img src="{{asset('public/assets/images/product-15-xs')}}.jpg" alt="At first, for some time">
-                            </a>
-                            <div class="nk-product-cont">
-                                <h3 class="nk-product-title h5"><a href="store-product.html">At first, for some time</a></h3>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-price">€ 14.00</div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-6">
-                        <div class="nk-product-cat">
-                            <a class="nk-product-image" href="store-product.html">
-                                <img src="{{asset('public/assets/images/product-16-xs')}}.jpg" alt="When the last &#39;natural&#39;">
-                            </a>
-                            <div class="nk-product-cont">
-                                <h3 class="nk-product-title h5"><a href="store-product.html">When the last &#39;natural&#39;</a></h3>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-rating" data-rating="4.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i></div>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-price">€ 20.00</div>
-                            </div>
-                        </div>
-                    </div>
+                   
+                
 
                 </div>
                 <!-- END: Related Products -->

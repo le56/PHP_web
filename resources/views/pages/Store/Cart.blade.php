@@ -1,5 +1,6 @@
 @extends('welcome')
 @section('cart')
+<input type="hidden" id="cartPage">
 <div class="nk-gap-1"></div>
 <div class="container">
     <ul class="nk-breadcrumbs">
@@ -30,13 +31,13 @@
         <div class="table-responsive">
 
             <!-- START: Products in Cart -->
-            <table class="table nk-store-cart-products">
+            <table class="table nk-store-cart-products" id="list-cart-cartPage">
                 <tbody>
-                    
-                        <tr>
+                    @forelse  ($carts as $item)
+                        <tr item-delete-cart="{{$item->id}}">
                             <td class="nk-product-cart-thumb">
                                 <a href="store-product.html" class="nk-image-box-1 nk-post-image">
-                                    <img src="assets/images/product-2-xs.jpg" alt="However, I have reason" width="115">
+                                    <img src="{{ asset('public/images/'.$item->product->image0) }}" alt="{{$item->product->title}}" width="115">
                                 </a>
                             </td>
                             <td class="nk-product-cart-title">
@@ -44,68 +45,34 @@
                                 <div class="nk-gap-1"></div>
 
                                 <h2 class="nk-post-title h4">
-                                    <a href="store-product.html">However, I have reason</a>
+                                    <a href="store-product.html">{{$item->product->title}}</a>
                                 </h2>
                             </td>
                             <td class="nk-product-cart-price">
                                 <h5 class="h6">Price:</h5>
                                 <div class="nk-gap-1"></div>
 
-                                <strong>€ 32.00</strong>
+                                <strong>$ {{$item->product->price}}</strong>
                             </td>
                             <td class="nk-product-cart-quantity">
                                 <h5 class="h6">Quantity:</h5>
                                 <div class="nk-gap-1"></div>
 
                                 <div class="nk-form">
-                                    <input type="number" class="form-control" value="1" min="1" max="21">
+                                    <input type="number" class="form-control" data-input-updateCart="{{$item->product->id}}" value="{{$item->quantity}}" min="1" max="21">
                                 </div>
                             </td>
                             <td class="nk-product-cart-total">
                                 <h5 class="h6">Total:</h5>
                                 <div class="nk-gap-1"></div>
 
-                                <strong>€ 32.00</strong>
+                                <strong class="total-price-item">$ {{$item->totalPrice}}</strong>
                             </td>
-                            <td class="nk-product-cart-remove"><a href="#"><span class="ion-android-close"></span></a></td>
+                            <td class="nk-product-cart-remove"><a class="icon-cart-remove" data-delete-cart="{{$item->id}}" href="#"><span class="ion-android-close"></span></a></td>
                         </tr>
-                    
-                        <tr>
-                            <td class="nk-product-cart-thumb">
-                                <a href="store-product.html" class="nk-image-box-1 nk-post-image">
-                                    <img src="assets/images/product-4-xs.jpg" alt="She was bouncing" width="115">
-                                </a>
-                            </td>
-                            <td class="nk-product-cart-title">
-                                <h5 class="h6">Product:</h5>
-                                <div class="nk-gap-1"></div>
-
-                                <h2 class="nk-post-title h4">
-                                    <a href="store-product.html">She was bouncing</a>
-                                </h2>
-                            </td>
-                            <td class="nk-product-cart-price">
-                                <h5 class="h6">Price:</h5>
-                                <div class="nk-gap-1"></div>
-
-                                <strong>€ 20.00</strong>
-                            </td>
-                            <td class="nk-product-cart-quantity">
-                                <h5 class="h6">Quantity:</h5>
-                                <div class="nk-gap-1"></div>
-
-                                <div class="nk-form">
-                                    <input type="number" class="form-control" value="1" min="1" max="21">
-                                </div>
-                            </td>
-                            <td class="nk-product-cart-total">
-                                <h5 class="h6">Total:</h5>
-                                <div class="nk-gap-1"></div>
-
-                                <strong>€ 20.00</strong>
-                            </td>
-                            <td class="nk-product-cart-remove"><a href="#"><span class="ion-android-close"></span></a></td>
-                        </tr>
+                        @empty 
+                                <h3 class="pt-3 pl-3">Cart list is empty ! <a href="{{asset('/catalog')}}">Add now !</a></h3>
+                         @endforelse 
                     
                 </tbody>
             </table>
@@ -152,11 +119,11 @@
                 <table class="nk-table nk-table-sm">
                     <tbody>
                         <tr class="nk-store-cart-totals-subtotal">
-                            <td>
+                            <td >
                                 Subtotal
                             </td>
-                            <td>
-                                € 52.00
+                            <td id="subTotal">
+                            $ {{$totalPrice}} 
                             </td>
                         </tr>
                         <tr class="nk-store-cart-totals-shipping">
@@ -168,11 +135,11 @@
                             </td>
                         </tr>
                         <tr class="nk-store-cart-totals-total">
-                            <td>
+                            <td >
                                 Total
                             </td>
-                            <td>
-                                € 52.00
+                            <td id="totalPrice">
+                            $ {{$totalPrice}} 
                             </td>
                         </tr>
                     </tbody>
