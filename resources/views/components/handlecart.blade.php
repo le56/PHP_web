@@ -2,13 +2,13 @@
 // add cart all page
 $("button[data-add-product-cart]").click(function(e) {
     e.preventDefault();
-    createOrUpdateCart(1,this,"data-add-product-cart",Boolean($('#cartPage')))
+    createOrUpdateCart(1,this,"data-add-product-cart",null)
     if($('.text-empty')) $('.text-empty').remove(); 
 });
 // add cart details page
 $('#btn-addToCart-detailsPage').click(function(e){
     e.preventDefault();
-    createOrUpdateCart($('#input-addToCart-detailsPage').val(),this,"data-add-product-cart-details",Boolean($('#cartPage')))
+    createOrUpdateCart($('#input-addToCart-detailsPage').val(),this,"data-add-product-cart-details",null)
     if($('.text-empty')) $('.text-empty').remove(); 
 })
 // delete cart in cart page

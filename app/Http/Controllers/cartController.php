@@ -31,12 +31,12 @@ class cartController extends Controller
         $cart = Cart::where("email",$email)->where("idProduct",$idPoduct)->first();
         // handle if cart exists
         if(isset($cart)) {
-            $newQuantity = $request->isReplace ?  $quantity : $cart->quantity + $quantity ; 
+            $newQuantity = $request->isReplace == "true" ? $quantity : $cart->quantity + $quantity;
             $cart->quantity = $newQuantity;
             $cart->totalPrice = $newQuantity * $product->price;
             $cart -> save();
             $cart->product = $cart->product;
-            return response()->json(['cart'=>$cart,'message'=>"updated","totalPrice"=>Cart::where("email",Auth::user()->email)->sum("totalPrice")]);
+            return response()->json(['cart'=>$cart,"quantity" =>$quantity,"isReplace" => $request->isReplace,'message'=>"updated","totalPrice"=>Cart::where("email",Auth::user()->email)->sum("totalPrice")]);
         }
         // handle if cart not exists
         $cart = Cart::create([

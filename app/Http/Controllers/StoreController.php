@@ -10,14 +10,14 @@ use App\Models\Store_gallery;
 
 class StoreController extends Controller
 {
+    // get
+    // show store page
     public function index(){
         $allProduct = products::all();
-        foreach ($allProduct as $product) {
-            $str = str_replace('-md.','-square.',$product->image);
-            $product->image = $str;
-        }
         return view('pages.Store.Store',['ListImageXS'=>$allProduct,"galleries"=>Store_gallery::all(),'products'=>products::all()]);
     }
+    // get 
+    // show product details page
     public function product($id) {
         $product = products::where('id' , $id) ->first();
         $comments = comment::where("idProduct",$id)->orderByDesc('created_at')->get();
@@ -26,7 +26,7 @@ class StoreController extends Controller
         $relativeProducts = products::where("category",$product->category)->get();
         return view('pages.Store.Product',['product' => $product,"categories"=>$categories,"relativeProducts"=>$relativeProducts,"comments" => $comments,"totalComment"=>$totalComment]);
     }
-    // handle add comment
+    // handle add comment in product details page
     public function addComment(Request $request) {
         $rate = empty($request->rate) ?  1 : $request->rate;
         if(empty($request->title) || empty($request->name) || empty($request->rewiew)) return "Please enter all field";
@@ -43,38 +43,45 @@ class StoreController extends Controller
         $comment->totalComment  = $totalComment;
         return $comment;
     }
-
+    // show catalog ALT
     public function catalogAlt(){
         $allProduct = products::all();
         return view('pages.Store.CatalogAlt',['products'=>$allProduct]);
     }
+    // show catalog page and filter
     public function catalog(Request $request){
+      // queries filter
       $queries = [];
       $product = new products;
+      // filter by category
       if($request->has('category')) {
           $product = $product->where("category",$request->category);
           $queries["category"] = $request->category;
       }
+      // filter by price greater than and litter than
       if($request->has('pgt') && $request->has('plt')) {
           $product = $product->where("price",">=",$request->pgt)->where("price","<=",$request->plt);
           $queries["pgt"] = $request->pgt;
           $queries["plt"] = $request->plt;
       }
+      // filter by seach
       if($request->has('search')) {
           $product = $product->where("title","like","%". $request->search ."%");
           $queries["search"] = $request->search;
       }
+      // filter by sort
       if($request->has('sort')) {
           $product = $product->orderBy('price', $request->sort);
           $queries["sort"] = $request->sort;
       }
 
+      // apply pagination
       $product = $product->paginate(3)->appends($queries);
 
       return view('pages.Store.Catalog',["products" => $product,"categories" => category::all()]);
 
     }
-   
+   // show checkout page
     public function checkout(){
         return view('pages.Store.Checkout');
     }

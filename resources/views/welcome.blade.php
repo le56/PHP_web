@@ -55,8 +55,33 @@
     <!-- END: Styles -->
     <!-- jQuery -->
     <script src="{{URL::asset('public/assets/vendor/jquery/dist/jquery.min.js')}}"></script>
-
-
+    <style>
+        #header-user-option {
+            position: relative;
+            cursor: pointer;
+        }
+        #header-user-option:hover .nk-cart-dropdown {
+            visibility: visible;
+            opacity: 1;
+        }
+        #header-user-option img{
+            width:30px;
+            height:30px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        #header-user-option .nk-cart-dropdown {
+            position:absolute;
+            top: 105%;
+            right:0;
+            padding :1rem;
+            width: fit-content;
+        }
+        #header-user-option .nk-cart-dropdown a {
+            display: block;
+        }
+    </style>
+   
 </head>
 
 
@@ -105,7 +130,16 @@
 
                         <li>
                         @if (Auth::check())
-                            <a href="{{  asset ('/user-logout')}}"><img src="{{Auth::user()->avatar}}" style="width:30px;height:30px;border-radius: 50%;object-fit: cover;" alt=""></a>
+                            <div  id="header-user-option"><img src="{{Auth::user()->avatar}}"  >
+                                <div class="nk-cart-dropdown" >
+                                        <a href="{{  asset ('/user-logout')}}" class="
+                                                nk-btn
+                                                nk-btn-rounded
+                                                nk-btn-color-main-1
+                                                nk-btn-hover-color-white
+                                            ">Log out</a>
+                                </div>
+                        </div>
                         @else 
                         <a href="#" id="btn-login" data-toggle="modal" data-target="#modalLogin">
                             <span class="fa fa-user"></span>
