@@ -16,24 +16,8 @@
     <div class="row vertical-gap">
         <div class="col-lg-8">
             <!-- START: Latest Pictures -->
-            <h2 class="nk-decorated-h-2 h3"><span><span class="text-main-1">Latest</span> Pictures</span></h2>
-            <div class="nk-gap"></div>
-            <div class="nk-popup-gallery">
-                <div class="row vertical-gap">
-                    @foreach($listImages as $screenshot)
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="nk-gallery-item-box">
-                            <a href="{{ asset('public/assets/images/'.$screenshot->image) }}" class="nk-gallery-item" data-size="472x438">
-                                <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                <img src="{{ asset('public/assets/images/'.$screenshot->image_thumb) }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
+            <x-last-picture></x-last-picture>
             <!-- END: Latest Pictures -->
-
             <!-- START: Recent Galleries-->
             <div class="nk-gap-2"></div>
             <h2 class="nk-decorated-h-2 h3"><span><span class="text-main-1">Recent</span> Galleries</span></h2>

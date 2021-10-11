@@ -2,8 +2,8 @@
 @section('content')
 <div class="nk-gap-2"></div>
 <div class="container">
-  <x-slider/>
-    
+    <x-slider />
+
     <!-- START: Categories -->
     <div class="nk-gap-2"></div>
     <div class="row vertical-gap">
@@ -181,11 +181,11 @@
                     <div class="nk-widget-match p-0">
                         <div class="nk-widget-match-teams">
                             <div class="nk-widget-match-team-logo">
-                            <img src="{{ asset('public/assets/images/'.$match->logoTeam1) }}" alt="">
+                                <img src="{{ asset('public/assets/images/'.$match->logoTeam1) }}" alt="">
                             </div>
                             <div class="nk-widget-match-vs">VS</div>
                             <div class="nk-widget-match-team-logo">
-                            <img src="{{ asset('public/assets/images/'.$match->logoTeam2) }}" alt="">
+                                <img src="{{ asset('public/assets/images/'.$match->logoTeam2) }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -194,88 +194,43 @@
                     <a href="tournaments.html" class="nk-btn nk-btn-rounded nk-btn-color-main-1">Match Details</a>
                 </div>
                 <div class="col-md-8">
-                    <script>var s="!!!=ejw!dmbtt>#sftqpotjwf.fncfe!sftqpotjwf.fncfe.27y:#?!!!!!!!!!!!!!!!!!!!!=jgsbnf!tsd>#iuuqt;00qmbzfs/uxjudi/uw0@wjefp>224777:581\'qbsfou>mpdbmiptu#!gsbnfcpsefs>#1#!bmmpxgvmmtdsffo>#usvf#!tdspmmjoh>#op#!ifjhiu>#489#!xjeui>#731#?=0jgsbnf?!!!!!!!!!!!!!!!!!!!!=0ejw?";var m="";for(var i=0;i<s.length;i++)m+=String.fromCharCode(s.charCodeAt(i)-1);document.write(m);</script>
+                    <script>
+                        var s = "!!!=ejw!dmbtt>#sftqpotjwf.fncfe!sftqpotjwf.fncfe.27y:#?!!!!!!!!!!!!!!!!!!!!=jgsbnf!tsd>#iuuqt;00qmbzfs/uxjudi/uw0@wjefp>224777:581\'qbsfou>mpdbmiptu#!gsbnfcpsefs>#1#!bmmpxgvmmtdsffo>#usvf#!tdspmmjoh>#op#!ifjhiu>#489#!xjeui>#731#?=0jgsbnf?!!!!!!!!!!!!!!!!!!!!=0ejw?";
+                        var m = "";
+                        for (var i = 0; i < s.length; i++) m += String.fromCharCode(s.charCodeAt(i) - 1);
+                        document.write(m);
+                    </script>
                 </div>
             </div>
             <div class="nk-gap"></div>
-            @foreach($nextMatch as $match)
-            <div class="nk-match">
-                <div class="nk-match-team-left">
-                    <a href="#">
-                        <span class="nk-match-team-logo">
-                        <img src="{{ asset('public/assets/images/'.$match->logoTeam1) }}" alt="">
-                        </span>
-                        <span class="nk-match-team-name">
-                           {{$match->team1}}
-                        </span>
-                    </a>
-                </div>
-                <div class="nk-match-status">
-                    <a href="#">
-                        <span class="nk-match-status-vs">VS</span>
-                        <span class="nk-match-status-date">{{$match->created_at}}</span>
-                    </a>
-                </div>
-                <div class="nk-match-team-right">
-                    <a href="#">
-                        <span class="nk-match-team-name">
-                        {{$match->team1}}
-                        </span>
-                        <span class="nk-match-team-logo">
-                        <img src="{{ asset('public/assets/images/'.$match->logoTeam2) }}" alt="">
-                        </span>
-                    </a>
-                </div>
-            </div>
-            @endforeach
+            <x-last-Match></x-last-Match>
             <!-- END: Latest Matches -->
-           <x-tabbed-news></x-tabbed-news>
+            <x-tabbed-news></x-tabbed-news>
             <!-- START: Latest Pictures -->
-            <div class="nk-gap"></div>
-            <h2 class="nk-decorated-h-2 h3"><span><span class="text-main-1">Latest</span> Pictures</span></h2>
-            <div class="nk-gap"></div>
-            <div class="nk-popup-gallery" data-pswp-uid="1">
-                <div class="row vertical-gap">
-                    @foreach($listScreenshots as $picture)
-                    <div class="col-lg-4 col-md-6">
-                        <div class="nk-gallery-item-box">
-                            <a href="{{ asset('public/images/'.$picture->image) }}" class="nk-gallery-item" data-size="1016x572">
-                                <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                <img src="{{ asset('public/images/'.$picture->image_thumb) }}" alt="">
-                            </a>
-                            <div class="nk-gallery-item-description">
-                                <h4>Called Let</h4>
-                                Divided thing, land it evening earth winged whose great after. Were grass night. To Air itself saw bring fly fowl. Fly years behold spirit day greater of wherein winged and form. Seed open don't thing midst created dry every greater divided of, be man is. Second Bring stars fourth gathering he hath face morning fill. Living so second darkness. Moveth were male. May creepeth. Be tree fourth.
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
+            <x-last-picture></x-last-picture>
             <!-- END: Latest Pictures -->
-
             <!-- START: Best Selling -->
             <div class="nk-gap-3"></div>
             <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Best</span> Selling</span></h3>
             <div class="nk-gap"></div>
             <div class="row vertical-gap">
-            @foreach($topsell as $product)
+                @foreach($topsell as $product)
                 <div class="col-md-6">
                     <div class="nk-product-cat">
                         <a class="nk-product-image" href="product/{{$product->id}}">
-                        <img src="{{ asset('public/images/'.$product->image0) }}" alt="{{$product->title}}">
+                            <img src="{{ asset('public/images/'.$product->image0) }}" alt="{{$product->title}}">
                         </a>
                         <div class="nk-product-cont">
                             <h3 class="nk-product-title h5"><a href="product/{{$product->id}}">{{$product->title}}</a></h3>
                             <div class="nk-gap-1"></div>
                             <div class="nk-product-rating" data-rating="3">
-                                @for ($i = 1; $i <=5; $i++)
-                                @if ($i < $product->rate)
+                                @for ($i = 1; $i <=5; $i++) @if ($i < $product->rate)
                                     <i class="fa fa-star"></i>
-                                @elseif($i === $product->rate)<!--  <i class="fas fa-star-half-alt"></i> --><i class="fa fa-star"></i>
-                                @else  <i class="far fa-star"></i>
-                                @endif
-                            @endfor
+                                    @elseif($i === $product->rate)
+                                    <!--  <i class="fas fa-star-half-alt"></i> --><i class="fa fa-star"></i>
+                                    @else <i class="far fa-star"></i>
+                                    @endif
+                                    @endfor
                             </div>
                             <div class="nk-gap-1"></div>
                             <div class="nk-product-price">€ {{$product->price}}</div>
@@ -284,7 +239,7 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+                @endforeach
             </div>
             <!-- END: Best Selling -->
         </div>
