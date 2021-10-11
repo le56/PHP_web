@@ -198,12 +198,6 @@
         CKEDITOR.replace( 'editor');
         //----------//
         var get_id_product;
-        // ajax set up
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
         // show modal delete
         $('#delete_product').on('show.bs.modal', function (event) {
             let button = $(event.relatedTarget)

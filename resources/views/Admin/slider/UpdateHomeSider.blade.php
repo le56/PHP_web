@@ -49,13 +49,7 @@
                   </div>
 
       <script>
-        // ajax set up
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
+     
         $("input[type='file']").change( function (e) {
             const file = e.target.files[0]
             const data_id = $(this).attr("data-id")

@@ -3,7 +3,7 @@
 <style>
    img {
        width: 100%;
-       border-radius: 5pxlabel  }
+       border-radius: 5px}
    .nk-gallery-item-box {
        margin-bottom: 1rem;
    }

@@ -410,6 +410,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
     <script src="{{asset('public/admin_assets/js/jquery.scrollTo.js')}}"></script>
     <!-- morris JavaScript -->
+
+    <!-- Main js -->
+    <script src="{{asset('public/admin_assets/js/main.js')}}"></script>
     <script>
         $(document).ready(function() {
             //BOX BUTTON SHOW AND CLOSE

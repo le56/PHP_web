@@ -21,7 +21,7 @@ class BlogController extends Controller
 
     // client 
     public function showBlog() {
-        return view('pages.Blog.Blog-grid');
+        return view('pages.Blog.Blog-list');
     }
    
     public function showBlogDetail($id) {
