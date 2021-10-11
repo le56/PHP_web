@@ -28,10 +28,8 @@ class HomeController extends Controller
             'postList'=>Post::orderBy('created_at', 'asc')->limit(4)->get(),
             'lastpost'=>Post::orderBy('created_at', 'desc')->limit(2)->get(),
             'topProduct'=>products::orderBy('created_at','asc')->limit(3)->get(),
-            'listScreenshots'=>Screenshots::orderBy('image','asc')->limit(6)->get(),
             'topsell'=>products::orderBy('selled','desc')->limit(4)->get(),
             'nowMatch'=>MatchNow::orderBy('created_at','asc')->limit(1)->get(),
-            'nextMatch'=>MatchNow::orderBy('created_at','desc')->limit(3)->get(),
     ],);
     }
 };

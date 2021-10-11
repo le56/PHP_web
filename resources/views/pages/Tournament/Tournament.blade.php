@@ -19,7 +19,7 @@
                 <div class="nk-match-team-left">
                     <a href="#">
                         <span class="nk-match-team-logo">
-                            <img src="assets/images/team-3.jpg" alt="">
+                            <img src="{{ asset('public/assets/images/team-3.jpg') }}" alt="">
                         </span>
                         <span class="nk-match-team-name">
                             Counted logic gaming
@@ -38,7 +38,7 @@
                             SK Telecom T1
                         </span>
                         <span class="nk-match-team-logo">
-                            <img src="assets/images/team-1.jpg" alt="">
+                            <img src="{{ asset('public/assets/images/team-1.jpg') }}" alt="">
                         </span>
                     </a>
                 </div>
@@ -51,8 +51,8 @@
 
             <!-- START: Match Description -->
             <div class="nk-gap-2"></div>
-            <h3 class="h4">Something wrong?</h3>
-            <p>He made his passenger captain of one, with four of the men; and himself, his mate, and five more, went in the other; and they contrived their business very well, for they came up to the ship about midnight. I cannot express what a satisfaction it was to me to come into my old hutch</p>
+            <!--  <h3 class="h4">Something wrong?</h3>
+            <p>He made his passenger captain of one, with four of the men; and himself, his mate, and five more, went in the other; and they contrived their business very well, for they came up to the ship about midnight. I cannot express what a satisfaction it was to me to come into my old hutch</p> -->
             <!-- END: Match Description -->
 
             <!-- START: Share -->
@@ -73,99 +73,7 @@
             <div class="nk-gap-2"></div>
             <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Latest</span> Matches</span></h3>
             <div class="nk-gap"></div>
-            <div class="nk-match">
-                <div class="nk-match-team-left">
-                    <a href="#">
-                        <span class="nk-match-team-logo">
-                            <img src="assets/images/team-1.jpg" alt="">
-                        </span>
-                        <span class="nk-match-team-name">
-                            SK Telecom T1
-                        </span>
-                    </a>
-                </div>
-                <div class="nk-match-status">
-                    <a href="#">
-                        <span class="nk-match-status-vs">VS</span>
-                        <span class="nk-match-status-date">Apr 28, 2018 8:00 pm</span>
-                        <span class="nk-match-score bg-danger">2 : 17</span>
-                    </a>
-                </div>
-                <div class="nk-match-team-right">
-                    <a href="#">
-                        <span class="nk-match-team-name">
-                            Cloud 9
-                        </span>
-                        <span class="nk-match-team-logo">
-                            <img src="assets/images/team-2.jpg" alt="">
-                        </span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="nk-match">
-                <div class="nk-match-team-left">
-                    <a href="#">
-                        <span class="nk-match-team-logo">
-                            <img src="assets/images/team-3.jpg" alt="">
-                        </span>
-                        <span class="nk-match-team-name">
-                            Counted logic gaming
-                        </span>
-                    </a>
-                </div>
-                <div class="nk-match-status">
-                    <a href="#">
-                        <span class="nk-match-status-vs">VS</span>
-                        <span class="nk-match-status-date">Apr 15, 2018 9:00 pm</span>
-                        <span class="nk-match-score bg-success">
-                            28 : 19
-                        </span>
-                    </a>
-                </div>
-                <div class="nk-match-team-right">
-                    <a href="#">
-                        <span class="nk-match-team-name">
-                            SK Telecom T1
-                        </span>
-                        <span class="nk-match-team-logo">
-                            <img src="assets/images/team-1.jpg" alt="">
-                        </span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="nk-match">
-                <div class="nk-match-team-left">
-                    <a href="#">
-                        <span class="nk-match-team-logo">
-                            <img src="assets/images/team-4.jpg" alt="">
-                        </span>
-                        <span class="nk-match-team-name">
-                            Team SoloMid
-                        </span>
-                    </a>
-                </div>
-                <div class="nk-match-status">
-                    <a href="#">
-                        <span class="nk-match-status-vs">VS</span>
-                        <span class="nk-match-status-date">Apr 28, 2018 8:00 pm</span>
-                        <span class="nk-match-score bg-dark-1">
-                            13 : 13
-                        </span>
-                    </a>
-                </div>
-                <div class="nk-match-team-right">
-                    <a href="#">
-                        <span class="nk-match-team-name">
-                            SK Telecom T1
-                        </span>
-                        <span class="nk-match-team-logo">
-                            <img src="assets/images/team-1.jpg" alt="">
-                        </span>
-                    </a>
-                </div>
-            </div>
+            <x-last-Match></x-last-Match>
             <!-- END: Latest Matches -->
 
         </div>
