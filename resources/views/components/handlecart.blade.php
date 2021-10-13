@@ -15,13 +15,13 @@ $('#btn-addToCart-detailsPage').click(function(e){
 $('#list-cart-cartPage').on('click',"a.icon-cart-remove",function (e) {
     e.preventDefault();
     let id = $(this).attr("data-delete-cart");
-    deleteFromCart(id,true)
+    deleteFromCart(id,true,null)
 })
 // delete cart header
 $("#list-cart-header").on("click", "a.nk-cart-remove-item", function (e) {
     e.preventDefault();
     let id = $(this).attr("data-delete-cart-header");
-    deleteFromCart(id,Boolean($('#cartPage')))
+    deleteFromCart(id,Boolean($('#cartPage')),Boolean($('#checkoutPage')))
 });
 // update quantity cart
 $('input[data-input-updateCart]').change(function (e) {
@@ -70,7 +70,7 @@ function createOrUpdateCart(quantity = 1,element,attrData,checkIsCartPage) {
     });
 }
 // func handle delete from cart
-function deleteFromCart(id,checkIsCartPage) {
+function deleteFromCart(id,checkIsCartPage,checkIsOrderPage) {
     $.ajax({
         type: "DELETE",
         url: `{{asset("/cart")}}/${id}`,
@@ -80,6 +80,10 @@ function deleteFromCart(id,checkIsCartPage) {
                 return parseInt(currentcontent) - 1;
             });
             if(checkIsCartPage) {
+                 $(`tr[item-delete-cart='${id}']`).remove();
+                 setTotalPrice(data.totalPrice)
+            }
+            if(checkIsOrderPage) {
                  $(`tr[item-delete-cart='${id}']`).remove();
                  setTotalPrice(data.totalPrice)
             }

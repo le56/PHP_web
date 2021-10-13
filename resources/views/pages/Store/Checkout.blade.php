@@ -1,5 +1,7 @@
 @extends('welcome')
 @section('checkout')
+
+<input type="hidden" id="checkoutPage">
 <div class="nk-gap-1"></div>
 <div class="container">
     <ul class="nk-breadcrumbs">
@@ -113,6 +115,12 @@
 
         <!-- START: Order Products -->
         <div class="nk-gap-3"></div>
+          @if (session('status'))
+            <div class="alert <?php if(session('error')) echo 'alert-danger'; else echo 'alert-success';?>">
+                    {{ session('status') }}
+                </div>
+            @endif
+        <div class="nk-gap-3"></div>
         <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Your</span> Order</span></h3>
         <div class="nk-gap"></div>
         <div class="table-responsive">
@@ -125,30 +133,25 @@
                 </thead>
                 <tbody>
                     
-                        <tr>
+                       
+                        @foreach($carts as $item)
+                        <tr item-delete-cart='{{$item->id}}'>
                             <td class="nk-product-cart-title">
-                                However, I have reason &times; 1
+                                {{$item->product->title}} &times; {{$item->quantity}}
                             </td>
                             <td class="nk-product-cart-total">
-                                € 32.00
+                                $ {{$item->product->price}}
                             </td>
                         </tr>
+                        @endforeach
                     
-                        <tr>
-                            <td class="nk-product-cart-title">
-                                She was bouncing &times; 1
-                            </td>
-                            <td class="nk-product-cart-total">
-                                € 20.00
-                            </td>
-                        </tr>
                     
                     <tr class="nk-store-cart-totals-subtotal">
                         <td>
                             Subtotal
                         </td>
-                        <td>
-                            € 52.00
+                        <td id="subTotal">
+                        $ {{$totalPrice}}
                         </td>
                     </tr>
                     <tr class="nk-store-cart-totals-shipping">
@@ -163,8 +166,8 @@
                         <td>
                             Total
                         </td>
-                        <td>
-                            € 52.00
+                        <td id="totalPrice">
+                            $ {{$totalPrice}}
                         </td>
                     </tr>
                 </tbody>
@@ -173,8 +176,13 @@
         <!-- END: Order Products -->
 
         <div class="nk-gap-2"></div>
-        <a class="nk-btn nk-btn-rounded nk-btn-color-main-1" href="#">Place Order</a>
+        <form action="{{route('paypal_call')}}" method="post">
+        @csrf
+        <button type="submit" class="nk-btn nk-btn-rounded nk-btn-color-main-1" >Place Order</button>
+        </form>
     </div>
 </div>
 <div class="nk-gap-2"></div>
+    
+                    
 @endsection

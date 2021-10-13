@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\products;
 use App\Models\category;
 use App\Models\comment;
 use App\Models\Store_gallery;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class StoreController extends Controller
 {
@@ -83,6 +86,8 @@ class StoreController extends Controller
     }
    // show checkout page
     public function checkout(){
-        return view('pages.Store.Checkout');
+        $carts = Cart::where("email",Auth::user()->email)->get();
+        $totalPrice =  Cart::where("email",Auth::user()->email)->sum("totalPrice");
+        return view('pages.Store.Checkout',["carts"=>$carts,"totalPrice"=>$totalPrice]);
     }
 }

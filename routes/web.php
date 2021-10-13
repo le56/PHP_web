@@ -30,7 +30,7 @@ Route::get('/', [HomeController::class, 'index']);
 //Store Navbar Controller
 
 Route::get('/store', [StoreController::class, 'index']);
-Route::get('/checkout', [StoreController::class, 'checkout']);
+Route::get('/checkout', [StoreController::class, 'checkout'])->middleware("authen");
 Route::get('/catalog', [StoreController::class, 'catalog']);
 Route::get('product/{id}', [StoreController::class, 'product']);
 // handle comment
@@ -131,3 +131,8 @@ Route::get("/user-logout", function (){
     Auth::logout();
     return redirect()->back();
 });
+
+// paypal route 
+Route::post('/paypal',[\App\Http\Controllers\PaypalController::class,'index'])->name('paypal_call')->middleware('authen');
+Route::get('/paypal/return',[\App\Http\Controllers\PaypalController::class,'paypalReturn'])->name('paypal_return');
+Route::get('/paypal/cancel',[\App\Http\Controllers\PaypalController::class,'paypalCancel'])->name('paypal_cancel');
