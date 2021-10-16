@@ -176,52 +176,34 @@
 
                     <ul class="nk-nav nk-nav-right d-none d-lg-table-cell" data-nav-mobile="#nk-nav-mobile">
                         <li class=" nk-drop-item">
-                            <a href="{{URL::to('/blog')}}">
+                            <a href="#">
                                 Blog
 
                             </a>
-                            <!-- <ul class="dropdown">
+                            <ul class="dropdown">
 
                                 <li>
                                     <a href="news.html">
                                         News
-
                                     </a>
                                 </li>
-                                <li class=" nk-drop-item">
-                                    <a href="blog-grid.html">
-                                        Blog With Sidebar
-
-                                    </a>
-                                    <ul class="dropdown">
-
+                                
                                         <li>
-                                            <a href="blog-grid.html">
+                                            <a href="{{URL::to('/blog/grid')}}">
                                                 Blog Grid
 
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="blog-list.html">
+                                            <a href="{{URL::to('/blog')}}">
                                                 Blog List
 
                                             </a>
                                         </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="blog-fullwidth.html">
-                                        Blog Fullwidth
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="blog-article.html">
-                                        Blog Article
-
-                                    </a>
-                                </li>
-                            </ul> -->
+                                  
+                                
+                            
+                            </ul>
                         </li>
                         <li>
                             <a href="{{URL::to('/gallery')}}">
