@@ -129,6 +129,13 @@
 
 
                         <li>
+                            @if (Auth::check())
+                            <a href="{{  asset ('/user-logout')}}"><img src="{{Auth::user()->avatar}}" style="width:30px;height:30px;border-radius: 50%;object-fit: cover;" alt=""></a>
+                            @else
+                            <a href="#" id="btn-login" data-toggle="modal" data-target="#modalLogin">
+                                <span class="fa fa-user"></span>
+                            </a>
+                            @endif
                         @if (Auth::check())
                             <div  id="header-user-option"><img src="{{Auth::user()->avatar}}"  >
                                 <div class="nk-cart-dropdown" >
@@ -148,7 +155,7 @@
                         </li>
 
 
-                      <x-cart-header />
+                        <x-cart-header />
                     </ul>
                 </div>
             </div>
@@ -204,6 +211,21 @@
                                 
                             
                             </ul>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="blog-fullwidth.html">
+                                        Blog Fullwidth
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="blog-article.html">
+                                        Blog Article
+
+                                    </a>
+                                </li>
+                            </ul> 
                         </li>
                         <li>
                             <a href="{{URL::to('/gallery')}}">
@@ -248,7 +270,7 @@
                                         Store
                                     </a>
                                 </li>
-                               
+
                                 <li>
                                     <a href="{{URL::to('/catalog')}}">
                                         Catalog
@@ -300,7 +322,7 @@
         <div class="nano">
             <div class="nano-content">
                 <a href="index.html" class="nk-nav-logo">
-                    <img src="assets/images/logo.png" alt="" width="120">
+                    <img src="{{asset('public/assets/images/logo.png')}}" alt="" width="120">
                 </a>
                 <div class="nk-navbar-mobile-content">
                     <ul class="nk-nav">
@@ -366,7 +388,7 @@
                             </div>
                         </div>
                     </div>
-                 <x-post-component></x-post-component>
+                    <x-post-component></x-post-component>
                 </div>
                 <div class="nk-gap-3"></div>
             </div>
@@ -417,7 +439,7 @@
     </div>
     <!-- END: Search Modal -->
     @unless (Auth::check())
-   
+
     <!-- START: Login Modal -->
     <div class="nk-modal modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
@@ -541,9 +563,9 @@
     <script src="{{asset('public/assets/js/goodgames-init.js')}}"></script>
     <script src="{{asset('public/assets/js/main.js')}}"></script>
     <!-- Script handle cart -->
-    <x-handlecart/>
+    <x-handlecart />
 
-    <!-- END: Scripts -->   
+    <!-- END: Scripts -->
 </body>
 
 </html>

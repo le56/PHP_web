@@ -19,10 +19,10 @@
                 <div class="nk-match-team-left">
                     <a href="#">
                         <span class="nk-match-team-logo">
-                            <img src="{{ asset('public/assets/images/team-3.jpg') }}" alt="">
+                            <img src="{{ asset('public/assets/images/'.$livestream->logoTeam1) }}">
                         </span>
                         <span class="nk-match-team-name">
-                            Counted logic gaming
+                            {{$livestream->team1}}
                         </span>
                     </a>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="nk-match-team-right">
                     <a href="#">
                         <span class="nk-match-team-name">
-                            SK Telecom T1
+                        {{$livestream->team2}}
                         </span>
                         <span class="nk-match-team-logo">
                             <img src="{{ asset('public/assets/images/team-1.jpg') }}" alt="">
@@ -45,7 +45,7 @@
             </div>
 
             <div class="responsive-embed responsive-embed-16x9">
-                <iframe src="https://player.twitch.tv/?channel=fextralife&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+                <iframe src="{{$livestream->link}}" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
             </div>
             <!-- END: Now Playing -->
 

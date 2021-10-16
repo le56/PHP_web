@@ -8,7 +8,7 @@
 <div class="col-lg-4 nk-sidebar-sticky-parent">
     <aside class="nk-sidebar nk-sidebar-right nk-sidebar-sticky">
         <div class="">
-            <div class="nk-widget">
+            <!-- <div class="nk-widget">
                 <div class="nk-widget-content">
                     <form action="#" class="nk-form nk-form-style-1" novalidate="novalidate">
                         <div class="input-group">
@@ -17,7 +17,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> -->
             <div class="nk-widget nk-widget-highlighted">
                 <h4 class="nk-widget-title"><span><span class="text-main-1">We</span> Are Social</span></h4>
                 <div class="nk-widget-content">
@@ -97,7 +97,7 @@
                     </div>
                 </div>
             </div>
-            <div class="nk-widget nk-widget-highlighted">
+          <!--   <div class="nk-widget nk-widget-highlighted">
                 <h4 class="nk-widget-title"><span><span class="text-main-1">Next</span> Matches</span></h4>
                 <div class="nk-widget-content">
                     @foreach($nextMatch as $match)
@@ -124,16 +124,16 @@
                     </div>
                     @endforeach
                 </div>
-            </div>
+            </div> -->
             <div class="nk-widget nk-widget-highlighted">
                 <h4 class="nk-widget-title"><span><span class="text-main-1">Most</span> Popular</span></h4>
                 <div class="nk-widget-content">
                     @foreach($topProduct as $Product)
                     <div class="nk-widget-post">
-                        <a href="store-product.html" class="nk-post-image">
+                        <a href="{{URL::to('/product/'.$Product->id)}}" class="nk-post-image">
                             <img src="{{ asset('public/images/'.$Product->image0) }}" alt="However, I have reason">
                         </a>
-                        <h3 class="nk-post-title"><a href="store-product.html">{{$Product->title}}</a></h3>
+                        <h3 class="nk-post-title"><a href="{{URL::to('/product/'.$Product->id)}}">{{$Product->title}}</a></h3>
                         <div class="nk-product-rating" data-rating="2.5">
                             @for ($i = 1; $i <=5; $i++) @if ($i < $Product->rate)
                                 <i class="fa fa-star"></i>

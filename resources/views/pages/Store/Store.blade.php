@@ -155,6 +155,7 @@
 
             @foreach($products as $product)
 
+            
             <div class="col-lg-6">
                 <div class="nk-product-cat-2">
                     <a class="nk-product-image" href="product/{{$product->id}}">
