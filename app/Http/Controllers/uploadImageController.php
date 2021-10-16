@@ -23,28 +23,33 @@ class uploadImageController extends Controller
         $path = public_path()."\images\\".$request->filenamedel;
         if(file_exists($path)) unlink($path);
       }
+
         $columnImage = $request->imagestt;
         $image = $request->file("file");
         $imagename = $request->getOriginalName;
         $image->move(public_path("images"),$imagename);
+        // handle update  screen
         if($request->type === "screen") {
-        $screen = Screenshots::find($request->idScreen);
-        $screen->$columnImage = $imagename;
-        $screen->save();
-        return $imagename;
+          $screen = Screenshots::find($request->idScreen);
+          $screen->$columnImage = $imagename;
+          $screen->save();
+          return $imagename;
         }
+        // handle update slider home
         if($request->type === "slider_home") {
           $screen = Home_slider::find($request->idSlider);
           $screen->$columnImage = $imagename;
           $screen->save();
           return $imagename;
          }
+         // handle update store gallery
         if($request->type === "storeGallery") {
           $screen = Store_gallery::find($request->idStoreGallery);
           $screen->$columnImage = $imagename;
           $screen->save();
           return $imagename;
         }
+        // handle update image product
         $updateProduct = products::find($request->idProduct);
         $updateProduct->$columnImage = $imagename;
         $updateProduct->save();

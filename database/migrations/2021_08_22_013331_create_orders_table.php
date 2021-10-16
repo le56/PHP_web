@@ -14,22 +14,12 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->increments('id')->unique();
-            $table->integer('idProduct');
-            $table->integer('userID');
-            $table->string('firstName');
-            $table->string('lastName');
-            $table->string('address');
-            $table->string('companyName');
-            $table->string('city');
-            $table->string('email');
-            $table->integer('phone');
-            $table->string('state');
-            $table->string('postCode');
-            $table->string('country');
-            $table->string('note');
-            $table->integer('amount');
-            $table->float('totalPrice');
+            $table->id();
+            $table->integer("idProduct");
+            $table->string("email");
+            $table->integer("quantity");
+            $table->float("totalPrice");
+            $table->string("status");
             $table->timestamps();
         });
     }

@@ -33,12 +33,12 @@
                 <!-- START: Post Text -->
                 <div class="nk-post-text mt-0">
                     <div class="nk-post-img">
-                        <img src="public/assets/images/post-2.jpg" alt="Grab your sword and fight the Horde">
+                        <img src="{{asset('public/assets/images/post-2.jpg')}}" alt="Grab your sword and fight the Horde">
                     </div>
                     <div class="nk-gap-1"></div>
                     <h1 class="nk-post-title h4">Grab your sword and fight the Horde</h1>
                     <div class="nk-post-by">
-                        <img src="public/assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in Sep 5, 2018
+                        <img src="{{asset('public/assets/images/avatar-2.jpg')}}" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in Sep 5, 2018
 
                         
                         <div class="nk-post-categories">
@@ -64,7 +64,7 @@
 
 <div class="nk-gap"></div>
 
-<img class="float-left mt-0" src="public/assets/images/post-inner-img.jpg" alt="">
+<img class="float-left mt-0" src="{{asset('public/assets/images/post-inner-img')}}.jpg" alt="">
 <h3 class="h4">Now the races of these two have been</h3>
 
 <p>I confess this side of the country was much pleasanter than mine; but yet I had not the least inclination to remove, for as I was fixed in my habitation it became natural to me, and I seemed all the while I was here to be as it were upon a journey, and from home. However, I travelled along the shore she clutched the matron by the arm, and forcing her into a chair by the bedside, was about to speak, wh en looking round, she caught sight of the two old women bending forward in the attitude of eager list eners.They belong to the old gentleman, said Oliver, wringing his hands; "to the good, kind, old gentle man who took me into his house, and had me nursed, when I was near dying of the fever . Oh, pray send them back; send him back the books and money</p>
@@ -105,7 +105,7 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="public/assets/images/post-3-mid.jpg" alt="We found a witch! May we burn her?">
+                                <img src="{{asset('public/assets/images/post-3-mid')}}.jpg" alt="We found a witch! May we burn her?">
                                 <span class="nk-post-comments-count">7</span>
                                 
                                 <span class="nk-post-categories">
@@ -123,7 +123,7 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="public/assets/images/post-4-mid.jpg" alt="For good, too though, in consequence">
+                                <img src="{{asset('public/assets/images/post-4-mid')}}.jpg" alt="For good, too though, in consequence">
                                 <span class="nk-post-comments-count">23</span>
                                 
                                 <span class="nk-post-categories">
@@ -148,7 +148,7 @@
                     <!-- START: Comment -->
                     <div class="nk-comment">
                         <div class="nk-comment-meta">
-                            <img src="public/assets/images/avatar-2.jpg" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in 20 September, 2018
+                            <img src="{{asset('public/assets/images/avatar-2.jpg')}}" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in 20 September, 2018
                             <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 float-right">Reply</a>
                         </div>
                         <div class="nk-comment-text">
@@ -158,7 +158,7 @@
                         <!-- START: Comment -->
                         <div class="nk-comment">
                             <div class="nk-comment-meta">
-                                <img src="public/assets/images/avatar-1.jpg" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">Hitman</a> in 20 September, 2018
+                                <img src="{{asset('public/assets/images/avatar-1.jpg')}}" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">Hitman</a> in 20 September, 2018
                                 <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 float-right">Reply</a>
                             </div>
                             <div class="nk-comment-text">
@@ -172,7 +172,7 @@
                     <!-- START: Comment -->
                     <div class="nk-comment">
                         <div class="nk-comment-meta">
-                            <img src="public/assets/images/avatar-3.jpg" alt="Wolfenstein" class="rounded-circle" width="35"> by <a href="#">Wolfenstein</a> in 21 September, 2018
+                            <img src="{{asset('public/assets/images/avatar-3.jpg')}}" alt="Wolfenstein" class="rounded-circle" width="35"> by <a href="#">Wolfenstein</a> in 21 September, 2018
                             <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 float-right">Reply</a>
                         </div>
                         <div class="nk-comment-text">
