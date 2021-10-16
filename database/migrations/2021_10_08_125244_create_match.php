@@ -19,6 +19,7 @@ class CreateMatch extends Migration
             $table->string('team2');
             $table->string('logoTeam1');
             $table->string('logoTeam2');
+            $table->string('link');
             $table->timestamps();
         });
     }

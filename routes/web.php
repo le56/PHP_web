@@ -45,6 +45,7 @@ Route::get('/gallery', [GalleryController::class, 'index']);
 //Tournament Navbar Controller
 
 Route::get('/tournament', [TournamentsController::class, 'index']);
+Route::get('/tournament/{id}', [TournamentsController::class, 'tournament']);
 Route::get('/teams', [TournamentsController::class, 'team']);
 Route::get('/teammate', [TournamentsController::class, 'teammate']);
 

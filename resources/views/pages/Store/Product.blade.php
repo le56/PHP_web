@@ -325,11 +325,11 @@
                   @foreach ($relativeProducts as $item)
                   <div class="col-md-6">
                       <div class="nk-product-cat">
-                          <a class="nk-product-image" href="/product/{{$item->id}}">
+                          <a class="nk-product-image" href="{{URL::to('/product/'.$item->id)}}">
                               <img src="{{asset('public/images/')}}/{{$item->image0}}" alt="She gave my mother">
                           </a>
                           <div class="nk-product-cont">
-                              <h3 class="nk-product-title h5"><a href="store-product.html">{{$item->title}}</a></h3>
+                              <h3 class="nk-product-title h5"><a  href="{{URL::to('/product/'.$item->id)}}">{{$item->title}}</a></h3>
                               <div class="nk-gap-1"></div>
                               <div class="nk-product-rating">
                               @for ($i = 1; $i <=5; $i++)

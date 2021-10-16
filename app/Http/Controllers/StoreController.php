@@ -18,6 +18,7 @@ class StoreController extends Controller
         }
         return view('pages.Store.Store',['ListImageXS'=>$allProduct,"galleries"=>Store_gallery::all(),'products'=>products::all()]);
     }
+    
     public function product($id) {
         $product = products::where('id' , $id) ->first();
         $comments = comment::where("idProduct",$id)->orderByDesc('created_at')->get();
@@ -69,7 +70,7 @@ class StoreController extends Controller
           $queries["sort"] = $request->sort;
       }
 
-      $product = $product->paginate(3)->appends($queries);
+      $product = $product->paginate(6)->appends($queries);
 
       return view('pages.Store.Catalog',["products" => $product,"categories" => category::all()]);
 

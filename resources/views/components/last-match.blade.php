@@ -11,7 +11,7 @@
         </a>
     </div>
     <div class="nk-match-status">
-        <a href="#">
+        <a href="{{URL::to('/tournament/'.$match->id)}}">
             <span class="nk-match-status-vs">VS</span>
             <span class="nk-match-status-date">{{$match->created_at}}</span>
         </a>
@@ -19,7 +19,7 @@
     <div class="nk-match-team-right">
         <a href="#">
             <span class="nk-match-team-name">
-                {{$match->team1}}
+                {{$match->team2}}
             </span>
             <span class="nk-match-team-logo">
                 <img src="{{ asset('public/assets/images/'.$match->logoTeam2) }}" alt="">
