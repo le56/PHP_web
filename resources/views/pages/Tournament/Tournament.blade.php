@@ -11,11 +11,12 @@
 </div>
 <div class="nk-gap-1"></div>
 <!-- END: Breadcrumbs -->
+<div id="twitch-embed"></div>
 <div class="container">
     <div class="row vertical-gap">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
             <!-- START: Now Playing -->
-            <div class="nk-match">
+            <div class="nk-match" style="max-width: 1110px;">
                 <div class="nk-match-team-left">
                     <a href="#">
                         <span class="nk-match-team-logo">
@@ -35,20 +36,34 @@
                 <div class="nk-match-team-right">
                     <a href="#">
                         <span class="nk-match-team-name">
-                        {{$livestream->team2}}
+                            {{$livestream->team2}}
                         </span>
                         <span class="nk-match-team-logo">
-                            <img src="{{ asset('public/assets/images/team-1.jpg') }}" alt="">
+                            <img src="{{ asset('public/assets/images/'.$livestream->logoTeam2) }}">
                         </span>
                     </a>
                 </div>
             </div>
-
-            <div class="responsive-embed responsive-embed-16x9">
-                <iframe src="{{$livestream->link}}" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
-            </div>
+            <!-- Load the Twitch embed JavaScript file -->
+            <script src="https://embed.twitch.tv/embed/v1.js"></script>
+            <script type="text/javascript">
+                new Twitch.Embed("twitch-embed", {
+                    width: "100%",
+                    height: 480,
+                    channel: "{{$livestream->link}}",
+                    theme: "dark",
+                    muted: true,
+                    // Only needed if this page is going to be embedded on other websites
+                    parent: ["embed.example.com", "othersite.example.com"]
+                });
+            </script>
             <!-- END: Now Playing -->
-
+            <style>
+                #twitch-embed {
+                    max-width: 1110px;
+                    margin: 0 auto;
+                }
+            </style>
             <!-- START: Match Description -->
             <div class="nk-gap-2"></div>
             <!--  <h3 class="h4">Something wrong?</h3>
@@ -77,9 +92,12 @@
             <!-- END: Latest Matches -->
 
         </div>
-        <x-side-bar></x-side-bar>
     </div>
 </div>
+<div class="container">
+    <ul class="nk-breadcrumbs">
 
+    </ul>
+</div>
 <div class="nk-gap-2"></div>
 @endsection

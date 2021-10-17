@@ -60,28 +60,32 @@
             position: relative;
             cursor: pointer;
         }
+
         #header-user-option:hover .nk-cart-dropdown {
             visibility: visible;
             opacity: 1;
         }
-        #header-user-option img{
-            width:30px;
-            height:30px;
+
+        #header-user-option img {
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             object-fit: cover;
         }
+
         #header-user-option .nk-cart-dropdown {
-            position:absolute;
+            position: absolute;
             top: 105%;
-            right:0;
-            padding :1rem;
+            right: 0;
+            padding: 1rem;
             width: fit-content;
         }
+
         #header-user-option .nk-cart-dropdown a {
             display: block;
         }
     </style>
-   
+
 </head>
 
 
@@ -129,32 +133,29 @@
 
 
                         <li>
-<<<<<<< HEAD
-                            @if (Auth::check())
+                      <!--       @if (Auth::check())
                             <a href="{{  asset ('/user-logout')}}"><img src="{{Auth::user()->avatar}}" style="width:30px;height:30px;border-radius: 50%;object-fit: cover;" alt=""></a>
                             @else
                             <a href="#" id="btn-login" data-toggle="modal" data-target="#modalLogin">
                                 <span class="fa fa-user"></span>
                             </a>
-                            @endif
-=======
-                        @if (Auth::check())
-                            <div  id="header-user-option"><img src="{{Auth::user()->avatar}}"  >
-                                <div class="nk-cart-dropdown" >
-                                        <a href="{{  asset ('/user-logout')}}" class="
+                            @endif -->
+                            @if (Auth::check())
+                            <div id="header-user-option"><img src="{{Auth::user()->avatar}}">
+                                <div class="nk-cart-dropdown">
+                                    <a href="{{  asset ('/user-logout')}}" class="
                                                 nk-btn
                                                 nk-btn-rounded
                                                 nk-btn-color-main-1
                                                 nk-btn-hover-color-white
-                                            ">Log out</a>
+                                    ">Log out</a>
                                 </div>
-                        </div>
-                        @else 
-                        <a href="#" id="btn-login" data-toggle="modal" data-target="#modalLogin">
-                            <span class="fa fa-user"></span>
-                        </a>
-                        @endif
->>>>>>> f488223616082867e281c811faae7399575214b3
+                            </div>
+                            @else
+                            <a href="#" id="btn-login" data-toggle="modal" data-target="#modalLogin">
+                                <span class="fa fa-user"></span>
+                            </a>
+                            @endif
                         </li>
 
 
@@ -231,7 +232,7 @@
 
                                     </a>
                                 </li>
-                            </ul> 
+                            </ul>
                         </li>
                         <li>
                             <a href="{{URL::to('/gallery')}}">
