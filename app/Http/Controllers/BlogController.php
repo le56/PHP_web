@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -20,8 +21,12 @@ class BlogController extends Controller
 
 
     // client 
-    public function showBlog() {
-        return view('pages.Blog.Blog-list');
+    public function showBlog(Request $req) {
+        return view('pages.Blog.Blog-list',["blogs" => $this->paginate($req,6)]);
+    }
+
+    public function showBlogGrid(Request $req) {
+        return view('pages.Blog.Blog-grid',["blogs" => $this->paginate($req,6)]);
     }
    
     public function showBlogDetail($id) {
@@ -31,6 +36,17 @@ class BlogController extends Controller
     public function getOnePost($id) {
         $post = post::where('id', $id)->first();
         return $post;
+    }
+
+    public function paginate($req,$number) {
+        $blog = new Blog;
+        $queries = [];
+        if($req->has('search')) {
+            $blog = $blog->where('title','like','%'.$req->search.'%');
+            $queries['search'] = $req->search;
+        }
+        $blog = $blog->paginate($number)->appends($queries);
+        return $blog;
     }
 
     // admin

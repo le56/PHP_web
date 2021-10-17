@@ -72,7 +72,6 @@
             border-radius: 50%;
             object-fit: cover;
         }
-
         #header-user-option .nk-cart-dropdown {
             position: absolute;
             top: 105%;
@@ -148,7 +147,11 @@
                                                 nk-btn-rounded
                                                 nk-btn-color-main-1
                                                 nk-btn-hover-color-white
+<<<<<<< HEAD
                                     ">Log out</a>
+=======
+">Log out</a>
+>>>>>>> 7c0d6891b569bbe4b62f089dbeb6a92be34587bb
                                 </div>
                             </div>
                             @else
@@ -207,13 +210,13 @@
                                     <ul class="dropdown">
 
                                         <li>
-                                            <a href="blog-grid.html">
+                                            <a href="{{URL::to('/blog/grid')}}">
                                                 Blog Grid
 
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="blog-list.html">
+                                            <a href="{{URL::to('/blog/')}}">
                                                 Blog List
 
                                             </a>
@@ -231,7 +234,11 @@
                                         Blog Article
 
                                     </a>
+<<<<<<< HEAD
                                 </li>
+=======
+</li>
+>>>>>>> 7c0d6891b569bbe4b62f089dbeb6a92be34587bb
                             </ul>
                         </li>
                         <li>
@@ -308,7 +315,7 @@
                     <ul class="nk-nav nk-nav-right nk-nav-icons">
 
                         <li class="single-icon d-lg-none">
-                            <a href="#" class="no-link-effect" data-nav-toggle="#nk-nav-mobile">
+<a href="#" class="no-link-effect" data-nav-toggle="#nk-nav-mobile">
                                 <span class="nk-icon-burger">
                                     <span class="nk-t-1"></span>
                                     <span class="nk-t-2"></span>
@@ -383,7 +390,7 @@
                                         </div>
                                     </div>
                                     <div class="nk-gap"></div>
-                                    <textarea class="form-control required" name="message" rows="5" placeholder="Message *"></textarea>
+<textarea class="form-control required" name="message" rows="5" placeholder="Message *"></textarea>
                                     <div class="nk-gap-1"></div>
                                     <button class="nk-btn nk-btn-rounded nk-btn-color-white">
                                         <span>Send</span>
@@ -438,7 +445,7 @@
 
                     <div class="nk-gap-1"></div>
                     <form action="#" class="nk-form nk-form-style-1">
-                        <input type="text" value="" name="search" class="form-control" placeholder="Type something and press Enter" autofocus>
+<input type="text" value="" name="search" class="form-control" placeholder="Type something and press Enter" autofocus>
                     </form>
                 </div>
             </div>
@@ -494,7 +501,7 @@
                                 </div>
                                 <div class="mnt-5">
                                     <small><a href="#">Not a member? Sign up</a></small>
-                                </div>
+</div>
                             </div>
                         </div>
                     </form>
@@ -567,7 +574,7 @@
 
     <!-- GoodGames -->
     <script src="{{asset('public/assets/js/goodgames.min.js')}}"></script>
-    <script src="{{asset('public/assets/js/goodgames-init.js')}}"></script>
+<script src="{{asset('public/assets/js/goodgames-init.js')}}"></script>
     <script src="{{asset('public/assets/js/main.js')}}"></script>
     <!-- Script handle cart -->
     <x-handlecart />
