@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MatchNow;
+use App\Models\teams;
 use Goutte\Client;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,8 @@ class TournamentsController extends Controller
     }
     public function team()
     {
-        return view('pages.Tournament.Teams');
+        $teams = teams::all();
+        return view('pages.Tournament.Teams',['teams'=>$teams]);
     }
     public function teammate()
     {

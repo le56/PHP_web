@@ -74,8 +74,7 @@
             height: 30px;
             border-radius: 50%;
             object-fit: cover;
-}
-
+        }
         #header-user-option .nk-cart-dropdown {
             position: absolute;
             top: 105%;
@@ -151,7 +150,11 @@
                                                 nk-btn-rounded
                                                 nk-btn-color-main-1
                                                 nk-btn-hover-color-white
+<<<<<<< HEAD
+                                    ">Log out</a>
+=======
 ">Log out</a>
+>>>>>>> 7c0d6891b569bbe4b62f089dbeb6a92be34587bb
                                 </div>
                             </div>
                             @else
@@ -234,7 +237,11 @@
                                         Blog Article
 
                                     </a>
+<<<<<<< HEAD
+                                </li>
+=======
 </li>
+>>>>>>> 7c0d6891b569bbe4b62f089dbeb6a92be34587bb
                             </ul>
                         </li>
                         <li>

@@ -22,92 +22,28 @@
 </div>
 <div class="nk-gap-1"></div>
 <!-- END: Breadcrumbs -->
-
-
-
-
 <div class="container">
     <div class="row vertical-gap">
         <div class="col-lg-8">
 
             <!-- START: Teams -->
+            @foreach($teams as $team)
             <div class="nk-team">
-                <div class="nk-team-logo">
-                    <img src="assets/images/team-1-lg.jpg" alt="">
+                <div class="nk-team-logo" style="margin: auto 0;">
+                    <img src="{{$team->logo}}" alt="">
                 </div>
                 <div class="nk-team-cont">
-                    <h3 class="h5 mb-20"><span class="text-main-1">Team:</span> SK Telecom T1</h3>
+                    <h3 class="h5 mb-20"><span class="text-main-1">Team:</span>{{$team->teamName}}</h3>
                     <h4 class="h6 mb-5">Members:</h4>
-                    <a href="tournaments-teammate.html">Duke</a>, <a href="tournaments-teammate.html">Bangi</a>, <a href="tournaments-teammate.html">Faker</a>, <a href="tournaments-teammate.html">Bang</a>, <a href="tournaments-teammate.html">Wolf</a>
-
-                    <div class="nk-team-photo" style="background-image: url('assets/images/team-photo.png');"></div>
+                    <a href="tournaments-teammate.html">{{$team->phayerID1}}</a>, 
+                    <a href="tournaments-teammate.html">{{$team->phayerID2}}</a>, 
+                    <a href="tournaments-teammate.html">{{$team->phayerID3}}</a>, 
+                    <a href="tournaments-teammate.html">{{$team->phayerID4}}</a>, 
+                    <a href="tournaments-teammate.html">{{$team->phayerID5}}</a>
+                    <div class="nk-team-photo"><img src="{{$team->banner}}" alt="" style="width: auto; height: 100%; position: absolute; right: 0;"></div>
                 </div>
             </div>
-
-            <div class="nk-team">
-                <div class="nk-team-logo">
-                    <img src="assets/images/team-2-lg.jpg" alt="">
-                </div>
-                <div class="nk-team-cont">
-                    <h3 class="h5 mb-20"><span class="text-main-1">Team:</span> Team Solomid</h3>
-                    <h4 class="h6 mb-5">Members:</h4>
-                    <a href="tournaments-teammate.html">Duke</a>, <a href="tournaments-teammate.html">Bangi</a>, <a href="tournaments-teammate.html">Faker</a>, <a href="tournaments-teammate.html">Bang</a>, <a href="tournaments-teammate.html">Wolf</a>
-
-                    <div class="nk-team-photo" style="background-image: url('assets/images/team-photo.png');"></div>
-                </div>
-            </div>
-
-            <div class="nk-team">
-                <div class="nk-team-logo">
-                    <img src="assets/images/team-3-lg.jpg" alt="">
-                </div>
-                <div class="nk-team-cont">
-                    <h3 class="h5 mb-20"><span class="text-main-1">Team:</span> Cloud 9</h3>
-                    <h4 class="h6 mb-5">Members:</h4>
-                    <a href="tournaments-teammate.html">Duke</a>, <a href="tournaments-teammate.html">Bangi</a>, <a href="tournaments-teammate.html">Faker</a>, <a href="tournaments-teammate.html">Bang</a>, <a href="tournaments-teammate.html">Wolf</a>
-
-                    <div class="nk-team-photo" style="background-image: url('assets/images/team-photo.png');"></div>
-                </div>
-            </div>
-
-            <div class="nk-team">
-                <div class="nk-team-logo">
-                    <img src="assets/images/team-4-lg.jpg" alt="">
-                </div>
-                <div class="nk-team-cont">
-                    <h3 class="h5 mb-20"><span class="text-main-1">Team:</span> Counter Logic Gaming</h3>
-                    <h4 class="h6 mb-5">Members:</h4>
-                    <a href="tournaments-teammate.html">Duke</a>, <a href="tournaments-teammate.html">Bangi</a>, <a href="tournaments-teammate.html">Faker</a>, <a href="tournaments-teammate.html">Bang</a>, <a href="tournaments-teammate.html">Wolf</a>
-
-                    <div class="nk-team-photo" style="background-image: url('assets/images/team-photo.png');"></div>
-                </div>
-            </div>
-
-            <div class="nk-team">
-                <div class="nk-team-logo">
-                    <img src="assets/images/team-1-lg.jpg" alt="">
-                </div>
-                <div class="nk-team-cont">
-                    <h3 class="h5 mb-20"><span class="text-main-1">Team:</span> fnatic</h3>
-                    <h4 class="h6 mb-5">Members:</h4>
-                    <a href="tournaments-teammate.html">Duke</a>, <a href="tournaments-teammate.html">Bangi</a>, <a href="tournaments-teammate.html">Faker</a>, <a href="tournaments-teammate.html">Bang</a>, <a href="tournaments-teammate.html">Wolf</a>
-
-                    <div class="nk-team-photo" style="background-image: url('assets/images/team-photo.png');"></div>
-                </div>
-            </div>
-
-            <div class="nk-team">
-                <div class="nk-team-logo">
-                    <img src="assets/images/team-2-lg.jpg" alt="">
-                </div>
-                <div class="nk-team-cont">
-                    <h3 class="h5 mb-20"><span class="text-main-1">Team:</span> Origen</h3>
-                    <h4 class="h6 mb-5">Members:</h4>
-                    <a href="tournaments-teammate.html">Duke</a>, <a href="tournaments-teammate.html">Bangi</a>, <a href="tournaments-teammate.html">Faker</a>, <a href="tournaments-teammate.html">Bang</a>, <a href="tournaments-teammate.html">Wolf</a>
-
-                    <div class="nk-team-photo" style="background-image: url('assets/images/team-photo.png');"></div>
-                </div>
-            </div>
+            @endforeach
             <!-- END: Teams -->
 
         </div>
