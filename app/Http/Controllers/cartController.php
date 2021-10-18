@@ -6,15 +6,15 @@ use App\Models\Cart;
 use App\Models\products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\common\common;
 
 class cartController extends Controller
 {
     // get
     // show cart method
     public function cart(){
-        $carts = Cart::where("email",Auth::user()->email)->get();
-        $totalPrice =  Cart::where("email",Auth::user()->email)->sum("totalPrice");
-        return view('pages.Store.Cart',["carts"=>$carts,"totalPrice"=>$totalPrice]);
+          $data = common::getCartAndTotalPrice(Auth::user()->email);
+        return view('pages.Store.Cart',["carts"=>$data['carts'],"totalPrice"=>$data['totalPrice']]);
     }
     // post
     // add cart

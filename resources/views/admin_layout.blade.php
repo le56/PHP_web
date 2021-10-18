@@ -18,6 +18,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <!-- bootstrap-css -->
     <link rel="stylesheet" href="{{asset('public/admin_assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- //bootstrap-css -->
     <!-- Custom CSS -->
     <link href="{{asset('public/admin_assets/css/style.css')}}" rel='stylesheet' type='text/css' />
@@ -34,12 +35,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- check editor -->
     <script src="https:////cdn.ckeditor.com/4.8.0/full-all/ckeditor.js"></script>   
     <!-- //font-awesome icons -->
+    <!-- table  -->
+  
+  
+    <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     <!--dropzone -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js" integrity="sha512-oQq8uth41D+gIH/NJvSJvVB85MFk1eWpMK6glnkg6I7EdMqC1XVkW7RxLheXwmFdG03qScCM7gKS/Cx3FYt7Tg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="{{asset('public/admin_assets/js/raphael-min.js')}}"></script>
     <script src="{{asset('public/admin_assets/js/morris.js')}}"></script>
+     <!-- table2excel -->
+     <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
     <style>
         /* BASE CSS */
         .d-flex {
@@ -54,7 +62,153 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .table td {
             color: #999 !important;
         }
+        .table {
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top : 1rem;
+        }
+        .table thead {
+            background-color: #ccc
+        }
+        .table tbody {
+            background-color: white;
+        }
+        .table .table-action {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 5px;
+        }
+        .table img {
+        border-radius : 10px
+    }
         /*CLOSE BASE CSS*/
+    </style>
+    <style>
+        .file-img {
+            width: 100%;
+            height:200px;
+            object-fit:cover
+        }
+        .item-image {
+            padding : 8px !important;
+            
+        }
+        .item-image img,
+        .table img {
+            border-radius : 10px
+        }
+
+        /* input range  */
+        /* input range  */
+
+        .range-slider {
+            text-align: center;
+            position: relative;
+            color: #fff;
+            font-weight: 600;
+            padding-left: 30px;
+        }
+        .range-slider .rangeValues {
+            display: block;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            border-radius: 3px;
+            left: 30px;
+             width: 90%;
+            position: absolute;
+        }
+
+        input[type="range"]::-webkit-slider-runnable-track {
+            width: 300px;
+            height: 5px;
+            background: #ddd;
+            border: none;
+            border-radius: 3px;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            border: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #21c1ff;
+            margin-top: -4px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+        }
+
+        input[type="range"]:focus {
+            outline: none;
+        }
+
+        input[type="range"]:focus::-webkit-slider-runnable-track {
+            background: #ccc;
+        }
+
+        input[type="range"]::-moz-range-track {
+            width: 300px;
+            height: 5px;
+            background: #ddd;
+            border: none;
+            border-radius: 3px;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            border: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #21c1ff;
+        }
+
+        /*hide the outline behind the border*/
+        input[type="range"]:-moz-focusring {
+            outline: 1px solid white;
+            outline-offset: -1px;
+        }
+
+        input[type="range"]::-ms-track {
+            width: 300px;
+            height: 5px;
+            /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+            background: transparent;
+            /*leave room for the larger thumb to overflow with a transparent border */
+            border-color: transparent;
+            border-width: 6px 0;
+            /*remove default tick marks*/
+            color: transparent;
+            z-index: -4;
+        }
+
+        input[type="range"]::-ms-fill-lower {
+            background: #777;
+            border-radius: 10px;
+        }
+
+        input[type="range"]::-ms-fill-upper {
+            background: #ddd;
+            border-radius: 10px;
+        }
+
+        input[type="range"]::-ms-thumb {
+            border: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #21c1ff;
+        }
+
+        input[type="range"]:focus::-ms-fill-lower {
+            background: #888;
+        }
+
+        input[type="range"]:focus::-ms-fill-upper {
+            background: #ccc;
+        }
     </style>
 </head>
 
@@ -413,6 +567,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!-- Main js -->
     <script src="{{asset('public/admin_assets/js/main.js')}}"></script>
+    <script>
+        // handle input range
+        function getVals() {
+    // Get slider values
+        let parent = this.parentNode;
+        let slides = parent.getElementsByTagName("input");
+        let slide1 = parseFloat(slides[0].value);
+        let slide2 = parseFloat(slides[1].value);
+        // Neither slider will clip the other, so make sure we determine which is larger
+        if (slide1 > slide2) {
+            let tmp = slide2;
+            slide2 = slide1;
+            slide1 = tmp;
+        }
+
+        let displayElement = parent.getElementsByClassName("rangeValues")[0];
+        displayElement.innerHTML = "$" + slide1 + " - $" + slide2;
+    }
+
+    window.onload = function () {
+        // Initialize Sliders
+        let sliderSections = document.getElementsByClassName("range-slider");
+        for (let x = 0; x < sliderSections.length; x++) {
+            let sliders = sliderSections[x].getElementsByTagName("input");
+            for (let y = 0; y < sliders.length; y++) {
+                if (sliders[y].type === "range") {
+                    sliders[y].oninput = getVals;
+                    // Manually trigger event first time to display values
+                    sliders[y].oninput();
+                }
+            }
+        }
+};
+
+    </script>
     <script>
         $(document).ready(function() {
             //BOX BUTTON SHOW AND CLOSE

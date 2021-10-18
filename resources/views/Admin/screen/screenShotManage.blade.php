@@ -41,7 +41,7 @@
                                                       src="{{ asset('public/images/'.$screen->image) }}" alt="">
                             </td>
                             <td >{{$screen->content}}</td>
-                            <td><a href="screen/{{$screen->id}}" class="btn btn-sm btn-warning">Edit</a></td>
+                            <td><a href="screen/{{$screen->id}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a></td>
                         </tr>
                     @empty
                         <td colspan="5"> List screens is empty.</td>

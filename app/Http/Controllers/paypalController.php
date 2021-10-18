@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -12,13 +13,14 @@ use PayPal\Api\Item;
 use PayPal\Api\ItemList;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\WebProfile;
+use App\Http\common\common;
 
 class paypalController extends Controller
 {
     public function index(Request $request){
-        $email = Auth::user()->email;
-        $carts = Cart::where("email",$email)->get();
-        $totalPrice =  Cart::where("email",$email)->sum("totalPrice");
+        $data = common::getCartAndTotalPrice(Auth::user()->email);
+        $carts = $data['carts'];
+        $totalPrice =  $data['totalPrice'];
         
         if(count($carts)===0) return redirect()->back()->with(["status" =>"Not have item in cart to checkout !","error"=>"true"]);
         $apiContext = new \PayPal\Rest\ApiContext(
@@ -113,6 +115,9 @@ class paypalController extends Controller
                     "totalPrice" => $item["totalPrice"],
                     "status" => "Paid"
                 ]);
+                $product = products::find($item["idProduct"]);
+                $product->selled = $product->selled + $item["quantity"];
+                $product->save();
             }
             Cart::where("email",$email)->delete();
             // send mail

@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\products;
 use App\Models\category;
 use App\Models\comment;
 use App\Models\Store_gallery;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
+use App\Http\common\common;
 
 class StoreController extends Controller
 {
@@ -19,12 +18,9 @@ class StoreController extends Controller
         $allProduct = products::all();
         return view('pages.Store.Store',['ListImageXS'=>$allProduct,"galleries"=>Store_gallery::all(),'products'=>products::all()]);
     }
-<<<<<<< HEAD
-    
-=======
+   
     // get 
     // show product details page
->>>>>>> f488223616082867e281c811faae7399575214b3
     public function product($id) {
         $product = products::where('id' , $id) ->first();
         $comments = comment::where("idProduct",$id)->orderByDesc('created_at')->get();
@@ -57,45 +53,12 @@ class StoreController extends Controller
     }
     // show catalog page and filter
     public function catalog(Request $request){
-      // queries filter
-      $queries = [];
-      $product = new products;
-      // filter by category
-      if($request->has('category')) {
-          $product = $product->where("category",$request->category);
-          $queries["category"] = $request->category;
-      }
-      // filter by price greater than and litter than
-      if($request->has('pgt') && $request->has('plt')) {
-          $product = $product->where("price",">=",$request->pgt)->where("price","<=",$request->plt);
-          $queries["pgt"] = $request->pgt;
-          $queries["plt"] = $request->plt;
-      }
-      // filter by seach
-      if($request->has('search')) {
-          $product = $product->where("title","like","%". $request->search ."%");
-          $queries["search"] = $request->search;
-      }
-      // filter by sort
-      if($request->has('sort')) {
-          $product = $product->orderBy('price', $request->sort);
-          $queries["sort"] = $request->sort;
-      }
-
-<<<<<<< HEAD
-      $product = $product->paginate(6)->appends($queries);
-=======
-      // apply pagination
-      $product = $product->paginate(3)->appends($queries);
->>>>>>> f488223616082867e281c811faae7399575214b3
-
+      $product = common::filterProduct($request,6);
       return view('pages.Store.Catalog',["products" => $product,"categories" => category::all()]);
-
     }
    // show checkout page
     public function checkout(){
-        $carts = Cart::where("email",Auth::user()->email)->get();
-        $totalPrice =  Cart::where("email",Auth::user()->email)->sum("totalPrice");
-        return view('pages.Store.Checkout',["carts"=>$carts,"totalPrice"=>$totalPrice]);
+        $data = common::getCartAndTotalPrice(Auth::user()->email);
+        return view('pages.Store.Checkout',["carts"=>$data['carts'],"totalPrice"=>$data['totalPrice']]);
     }
 }

@@ -52,9 +52,12 @@
     <link rel="stylesheet" href="{{URL::asset('public/assets/css/custom.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+    
+    
     <!-- END: Styles -->
     <!-- jQuery -->
     <script src="{{URL::asset('public/assets/vendor/jquery/dist/jquery.min.js')}}"></script>
+    
     <style>
         #header-user-option {
             position: relative;
@@ -564,7 +567,7 @@
 
     <!-- nK Share -->
     <script src="{{asset('public/assets/plugins/nk-share/nk-share.js')}}"></script>
-
+      
     <!-- GoodGames -->
     <script src="{{asset('public/assets/js/goodgames.min.js')}}"></script>
 <script src="{{asset('public/assets/js/goodgames-init.js')}}"></script>

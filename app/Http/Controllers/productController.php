@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\products;
 use App\Models\category;
+use App\Http\common\common;
 
 class productController extends Controller
 {
@@ -67,11 +68,8 @@ class productController extends Controller
     // get search products
     public function searchProduct(Request $request)
     {
-        $query = $request->search;
-        $result = products::orderBy('created_at', 'desc')
-            ->where('title', 'LIKE', '%' . $query . '%')
-            ->orWhere('content', 'LIKE', '%' . $query . '%')->get();
-        return $result;
+        $product = common::filterProduct($request,20);
+        return $product;
     }
 
     // get product by ID

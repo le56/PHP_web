@@ -41,7 +41,7 @@
                                                       src="{{ asset('public/images/'.$slider->image) }}" alt="">
                             </td>
                             <td >{{$slider->content}}</td>
-                            <td><a href="home-slider/{{$slider->id}}" class="btn btn-sm btn-warning">Edit</a></td>
+                            <td><a href="home-slider/{{$slider->id}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a></td>
                         </tr>
                     @empty
                         <td colspan="5"> List sliders is empty.</td>

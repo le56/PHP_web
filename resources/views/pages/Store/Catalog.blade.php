@@ -1,5 +1,12 @@
 @extends('welcome')
 @section('catalog')
+<?php 
+  if(request('sort')) {
+    $column = request('sort');
+    $key = array_keys($column)[0];
+    $value = $column[$key];
+  }
+?>
 <style>
    .nk-product-image img {
         height: 100% !important;
@@ -102,7 +109,7 @@
                                 @endfor
                             </div>
                             <div class="nk-gap-1"></div>
-                            <div class="nk-product-price">€ {{$product->price}}</div>
+                            <div class="nk-product-price">$ {{$product->price}}</div>
                             <div class="nk-gap-1"></div>
                             <button data-add-product-cart="{{$product->id}}"  class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</button>
                         </div>
@@ -139,8 +146,12 @@
 <div class="nk-widget nk-widget-highlighted">
                     <select class="form-control" id="sort-select">
                         <option value="" disabled selected>Sort</option>
-                        <option value="asc"><a href="">Price from low to high</a></option>
-                        <option value="desc">Price from high to low</option>
+                        <option value="[price]=asc">Price from low to high</option>
+                        <option value="[price]=desc">Price from high to low</option>
+                        <option value="[selled]=asc">Selled from low to high</option>
+                        <option value="[selled]=desc">Selled from high to low</option>      
+                        <option value="[rate]=asc">Rate from low to high</option>
+                        <option value="[rate]=desc">Rate from high to low</option>      
                       
                     </select>
                     </div>
@@ -148,12 +159,12 @@
     <h4 class="nk-widget-title"><span><span class="text-main-1">Category</span> Menu</span></h4>
     <div class="nk-widget-content">
         <ul class="nk-widget-categories">
-        <li ><a class="@if(!request('category')) active @endif" href="?allcate=true<?= ((request("search")) ? "&search=".request("search") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) || (request("pgt")==0)  ? "&pgt=".request("pgt") : "") ?><?= ((request("sort")) ? "&sort=".request("sort") : "") ?>"
+        <li ><a class="@if(!request('category')) active @endif" href="?allcate=true<?= ((request("search")) ? "&search=".request("search") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) || (request("pgt")==0)  ? "&pgt=".request("pgt") : "") ?><?= request('sort') ? "&sort[".$key."]=".$value."" : "" ?>"
              >
             All categories
             </a></li>
             @foreach ($categories as $category)
-            <li><a href="?category={{$category->id}}<?= ((request("search")) ? "&search=".request("search") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) || (request("pgt")==0)  ? "&pgt=".request("pgt") : "") ?><?= ((request("sort")) ? "&sort=".request("sort") : "") ?>"
+            <li><a href="?category={{$category->id}}<?= ((request("search")) ? "&search=".request("search") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) || (request("pgt")==0)  ? "&pgt=".request("pgt") : "") ?><?= request('sort') ? "&sort[".$key."]=".$value."" : "" ?>"
              class="@if($category->id == request('category')) active @endif">
              {{$category->nameCategory}}
             </a></li>
@@ -180,9 +191,9 @@
             <div>
                 <div class="text-white mt-4 float-left">
                     PRICE:
-                    <strong class="text-main-1">€ <span class="nk-input-slider-value-0"></span></strong>
+                    <strong class="text-main-1">$ <span class="nk-input-slider-value-0"></span></strong>
                     -
-                    <strong class="text-main-1">€ <span class="nk-input-slider-value-1"></span></strong>
+                    <strong class="text-main-1">$ <span class="nk-input-slider-value-1"></span></strong>
                 </div>
                 <button class="nk-btn nk-btn-rounded nk-btn-color-white float-right" id="btn_filter_price">Apply</button>
             </div>
@@ -218,7 +229,7 @@
             </a>
             <h3 class="nk-post-title"><a href="store-product.html">So saying he unbuckled</a></h3>
             <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
-            <div class="nk-product-price">€ 23.00</div>
+            <div class="nk-product-price">$ 23.00</div>
         </div>
 
         <div class="nk-widget-post">
@@ -227,7 +238,7 @@
             </a>
             <h3 class="nk-post-title"><a href="store-product.html">However, I have reason</a></h3>
             <div class="nk-product-rating" data-rating="2.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
-            <div class="nk-product-price">€ 32.00</div>
+            <div class="nk-product-price">$ 32.00</div>
         </div>
 
         <div class="nk-widget-post">
@@ -236,7 +247,7 @@
             </a>
             <h3 class="nk-post-title"><a href="store-product.html">It was some time before</a></h3>
             <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-            <div class="nk-product-price">€ 14.00</div>
+            <div class="nk-product-price">$ 14.00</div>
         </div>
 
     </div>
@@ -269,16 +280,17 @@
 <script>
    $('#search-form').submit((e) => {
        e.preventDefault();
-       location.href = `?search=${$("input[name=search]").val()}<?= ((request("category")) ? "&category=".request("category") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) || (request("pgt")==0) ? "&pgt=".request("pgt") : "") ?><?= ((request("sort")) ? "&sort=".request("sort") : "") ?>`;
+       location.href = `?search=${$("input[name=search]").val()}<?= ((request("category")) ? "&category=".request("category") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) || (request("pgt")==0) ? "&pgt=".request("pgt") : "") ?><?= request('sort') ? "&sort[".$key."]=".$value."" : "" ?>`;
    })
-   $('#sort-select').change(() => {
-    location.href = `?sort=${$("#sort-select").val()}<?= ((request("category")) ? "&category=".request("category") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) || (request("pgt")==0)  ? "&pgt=".request("pgt") : "") ?><?= ((request("search")) ? "&search=".request("search") : "") ?>`
+   $('#sort-select').change((e) => {
+       let data = e.target.value.split("=");
+    location.href = `?sort${data[0]}=${data[1]}<?= ((request("category")) ? "&category=".request("category") : "") ?><?= ((request("plt")) ? "&plt=".request("plt") : "") ?><?= ((request("pgt")) || (request("pgt")==0)  ? "&pgt=".request("pgt") : "") ?><?= ((request("search")) ? "&search=".request("search") : "") ?>`
    
    })
    $('#btn_filter_price').click(() => {
     let minPrice = $(".nk-input-slider-value-0").text()
     let maxPrice = $(".nk-input-slider-value-1").text()
-    location.href = `?pgt=${minPrice}&plt=${maxPrice}<?= ((request("category")) ? "&category=".request("category") : "") ?><?= ((request("sort")) ? "&sort=".request("sort") : "") ?><?= ((request("search")) ? "&search=".request("search") : "") ?>`;
+    location.href = `?pgt=${minPrice}&plt=${maxPrice}<?= ((request("category")) ? "&category=".request("category") : "") ?><?= request('sort') ? "&sort[".$key."]=".$value."" : "" ?><?= ((request("search")) ? "&search=".request("search") : "") ?>`;
    })
 </script>
 @endsection
