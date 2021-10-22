@@ -12,13 +12,13 @@ class productController extends Controller
     // get show create product
     public function showCreateProduct()
     {
-        return view("Admin.create_product",["categories" => category::all()]);
+        return view("Admin.product.create_product",["categories" => category::all()]);
     }
 
     // get  all list product, return wiew
     public function showAll()
     {
-        return view("Admin.list_all_product", ["products" => products::all(),"categories" => category::all()]);
+        return view("Admin.product.list_all_product", ["products" => products::all(),"categories" => category::all()]);
     }
 
     //    post store product

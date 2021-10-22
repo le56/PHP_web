@@ -77,10 +77,10 @@
     <br/>
     <div ><button class="btn btn-primary" id="formSubmit">Create</button></div>
     </div>
-    
-    <script>
-      // check  editor
-      CKEDITOR.replace( 'editor');
+    <x-ck-editor />
+    <script>  
+
+
       //----------//
         const arrImage = [];
         $('#formSubmit').click(function (e) {

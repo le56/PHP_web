@@ -33,7 +33,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="{{asset('public/admin_assets/css/monthly.css')}}">
     <!-- //calendar -->
     <!-- check editor -->
-    <script src="https:////cdn.ckeditor.com/4.8.0/full-all/ckeditor.js"></script>   
+    <!-- <script src="https:////cdn.ckeditor.com/4.8.0/full-all/ckeditor.js"></script>    -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+
     <!-- //font-awesome icons -->
     <!-- table  -->
   
@@ -483,7 +485,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <ul class="sub">
                                 <li><a href="{{URL::to('/admin/home-slider')}}">Home and category slider</a></li>
                                 <li><a href="{{URL::to('/admin/screen')}}">Screen home</a></li>
-                                <li><a href="{{URL::to('/admin/store-gallery')}}">Screen home</a></li>
+                                <li><a href="{{URL::to('/admin/store-gallery')}}">Store gallery</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">
@@ -601,6 +603,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 };
 
+    </script>
+    <script>
+        // CK EDITOR.replace
+         // check  editor
+     
     </script>
     <script>
         $(document).ready(function() {

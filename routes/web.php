@@ -126,6 +126,7 @@ Route::post("/upload", [uploadImageController::class, 'store'])->name('upload');
 Route::post("/delete_upload", [uploadImageController::class, 'destroy'])->name('deleteUpload');
 // update image product
 Route::post("/update_image", [uploadImageController::class, 'updateImageUpload'])->name('update_image');
+Route::post("/upload_checkEditor", [uploadImageController::class, 'uploadImageCheckEditor'])->name('upload_checkEditor');
 
 // user logout
 

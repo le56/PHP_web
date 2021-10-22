@@ -237,11 +237,7 @@
                                         Blog Article
 
                                     </a>
-<<<<<<< HEAD
-                                </li>
-=======
 </li>
->>>>>>> 7c0d6891b569bbe4b62f089dbeb6a92be34587bb
                             </ul>
                         </li>
                         <li>

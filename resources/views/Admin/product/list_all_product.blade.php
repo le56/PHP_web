@@ -5,9 +5,10 @@
             <div class="container-fluid ">
               
     <form id="search-form" action="" method="POST" enctype="multipart/form-data">
-       
-        
-			<div class="form-group col-xs-9">
+          <div class="form-group col-xs-3">
+            <a class="btn btn-block btn-primary" href="{{URL::to('/admin/product/list-product')}}">Reset filter</a>
+			</div>
+			<div class="form-group col-xs-6" style="padding : 0 10px">
 				<input class="form-control" type="text" name='search' placeholder="Search" />
 			</div>
 			<div class="form-group col-xs-3" style="padding-right:0;padding-left: 23px;">
@@ -28,7 +29,7 @@
 			<div class="form-group col-sm-3 col-xs-6">
 				<select data-filter="make" name="category" class="filter-make filter form-control">
 					<option value="" selected disabled>Select Category</option>
-                    <option value="">All</option>
+                    <option value="">All categories</option>
 					@foreach($categories as $item)
                     <option value="{{$item->id}}">{{$item->nameCategory}}</option>
                     @endforeach
@@ -231,8 +232,15 @@
         <!-- ranger input  -->
         
         <script>
-            // check editor
-            CKEDITOR.replace( 'editor');
+        var editor;
+           ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .then(v => {
+            editor = v;
+        })
+        .catch( error => {
+            console.error( error );
+        } );   
             //----------//
             var get_id_product;
             // show modal delete
@@ -265,7 +273,7 @@
                     $('#update_product input[name="price"]').val(data.price)
                     $('#update_product input[name="rate"]').val(data.rate)
                     $('#update_product input[name="selled"]').val(data.selled)
-                    CKEDITOR.instances.editor.setData(data.description);
+                    editor.setData(data.description);
                     $('#editor').val(data.description)
                     $('#image0').attr("src",`{{asset('/public/images/')}}/${data.image0}`)
                     $('#image1').attr("src",`{{asset('/public/images/')}}/${data.image1}`)
@@ -281,7 +289,7 @@
             })
             // confirm update product
             $('#btn_confirm_update').click((e) => {
-            $('#editor').val(CKEDITOR.instances.editor.getData())
+            $('#editor').val(editor.getData())
                 $.ajax({
                     type: 'put',
                     dataType: "json",
@@ -305,7 +313,8 @@
                 let price1 = parseInt($('input[name="pgt"]').val());
                 let price2 = parseInt($('input[name="plt"]').val());
                 let check = price1 > price2;
-                let sortArr = $('select[name="sort"]').val().split('=');
+                let selectSortVal = $('select[name="sort"]').val();
+                var sortArr = selectSortVal ? selectSortVal.split('=') : "";
                 const obj = {
                     pgt : check ? price2 : price1,
                     plt : check ? price1 : price2,
@@ -317,12 +326,13 @@
                     ,
                     search : $('input[name="search"]').val()
                 }
+               
                 for (let [key, value] of Object.entries(obj)) {
                   if(value === null || value === "") {
                       delete obj[key];
                   }
                     }
-                // return console.log(obj)
+              
                  $.ajax({
                     type: 'GET',
                     url: "{{route('product.search')}}",
@@ -359,45 +369,8 @@
             $("input[type='file']").change( function (e) {
                 const file = e.target.files[0]
                 const data_id = $(this).attr("data-id")
-                upload(file,data_id)
+                upload(file,data_id,"_id_product",null)
             })
-
-            // function upload file 
-            function upload(file,data_id) {
-                const data = new FormData();
-                data.append('file', file);
-                data.append("filenamedel",$(`input[name="${data_id}"]`).val())
-                data.append('idProduct',  $('input[name="_id_product"]').val());
-                data.append('imagestt', data_id);
-                data.append("getOriginalName",Date.now() + file.name)
-                $.ajax({
-                url:"{{ route('update_image') }}",
-                method:'POST',
-                data:data,
-                contentType:false,
-                cache:false,
-                processData:false,
-                success:function(data){
-                    read(file,data_id)
-                    $(`input[name="${data_id}"]`).val(data)
-                }
-                });
-            }
-            // function read image 
-            function read(file,imageInput) {
-                let imageType = /image.*/
-                if(file.type.match(imageType)) {
-                    let reader = new FileReader();
-                    reader.onload =  (e) => {
-                        let image = new Image();
-                        image.src =  e.target.result
-                        $(`#${imageInput}`).attr('src',image.src)
-                    }
-                reader.readAsDataURL(file)
-                }
-                else return alert('File is not support !')
-            }
-
             // export excel
             $('#btn_export-excel').click(function () {
                 $("#table-product").table2excel({
@@ -410,5 +383,6 @@
            
             
         </script>
+        <x-upload-image></x-upload-image>
 
     @endsection

@@ -50,11 +50,24 @@ class uploadImageController extends Controller
           return $imagename;
         }
         // handle update image product
-        $updateProduct = products::find($request->idProduct);
+        $updateProduct = products::find($request->_id_product);
         $updateProduct->$columnImage = $imagename;
         $updateProduct->save();
         return $imagename;
     }
+
+    // upload image checkEditor 
+    public function uploadImageCheckEditor(Request $request) {
+      $request->validate([
+       'upload' => 'image',
+       ]);
+    if ($request->hasFile('upload')) {
+          $image = $request->file("upload");
+          $imagename = time()."".$image->getClientOriginalName();
+          $image->move(public_path("CKeditor/checkEditorUpload"),$imagename);
+          return response()->json(["url" => asset('/public/CKeditor/checkEditorUpload/'.$imagename)]);
+      }
+    } 
   
     // destroy image
     public function destroy(Request $request) {
