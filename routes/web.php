@@ -98,7 +98,7 @@ Route::prefix('/admin/product')->group(function () {
 
 Route::prefix('/blog')->group(function () {
     Route::get('/',[blogController::class,'showBlog']);
-    Route::get('/grid',[blogController::class,'showBlog']);
+    Route::get('/grid',[blogController::class,'showBlogGrid']);
     Route::get('/{id}',[blogController::class,'showBlogDetail']);
 });
 
