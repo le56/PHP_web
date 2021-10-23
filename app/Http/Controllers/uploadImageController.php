@@ -17,6 +17,12 @@ class uploadImageController extends Controller
         $image->move(public_path("images"),$imagename);
         return response()->json(["success" => $imagename]);
     }
+    //  upload image not response 
+    public static function upload_not_response($image) {
+      $imagename = time()."".$image->getClientOriginalName();
+      $image->move(public_path("images"),$imagename);
+      return $imagename;
+  }
     // update image upload product
     public function updateImageUpload(Request $request) { 
       if(isset($request->filenamedel)) {
@@ -72,8 +78,11 @@ class uploadImageController extends Controller
     // destroy image
     public function destroy(Request $request) {
       $filename = $request->get("filename");
+      if(isset($request->folder) && $request->folder === "ckEditor") 
+      $path = public_path()."\CKeditor\checkEditorUpload\\".$filename; 
+      else 
       $path = public_path()."\images\\".$filename;
       if(file_exists($path)) unlink($path);
-      return $filename;
+      return $path;
     }
 }

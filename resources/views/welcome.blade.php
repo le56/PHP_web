@@ -90,6 +90,9 @@
         #header-user-option .nk-cart-dropdown a {
             display: block;
         }
+        .media {
+            display: block !important;
+        }
     </style>
 
 </head>

@@ -1,0 +1,82 @@
+<!DOCTYPE html><!--
+	Copyright (c) 2014-2021, CKSource - Frederico Knabben. All rights reserved.
+	This file is licensed under the terms of the MIT License (see LICENSE.md).
+-->
+
+<html lang="en" dir="ltr">
+	<head>
+	
+	</head>
+	
+						<textarea class="editor">
+						
+						</textarea>
+					
+		<script src="../build/ckeditor.js"></script>
+		<script>ClassicEditor
+				.create( document.querySelector( '.editor' ), {
+					
+				toolbar: {
+					items: [
+						'heading',
+						'|',
+						'bold',
+						'italic',
+						'link',
+						'bulletedList',
+						'numberedList',
+						'|',
+						'outdent',
+						'indent',
+						'|',
+						'imageUpload',
+						'insertTable',
+						'mediaEmbed',
+						'undo',
+						'redo',
+						'alignment',
+						'fontSize',
+						'fontColor',
+						'findAndReplace',
+						'fontFamily',
+						'highlight',
+						'imageInsert'
+					]
+				},
+				language: 'en',
+				image: {
+					toolbar: [
+						'imageTextAlternative',
+						'imageStyle:inline',
+						'imageStyle:block',
+						'imageStyle:side'
+					]
+				},
+				table: {
+					contentToolbar: [
+						'tableColumn',
+						'tableRow',
+						'mergeTableCells'
+					]
+				},
+					licenseKey: '',
+					
+					
+					
+				} )
+				.then( editor => {
+					window.editor = editor;
+			
+					
+					
+					
+				} )
+				.catch( error => {
+					console.error( 'Oops, something went wrong!' );
+					console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+					console.warn( 'Build id: w8akwcb689k5-qogotc77qtwq' );
+					console.error( error );
+				} );
+		</script>
+	</body>
+</html>

@@ -82,7 +82,7 @@ Route::group(["prefix"=>"/cart","middleware"=>["authen"]],function() {
     Route::delete('/{id}', [cartController::class, 'delete']);
 });
 //  handle admin product
-Route::prefix('/admin/product')->group(function () {
+Route::group(["prefix"=>"/admin/product","middleware"=>["adminAuthen"]],function() {
     Route::get('/list-product', [productController::class, 'showAll']);
 
     Route::get('/create', [productController::class, 'showCreateProduct']);
@@ -95,7 +95,23 @@ Route::prefix('/admin/product')->group(function () {
 
     Route::delete('/delete', [productController::class, 'delete'])->name('product.delete');
 });
+// handle blog admin 
+Route::group(["prefix"=>"/admin/blog","middleware"=>["adminAuthen"]],function() {
+    Route::get('/list-blog', [blogController::class, 'showAllListPostBlog']);
 
+    Route::get('/create', [blogController::class, 'showCreateblog']);
+    Route::post('/create', [blogController::class, 'createPost'])->middleware('validation_blog');
+   
+    Route::post('/update/{id}', [blogController::class, 'updateBlog'])->middleware('validation_blog');
+
+    Route::get('/search', [blogController::class, 'searchBlog'])->name('blog.search');
+    Route::get('/getByID/{id}', [blogController::class, 'getOnePost']);
+
+    Route::delete('/delete/{id}', [blogController::class, 'deletePost']);
+});
+
+
+// blog user
 Route::prefix('/blog')->group(function () {
     Route::get('/',[blogController::class,'showBlog']);
     Route::get('/grid',[blogController::class,'showBlogGrid']);
@@ -103,19 +119,19 @@ Route::prefix('/blog')->group(function () {
 });
 
 // screen 
-Route::prefix('/admin/screen')->group(function () {
+Route::group(["prefix"=>"/admin/screen","middleware"=>["adminAuthen"]],function() {
     Route::get('/{id}',[screenAndSliderController::class,"showUpdateScreen"]);
     Route::get('/',[screenAndSliderController::class,"showListScreenHome"]);
     Route::put("/{id}",[screenAndSliderController::class,"updateScreen"]);
 });
 // home slider 
-Route::prefix('/admin/home-slider')->group(function () {
+Route::group(["prefix"=>"/admin/home-slider","middleware"=>["adminAuthen"]],function() {
     Route::get('/{id}',[screenAndSliderController::class,"showUpdateHomeSlider"]);
     Route::get('/',[screenAndSliderController::class,"showListHomeSlider"]);
     Route::put("/{id}",[screenAndSliderController::class,"updateHomeSlider"]);
 });
 // store picture gallery 
-Route::prefix('/admin/store-gallery')->group(function () {
+Route::group(["prefix"=>"/admin/store-gallery","middleware"=>["adminAuthen"]],function() {
     Route::get('/',[screenAndSliderController::class,"showListStoreGallery"]);
     Route::put('/',[screenAndSliderController::class,"updateStoreGallery"])->name("updateStoreGallery");
 });

@@ -26,7 +26,6 @@ class AdminController extends Controller
     }
     public function dashboard(Request $request)
     {
-        return Redirect::to('/dashboard');
            $admin_email = $request->admin_email;
            $admin_pass = md5($request->admin_password);
            $result = DB::table('admin')->where('admin_email', $admin_email)->where('admin_password', $admin_pass)->first();

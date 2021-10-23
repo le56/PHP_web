@@ -1,5 +1,18 @@
 @extends('welcome')
 @section('detailBlog')
+<style>
+    .nk-post-img img,
+    .image img {
+        border-radius: 10px;
+        width : 100%;
+    }
+  
+        .nk-blockquote p span{
+            font-style: initial!important;
+            font-family: "Open Sans", sans-serif !important;
+        }
+
+</style>
 <div class="nk-gap-1"></div>
 <div class="container">
     <ul class="nk-breadcrumbs">
@@ -15,7 +28,7 @@
         
         <li><span class="fa fa-angle-right"></span></li>
         
-        <li><span>Grab your sword and fight the Horde</span></li>
+        <li><span>{{$blog->title}}</span></li>
         
     </ul>
 </div>
@@ -33,47 +46,42 @@
                 <!-- START: Post Text -->
                 <div class="nk-post-text mt-0">
                     <div class="nk-post-img">
-                        <img src="{{asset('public/assets/images/post-2.jpg')}}" alt="Grab your sword and fight the Horde">
+                        <img src="{{asset('public/images')}}/{{$blog->image}}" alt="{{$blog->image}}">
                     </div>
                     <div class="nk-gap-1"></div>
-                    <h1 class="nk-post-title h4">Grab your sword and fight the Horde</h1>
+                    <h1 class="nk-post-title h4">{{$blog->title}}</h1>
                     <div class="nk-post-by">
-                        <img src="{{asset('public/assets/images/avatar-2.jpg')}}" alt="Witch Murder" class="rounded-circle" width="35"> by <a href="#">Witch Murder</a> in Sep 5, 2018
+                        <img src="<?php
+                        if($blog->admin===1) {
+                            echo $blog->Admin->admin_avatar;
+                        }
+                        else echo $blog->user->avatar;
+                        ?>" 
+                        alt="Witch Murder" class="rounded-circle" width="30"> by <a href="#"><?php echo$blog->admin===1? $blog->Admin->admin_name:$blog->user->name ?></a> {{$blog->created_at}}
 
-                        
                         <div class="nk-post-categories">
                             
-                            <span class="bg-main-1">Action</span>
+                            <span class="bg-main-1">{{$blog->getCate->nameCategory}}</span>
                             
-                            <span class="bg-main-2">Adventure</span>
+                            <!-- <span class="bg-main-2">Adventure</span> -->
                             
                         </div>
                         
                     </div>
                     <div class="nk-gap"></div>
-                    <p>Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door.	The first question of course was, how to get dry again: they had a consultation about this, and after a few minutes it seemed quite natural to Alice to find herself talking familiarly with them, as if she had known them all her life. Indeed, she had quite a long argument with the Lory, who at last turned sulky, and would only say, `I am older than you, and must know better'; and this Alice would not allow without knowing how old it was, and, as the Lory positively refused to tell its age, there was no more to be said.</p>
+                    <p>{{$blog->shortContent}}</p>
 
 <div class="nk-gap"></div>
 <blockquote class="nk-blockquote">
     <div class="nk-blockquote-icon"><span>"</span></div>
-    <div class="nk-blockquote-content">
-        Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door. As if she had known them all her life. Indeed, she had quite a long argument with the Lory.
-    </div>
-    <div class="nk-blockquote-author"><span>Samuel Marlow</span></div>
+    {!! $blog->content !!}
 </blockquote>
 
 <div class="nk-gap"></div>
 
-<img class="float-left mt-0" src="{{asset('public/assets/images/post-inner-img')}}.jpg" alt="">
-<h3 class="h4">Now the races of these two have been</h3>
+<div>
 
-<p>I confess this side of the country was much pleasanter than mine; but yet I had not the least inclination to remove, for as I was fixed in my habitation it became natural to me, and I seemed all the while I was here to be as it were upon a journey, and from home. However, I travelled along the shore she clutched the matron by the arm, and forcing her into a chair by the bedside, was about to speak, wh en looking round, she caught sight of the two old women bending forward in the attitude of eager list eners.They belong to the old gentleman, said Oliver, wringing his hands; "to the good, kind, old gentle man who took me into his house, and had me nursed, when I was near dying of the fever . Oh, pray send them back; send him back the books and money</p>
-
-<div class="nk-gap"></div>
-<div class="nk-plain-video" data-video="https://www.youtube.com/watch?v=6cXyQg_5uoc"></div>
-
-<div class="nk-gap-2"></div>
-<p>This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise, she lost sight of her in a moment, and found herself walking in at the front-door again. For some minutes Alice stood without speaking, looking out in all directions over the country - and a most curious country it was.</p>
+</div>
 
 
                     <div class="nk-gap"></div>

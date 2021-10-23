@@ -31,10 +31,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="{{asset('public/admin_assets/css/morris.css')}}" type="text/css" />
     <!-- calendar -->
     <link rel="stylesheet" href="{{asset('public/admin_assets/css/monthly.css')}}">
-    <!-- //calendar -->
-    <!-- check editor -->
-    <!-- <script src="https:////cdn.ckeditor.com/4.8.0/full-all/ckeditor.js"></script>    -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
 
     <!-- //font-awesome icons -->
     <!-- table  -->
@@ -42,6 +38,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Main js -->
+    <script src="{{asset('public/admin_assets/js/main.js')}}"></script>
 
     <!--dropzone -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js" integrity="sha512-oQq8uth41D+gIH/NJvSJvVB85MFk1eWpMK6glnkg6I7EdMqC1XVkW7RxLheXwmFdG03qScCM7gKS/Cx3FYt7Tg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -458,7 +456,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </a>
                             <ul class="sub">
                                 <li><a href="{{URL::to('/admin/product/create')}}">Create product</a></li>
-                             
+                                <li><a href="{{URL::to('/admin/blog/create')}}">Create blog</a></li>
                             </ul>
                         </li>
                         <li>
@@ -474,7 +472,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </a>
                             <ul class="sub">
                                 <li><a href="{{URL::to('/admin/product/list-product')}}">Product management</a></li>
-                                
+                                <li><a href="{{URL::to('/admin/blog/list-blog')}}">Blog management</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">
@@ -567,8 +565,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="{{asset('public/admin_assets/js/jquery.scrollTo.js')}}"></script>
     <!-- morris JavaScript -->
 
-    <!-- Main js -->
-    <script src="{{asset('public/admin_assets/js/main.js')}}"></script>
+    
     <script>
         // handle input range
         function getVals() {
@@ -604,11 +601,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 };
 
     </script>
-    <script>
-        // CK EDITOR.replace
-         // check  editor
-     
-    </script>
+
     <script>
         $(document).ready(function() {
             //BOX BUTTON SHOW AND CLOSE
