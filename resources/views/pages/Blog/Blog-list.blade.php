@@ -41,7 +41,7 @@
                     <div class="row vertical-gap">
                         <div class="col-md-5 col-lg-6">
                             <a href="{{URL::to('/blog')}}/{{$blog->id}}" class="nk-post-img">
-                                <img src="{{asset('/public/assets/images')}}/{{$blog->image}}" alt="{{$blog->title}}" />
+                                <img src="{{asset('/public/images')}}/{{$blog->image}}" alt="{{$blog->title}}" />
                               <!--   <span class="nk-post-comments-count">0</span> -->
                             </a>
                         </div>
@@ -53,7 +53,7 @@
                             </div>
 
                             <div class="nk-post-by">
-                                <img src="{{$blog->Admin->admin_avatar}}" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">{{$blog->admin->admin_name}}</a> {{$blog->created_at}}
+                                <img src="{{$blog->Admin->admin_avatar}}" alt="Hitman" class="rounded-circle" width="35"> by <a href="#">{{$blog->Admin->admin_name}}</a> {{$blog->created_at}}
                             </div>
                         </div>
                     </div>
