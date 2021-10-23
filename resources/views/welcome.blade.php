@@ -45,6 +45,8 @@
     <!-- Summernote -->
     <link rel="stylesheet" type="text/css" href="{{URL::asset('public/assets/vendor/summernote/dist/summernote-bs4.css')}}">
 
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
     <!-- GoodGames -->
     <link rel="stylesheet" href="{{URL::asset('public/assets/css/goodgames.css')}}">
 
@@ -52,12 +54,12 @@
     <link rel="stylesheet" href="{{URL::asset('public/assets/css/custom.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    
-    
+
+
     <!-- END: Styles -->
     <!-- jQuery -->
     <script src="{{URL::asset('public/assets/vendor/jquery/dist/jquery.min.js')}}"></script>
-    
+
     <style>
         #header-user-option {
             position: relative;
@@ -75,6 +77,7 @@
             border-radius: 50%;
             object-fit: cover;
         }
+
         #header-user-option .nk-cart-dropdown {
             position: absolute;
             top: 105%;
@@ -138,7 +141,7 @@
 
 
                         <li>
-                      <!--       @if (Auth::check())
+                            <!--       @if (Auth::check())
                             <a href="{{  asset ('/user-logout')}}"><img src="{{Auth::user()->avatar}}" style="width:30px;height:30px;border-radius: 50%;object-fit: cover;" alt=""></a>
                             @else
                             <a href="#" id="btn-login" data-toggle="modal" data-target="#modalLogin">
@@ -153,7 +156,7 @@
                                                 nk-btn-rounded
                                                 nk-btn-color-main-1
                                                 nk-btn-hover-color-white
-">Log out</a>
+                                    ">Log out</a>
                                 </div>
                             </div>
                             @else
@@ -236,7 +239,7 @@
                                         Blog Article
 
                                     </a>
-</li>
+                                </li>
                             </ul>
                         </li>
                         <li>
@@ -313,7 +316,7 @@
                     <ul class="nk-nav nk-nav-right nk-nav-icons">
 
                         <li class="single-icon d-lg-none">
-<a href="#" class="no-link-effect" data-nav-toggle="#nk-nav-mobile">
+                            <a href="#" class="no-link-effect" data-nav-toggle="#nk-nav-mobile">
                                 <span class="nk-icon-burger">
                                     <span class="nk-t-1"></span>
                                     <span class="nk-t-2"></span>
@@ -388,7 +391,7 @@
                                         </div>
                                     </div>
                                     <div class="nk-gap"></div>
-<textarea class="form-control required" name="message" rows="5" placeholder="Message *"></textarea>
+                                    <textarea class="form-control required" name="message" rows="5" placeholder="Message *"></textarea>
                                     <div class="nk-gap-1"></div>
                                     <button class="nk-btn nk-btn-rounded nk-btn-color-white">
                                         <span>Send</span>
@@ -443,7 +446,7 @@
 
                     <div class="nk-gap-1"></div>
                     <form action="#" class="nk-form nk-form-style-1">
-<input type="text" value="" name="search" class="form-control" placeholder="Type something and press Enter" autofocus>
+                        <input type="text" value="" name="search" class="form-control" placeholder="Type something and press Enter" autofocus>
                     </form>
                 </div>
             </div>
@@ -499,7 +502,7 @@
                                 </div>
                                 <div class="mnt-5">
                                     <small><a href="#">Not a member? Sign up</a></small>
-</div>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -514,6 +517,7 @@
 
 
     <!-- START: Scripts -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
     <script src="{{asset('public/assets/vendor/object-fit-images/dist/ofi.min.js')}}"></script>
 
@@ -569,10 +573,10 @@
 
     <!-- nK Share -->
     <script src="{{asset('public/assets/plugins/nk-share/nk-share.js')}}"></script>
-      
+
     <!-- GoodGames -->
     <script src="{{asset('public/assets/js/goodgames.min.js')}}"></script>
-<script src="{{asset('public/assets/js/goodgames-init.js')}}"></script>
+    <script src="{{asset('public/assets/js/goodgames-init.js')}}"></script>
     <script src="{{asset('public/assets/js/main.js')}}"></script>
     <!-- Script handle cart -->
     <x-handlecart />

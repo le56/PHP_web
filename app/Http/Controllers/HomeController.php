@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Home_slider;
 use App\Models\Latest_new;
 use App\Models\MatchNow;
@@ -24,9 +25,9 @@ class HomeController extends Controller
         [
             'ListImageXS'=>$allSlider,'sliders'=>Home_slider::all(),
             'newLatest'=>Latest_new::all(),
-            'recents'=>Latest_new::orderBy('created_at', 'asc')->limit(3)->get(),
-            'postList'=>Post::orderBy('created_at', 'asc')->limit(4)->get(),
-            'lastpost'=>Post::orderBy('created_at', 'desc')->limit(2)->get(),
+            'recents'=>Blog::orderBy('created_at', 'asc')->limit(3)->get(),
+            'postList'=>Blog::orderBy('created_at', 'desc')->limit(4)->get(),
+            'lastpost'=>Blog::orderBy('created_at', 'asc')->limit(2)->get(),
             'topProduct'=>products::orderBy('created_at','asc')->limit(3)->get(),
             'topsell'=>products::orderBy('selled','desc')->limit(4)->get(),
             'nowMatch'=>MatchNow::orderBy('created_at','asc')->limit(1)->get(),
