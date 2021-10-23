@@ -32,7 +32,7 @@ class BlogController extends Controller
     }
    
     public function showBlogDetail($id) {
-       return view('pages.Blog.blog');
+       return view('pages.Blog.blog',["blog" => Blog::find($id)]);
     }
   
     public function getOnePost($id) {

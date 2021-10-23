@@ -1,6 +1,7 @@
 @extends('admin_layout')
     @section('dashboard')
-
+   
+          <input type="hidden" id="update_blog_page">
            <div class="container-fluid ">
               
               <form id="search-form" action="" method="POST" enctype="multipart/form-data">

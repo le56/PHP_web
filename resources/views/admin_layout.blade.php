@@ -31,12 +31,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="{{asset('public/admin_assets/css/morris.css')}}" type="text/css" />
     <!-- calendar -->
     <link rel="stylesheet" href="{{asset('public/admin_assets/css/monthly.css')}}">
-    <!-- //calendar -->
-    <!-- check editor -->
-    <!-- <script src="https:////cdn.ckeditor.com/4.8.0/full-all/ckeditor.js"></script>    -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
-    <!-- axioss -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js" integrity="sha512-Idr7xVNnMWCsgBQscTSCivBNWWH30oo/tzYORviOCrLKmBaRxRflm2miNhTFJNVmXvCtzgms5nlJF4az2hiGnA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- //font-awesome icons -->
     <!-- table  -->
@@ -607,11 +601,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 };
 
     </script>
-    <script>
-        // CK EDITOR.replace
-         // check  editor
-     
-    </script>
+
     <script>
         $(document).ready(function() {
             //BOX BUTTON SHOW AND CLOSE

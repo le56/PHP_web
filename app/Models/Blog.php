@@ -21,4 +21,8 @@ class Blog extends Model
     public function Admin() {
         return $this->hasOne(Admin::class,'admin_id','idUser');
     }
+
+    public function getCate() {
+        return $this->hasOne(Category::class,'id','category');
+    }
 }
