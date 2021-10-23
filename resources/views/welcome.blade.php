@@ -52,6 +52,7 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{URL::asset('public/assets/css/custom.css')}}">
+    <link href="http://fonts.cdnfonts.com/css/batman-forever" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
@@ -182,62 +183,19 @@
             .nk-navbar-autohide
             Hello
     -->
-        <nav class="nk-navbar nk-navbar-top nk-navbar-sticky nk-navbar-autohide">
+        <nav class="nk-navbar nk-navbar-top nk-navbar-sticky nk-navbar-autohide" style="padding: 15px 0;">
             <div class="container">
                 <div class="nk-nav-table">
 
                     <a href="{{URL::to('/')}}" class="nk-nav-logo">
-                        <img src="{{asset('public/assets/images/logo.png')}}" alt="GoodGames" width="199">
+                        <img src="{{asset('public/assets/images/favicon.png')}}" alt="GoodGames" >
                     </a>
 
                     <ul class="nk-nav nk-nav-right d-none d-lg-table-cell" data-nav-mobile="#nk-nav-mobile">
-                        <li class=" nk-drop-item">
+                        <li>
                             <a href="{{URL::to('/blog')}}">
-                                Blog
-
+                                News
                             </a>
-                            <ul class="dropdown">
-
-                                <li>
-                                    <a href="news.html">
-                                        News
-
-                                    </a>
-                                </li>
-                                <li class=" nk-drop-item">
-                                    <a href="blog-grid.html">
-                                        Blog With Sidebar
-
-                                    </a>
-                                    <ul class="dropdown">
-
-                                        <li>
-                                            <a href="{{URL::to('/blog/grid')}}">
-                                                Blog Grid
-
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{URL::to('/blog/')}}">
-                                                Blog List
-
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="blog-fullwidth.html">
-                                        Blog Fullwidth
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="blog-article.html">
-                                        Blog Article
-
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
                             <a href="{{URL::to('/gallery')}}">
@@ -334,7 +292,7 @@
         <div class="nano">
             <div class="nano-content">
                 <a href="index.html" class="nk-nav-logo">
-                    <img src="{{asset('public/assets/images/logo.png')}}" alt="" width="120">
+                    <img src="{{asset('public/assets/images/logo.png')}}" alt="" width="100">
                 </a>
                 <div class="nk-navbar-mobile-content">
                     <ul class="nk-nav">

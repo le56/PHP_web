@@ -129,6 +129,7 @@
 
         </div>
     </div>
+
     <!-- END: Latest News -->
 
     <div class="nk-gap-2"></div>
