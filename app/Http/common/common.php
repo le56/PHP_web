@@ -2,6 +2,7 @@
 
 namespace App\Http\common;
 
+use App\Models\Blog;
 use App\Models\Cart;
 use App\Models\products;
 
@@ -40,6 +41,34 @@ class common
       // apply pagination
       $product = $product->paginate($limit)->appends($queries);
       return $product;
+    }
+
+    // filter blog func
+
+    public static function filterBlog($req,$number) {
+        $blog = new Blog();
+        $queries = [];
+        // filter by category
+      if($req->has('category')) {
+        $blog = $blog->where("category",$req->category);
+        $queries["category"] = $req->category;
+    }
+    // filter by search
+        if($req->has('search')) {
+            $blog = $blog->where('title','like','%'.$req->search.'%');
+            $queries['search'] = $req->search;
+        }
+         // filter by sort
+      if($req->has('sort')) {
+        $column = $req->sort;
+        $key = array_keys($column)[0];
+        $value = $column[$key];
+        $blog = $blog->orderBy($key, $value);
+        $queries["sort[".$key."]"] = $value;
+    }
+
+        $blog = $blog->paginate($number)->appends($queries);
+        return $blog;
     }
 
     // get cart anh total price 

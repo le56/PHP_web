@@ -93,15 +93,82 @@
     ClassicEditor
         .create( document.querySelector( '#editor' ), {
             extraPlugins: [ SimpleUploadAdapterPlugin ],
+            mediaEmbed: {
+        previewsInData: true
+    }
         } )
         .then( e => {
           editor = e;
-            // Simulate label behavior if textarea had a label
-            // if (editor.sourceElement.labels.length > 0) {
-            //     editor.sourceElement.labels[0].addEventListener('click', e => editor.editing.view.focus());
-            // }
+          
+          eventRm(e.model)
+            
         } )
         .catch( error => {
             console.error( error );
         } );
+      
+        
+        function eventRm(model) { 
+            model.document.on('change:data', (event) => {
+            const differ = event.source.differ
+            console.log(model)
+            // if no difference
+            if (differ.isEmpty) {
+                return;
+            }
+
+            const changes = differ.getChanges({
+                includeChangesInGraveyard: true
+            });
+
+            if (changes.length === 0) {
+                return;
+            }
+
+            let hasNoImageRemoved = true
+
+            // check any image remove or not
+            for (let item of changes){
+                // if image remove exists
+                console.log(item)
+                if (item && item.type === 'remove' && item.name === 'imageBlock') {
+                    console.log("okrm")
+                    hasNoImageRemoved = false
+                    break
+                }
+            }
+
+            // if not image remove stop execution
+            if (hasNoImageRemoved) {
+                return;
+            }
+
+            // get removed nodes
+            const removedNodes = changes.filter(change => (change.type === 'insert' && change.name === 'imageBlock'))
+
+            // removed images src
+            const removedImagesSrc = [];
+            // removed image nodes
+            // const removedImageNodes = []
+
+            removedNodes.forEach(node => {
+                const removedNode = node.position.nodeAfter
+                // removedImageNodes.push(removedNode)
+                removedImagesSrc.push(removedNode.getAttribute('src'))
+            })
+           // ajax remove image 
+           let filename = removedImagesSrc[0].split("checkEditorUpload/")[1]
+           $.ajax({
+           type: "POST",
+           url: "{{route('deleteUpload')}}",
+           data: {filename , folder : "ckEditor"}, // serializes the form's elements.
+           success: function(data)
+           {
+            return; console.log(data)
+           }
+          });
+         return removedImagesSrc[0].split("checkEditorUpload/")[1];
+        })
+        }
+ 
     </script>

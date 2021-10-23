@@ -11,11 +11,14 @@ class Blog extends Model
     use HasFactory;
     protected $table = 'blogs';
     protected $primaryKey = 'id';
-    protected $fillable = ['title','idUser', 'content', 'shortContent', 'image', 'category'];
+    protected $fillable = ['title','idUser', 'content', 'shortContent', 'image', 'category','admin'];
     public $incrementing = true;
     public $timestamps = true;
 
     public function user() {
         return $this->hasOne(User::class,'id','idUser');
+    }
+    public function Admin() {
+        return $this->hasOne(Admin::class,'admin_id','idUser');
     }
 }

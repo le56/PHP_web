@@ -86,6 +86,9 @@
         #header-user-option .nk-cart-dropdown a {
             display: block;
         }
+        .media {
+            display: block !important;
+        }
     </style>
 
 </head>
@@ -150,11 +153,7 @@
                                                 nk-btn-rounded
                                                 nk-btn-color-main-1
                                                 nk-btn-hover-color-white
-<<<<<<< HEAD
-                                    ">Log out</a>
-=======
 ">Log out</a>
->>>>>>> 7c0d6891b569bbe4b62f089dbeb6a92be34587bb
                                 </div>
                             </div>
                             @else

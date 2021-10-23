@@ -21,6 +21,7 @@ class CreateBlogsTable extends Migration
             $table->string('category');
             $table->string('shortContent');
             $table->string('content');
+            $table->boolean('admin');
             $table->timestamps();
         });
     }

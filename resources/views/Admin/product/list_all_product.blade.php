@@ -1,4 +1,4 @@
-    @extends('admin_layout')
+@extends('admin_layout')
     @section('dashboard')
     
         <div class="col-sm-12">
@@ -18,7 +18,7 @@
 		</div>
 	</div>
 	<div class="row" id="filter" style="padding: 0 30px;">
-		<form>
+	
         <div class="range-slider col-sm-3 col-xs-6">
             <div>
              <span class="rangeValues"></span>
@@ -230,17 +230,9 @@
             <input type="hidden" value="" name="get_id_product">
         </div>
         <!-- ranger input  -->
-        
+        <x-ck-editor />
         <script>
-        var editor;
-           ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .then(v => {
-            editor = v;
-        })
-        .catch( error => {
-            console.error( error );
-        } );   
+       
             //----------//
             var get_id_product;
             // show modal delete
