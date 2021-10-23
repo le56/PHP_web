@@ -64,6 +64,8 @@
         </div>
         <!-- END: Categories -->
 
+      
+
         <!-- START: Some Products -->
         <div class="nk-gap-2"></div>
         <div class="row vertical-gap">

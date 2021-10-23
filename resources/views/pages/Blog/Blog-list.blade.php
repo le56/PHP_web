@@ -42,7 +42,7 @@
                         <div class="col-md-5 col-lg-6">
                             <a href="{{URL::to('/blog')}}/{{$blog->id}}" class="nk-post-img">
                                 <img src="{{asset('/public/assets/images')}}/{{$blog->image}}" alt="{{$blog->title}}" />
-                                <span class="nk-post-comments-count">0</span>
+                              <!--   <span class="nk-post-comments-count">0</span> -->
                             </a>
                         </div>
                         <div class="col-md-7 col-lg-6">
