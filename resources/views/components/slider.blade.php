@@ -1801,7 +1801,7 @@
       <div class="name-web">
           <p class="title-slider"><span>S</span>KY <span>G</span>amer</p>
           <p class="duong-that-pro">The most famous game site in Vietnam</p>
-          <a href="#" class="animated-button1">
+          <a style="text-decoration: none;" href="{{URL::to('/blog')}}" class="animated-button1">
               <span></span>
               <span></span>
               <span></span>

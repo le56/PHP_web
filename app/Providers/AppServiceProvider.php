@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         view()->composer('*', function($view){
-            $view->with('lastpost', Post::orderBy('created_at', 'desc')->limit(2)->get());
+            $view->with('lastpost', Post::orderBy('created_at', 'asc')->limit(2)->get());
         });
     }
 }

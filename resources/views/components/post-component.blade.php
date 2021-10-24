@@ -9,9 +9,9 @@
                         <a href="blog-article.html" class="nk-post-image">
                             <img src="{{ asset('public/assets/images/'.$post->image) }}" alt="">
                         </a>
-                        <div class="nk-post-title"><a href="blog-article.html">{{$post->title}}</a></div>
+                        <div class="nk-post-title" style="font-weight: 500;"><a href="blog-article.html">{{$post->title}}</a></div>
                         <div class="nk-post-date">
-                            <span class="fa fa-calendar"></span> {{$post->created_at}}
+                            <span class="fa fa-calendar"></span>  {{date('d-m-Y', strtotime($post->created_at))}}
                         </div>
                     </div>
                 </div>
