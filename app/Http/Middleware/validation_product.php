@@ -16,13 +16,16 @@ class validation_product
      */
     public function handle(Request $request, Closure $next)
     {
-        $validated = $request->validate([
+         $request->validate([
             "title" => "required",
             "description" => "required",
             "content" => "required",
             "rate" => "required",
             "price" => "required",
-            "category" => "required"
+            "category" => "required",
+            "images"  => "required",
+            "quantityRemain" => "required",
+            "priceImport" => "required"
         ]);
         return $next($request);
     }

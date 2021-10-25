@@ -61,6 +61,13 @@
 
                 </select>
             </div>
+            @error('priceImport')
+            <p class="text-danger mt-3">{{ $message }}</p>
+            @enderror
+            <div class="form-group">
+                <label for="content">Price import</label>
+                <input  type="number" class="form-control"  aria-describedby="nameHelp" placeholder="Enter number" name="priceImport">
+            </div>
             @error('price')
             <p class="text-danger mt-3">{{ $message }}</p>
             @enderror
@@ -68,7 +75,13 @@
                 <label for="content">Price</label>
                 <input  type="number" class="form-control"  aria-describedby="nameHelp" placeholder="Enter number" name="price">
             </div>
-           
+            @error('quantityRemain')
+            <p class="text-danger mt-3">{{ $message }}</p>
+            @enderror
+            <div class="form-group">
+                <label for="content">Quantity import</label>
+                <input  type="number" class="form-control"  aria-describedby="nameHelp" placeholder="Enter number" name="quantityRemain">
+            </div>
         </form>
         <br />
         <form method="post" action="{{URL::to('/upload')}}" enctype="multipart/form-data" class="dropzone" id="my-great-dropzone">

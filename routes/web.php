@@ -86,9 +86,11 @@ Route::group(["prefix"=>"/admin/product","middleware"=>["adminAuthen"]],function
     Route::get('/list-product', [productController::class, 'showAll']);
 
     Route::get('/create', [productController::class, 'showCreateProduct']);
-    Route::post('/create', [productController::class, 'store'])->middleware('validation_product',"validation_create_product");
+    Route::post('/create', [productController::class, 'store'])->middleware('validation_product');
 
-    Route::put('/update', [productController::class, 'update'])->name('product.update');
+    Route::put('/update', [productController::class, 'update'])->name('product.update')->middleware('validation_product');
+
+    Route::patch('/update_quantity/{id}',[productController::class, 'addQuantity']);
 
     Route::get('/search', [productController::class, 'searchProduct'])->name('product.search');
     Route::get('/getByID', [productController::class, 'getByID'])->name('product.getByID');

@@ -31,6 +31,8 @@ class productController extends Controller
             "content" => $request->input("content"),
             "rate" => $request->input("rate"),
             "price" => $request->input("price"),
+            "priceImport" => $request->input("priceImport"),
+            "quantityRemain" => $request->input("quantityRemain"),
             "category" => $request->input("category"),
             "selled" => 0
                 ]);
@@ -53,6 +55,8 @@ class productController extends Controller
         $product->title = $request->title;
         $product->description = $request->description;
         $product->price = $request->price;
+        $product->priceImport = $request->priceImport;
+        $product->quantityRemain = $request->quantityRemain;
         $product->category = $request->category;
         $product->content = $request->input('content');
         $product->images = json_encode($request->images);
@@ -79,7 +83,14 @@ class productController extends Controller
     // get search products
     public function searchProduct(Request $request)
     {
-        $product = common::getImage(common::filterProduct($request,20));
+        return common::getImage(common::filterProduct($request,20));
+    }
+
+    // add quantity remain product
+    public function addQuantity(Request $request,$id) {
+        $product = products::find($id);
+        $product->quantityRemain = $product->quantityRemain + (int) $request->quantity;
+        $product->save();
         return $product;
     }
 

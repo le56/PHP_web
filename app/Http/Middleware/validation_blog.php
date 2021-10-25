@@ -21,6 +21,7 @@ class validation_blog
             "shortContent" => "required",
             "content" => "required",
             "category" => "required",
+            "image" => "required|image"
         ]);
         return $next($request);
     }

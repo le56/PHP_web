@@ -1,5 +1,11 @@
 @extends('welcome')
 @section('content')
+<style>
+    .nk-product-image img {
+        height: 100% !important;
+        object-fit: cover;
+    }
+</style>
 <div class="nk-gap-2"></div>
 <div class="container">
     <x-slider />

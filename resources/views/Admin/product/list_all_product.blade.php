@@ -68,6 +68,7 @@
                             <th>Rate</th>
                             <th>Price</th>
                             <th>Selled</th>
+                            <th>Remain</th>
                             <th>Content</th>
                             <th></th>
                         </tr>
@@ -84,9 +85,12 @@
                                 <td>{{$product->rate}}</td>
                                 <td class="td_price">{{$product->price}}</td>
                                 <td class="td_selled">{{$product->selled}}</td>
+                                <td class="td_quantityRemain">{{$product->quantityRemain}}</td>
                                 <td class="td_content">{{$product->content}}</td>
                                 <td class="table-action">
-                                    <a href="{{URL::to('/product')}}/{{$product->id}}" class="btn btn-sm btn-success"><i class="fas fa-info-circle"></i></a>
+                                    <a style="display:block;margin-bottom: .5rem;" href="{{URL::to('/product')}}/{{$product->id}}" class="btn btn-sm btn-success"><i class="fas fa-info-circle"></i></a>
+                                    <a style="display:block;margin-bottom: .5rem;" href="" class="btn btn-sm btn-primary" data-id="{{$product->id}}" data-toggle="modal"
+                                    data-target="#update_quantity"><i class="fas fa-plus-square"></i></a> <br/>
                                     <a href="" class="btn btn-sm btn-warning" data-id="{{$product->id}}" data-toggle="modal"
                                     data-target="#update_product"><i class="fas fa-edit"></i></a>
                                     <a href="" class="btn btn-sm btn-danger" data-id="{{$product->id}}" data-toggle="modal"
@@ -118,6 +122,26 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-danger" id="btn_confirm_delete">Comfirm delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Close Modal -->
+
+            <!-- Modal delete product -->
+            <div class="modal fade" id="update_quantity" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" class="text-muted">Enter quantity that you want to add in this product !</h5>
+                        </div>
+                        <div class="modal-body">
+                            <input type="number" class="form-control"  id="quantity_add">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="btn_confirm_add_quantity">Comfirm</button>
                         </div>
                     </div>
                 </div>
@@ -177,9 +201,21 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="content">Price</label>
+                                    <label for="">Price import</label>
+                                    <input type="number" class="form-control" aria-describedby="nameHelp"
+                                        placeholder="Enter number" name="priceImport">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">Price</label>
                                     <input type="number" class="form-control" aria-describedby="nameHelp"
                                         placeholder="Enter number" name="price">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">Quantity remain</label>
+                                    <input type="number" class="form-control" aria-describedby="nameHelp"
+                                        placeholder="Enter number" name="quantityRemain">
                                 </div>
 
                             </form>
@@ -211,6 +247,11 @@
                 let button = $(event.relatedTarget)
                 get_id_product = button.data('id')
             })
+             // show modal add quantity
+             $('#update_quantity').on('show.bs.modal', function (event) {
+                let button = $(event.relatedTarget)
+                get_id_product = button.data('id')
+            })
             // btn confirm delete
             $('#btn_confirm_delete').click(() => {
                 $.ajax({
@@ -236,6 +277,8 @@
                     $('#update_product input[name="price"]').val(data.price)
                     $('#update_product input[name="rate"]').val(data.rate)
                     $('#update_product input[name="selled"]').val(data.selled)
+                    $('#update_product input[name="quantityRemain"]').val(data.quantityRemain)
+                    $('#update_product input[name="priceImport"]').val(data.priceImport)
                     editor.setData(data.description);
                     $('#editor').val(data.description)
                     // load image 
@@ -259,6 +302,7 @@
                         $(`.row_product_${data.id} .td_title`).text(data.title)
                         $(`.row_product_${data.id} .td_content`).text(data.content)
                         $(`.row_product_${data.id} .td_price`).text(data.price)
+                        $(`.row_product_${data.id} .td_quantityRemain`).text(data.quantityRemain)
                         $(`.row_product_${data.id} .td_image img`).attr('src', `{{asset('/public/images/')}}/${data.image0}`)
                         get_images_name_product = [];
                         $('#update_product').modal('hide')
@@ -310,9 +354,12 @@
                             <td>${item.rate}</td>
                             <td class="td_price">${item.price}</td>
                             <td class="td_selled">${item.selled}</td>
+                            <td class="td_quantityRemain">${item.quantityRemain}</td>
                             <td class="td_content">${item.content}</td>
                             <td class="table-action">
-                                    <a href="{{URL::to('/product')}}/${item.id}" class="btn btn-sm btn-success"><i class="fas fa-info-circle"></i></a>
+                                    <a style="display:block;margin-bottom: .5rem;" href="{{URL::to('/product')}}/${item.id}" class="btn btn-sm btn-success"><i class="fas fa-info-circle"></i></a>
+                                    <a style="display:block;margin-bottom: .5rem;" href="" class="btn btn-sm btn-primary" data-id="${item.id}" data-toggle="modal"
+                                    data-target="#update_quantity"><i class="fas fa-plus-square"></i></a> <br/>
                                     <a href="" class="btn btn-sm btn-warning" data-id="${item.id}" data-toggle="modal"
                                     data-target="#update_product"><i class="fas fa-edit"></i></a>
                                     <a href="" class="btn btn-sm btn-danger" data-id="${item.id}" data-toggle="modal"
@@ -355,7 +402,7 @@
                 })
             }
             // handle close model update 
-            $('#btn_close_update').click(function() {
+            $('#btn_close_update').click(() => {
                 $.ajax({
                     type: 'delete',
                     dataType: "json",
@@ -370,6 +417,22 @@
                         $('#update_product').modal('hide')
                     },
                 });
+            })
+            // handle add quantity product
+            $('#btn_confirm_add_quantity').click(()=> {
+                $.ajax({
+                    type: 'patch',
+                    dataType: "json",
+                    url: `{{URL::to('/admin/product/update_quantity/${get_id_product}')}}`,
+                    data: {
+                       quantity : $('#quantity_add').val(),
+                    },
+                    success: function (data) {
+                        $(`.row_product_${data.id} .td_quantityRemain`).text(data.quantityRemain)
+                        $('#update_quantity').modal('hide')
+                        $('#quantity_add').val('')
+                    },
+                })
             })
             
         </script>

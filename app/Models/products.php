@@ -10,7 +10,7 @@ class products extends Model
     use HasFactory;
     protected $table = 'products';
     protected $primaryKey = 'id';
-    protected $fillable = ['title','content','rate','price','images','category','description',"selled"];
+    protected $fillable = ['title','content','rate','price','images','category','description',"selled","quantityRemain","priceImport"];
     public $incrementing = true;
     public $timestamps = true;  
 }

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\products;
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
@@ -20,8 +23,15 @@ class AdminController extends Controller
     public function show_dashboard()
     {
        $admin_name = Session::get('admin_name');
-       if($admin_name)
-        return view('Admin.dashboard');
+       if($admin_name){   
+           $products = products::all();
+           $revenue =  0;
+           foreach($products as $product) {
+            $rev = ((int)$product->selled * (float)$product->price) - ((int)$product->selled * (float)$product->priceImport);
+            $revenue += $rev;
+           }
+           return view('Admin.dashboard',["totalUser"=>User::count(),"totalOrder"=> Order::count(),"totalProductRemain"=>products::count(),"revenue"=>$revenue]);
+       }
        return view('admin_login');
     }
     public function dashboard(Request $request)
