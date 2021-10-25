@@ -208,7 +208,7 @@
                         <li class=" nk-drop-item">
                             <a href="{{URL::to('/tournament')}}">
                                 Tournaments
-
+                                
                             </a>
                             <ul class="dropdown">
 

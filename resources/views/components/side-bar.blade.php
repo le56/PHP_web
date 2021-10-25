@@ -63,12 +63,13 @@
                 <h4 class="nk-widget-title"><span><span class="text-main-1">Top 3</span> Recent</span></h4>
                 <div class="nk-widget-content">
 
+
                     @foreach($recents as $recent)
                     <div class="nk-widget-post">
-                        <a href="blog-article.html" class="nk-post-image">
-                            <img src="{{ asset('public/assets/images/'.$recent->image_sm) }}" alt="">
+                        <a href="{{URL::to('/blog')}}/{{$recent->id}}" class="nk-post-image">
+                            <img src="{{ asset('public/images/'.$recent->image) }}" alt="">
                         </a>
-                        <h3 class="nk-post-title"><a href="blog-article.html">{{$recent->title}}</a></h3>
+                        <h3 class="nk-post-title"><a href="{{URL::to('/blog')}}/{{$recent->id}}">{{$recent->title}}</a></h3>
                         <div class="nk-post-date"><i class="fas fa-calendar-alt"></i>
                             <path fill="currentColor" d="M436 160H12c-6.6 0-12-5.4-12-12v-36c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48v36c0 6.6-5.4 12-12 12zM12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm116 204c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40z"></path>
                             </svg>{{date('d-m-Y', strtotime($recent->created_at))}}

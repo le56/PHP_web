@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\common\common;
 use App\Models\Blog;
 use App\Models\category;
+use App\Models\products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -24,7 +25,10 @@ class BlogController extends Controller
 
     // client 
     public function showBlog(Request $req) {
-        return view('pages.Blog.Blog-list',["blogs" => common::filterBlog($req,6)]);
+        return view('pages.Blog.Blog-list',[
+        "blogs" => common::filterBlog($req,6),
+        'products'=>products::orderBy('created_at', 'asc')->limit(3)->get(),
+    ]);
     }
 
     public function showBlogGrid(Request $req) {

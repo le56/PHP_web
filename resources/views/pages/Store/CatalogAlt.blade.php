@@ -27,41 +27,7 @@
 
 <div class="container">
     <!-- START: Categories -->
-    <div class="row vertical-gap">
-        <div class="col-lg-4">
-            <div class="nk-feature-1">
-                <div class="nk-feature-icon">
-                    <img src="public/assets/images/icon-mouse.png" alt="">
-                </div>
-                <div class="nk-feature-cont">
-                    <h3 class="nk-feature-title"><a href="#">PC</a></h3>
-                    <h3 class="nk-feature-title text-main-1"><a href="#">View Games</a></h3>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="nk-feature-1">
-                <div class="nk-feature-icon">
-                    <img src="public/assets/images/icon-gamepad.png" alt="">
-                </div>
-                <div class="nk-feature-cont">
-                    <h3 class="nk-feature-title"><a href="#">PS4</a></h3>
-                    <h3 class="nk-feature-title text-main-1"><a href="#">View Games</a></h3>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="nk-feature-1">
-                <div class="nk-feature-icon">
-                    <img src="public/assets/images/icon-gamepad-2.png" alt="">
-                </div>
-                <div class="nk-feature-cont">
-                    <h3 class="nk-feature-title"><a href="#">Xbox</a></h3>
-                    <h3 class="nk-feature-title text-main-1"><a href="#">View Games</a></h3>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-view-game></x-view-game>
     <!-- END: Categories -->
 
     <!-- START: Products Filter -->
@@ -87,15 +53,7 @@
                                 <strong class="text-main-1">€ <span class="nk-input-slider-value-1"></span></strong>
                             </div>
                             <div class="nk-input-slider-input">
-                                <input
-                                        type="text"
-                                        name="price-filter"
-                                        data-slider-min="0"
-                                        data-slider-max="1800"
-                                        data-slider-step="1"
-                                        data-slider-value="[200, 1200]"
-                                        data-slider-tooltip="hide"
-                                >
+                                <input type="text" name="price-filter" data-slider-min="0" data-slider-max="1800" data-slider-step="1" data-slider-value="[200, 1200]" data-slider-tooltip="hide">
                             </div>
                         </div>
                         <div>
@@ -123,31 +81,30 @@
 
         @foreach ($products as $product)
 
-            <div class="col-lg-6">
-                <div class="nk-product-cat-2">
-                    <a class="nk-product-image" href="store-product.html">
-                        <img src="{{asset('public/assets/images/'.$product->image) }}" alt="However, I have reason">
-                    </a>
-                    <div class="nk-product-cont">
-                        <h3 class="nk-product-title h5"><a href="store-product.html">{{$product->title}}</a></h3>
-                        <div class="nk-gap-1"></div>
-                        <div class="nk-product-rating" >
-                            @for ($i = 1; $i <=5; $i++)
-                                @if ($i < $product->rate)
-                                    <i class="fa fa-star"></i>
-                                @elseif($i === $product->rate) <i class="fas fa-star-half-alt"></i>
-                                @else  <i class="far fa-star"></i>
-                                @endif
+        <div class="col-lg-6">
+            <div class="nk-product-cat-2">
+                <a class="nk-product-image" href="store-product.html">
+                    <img src="{{asset('public/assets/images/'.$product->image) }}" alt="However, I have reason">
+                </a>
+                <div class="nk-product-cont">
+                    <h3 class="nk-product-title h5"><a href="store-product.html">{{$product->title}}</a></h3>
+                    <div class="nk-gap-1"></div>
+                    <div class="nk-product-rating">
+                        @for ($i = 1; $i <=5; $i++) @if ($i < $product->rate)
+                            <i class="fa fa-star"></i>
+                            @elseif($i === $product->rate) <i class="fas fa-star-half-alt"></i>
+                            @else <i class="far fa-star"></i>
+                            @endif
                             @endfor</div>
-                        <div class="nk-gap-1"></div>
-                        {{$product->content}}
-                        <div class="nk-gap-2"></div>
-                        <div class="nk-product-price">€ {{$product->price}}</div>
-                        <div class="nk-gap-1"></div>
-                        <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                    </div>
+                    <div class="nk-gap-1"></div>
+                    {{$product->content}}
+                    <div class="nk-gap-2"></div>
+                    <div class="nk-product-price">€ {{$product->price}}</div>
+                    <div class="nk-gap-1"></div>
+                    <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
                 </div>
             </div>
+        </div>
 
         @endforeach
 

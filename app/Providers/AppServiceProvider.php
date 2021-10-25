@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Blog;
 use App\Models\Post;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -26,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         view()->composer('*', function($view){
-            $view->with('lastpost', Post::orderBy('created_at', 'desc')->limit(2)->get());
+            $view->with('lastpost', Blog::orderBy('created_at', 'desc')->limit(2)->get());
         });
     }
 }
