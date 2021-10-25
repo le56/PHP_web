@@ -74,7 +74,7 @@
                         </thead>
                         <tbody id="listAllProduct">
 
-                        @forelse ($products as $product)
+                        @foreach ($products as $product)
                             <tr class="row_product_{{$product->id}}">
                                 <td>{{$loop->index + 1}}</td>
                                 <td class="td_title">{{$product->title}} </td>
@@ -94,9 +94,8 @@
                             </td>
                                 
                             </tr>
-                        @empty
-                            <td colspan="5"> List products is empty.</td>
-                        @endforelse
+                        
+                        @endforeach
 
                         </tbody>
                     </table>
@@ -142,11 +141,8 @@
                                         placeholder="Enter title" name="title">
                                 </div>
 
-                                    <input type="hidden" name="image0">
-                                    <input type="hidden" name="image1">
-                                    <input type="hidden" name="image2">
-                                    <input type="hidden" name="image3">
-                            
+                                    <input type="hidden" name="images[]" id="imageArr">
+                                  
                                 <div class="form-group">
                                     <label for="content">Content</label>
                                     <input type="text" class="form-control" aria-describedby="nameHelp"
@@ -188,39 +184,12 @@
 
                             </form>
                             <br/>
-                        <div class="row">
-                            <label for="file0" class="col-sm-6 item-image pb-3">
-                                <div>
-                                <img src="" id="image0" alt="" class="file-img">
-                                <input type="file" data-id="image0" id="file0" style="display: none">
-                                </div>
-                            </label>
-
-                            <label for="file1" class="col-sm-6 item-image pb-3">
-                                <div>
-                                <img src="" id="image1" alt="" class="file-img">
-                                <input type="file" data-id="image1" id="file1" style="display: none">
-                                </div>
-                            </label>
-
-                            <label for="file2" class="col-sm-6 item-image pb-3">
-                                <div>
-                                <img src="" id="image2" alt="" class="file-img">
-                                <input type="file" data-id="image2" id="file2" style="display: none">
-                                </div>
-                            </label>
-
-                            <label for="file3" class="col-sm-6 item-image pb-3">
-                                <div>
-                                <img src="" id="image3" alt="" class="file-img">
-                                <input type="file" data-id="image3" id="file3" style="display: none">
-                                </div>
-                            </label>
+                        <div class="row" id="list_images">                         
                             
                         </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" id="btn_close_update">Close</button>
                             <button type="button" class="btn btn-primary" id="btn_confirm_update">Save changes</button>
                         </div>
                     </div>
@@ -233,8 +202,10 @@
         <x-ck-editor />
         <script>
        
-            //----------//
+            //current id product//
             var get_id_product;
+            //current images name arr product//
+            var get_images_name_product = [];
             // show modal delete
             $('#delete_product').on('show.bs.modal', function (event) {
                 let button = $(event.relatedTarget)
@@ -267,14 +238,10 @@
                     $('#update_product input[name="selled"]').val(data.selled)
                     editor.setData(data.description);
                     $('#editor').val(data.description)
-                    $('#image0').attr("src",`{{asset('/public/images/')}}/${data.image0}`)
-                    $('#image1').attr("src",`{{asset('/public/images/')}}/${data.image1}`)
-                    $('#image2').attr("src",`{{asset('/public/images/')}}/${data.image2}`)
-                    $('#image3').attr("src",`{{asset('/public/images/')}}/${data.image3}`)
-                    $("input[name='image0'").val(data.image0)
-                    $("input[name='image1'").val(data.image1)
-                    $("input[name='image2'").val(data.image2)
-                    $("input[name='image3'").val(data.image3)
+                    // load image 
+                    loadImageUpdaeModel(data.images);
+                    // set images arr for current images name arr
+                    get_images_name_product = data.images;
                     $('select[name="category"]').val(data.category)
                     $('input[name="_id_product"]').val(data.id)             
                 })
@@ -282,6 +249,7 @@
             // confirm update product
             $('#btn_confirm_update').click((e) => {
             $('#editor').val(editor.getData())
+            $("#imageArr").val(get_images_name_product);   
                 $.ajax({
                     type: 'put',
                     dataType: "json",
@@ -292,10 +260,11 @@
                         $(`.row_product_${data.id} .td_content`).text(data.content)
                         $(`.row_product_${data.id} .td_price`).text(data.price)
                         $(`.row_product_${data.id} .td_image img`).attr('src', `{{asset('/public/images/')}}/${data.image0}`)
+                        get_images_name_product = [];
                         $('#update_product').modal('hide')
                     },
                     error: function (err) {
-                        alert('Input is not empty !')
+                        console.log(err)
                     }
                 });
             })
@@ -357,11 +326,10 @@
             })
 
             // handle image change
-
-            $("input[type='file']").change( function (e) {
+            $('#list_images').on("change","input[type='file']", function(e){
                 const file = e.target.files[0]
                 const data_id = $(this).attr("data-id")
-                upload(file,data_id,"_id_product",null)
+                  upload(file,data_id,"_id_product",null)
             })
             // export excel
             $('#btn_export-excel').click(function () {
@@ -372,7 +340,37 @@
                 preserveColors: false
             });
             })
-           
+           // function load image update model product
+            function loadImageUpdaeModel(imagenames) {
+                $('#list_images').html('')
+                imagenames.forEach((img,index)=>{
+                    $('#list_images').append(`
+                    <label for="file${index}" class="col-sm-6 item-image pb-3">
+                                <div>
+                                <img src="{{asset('/public/images/${img}')}}" id="image${index}" alt="" class="file-img">
+                                <input type="file" data-id="image${index}" id="file${index}" style="display: none">
+                                </div>
+                            </label>
+                    `)
+                })
+            }
+            // handle close model update 
+            $('#btn_close_update').click(function() {
+                $.ajax({
+                    type: 'delete',
+                    dataType: "json",
+                    url: "{{ route('product.deleteMuti') }}",
+                    data: {
+                        _id_product : get_id_product,
+                        images : get_images_name_product,
+                        type : "product"
+                    },
+                    success: function (data) {
+                        get_images_name_product = [];
+                        $('#update_product').modal('hide')
+                    },
+                });
+            })
             
         </script>
         <x-upload-image></x-upload-image>

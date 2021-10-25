@@ -16,10 +16,10 @@
             <p class="text-danger mt-3">{{ $message }}</p>
             @enderror -->
            
-                <input  type="hidden" class="form-control"  aria-describedby="nameHelp" name="image0">
-                <input  type="hidden" class="form-control"  aria-describedby="nameHelp" name="image1">
+                <input  type="hidden" class="form-control" id="image_arr"  aria-describedby="nameHelp" name="images[]">
+                <!-- <input  type="hidden" class="form-control"  aria-describedby="nameHelp" name="image1">
                 <input  type="hidden" class="form-control"  aria-describedby="nameHelp" name="image2">
-                <input  type="hidden" class="form-control"  aria-describedby="nameHelp" name="image3">
+                <input  type="hidden" class="form-control"  aria-describedby="nameHelp" name="image3"> -->
 
 
             @error('content')
@@ -84,13 +84,14 @@
       //----------//
         const arrImage = [];
         $('#formSubmit').click(function (e) {
-           if(arrImage.length < 4) {
+           if(arrImage.length <= 0) {
                e.preventDefault();
-             return  alert('Please choose at least 4 images');
+             return  alert('No image to upload !');
            }
-           for(let i=0;i<=arrImage.length;i++) {
-            $(`input[name="image${i}"]`).val(arrImage[i])
-           }
+          //  for(let i=0;i<=arrImage.length;i++) {
+          //   $(`input[name="image${i}"]`).val(arrImage[i])
+          //  }
+            $('#image_arr').val(arrImage);
             $("#form").submit()
           
         })
@@ -102,8 +103,8 @@
         });
         Dropzone.options.myGreatDropzone = { 
             paramName : "file",
-            maxFilesize: 4,
-            maxFiles: 4,
+            maxFilesize: 2,
+            maxFiles: 6,
             acceptedFiles: ".jpeg,.jpg,.png,.gif",
             addRemoveLinks : true,
             timeout : 50000,

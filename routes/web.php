@@ -88,7 +88,7 @@ Route::group(["prefix"=>"/admin/product","middleware"=>["adminAuthen"]],function
     Route::get('/create', [productController::class, 'showCreateProduct']);
     Route::post('/create', [productController::class, 'store'])->middleware('validation_product',"validation_create_product");
 
-    Route::put('/update', [productController::class, 'update'])->name('product.update')->middleware('validation_product');
+    Route::put('/update', [productController::class, 'update'])->name('product.update');
 
     Route::get('/search', [productController::class, 'searchProduct'])->name('product.search');
     Route::get('/getByID', [productController::class, 'getByID'])->name('product.getByID');
@@ -142,6 +142,7 @@ Route::post("/upload", [uploadImageController::class, 'store'])->name('upload');
 Route::post("/delete_upload", [uploadImageController::class, 'destroy'])->name('deleteUpload');
 // update image product
 Route::post("/update_image", [uploadImageController::class, 'updateImageUpload'])->name('update_image');
+Route::delete("/deleteMuti", [uploadImageController::class, 'destroyMuti'])->name('product.deleteMuti');
 Route::post("/upload_checkEditor", [uploadImageController::class, 'uploadImageCheckEditor'])->name('upload_checkEditor');
 
 // user logout

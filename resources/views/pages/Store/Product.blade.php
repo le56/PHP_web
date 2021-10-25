@@ -82,30 +82,17 @@
 
                                 <div class="nk-gap-1"></div>
                                 <div class="row vertical-gap sm-gap">
-                                    <div class="col-6 col-md-4">
+                                   @foreach($product->images as $image)
+                                   <div class="col-6 col-md-4">
                                         <div class="nk-gallery-item-box">
-                                            <a href="{{ asset('public/images/'.$product->image1) }}" class="nk-gallery-item" data-size="622x942">
+                                            <a href="{{ asset('public/images/'.$image) }}" class="nk-gallery-item" data-size="622x942">
                                                 <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                                <img src="{{ asset('public/images/'.$product->image1) }}" alt="">
+                                                <img src="{{ asset('public/images/'.$image) }}" alt="">
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-4">
-                                        <div class="nk-gallery-item-box">
-                                            <a href="{{ asset('public/images/'.$product->image2) }}" class="nk-gallery-item" data-size="1920x907">
-                                                <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                                <img src="{{ asset('public/images/'.$product->image2) }}" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-4">
-                                        <div class="nk-gallery-item-box">
-                                            <a href="{{ asset('public/images/'.$product->image3) }}" class="nk-gallery-item" data-size="1500x750">
-                                                <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
-                                                <img src="{{ asset('public/images/'.$product->image3) }}" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
+                                   @endforeach
+                                  
                                 </div>
                             </div>
                             <!-- END: Product Photos -->

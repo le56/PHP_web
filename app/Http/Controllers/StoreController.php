@@ -15,8 +15,8 @@ class StoreController extends Controller
     // get
     // show store page
     public function index(){
-        $allProduct = products::all();
-        return view('pages.Store.Store',['ListImageXS'=>$allProduct,"galleries"=>Store_gallery::all(),'products'=>products::all()]);
+        $allProduct =common::getImage(products::all()) ;
+        return view('pages.Store.Store',['ListImageXS'=>$allProduct,"galleries"=>Store_gallery::all(),'products'=>$allProduct]);
     }
    
     // get 
@@ -27,7 +27,7 @@ class StoreController extends Controller
         $categories = category::all();
         $totalComment = count($comments);
         $relativeProducts = products::where("category",$product->category)->get();
-        return view('pages.Store.Product',['product' => $product,"categories"=>$categories,"relativeProducts"=>$relativeProducts,"comments" => $comments,"totalComment"=>$totalComment]);
+        return view('pages.Store.Product',['product' => common::getImageOneProduct($product),"categories"=>$categories,"relativeProducts"=>common::getImage($relativeProducts),"comments" => $comments,"totalComment"=>$totalComment]);
     }
     // handle add comment in product details page
     public function addComment(Request $request) {
@@ -49,16 +49,19 @@ class StoreController extends Controller
     // show catalog ALT
     public function catalogAlt(){
         $allProduct = products::all();
-        return view('pages.Store.CatalogAlt',['products'=>$allProduct]);
+        return view('pages.Store.CatalogAlt',['products'=>common::getImage($allProduct)]);
     }
     // show catalog page and filter
     public function catalog(Request $request){
       $product = common::filterProduct($request,6);
-      return view('pages.Store.Catalog',["products" => $product,"categories" => category::all()]);
+      return view('pages.Store.Catalog',["products" => common::getImage($product),"categories" => category::all()]);
     }
    // show checkout page
     public function checkout(){
         $data = common::getCartAndTotalPrice(Auth::user()->email);
+        foreach ($data['carts'] as $cart) {
+            $cart->product = common::getImageOneProduct($cart->product);
+        }
         return view('pages.Store.Checkout',["carts"=>$data['carts'],"totalPrice"=>$data['totalPrice']]);
     }
 }

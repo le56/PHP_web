@@ -17,10 +17,7 @@ class validation_create_product
     public function handle(Request $request, Closure $next)
     {
          $request->validate([
-            "image0" => "required",
-            "image1" => "required",
-            "image2" => "required",
-            "image3" => "required"
+           "images"  => "required",
          ]);
         return $next($request);
     }

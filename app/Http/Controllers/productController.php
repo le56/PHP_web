@@ -18,7 +18,7 @@ class productController extends Controller
     // get  all list product, return wiew
     public function showAll()
     {
-        return view("Admin.product.list_all_product", ["products" => products::all(),"categories" => category::all()]);
+        return view("Admin.product.list_all_product", ["products" => common::getImage(products::all()),"categories" => category::all()]);
     }
 
     //    post store product
@@ -26,16 +26,14 @@ class productController extends Controller
     {
          products::create([
             "title" => $request->input("title"),
-            "image0" => $request->input("image0"),
-            "image1" => $request->input("image1"),
-            "image2" => $request->input("image2"),
-            "image3" => $request->input("image3"),
+            "images" => json_encode($request->images),
             "description" => $request->description,
             "content" => $request->input("content"),
             "rate" => $request->input("rate"),
             "price" => $request->input("price"),
-            "category" => $request->input("category")
-        ]);
+            "category" => $request->input("category"),
+            "selled" => 0
+                ]);
         return redirect()->back();
     }
 
@@ -43,22 +41,35 @@ class productController extends Controller
     public function update(Request $request)
     {
         $product = products::find($request->_id_product);
+        $currImagesArr = common::getImageOneProduct(($product));
+        $newArr = explode(",",$request->images[0]);
+        foreach ($currImagesArr->images as $filename) {
+            if(!in_array($filename,$newArr)) {
+                $path = public_path()."\images\\".$filename;
+                if(file_exists($path)) unlink($path);
+            }
+        }
+
         $product->title = $request->title;
         $product->description = $request->description;
         $product->price = $request->price;
         $product->category = $request->category;
         $product->content = $request->input('content');
+        $product->images = json_encode($request->images);
+        unset($product["image0"]);
         $product->save();
-        return $product;
+        return common::getImageOneProduct($product);
     }
 
     // delete  product
     public function delete(Request $request)
     {
         $productDel = products::find($request->id);
-        for($i=0;$i<=3;$i++) {
-            $d = "image".(string)$i;
-            $path = public_path()."\images\\".$productDel->$d;
+        $string = str_replace('["','',$productDel->images);
+        $string1 = str_replace('"]','',$string);
+        $images = explode(",",$string1);
+        for($i=0;$i<count($images);$i++) {
+            $path = public_path()."\images\\".$images[$i];
            if(file_exists($path)) unlink($path);
         }
         $productDel->delete();
@@ -68,13 +79,13 @@ class productController extends Controller
     // get search products
     public function searchProduct(Request $request)
     {
-        $product = common::filterProduct($request,20);
+        $product = common::getImage(common::filterProduct($request,20));
         return $product;
     }
 
     // get product by ID
     public function getByID(Request $request)
     {
-        return products::find($request->_id);
+        return common::getImageOneProduct(products::find($request->_id));
     }
 }

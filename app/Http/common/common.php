@@ -78,4 +78,23 @@ class common
         return array("carts" => $carts,"totalPrice" => $totalPrice);
     }
 
+    // function get image 
+    public static function getImage($products) {
+        foreach ($products as $product) {
+            $string = str_replace('["','',$product->images);
+            $string1 = str_replace('"]','',$string);
+            $product->image0 = explode(",",$string1)[0];
+            $product->images = explode(",",$string1);
+        }
+        return $products;
+    }
+    // 
+    public static function getImageOneProduct($product) {
+        $string = str_replace('["','',$product->images);
+        $string1 = str_replace('"]','',$string);
+        $product->image0 = explode(",",$string1)[0];
+        $product->images = explode(",",$string1);
+        return $product;
+    }
+
  }

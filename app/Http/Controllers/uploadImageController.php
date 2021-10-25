@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\common\common;
 use App\Models\Home_slider;
 use App\Models\products;
 use App\Models\Screenshots;
@@ -56,9 +57,6 @@ class uploadImageController extends Controller
           return $imagename;
         }
         // handle update image product
-        $updateProduct = products::find($request->_id_product);
-        $updateProduct->$columnImage = $imagename;
-        $updateProduct->save();
         return $imagename;
     }
 
@@ -75,7 +73,7 @@ class uploadImageController extends Controller
       }
     } 
   
-    // destroy image
+    // destroy image form req
     public function destroy(Request $request) {
       $filename = $request->get("filename");
       if(isset($request->folder) && $request->folder === "ckEditor") 
@@ -85,4 +83,17 @@ class uploadImageController extends Controller
       if(file_exists($path)) unlink($path);
       return $path;
     }
+  // destroy muti file
+  public function destroyMuti(Request $request) {
+    if($request->type === "product") {
+      $product = common::getImageOneProduct(products::find($request->_id_product));
+      foreach ($request->images as $filename) {
+          if(!in_array($filename,$product->images)) {
+              $path = public_path()."\images\\".$filename;
+              if(file_exists($path)) unlink($path);
+          }
+      }
+    }
+    return response()->json(["success"=>true]);
+  }
 }

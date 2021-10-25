@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Http\common\common;
 use App\Models\Latest_new;
 use App\Models\MatchNow;
 use App\Models\products;
@@ -32,7 +33,7 @@ class SideBar extends Component
 
         return view('components.side-bar', [
             'recents' => Latest_new::orderBy('created_at', 'asc')->limit(3)->get(),
-            'topProduct' => products::orderBy('created_at', 'asc')->limit(3)->get(),
+            'topProduct' => common::getImage(products::orderBy('created_at', 'asc')->limit(3)->get()),
             'listScreenshots' => Screenshots::orderBy('image', 'asc')->limit(6)->get(),
             'nextMatch'=>MatchNow::orderBy('created_at','desc')->limit(3)->get(),
         ]);

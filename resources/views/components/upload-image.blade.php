@@ -1,7 +1,7 @@
 <script>
  
    // function upload file 
-   function upload(file,data_id,idField,type) {
+    function upload(file,data_id,idField,type) {
             const data = new FormData();
             data.append('file', file);
             data.append("filenamedel",$(`input[name="${data_id}"]`).val())
@@ -16,9 +16,13 @@
             contentType:false,
             cache:false,
             processData:false,
-            success:function(data){
+            success: function(data){
                 read(file,data_id)
-                $(`input[name="${data_id}"]`).val(data)
+                if($(`input[name="${data_id}"]`))
+                 $(`input[name="${data_id}"]`).val(data)
+                 if(get_images_name_product) {
+                    get_images_name_product[parseInt(data_id.split("image")[1])] = data;
+                 }
             }
             });
         }

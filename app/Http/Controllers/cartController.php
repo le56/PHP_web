@@ -14,6 +14,9 @@ class cartController extends Controller
     // show cart method
     public function cart(){
           $data = common::getCartAndTotalPrice(Auth::user()->email);
+          foreach($data['carts'] as $cart) {
+              $cart->product = common::getImageOneProduct($cart->product);
+          }
         return view('pages.Store.Cart',["carts"=>$data['carts'],"totalPrice"=>$data['totalPrice']]);
     }
     // post
@@ -35,7 +38,7 @@ class cartController extends Controller
             $cart->quantity = $newQuantity;
             $cart->totalPrice = $newQuantity * $product->price;
             $cart -> save();
-            $cart->product = $cart->product;
+            $cart->product = common::getImageOneProduct($cart->product);
             return response()->json(['cart'=>$cart,"quantity" =>$quantity,"isReplace" => $request->isReplace,'message'=>"updated","totalPrice"=>Cart::where("email",Auth::user()->email)->sum("totalPrice")]);
         }
         // handle if cart not exists
@@ -45,7 +48,7 @@ class cartController extends Controller
           "quantity" => $quantity,
           "totalPrice" => $quantity * $product->price
         ]);
-        $cart->product = $cart->product;
+        $cart->product = common::getImageOneProduct($cart->product);
         return response()
         ->json(['cart'=>$cart,'message'=>"created"]);
     } 
