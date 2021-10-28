@@ -1,7 +1,7 @@
 @extends('admin_layout')
 @section('dashboard')
     <div class="container">
-
+        <h1 style="color: #fff;text-shadow: 3px 2px 0 #666;" class="text-center text-white">Create product</h1>
         <form action="{{URL::to('/admin/product/create')}}" id="form" method="POST" enctype="multipart/form-data">
            @csrf
             {{csrf_field()}}

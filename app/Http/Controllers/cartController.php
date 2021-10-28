@@ -29,9 +29,14 @@ class cartController extends Controller
         if(!isset($product)) return response()->json([
             "error" => "Product not found"
         ]);
-        $quantity = (int)$request->quantity > 0 ? $request->quantity : 1;
+        $quantity = (int)$request->quantity > 0 ? (int)$request->quantity : 1;
+        if($quantity > $product->quantityRemain) {
+            return response()->json(["overError" => "There are not enough items in stock to add to the cart"],400);
+        }
         // check exist product in cart 
         $cart = Cart::where("email",$email)->where("idProduct",$idPoduct)->first();
+        $product->quantityRemain = $product->quantityRemain - $quantity;
+        $product->save();
         // handle if cart exists
         if(isset($cart)) {
             $newQuantity = $request->isReplace == "true" ? $quantity : $cart->quantity + $quantity;

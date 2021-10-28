@@ -55,7 +55,7 @@
 
             <li><span class="fa fa-angle-right"></span></li>
 
-            <li><span>Just then her head </span></li>
+            <li><span>{{$product->title}} </span></li>
 
         </ul>
     </div>
@@ -99,7 +99,7 @@
                         </div>
                         <div class="col-md-6">
 
-                            <h2 class="nk-product-title h3">Just then her head </h2>
+                            <h2 class="nk-product-title h3">{{$product->title}} </h2>
 
                             <select class="form-control">
                                 <option value="" disabled selected>Select Platform</option>
@@ -113,12 +113,19 @@
                             </div>
 
                             <!-- START: Add to Cart -->
-                            <div class="nk-gap-2"></div>
+                           
                             <form action="#" class="nk-product-addtocart">
-                                <div class="nk-product-price">€ {{$product->price}}</div>
+                               <div id="quantity-remain-contain">
+                                    @if($product->quantityRemain > 0)
+                                    <h4 style="text-transform: none;margin-bottom: .5rem;color:#f1f1f1">Quantity remain : {{$product->quantityRemain}}</h4>
+                                    @else
+                                    <h4 style="text-transform: none;margin-bottom: .5rem;color:#ed4545">The product is out of stock</h4>
+                                    @endif
+                               </div>
+                                <div class="nk-product-price">$ {{$product->price}}</div>
                                 <div class="nk-gap-1"></div>
                                 <div class="input-group">
-                                    <input type="number" id="input-addToCart-detailsPage" class="form-control" value="1" min="1" max="21">
+                                    <input type="number" id="input-addToCart-detailsPage" class="form-control" value="1" min="1" max="100">
                                     <button id="btn-addToCart-detailsPage" data-add-product-cart-details="{{$product->id}}" class="nk-btn nk-btn-rounded nk-btn-color-main-1">Add to Cart</button>
                                 </div>
                             </form>
@@ -380,9 +387,9 @@
                                 <div>
                                     <div class="text-white mt-4 float-left">
                                         PRICE:
-                                        <strong class="text-main-1">€ <span class="nk-input-slider-value-0"></span></strong>
+                                        <strong class="text-main-1">$ <span class="nk-input-slider-value-0"></span></strong>
                                         -
-                                        <strong class="text-main-1">€ <span class="nk-input-slider-value-1"></span></strong>
+                                        <strong class="text-main-1">$ <span class="nk-input-slider-value-1"></span></strong>
                                     </div>
                                     <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white float-right">Apply</a>
                                 </div>
@@ -426,7 +433,7 @@
                                 </a>
                                 <h3 class="nk-post-title"><a href="store-product.html">So saying he unbuckled</a></h3>
                                 <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
-                                <div class="nk-product-price">€ 23.00</div>
+                                <div class="nk-product-price">$ 23.00</div>
                             </div>
 
                             <div class="nk-widget-post">
@@ -435,7 +442,7 @@
                                 </a>
                                 <h3 class="nk-post-title"><a href="store-product.html">However, I have reason</a></h3>
                                 <div class="nk-product-rating" data-rating="2.5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fas fa-star-half"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
-                                <div class="nk-product-price">€ 32.00</div>
+                                <div class="nk-product-price">$ 32.00</div>
                             </div>
 
                             <div class="nk-widget-post">
@@ -444,7 +451,7 @@
                                 </a>
                                 <h3 class="nk-post-title"><a href="store-product.html">It was some time before</a></h3>
                                 <div class="nk-product-rating" data-rating="5"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                                <div class="nk-product-price">€ 14.00</div>
+                                <div class="nk-product-price">$ 14.00</div>
                             </div>
 
                         </div>
@@ -513,15 +520,6 @@
 
 
             });
-        function formatDate(date) {
-            var currentdate = new Date(date);
-            var datetime =currentdate.getDate() + "/"
-                + (currentdate.getMonth()+1)  + "/"
-                + currentdate.getFullYear() + " "
-                + currentdate.getHours() + ":"
-                + currentdate.getMinutes() + ":"
-                + currentdate.getSeconds();
-            return datetime;
-        }
+   
     </script>
 @endsection

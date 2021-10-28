@@ -13,4 +13,8 @@ class Order extends Model
     protected $fillable = ["id","email","idProduct","quantity","totalPrice","status"];
     public $incrementing = true;
     public $timestamps = true;
+
+    public function product() {
+        return $this->hasOne(products::class,"id","idProduct");
+    }
 }

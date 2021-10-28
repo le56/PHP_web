@@ -18,7 +18,7 @@
        margin-left: 1rem;
    }
 </style>
-<h1 >Store gallery</h1>
+<h1 style="color: #fff;text-shadow: 3px 2px 0 #666;" class="text-center text-white">Store gallery</h1>
       <!-- START: Some Products -->
      
       <div class="nk-gap-2"></div>

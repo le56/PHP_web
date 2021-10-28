@@ -3,7 +3,7 @@
    
           <input type="hidden" id="update_blog_page">
            <div class="container-fluid ">
-              
+           <h1 style="color: #fff;text-shadow: 3px 2px 0 #666;margin-bottom: 1rem;" class="text-center text-white">Blog management</h1>
               <form id="search-form" action="" method="POST" enctype="multipart/form-data">
                   
                       <div class="form-group col-xs-9" style="padding : 0 10px">
@@ -71,11 +71,14 @@
                                 <td class="td_shortContent">{{$blog->shortContent}}</td>
                                 <td class="td_category">{{$blog->category}}</td>
                                 <td class="table-action">
-                                    <a href="{{URL::to('/blog')}}/{{$blog->id}}" class="btn btn-sm btn-success"><i class="fas fa-info-circle"></i></a>
-                                    <a href="" class="btn btn-sm btn-warning" data-id="{{$blog->id}}" data-toggle="modal"
-                                    data-target="#update_blog"><i class="fas fa-edit"></i></a>
-                                    <a href="" class="btn btn-sm btn-danger" data-id="{{$blog->id}}" data-toggle="modal"
-                                    data-target="#delete_blog"><i class="fas fa-trash"></i></a>
+                                    <div>
+
+                                        <a href="{{URL::to('/blog')}}/{{$blog->id}}" class="btn btn-sm btn-success"><i class="fas fa-info-circle"></i></a>
+                                        <a href="" class="btn btn-sm btn-warning" data-id="{{$blog->id}}" data-toggle="modal"
+                                        data-target="#update_blog"><i class="fas fa-edit"></i></a>
+                                        <a href="" class="btn btn-sm btn-danger" data-id="{{$blog->id}}" data-toggle="modal"
+                                        data-target="#delete_blog"><i class="fas fa-trash"></i></a>
+                                    </div>
                             </td>
                                 
                             </tr>
@@ -286,11 +289,14 @@
                             <td class="td_shortContent">${item.shortContent}</td>
                             <td class="td_category">${item.category}</td>
                             <td class="table-action">
-                                    <a href="{{URL::to('/blog')}}/${item.id}" class="btn btn-sm btn-success"><i class="fas fa-info-circle"></i></a>
-                                    <a href="" class="btn btn-sm btn-warning" data-id="${item.id}" data-toggle="modal"
-                                    data-target="#update_blog"><i class="fas fa-edit"></i></a>
-                                    <a href="" class="btn btn-sm btn-danger" data-id="${item.id}" data-toggle="modal"
-                                    data-target="#delete_blog"><i class="fas fa-trash"></i></a>
+                            <div>
+                            
+                            <a href="{{URL::to('/blog')}}/${item.id}" class="btn btn-sm btn-success"><i class="fas fa-info-circle"></i></a>
+                            <a href="" class="btn btn-sm btn-warning" data-id="${item.id}" data-toggle="modal"
+                            data-target="#update_blog"><i class="fas fa-edit"></i></a>
+                            <a href="" class="btn btn-sm btn-danger" data-id="${item.id}" data-toggle="modal"
+                            data-target="#delete_blog"><i class="fas fa-trash"></i></a>
+                            </div>
                             </td>
                         </tr>
                         `)
@@ -299,14 +305,9 @@
                 });
             })
         // export excel
-        $('#btn_export-excel').click(function () {
-                $("#table-blog").table2excel({
-                exclude: ".excludeThisClass",
-                name: "Worksheet Name",
-                filename: "blogList.xls", 
-                preserveColors: false
-            });
-            })
+        $('#btn_export-excel').click(() => {
+                exportToExel("table-blog")
+            })   
         </script>
     <x-upload-image />
 

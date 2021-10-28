@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .table tbody {
             background-color: white;
         }
-        .table .table-action {
+        .table .table-action div{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-column-gap: 5px;
@@ -473,6 +473,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <ul class="sub">
                                 <li><a href="{{URL::to('/admin/product/list-product')}}">Product management</a></li>
                                 <li><a href="{{URL::to('/admin/blog/list-blog')}}">Blog management</a></li>
+                                <li><a href="{{URL::to('/admin/order/list-order')}}">Order management</a></li>
+                                <li><a href="{{URL::to('/admin/user/list-user')}}">User management</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">
@@ -732,7 +734,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         });
     </script>
-    <!-- //calendar -->
+
+<script>
+     
+    //    format date 
+             function formatDate(date) {
+            var currentdate = new Date(date);
+            var datetime =currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/"
+                + currentdate.getFullYear() + " "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+            return datetime;
+        }
+    // export excel
+    function exportToExel(idTable) {
+                $(`#${idTable}`).table2excel({
+                exclude: ".excludeThisClass",
+                name: "Worksheet Name",
+                filename: "export.xls", 
+                preserveColors: false
+            });
+        }
+    </script>
 </body>
 
 </html>

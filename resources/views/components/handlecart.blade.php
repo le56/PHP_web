@@ -36,6 +36,11 @@ function createOrUpdateCart(quantity = 1,element,attrData,checkIsCartPage) {
         { idProduct: $(element).attr(attrData), quantity,isReplace },
         function (data) {
             const { cart,message } = data;
+            if(!cart) {
+                alert("Please login  to continue !");
+                $('#btn-login').trigger('click');
+                return;
+            }
            if(message === "created") {
             $("#list-cart-header").prepend(`
             <div class="nk-widget-post" item-delete-cart-header="${cart.id}">
@@ -63,8 +68,17 @@ function createOrUpdateCart(quantity = 1,element,attrData,checkIsCartPage) {
             }
             alert("Updated to cart !");
            }
+           if($('#quantity-remain-contain')) {
+               if(cart.product.quantityRemain === 0) {
+                $('#quantity-remain-contain').html(' <h4 style="text-transform: none;margin-bottom: .5rem;color:#ed4545">The product is out of stock</h4>')
+               }
+               else {
+                $('#quantity-remain-contain h4').html(`Quantity remain : ${cart.product.quantityRemain}`)
+               }
+           }
         }
-    ).fail(function () {
+    ).fail(function (err) {
+        if(err.responseJSON.overError) return alert(err.responseJSON.overError)
         alert("Please login  to continue !");
         $('#btn-login').trigger('click');
     });

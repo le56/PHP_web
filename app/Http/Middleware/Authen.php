@@ -17,9 +17,9 @@ class Authen
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Auth::check()) return response()->json([
-            "error" => "Unable to authenticate user !"
-        ],403);
+        if(!Auth::check()) return redirect("/")->withErrors([
+            "errorLogin" => "Please login to continue !"
+        ]);
         return $next($request);
     }
 }

@@ -3,7 +3,7 @@
     
         <div class="col-sm-12">
             <div class="container-fluid ">
-              
+            <h1 style="color: #fff;text-shadow: 3px 2px 0 #666;margin-bottom: 1rem;" class="text-center text-white">Product management</h1>
     <form id="search-form" action="" method="POST" enctype="multipart/form-data">
           <div class="form-group col-xs-3">
             <a class="btn btn-block btn-primary" href="{{URL::to('/admin/product/list-product')}}">Reset filter</a>
@@ -88,13 +88,15 @@
                                 <td class="td_quantityRemain">{{$product->quantityRemain}}</td>
                                 <td class="td_content">{{$product->content}}</td>
                                 <td class="table-action">
-                                    <a style="display:block;margin-bottom: .5rem;" href="{{URL::to('/product')}}/{{$product->id}}" class="btn btn-sm btn-success"><i class="fas fa-info-circle"></i></a>
+                                 <div>
+                                 <a style="display:block;margin-bottom: .5rem;" href="{{URL::to('/product')}}/{{$product->id}}" class="btn btn-sm btn-success"><i class="fas fa-info-circle"></i></a>
                                     <a style="display:block;margin-bottom: .5rem;" href="" class="btn btn-sm btn-primary" data-id="{{$product->id}}" data-toggle="modal"
                                     data-target="#update_quantity"><i class="fas fa-plus-square"></i></a> <br/>
                                     <a href="" class="btn btn-sm btn-warning" data-id="{{$product->id}}" data-toggle="modal"
                                     data-target="#update_product"><i class="fas fa-edit"></i></a>
                                     <a href="" class="btn btn-sm btn-danger" data-id="{{$product->id}}" data-toggle="modal"
                                     data-target="#delete_product"><i class="fas fa-trash"></i></a>
+                                 </div>
                             </td>
                                 
                             </tr>
@@ -357,13 +359,15 @@
                             <td class="td_quantityRemain">${item.quantityRemain}</td>
                             <td class="td_content">${item.content}</td>
                             <td class="table-action">
-                                    <a style="display:block;margin-bottom: .5rem;" href="{{URL::to('/product')}}/${item.id}" class="btn btn-sm btn-success"><i class="fas fa-info-circle"></i></a>
+                                  <div>
+                                  <a style="display:block;margin-bottom: .5rem;" href="{{URL::to('/product')}}/${item.id}" class="btn btn-sm btn-success"><i class="fas fa-info-circle"></i></a>
                                     <a style="display:block;margin-bottom: .5rem;" href="" class="btn btn-sm btn-primary" data-id="${item.id}" data-toggle="modal"
                                     data-target="#update_quantity"><i class="fas fa-plus-square"></i></a> <br/>
                                     <a href="" class="btn btn-sm btn-warning" data-id="${item.id}" data-toggle="modal"
                                     data-target="#update_product"><i class="fas fa-edit"></i></a>
                                     <a href="" class="btn btn-sm btn-danger" data-id="${item.id}" data-toggle="modal"
                                     data-target="#delete_product"><i class="fas fa-trash"></i></a>
+                                  </div>
                             </td>
                         </tr>
                         `)
@@ -379,14 +383,9 @@
                   upload(file,data_id,"_id_product",null)
             })
             // export excel
-            $('#btn_export-excel').click(function () {
-                $("#table-product").table2excel({
-                exclude: ".excludeThisClass",
-                name: "Worksheet Name",
-                filename: "ProductList.xls", 
-                preserveColors: false
-            });
-            })
+            $('#btn_export-excel').click(() => {
+                exportToExel("table-product")
+            })   
            // function load image update model product
             function loadImageUpdaeModel(imagenames) {
                 $('#list_images').html('')

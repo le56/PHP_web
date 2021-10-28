@@ -4,7 +4,10 @@ namespace App\Http\common;
 
 use App\Models\Blog;
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\products;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class common
 {
@@ -66,10 +69,72 @@ class common
         $blog = $blog->orderBy($key, $value);
         $queries["sort[".$key."]"] = $value;
     }
-
+    
         $blog = $blog->paginate($number)->appends($queries);
         return $blog;
     }
+
+    // function filter order
+    public static function filterOrder($req,$number) {
+        $order = new Order();
+        $queries = [];
+    // filter by search
+        if($req->has('search')) {
+            $order = $order->where('users.email','like','%'.$req->search.'%');
+            $queries['search'] = $req->search;
+        }
+         // filter by sort
+      if($req->has('sort')) {
+        $column = $req->sort;
+        $key = array_keys($column)[0];
+        $value = $column[$key];
+        $order = $order->orderBy($key, $value);
+        $queries["sort[".$key."]"] = $value;
+    }
+
+    if($req->has('tgt') && $req->has('tlt')) {
+        $order = $order->where("created_at",">=",$req->tgt)->where("updated_at","<=",$req->tlt);
+        $queries["tgt"] = $req->tgt;
+        $queries["tlt"] = $req->tlt;
+    }
+
+        $order = $order->paginate($number)->appends($queries);
+        foreach($order as $item) {
+            $item->product = $item->product;
+        }
+        return $order;
+    }
+
+    // funtion filter user queries
+    public static function filterUser($req,$number) {
+        $user = User::select("users.*",DB::raw("count(orders.email) as orderNum"))
+        ->leftJoin("orders","users.email","=","orders.email")
+        ->groupBy("users.email");
+        $queries = [];
+        // filter by category
+      if($req->has('active')) {
+        $user = $user->where("users.active",(int)$req->active);
+        $queries["active"] = $req->active;
+    }
+    // filter by search
+        if($req->has('search')) {
+            $user = $user->where('users.name','like','%'.$req->search.'%')
+            ->orWhere('users.email','like','%'.$req->search.'%');
+            $queries['search'] = $req->search;
+        }
+        //  filter by sort
+      if($req->has('sort')) {
+        $column = $req->sort;
+        $key = array_keys($column)[0];
+        $value = $column[$key];
+        $user = $user->orderBy($key, $value);
+        $queries["sort[".$key."]"] = $value;
+    }
+        $user = $user->paginate($number);
+        return $user;
+    }
+
+
 
     // get cart anh total price 
     public static function getCartAndTotalPrice($email) {

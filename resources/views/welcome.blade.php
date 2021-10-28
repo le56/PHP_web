@@ -472,7 +472,22 @@
     @endunless
 
 
-
+    <script>
+        // - format date  
+             function formatDate(date) {
+            var currentdate = new Date(date);
+            var datetime =currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/"
+                + currentdate.getFullYear() + " "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+            return datetime;
+        }
+        // alert error when error authen
+        let errorAuthen = "@error('errorLogin'){{ $message }}@enderror";
+        if(errorAuthen) alert(errorAuthen);
+    </script>
 
     <!-- START: Scripts -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

@@ -84,7 +84,8 @@ class GoogleController extends Controller
     protected function _registerOrLoginUser($data)
     {
         $user = User::where('email', '=', $data->email)->first();
-
+        if($user && !$user->active)
+        return redirect()->back()->withErrors(["errorLogin"=>"Your account has been disabled !"]);
         if (!$user) {
             $user = new User();
             $user->name = $data->name;

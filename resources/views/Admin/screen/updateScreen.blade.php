@@ -7,6 +7,7 @@
    </style>
 
                   <div class="container">
+                  <h1 style="color: #fff;text-shadow: 3px 2px 0 #666;" class="text-center text-white">Update screenshot</h1>
                   <form action="{{URL::to('/admin/screen')}}/{{$item->id}}" method="post">
                   @csrf
                   @method('PUT')

@@ -16,10 +16,9 @@
 </style>
     <div class="col-sm-12">
         <div class="container-fluid ">
+
             <form action="" method="post" id="formControl">
-                <div class="d-flex"><h2>Screen shot management</h2>
-                
-                </div>
+                 <h1 style="color: #fff;text-shadow: 3px 2px 0 #666;" class="text-center text-white">Screenshot managament</h1>
                 <table class="table table-hover">
                     <thead>
                     <tr>
