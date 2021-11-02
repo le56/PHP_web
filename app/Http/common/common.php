@@ -69,8 +69,9 @@ class common
         $blog = $blog->orderBy($key, $value);
         $queries["sort[".$key."]"] = $value;
     }
+       $display = $req->has('display') ? $req->display : 1;
     
-        $blog = $blog->paginate($number)->appends($queries);
+        $blog = $blog->where("display", $display)->paginate($number)->appends($queries);
         return $blog;
     }
 

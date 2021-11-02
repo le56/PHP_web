@@ -20,6 +20,9 @@ class CreatePostsTable extends Migration
             $table->string('content');
             $table->integer('category');
             $table->integer('userID');
+            $table->boolean('admin');
+            $table->boolean('display');
+            $table->boolean('approved');
             $table->timestamps();
         });
     }

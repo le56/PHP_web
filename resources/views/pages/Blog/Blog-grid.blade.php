@@ -48,7 +48,7 @@
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="{{URL::to('/blog')}}/{{$blog->id}}">{{$blog->title}}</a></h2>
                             <div class="nk-post-by">
-                                <img src="{{$blog->Admin->admin_avatar}}" alt="Hitman" class="rounded-circle" width="30"> by <a href="#">{{$blog->Admin->admin_name}}</a> {{$blog->created_at}}
+                                <img src="<?php if($blog->admin) echo $blog->Admin->admin_avatar; else echo $blog->User->avatar;   ?>" alt="Hitman" class="rounded-circle" width="30"> by <a href="#"><?php if($blog->admin) echo $blog->Admin->admin_name; else echo $blog->User->name;   ?></a> {{$blog->created_at}}
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">

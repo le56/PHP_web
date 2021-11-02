@@ -11,7 +11,7 @@ class Blog extends Model
     use HasFactory;
     protected $table = 'blogs';
     protected $primaryKey = 'id';
-    protected $fillable = ['title','idUser', 'content', 'shortContent', 'image', 'category','admin'];
+    protected $fillable = ['title','idUser', 'content', 'shortContent', 'image', 'category','admin','display','approved'];
     public $incrementing = true;
     public $timestamps = true;
 

@@ -152,13 +152,30 @@
                             @if (Auth::check())
                             <div id="header-user-option"><img src="{{Auth::user()->avatar}}">
                                 <div class="nk-cart-dropdown">
+                                <a style="margin-bottom: .5rem;" href="{{URL::to('/')}}" class="
+                                                nk-btn
+                                                nk-btn-rounded
+                                                nk-btn-color-main-1
+                                                nk-btn-hover-color-white
+
+                                    ">My profile</a>
+                                <a style="margin-bottom: .5rem;" href="{{URL::to('/blog/my/manage')}}" class="
+                                                nk-btn
+                                                nk-btn-rounded
+                                                nk-btn-color-main-1
+                                                nk-btn-hover-color-white
+
+                                    ">My blogs</a>
                                     <a href="{{  asset ('/user-logout')}}" class="
                                                 nk-btn
                                                 nk-btn-rounded
                                                 nk-btn-color-main-1
                                                 nk-btn-hover-color-white
+
                                     ">Log out</a>
+                                    
                                 </div>
+                                
                             </div>
                             @else
                             <a href="#" id="btn-login" data-toggle="modal" data-target="#modalLogin">

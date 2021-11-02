@@ -473,6 +473,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <ul class="sub">
                                 <li><a href="{{URL::to('/admin/product/list-product')}}">Product management</a></li>
                                 <li><a href="{{URL::to('/admin/blog/list-blog')}}">Blog management</a></li>
+                                <li><a href="{{URL::to('/admin/blog/approved')}}">Approved blog management</a></li>
                                 <li><a href="{{URL::to('/admin/order/list-order')}}">Order management</a></li>
                                 <li><a href="{{URL::to('/admin/user/list-user')}}">User management</a></li>
                             </ul>

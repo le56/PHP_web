@@ -29,4 +29,19 @@ class userController extends Controller
     public function searchUser(Request $request) {
         return common::filterUser($request,20);
     }
+
+    public function updateProfile(Request $request,$id) {
+        $user = User::find($id);
+        $user->name =  $request->name;
+        if($request->file("newAvatar")) {
+            $filename = $request->avatar;
+            $path = public_path()."\images\\".$filename;
+            if(file_exists($path)) unlink($path);
+            $image = uploadImageController::upload_not_response($request->file("newAvatar"));
+            $user->image =  $image;
+        }
+        $user->save();
+        return redirect()->back();
+    }
+
 }

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class validation_blog
+class validation_image
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,7 @@ class validation_blog
     public function handle(Request $request, Closure $next)
     {
         $request->validate([
-            "title" => "required",
-            "shortContent" => "required",
-            "content" => "required",
-            "category" => "required",
+            "image" => "required|image"
         ]);
         return $next($request);
     }

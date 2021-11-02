@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'validation_product' => \App\Http\Middleware\validation_product::class,
         "validation_blog" => \App\Http\Middleware\validation_blog::class,
         "adminAuthen" => \App\Http\Middleware\adminAuthen::class,
+        "validation_image" => \App\Http\Middleware\validation_image::class,
     ];
 }

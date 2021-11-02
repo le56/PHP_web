@@ -27,13 +27,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+
 Route::get('/', [HomeController::class, 'index']);
 
 //Store Navbar Controller
 Route::get('/store', [StoreController::class, 'index']);
 Route::get('/checkout', [StoreController::class, 'checkout'])->middleware("authen");
 Route::get('/catalog', [StoreController::class, 'catalog']);
-Route::get('product/{id}', [StoreController::class, 'product']);
+Route::get('/product/{id}', [StoreController::class, 'product']);
 
 // handle comment
 Route::post('/product/comment', [StoreController::class, 'addComment'])->name('product.comment');
@@ -50,26 +51,17 @@ Route::get('/teams', [TournamentsController::class, 'team']);
 Route::get('/teammate', [TournamentsController::class, 'teammate']);
 
 //Google PHP
-Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
-Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 //Facebook PHP
-Route::get('auth/facebook', [GoogleController::class, 'redirectToFacebook']);
-Route::get('auth/facebook/callback', [GoogleController::class, 'handleFacebookCallback']);
+Route::get('/auth/facebook', [GoogleController::class, 'redirectToFacebook']);
+Route::get('/auth/facebook/callback', [GoogleController::class, 'handleFacebookCallback']);
 
 //Github PHP
-Route::get('auth/github', [GoogleController::class, 'redirectToGithub']);
-Route::get('auth/github/callback', [GoogleController::class, 'handleGithubCallback']);
+Route::get('/auth/github', [GoogleController::class, 'redirectToGithub']);
+Route::get('/auth/github/callback', [GoogleController::class, 'handleGithubCallback']);
 
-//Admin Font
-// route get show index admin dashboard
-Route::get('/admin', [AdminController::class, 'index']);
-// route get show dashboard
-Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
-// route post check login account
-Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
-// route get login account
-Route::get('/logout', [AdminController::class, 'logout']);
 // handle cart 
 Route::group(["prefix"=>"/cart","middleware"=>["authen"]],function() {
     Route::get('/', [cartController::class, 'cart']);
@@ -93,18 +85,25 @@ Route::group(["prefix"=>"/admin/product","middleware"=>["adminAuthen"]],function
 Route::group(["prefix"=>"/admin/blog","middleware"=>["adminAuthen"]],function() {
     Route::get('/list-blog', [blogController::class, 'showAllListPostBlog']);
     Route::get('/create', [blogController::class, 'showCreateblog']);
-    Route::post('/create', [blogController::class, 'createPost'])->middleware('validation_blog');
-    Route::post('/update/{id}', [blogController::class, 'updateBlog'])->middleware('validation_blog');
+    Route::post('/create', [blogController::class, 'createBlogAmin'])->middleware('validation_blog',"validation_image");
+    Route::post('/update/{id}', [blogController::class, 'updatePostAdmin'])->middleware('validation_blog');
     Route::get('/search', [blogController::class, 'searchBlog'])->name('blog.search');
+    Route::get('/approved',[blogController::class,'showApproved']);
+    Route::patch('/approved/{id}',[blogController::class,'approved']);
     Route::get('/getByID/{id}', [blogController::class, 'getOnePost']);
     Route::delete('/delete/{id}', [blogController::class, 'deletePost']);
 });
 
 // blog user
 Route::prefix('/blog')->group(function () {
-    Route::get('/',[blogController::class,'showBlog']);
-    Route::get('/grid',[blogController::class,'showBlogGrid']);
+    Route::get('/create',[blogController::class,'showCreateBlogUser']);
+    Route::post('/create',[blogController::class,'addBlogUser'])->middleware('validation_blog',"validation_image");
+    Route::get('/getByID/{id}', [blogController::class, 'getOnePostUser']); 
+    Route::get('/my/manage',[blogController::class,'getBlogByIDUser']);
+    Route::put('/update/{id}',[blogController::class,'updateBlogUser'])->middleware('validation_blog');
+    Route::delete('/delete/{id}',[blogController::class,'deletePostUser']);
     Route::get('/{id}',[blogController::class,'showBlogDetail']);
+    Route::get('/',[blogController::class,'showBlog']);
 });
 
 // screen 
@@ -144,11 +143,11 @@ Route::group(["prefix"=>"/admin/user","middleware"=>["adminAuthen"]],function() 
 
 // upload image routes
 //   dropzone
-Route::post("/upload", [uploadImageController::class, 'store'])->name('upload');
+Route::post("/upload", [uploadImageController::class, 'store'])->name('upload')->middleware("validation_image");;
 Route::post("/delete_upload", [uploadImageController::class, 'destroy'])->name('deleteUpload');
 
 // update image product
-Route::post("/update_image", [uploadImageController::class, 'updateImageUpload'])->name('update_image');
+Route::post("/update_image", [uploadImageController::class, 'updateImageUpload'])->name('update_image')->middleware("validation_image");
 Route::delete("/deleteMuti", [uploadImageController::class, 'destroyMuti'])->name('product.deleteMuti');
 Route::post("/upload_checkEditor", [uploadImageController::class, 'uploadImageCheckEditor'])->name('upload_checkEditor');
 
@@ -157,6 +156,16 @@ Route::get("/user-logout", function (){
     Auth::logout();
     return redirect()->back();
 });
+
+//Admin Font
+// route get show index admin dashboard
+Route::get('/admin', [AdminController::class, 'index']);
+// route get show dashboard
+Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
+// route post check login account
+Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
+// route get login account
+Route::get('/logout', [AdminController::class, 'logout']);
 
 // paypal route 
 Route::post('/paypal',[\App\Http\Controllers\PaypalController::class,'index'])->name('paypal_call')->middleware('authen');

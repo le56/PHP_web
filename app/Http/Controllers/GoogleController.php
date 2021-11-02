@@ -78,6 +78,7 @@ class GoogleController extends Controller
         $this->_registerOrLoginUser($user);
 
         // Return home after login
+        
         return redirect('/');
     }
 

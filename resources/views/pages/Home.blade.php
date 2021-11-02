@@ -27,9 +27,9 @@
                     @foreach($newLatest as $new)
                     <div class="nk-news-box-item @if($new->id==1)nk-news-box-item-active @endif">
                         <div class="nk-news-box-item-img">
-                            <img src="{{ asset('public/assets/images/'.$new->image_sm) }}" alt="{{$new->title}}">
+                            <img src="{{ asset('public/images/'.$new->image) }}" alt="{{$new->title}}">
                         </div>
-                        <img src="{{ asset('public/assets/images/'.$new->image) }}" alt="{{$new->title}}" class="nk-news-box-item-full-img">
+                        <img src="{{ asset('public/images/'.$new->image) }}" alt="{{$new->title}}" class="nk-news-box-item-full-img">
                         <h3 class="nk-news-box-item-title">{{$new->title}}</h3>
 
                         <span class="nk-news-box-item-categories">
@@ -37,7 +37,7 @@
                         </span>
 
                         <div class="nk-news-box-item-text">
-                            <p>{{$new->content}}</p>
+                            <p>{{$new->shortContent}}</p>
                         </div>
                         <a href="blog-article.html" class="nk-news-box-item-url">Read More</a>
                         <div class="nk-news-box-item-date"><i class="fas fa-calendar-alt"></i>
@@ -57,7 +57,7 @@
                 <div class="nano-content" tabindex="0" style="right: -17px;">
                     <!-- There will be inserted info about selected news-->
                     <div class="nk-news-box-item-image">
-                        <img src="assets/images/post-1.jpg" alt="Smell magic in the air. Or maybe barbecue">
+                        <img src="{{asset('/public/assets/images/post-1.jpg')}}" alt="Smell magic in the air. Or maybe barbecue">
                         <span class="nk-news-box-item-categories">
                             <span class="bg-main-4">MMO</span>
                         </span>
@@ -85,12 +85,12 @@
             <div class="col-md-6 col-lg-3">
                 <div class="nk-blog-post">
                     <a href="blog-article.html" class="nk-post-img">
-                        <img src="{{ asset('public/assets/images/'.$post->image) }}" alt="{{$post->title}}">
+                        <img src="{{ asset('public/images/'.$post->image) }}" alt="{{$post->title}}">
                     </a>
                     <div class="nk-gap"></div>
                     <h2 class="nk-post-title h4"><a href="blog-article.html">{{$post->title}}</a></h2>
                     <div class="nk-post-text">
-                        <p>{{$post->content}}</p>
+                        <p>{{$post->shortContent}}</p>
                     </div>
                     <div class="nk-gap"></div>
                     <a href="blog-article.html" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Read More </a>
@@ -118,17 +118,17 @@
                         <!-- START: Post -->
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
-                                <img src="{{ asset('public/assets/images/'.$post->image) }}" alt="{{$post->title}}">
+                                <img src="{{ asset('public/images/'.$post->image) }}" alt="{{$post->title}}">
                                 <span class="nk-post-comments-count">13</span>
                             </a>
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="blog-article.html">{{$post->title}}</a></h2>
                             <div class="nk-post-by">
-                                <img src="{{ asset('public/assets/images/avatar-3.jpg') }}" alt="Wolfenstein" class="rounded-circle" width="35"> By <a href="#">Lê Khánh Dương</a> in {{date('d-m-Y', strtotime($post->created_at))}}
+                                <img src="<?php if($post->admin) echo $post->Admin->admin_avatar; else echo $post->User->avatar;   ?>" alt="Wolfenstein" class="rounded-circle" width="35"> By <a href="#"><?php if($post->admin) echo $post->Admin->admin_name; else echo $post->User->name;   ?></a> in {{date('d-m-Y', strtotime($post->created_at))}}
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">
-                                <p>{{$post->content}}</p>
+                                <p>{{$post->ShortContent}}</p>
                             </div>
                             <div class="nk-gap"></div>
                             <a href="blog-article.html" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Read More</a>

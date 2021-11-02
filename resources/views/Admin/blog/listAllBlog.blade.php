@@ -5,8 +5,13 @@
            <div class="container-fluid ">
            <h1 style="color: #fff;text-shadow: 3px 2px 0 #666;margin-bottom: 1rem;" class="text-center text-white">Blog management</h1>
               <form id="search-form" action="" method="POST" enctype="multipart/form-data">
-                  
-                      <div class="form-group col-xs-9" style="padding : 0 10px">
+                      <div class="col-xs-3">
+                          <select data-filter="make" name="display" class="form-group filter-make filter form-control">
+                              <option value="1" selected>Display</option>
+                              <option value="0">Non-display</option>
+                          </select>
+                      </div>
+                      <div class="form-group col-xs-6" style="padding : 0 10px">
                           <input class="form-control" type="text" name='search' placeholder="Search" />
                       </div>
                       <div class="form-group col-xs-3" style="padding-right:0;padding-left: 23px;">
@@ -15,11 +20,11 @@
                 
                   </div>
               </div>
-              <div class="row" id="filter" style="padding: 0 25px;">
+              <div class="row" id="filter" style="padding: 0 25px; margin: 0 -10px;">
 
               
-                      <div class="form-group col-sm-3 col-xs-6">
-                          <select data-filter="make" name="category" class="filter-make filter form-control">
+                      <div class="col-sm-3 col-xs-6">
+                          <select data-filter="make" name="category" class=" form-group  filter-make filter form-control">
                               <option value="" selected disabled>Select Category</option>
                               <option value="">All categories</option>
                               @foreach($categories as $item)
@@ -55,6 +60,7 @@
                             <th>Short content</th>
                           
                             <th>Category</th>
+                            <th>Display</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -70,6 +76,7 @@
                             <td class="td_title">{{$blog->title}} </td>
                                 <td class="td_shortContent">{{$blog->shortContent}}</td>
                                 <td class="td_category">{{$blog->category}}</td>
+                                <td class="td_display"><?php if($blog->display) echo "True"; else echo "False"; ?></td>
                                 <td class="table-action">
                                     <div>
 
@@ -143,6 +150,14 @@
                                 <textarea name="content" id="editor"></textarea>
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="">Display</label>
+                                    <select class="form-control" name="display" aria-label="form-select-lg example">
+                                       <option value="1">True</option>
+                                       <option value="0">False</option>
+                                    </select>
+                                </div>
+
                               
                                 <div class="form-group">
                                     <label for="content">Category</label>
@@ -200,7 +215,7 @@
             $('#btn_confirm_delete').click(() => {
                 $.ajax({
                     type: 'delete',
-                    url: `{{ asset('/admin/blog/delete') }}/${get_id_blog}`,
+                    url: `{{ URL::to('/admin/blog/delete') }}/${get_id_blog}`,
                     success: function (data) {
                         $('#delete_blog').modal('hide')
                         $(`.row_blog_${data}`).remove()
@@ -212,11 +227,12 @@
             $('#update_blog').on('show.bs.modal', function (event) {
                 let button = $(event.relatedTarget)
                 get_id_blog = button.data('id')
-                $.get(`{{ asset('/admin/blog/getByID') }}/${get_id_blog}`,(data) => {
+                $.get(`{{ URL::to('/admin/blog/getByID') }}/${get_id_blog}`,(data) => {
                     $('#update_blog input[name="title"]').val(data.title)
                     $('#update_blog input[name="shortContent"]').val(data.shortContent)
                     editor.setData(data.content);
                     $('select[name="category"]').val(data.category)
+                    $('select[name="display"]').val(data.display)
                     $('#blog-avt-display').attr("src",`{{asset('/public/images/')}}/${data.image}`)             
                 })
             })
@@ -232,11 +248,12 @@
                     contentType: false,
                     processData: false,
                     cache: false,
-                    url: `{{ asset('/admin/blog/update') }}/${get_id_blog}`,
+                    url: `{{ URL::to('/admin/blog/update') }}/${get_id_blog}`,
                     success: function (data) {
                         $(`.row_blog_${data.id} .td_title`).text(data.title)
                         $(`.row_blog_${data.id} .td_shortContent`).text(data.shortContent)
                         $(`.row_blog_${data.id} .td_category`).text(data.category)
+                        $(`.row_blog_${data.id} .td_display`).text(data.display == "0" ? "False" : "True")
                         $(`.row_blog_${data.id} .td_image img`).attr('src', `{{asset('/public/images/')}}/${data.image}`)
                         resetInputFile()
                         $('#update_blog').modal('hide')
@@ -264,6 +281,7 @@
                             [sortArr[0]] : sortArr[1]
                         }
                     ,
+                    display : $('select[name="display"]').val(),
                     search : $('input[name="search"]').val()
                 }
                
@@ -288,6 +306,7 @@
                             <td class="td_title">${item.title} </td>
                             <td class="td_shortContent">${item.shortContent}</td>
                             <td class="td_category">${item.category}</td>
+                            <td class="td_category">${item.display == "1" ? "True" : "False"}</td>
                             <td class="table-action">
                             <div>
                             

@@ -17,7 +17,7 @@ class AdminController extends Controller
     {
         $admin_name = Session::get('admin_name');
         if($admin_name)
-        return view('Admin.dashboard');
+        return redirect("/dashboard");
         return view('admin_login');
     }
     public function show_dashboard()
