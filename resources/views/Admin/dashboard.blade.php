@@ -9,7 +9,7 @@
 					<i class="fa fa-eye"> </i>
 					</div>
 					 <div class="col-md-8 market-update-left">
-					 <h4>Product remain</h4>
+					 <h4>Products</h4>
 					<h3>{{$totalProductRemain}}</h3>
 					<!-- <p>Other hand, we denounce</p> -->
 				  </div>

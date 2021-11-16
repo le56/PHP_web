@@ -88,7 +88,7 @@
             <div class="col-md-6">
 
                 <!-- START: Calculate Shipping -->
-                <h3 class="nk-title h4">Calculate Shipping</h3>
+                <!-- <h3 class="nk-title h4">Calculate Shipping</h3>
                 <form action="#" class="nk-form">
                     <label for="country-sel">Country <span class="text-main-1">*</span>:</label>
                     <select name="country" class="form-control required" id="country-sel">
@@ -109,7 +109,7 @@
 
                     <div class="nk-gap-1"></div>
                     <a class="nk-btn nk-btn-rounded nk-btn-color-white float-right" href="#">Update Totals</a>
-                </form>
+                </form> -->
                 <!-- END: Calculate Shipping -->
 
             </div>
@@ -149,7 +149,7 @@
         </div>
 
         <div class="nk-gap-2"></div>
-        <a class="nk-btn nk-btn-rounded nk-btn-color-main-1 float-right" href="store-checkout.html">Proceed to Checkout</a>
+        <a class="nk-btn nk-btn-rounded nk-btn-color-main-1 float-right" href="{{URL::to('/checkout')}}">Proceed to Checkout</a>
         <div class="clearfix"></div>
     </div>
 </div>

@@ -12,7 +12,7 @@ class userController extends Controller
         // return common::filterUser($request,20);
         return view('Admin.user.listUser',["users"=>common::filterUser($request,20)]);
     }
-
+   /******* ADMIN CAN USER */
     public function deleteUser($id) {
      $user = User::find($id);
      $user->delete();
@@ -29,19 +29,26 @@ class userController extends Controller
     public function searchUser(Request $request) {
         return common::filterUser($request,20);
     }
-
-    public function updateProfile(Request $request,$id) {
-        $user = User::find($id);
+   /********* USER CAN USE */
+    public function updateProfile(Request $request) {
+        $user = User::find(auth()->user()->id);
         $user->name =  $request->name;
-        if($request->file("newAvatar")) {
+        $user->phone = $request->phone;
+        $user->birthday = $request->birthday;
+        if($request->file("avatar")) {
             $filename = $request->avatar;
             $path = public_path()."\images\\".$filename;
             if(file_exists($path)) unlink($path);
-            $image = uploadImageController::upload_not_response($request->file("newAvatar"));
-            $user->image =  $image;
+            $image = uploadImageController::upload_not_response($request->file("avatar"));
+            $user->avatar =  $image;
         }
         $user->save();
         return redirect()->back();
     }
+
+    public function showUserProfile() {
+        return view("pages.User.userProfile");
+    }
+
 
 }

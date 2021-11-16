@@ -7,10 +7,8 @@ use App\Models\Blog;
 use App\Models\Home_slider;
 use App\Models\Latest_new;
 use App\Models\MatchNow;
-use App\Models\Post;
 use App\Models\products;
-use App\Models\Screenshots;
-use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {

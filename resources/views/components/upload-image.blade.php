@@ -27,14 +27,14 @@
             });
         }
        // function read image 
-       function read(file,imageInput) {
+       function read(file,imageElementID) {
             let imageType = /image.*/
             if(file.type.match(imageType)) {
                 let reader = new FileReader();
                 reader.onload =  (e) => {
                     let image = new Image();
                     image.src =  e.target.result
-                    $(`#${imageInput}`).attr('src',image.src)
+                    $(`#${imageElementID}`).attr('src',image.src)
                 }
             reader.readAsDataURL(file)
             }

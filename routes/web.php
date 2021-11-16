@@ -69,6 +69,12 @@ Route::group(["prefix"=>"/cart","middleware"=>["authen"]],function() {
     Route::delete('/{id}', [cartController::class, 'delete']);
 });
 
+// handle profile user 
+Route::group(["prefix"=>"/profile","middleware"=>["authen"]],function() {
+    Route::get("/",[userController::class,"showUserProfile"]);
+    Route::put("/", [userController::class,"updateProfile"]);
+});
+
 //  handle admin product
 Route::group(["prefix"=>"/admin/product","middleware"=>["adminAuthen"]],function() {
     Route::get('/list-product', [productController::class, 'showAll']);
@@ -141,13 +147,15 @@ Route::group(["prefix"=>"/admin/user","middleware"=>["adminAuthen"]],function() 
     Route::patch("/active/{id}",[userController::class,"toggleActive"]);
 });
 
+
+
 // upload image routes
 //   dropzone
-Route::post("/upload", [uploadImageController::class, 'store'])->name('upload')->middleware("validation_image");;
+Route::post("/upload", [uploadImageController::class, 'store'])->name('upload');
 Route::post("/delete_upload", [uploadImageController::class, 'destroy'])->name('deleteUpload');
 
 // update image product
-Route::post("/update_image", [uploadImageController::class, 'updateImageUpload'])->name('update_image')->middleware("validation_image");
+Route::post("/update_image", [uploadImageController::class, 'updateImageUpload'])->name('update_image');
 Route::delete("/deleteMuti", [uploadImageController::class, 'destroyMuti'])->name('product.deleteMuti');
 Route::post("/upload_checkEditor", [uploadImageController::class, 'uploadImageCheckEditor'])->name('upload_checkEditor');
 

@@ -35,10 +35,10 @@
 <div class="container">
 
     <div class="nk-store nk-store-checkout">
-        <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Billing</span> Details</span></h3>
+        <!-- <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Billing</span> Details</span></h3> -->
 
         <!-- START: Billing Details -->
-        <div class="nk-gap"></div>
+        <!-- <div class="nk-gap"></div>
         <form action="#" class="nk-form">
             <div class="row vertical-gap">
                 <div class="col-lg-6">
@@ -103,18 +103,18 @@
                     </label>
                 </div>
             </div>
-        </form>
+        </form> -->
         <!-- END: Billing Details -->
 
-        <div class="nk-gap-2"></div>
+        <!-- <div class="nk-gap-2"></div>
         <form action="#" class="nk-form">
             <div class="nk-gap-1"></div>
             <label for="notes">Order Notes:</label>
             <textarea class="form-control" name="notes" id="notes" placeholder="Order Notes" rows="6"></textarea>
-        </form>
+        </form> -->
 
         <!-- START: Order Products -->
-        <div class="nk-gap-3"></div>
+        <!-- <div class="nk-gap-3"></div> -->
           @if (session('status'))
             <div class="alert <?php if(session('error')) echo 'alert-danger'; else echo 'alert-success';?>">
                     {{ session('status') }}

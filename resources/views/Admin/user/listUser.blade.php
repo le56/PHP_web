@@ -64,7 +64,7 @@
                         @foreach ($users as $user)
                             <tr class="row_user_{{$user->id}}">
                                 <td>{{$loop->index + 1}}</td>
-                                <td class="td_avatar"><img width="35" src="{{$user->avatar}}" alt=""></td>
+                                <td class="td_avatar"><img width="35" height="35" style="object-fit:cover" src="<?php if(strpos($user->avatar,"https://lh3") === false) echo asset('/public/images')."/".$user->avatar; else echo $user->avatar;  ?>" alt=""></td>
                                 <td class="td_email">{{$user->email}}</td>
                                 <td class="td_name">{{$user->name}}</td>
                                 <td class="td_orderNum">{{$user->orderNum}}</td>
@@ -185,7 +185,7 @@
                             $("#listAllUser").append(`
                             <tr class="row_user_${item.id}">
                             <td>${index + 1}</td>
-                            <td class="td_avatar"><img width="35" src="${item.avatar}" alt=""></td>
+                            <td class="td_avatar"><img width="35" height="35" style="object-fit:cover" src="${item.avatar.includes("https://") ? item.avatar : `{{asset('/public/images')}}/${item.avatar}`}" alt=""></td>
                                 <td class="td_email">${item.email}</td>
                                 <td class="td_name">${item.name}</td>
                                 <td class="td_orderNum">${item.orderNum}</td>
@@ -193,7 +193,7 @@
                                 <button data-id="${item.id}" class="btn btn-sm btn_toggle_active ${item.active ? 'btn-success' : 'btn-danger'} ">${item.active ? 'Active' : 'Block'}</button>
                                 </td>
                                 <td class="table-action">
-                                    <a href="" class="btn btn-sm btn-danger" data-id="{{$user->id}}" data-toggle="modal"
+                                    <a href="" class="btn btn-sm btn-danger" data-id="${item.id}" data-toggle="modal"
                                     data-target="#delete_user"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>

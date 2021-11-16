@@ -150,9 +150,9 @@
                             </a>
                             @endif -->
                             @if (Auth::check())
-                            <div id="header-user-option"><img src="{{Auth::user()->avatar}}">
+                            <div id="header-user-option"><img src="<?php if(strpos(auth()->user()->avatar,"https://lh3") === false) echo asset('/public/images')."/".auth()->user()->avatar; else echo auth()->user()->avatar;  ?>">
                                 <div class="nk-cart-dropdown">
-                                <a style="margin-bottom: .5rem;" href="{{URL::to('/')}}" class="
+                                <a style="margin-bottom: .5rem;" href="{{URL::to('/profile')}}" class="
                                                 nk-btn
                                                 nk-btn-rounded
                                                 nk-btn-color-main-1

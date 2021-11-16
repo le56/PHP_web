@@ -38,7 +38,7 @@
                                 
                             </tr>
                         @empty
-                            <td colspan="5"> List blogs is empty.</td>
+                            <td colspan="7"> List blogs is empty.</td>
                         @endforelse
 
                         </tbody>

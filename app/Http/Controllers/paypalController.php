@@ -117,6 +117,7 @@ class paypalController extends Controller
                 ]);
                 $product = products::find($item["idProduct"]);
                 $product->selled = $product->selled + $item["quantity"];
+                $product->quantityRemain = $product->quantityRemain - $item["quantity"];
                 $product->save();
             }
             Cart::where("email",$email)->delete();

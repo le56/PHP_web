@@ -5,6 +5,18 @@
         height: 100% !important;
         object-fit: cover;
     }
+    .max-2-line {
+        overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    }
+    .max-4-line {
+        overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    }
 </style>
 <div class="nk-gap-2"></div>
 <div class="container">
@@ -27,9 +39,9 @@
                     @foreach($newLatest as $new)
                     <div class="nk-news-box-item @if($new->id==1)nk-news-box-item-active @endif">
                         <div class="nk-news-box-item-img">
-                            <img src="{{ asset('public/images/'.$new->image) }}" alt="{{$new->title}}">
+                            <img src="{{ asset('public/assets/images/'.$new->image) }}" alt="{{$new->title}}">
                         </div>
-                        <img src="{{ asset('public/images/'.$new->image) }}" alt="{{$new->title}}" class="nk-news-box-item-full-img">
+                        <img src="{{ asset('public/assets/images/'.$new->image) }}" alt="{{$new->title}}" class="nk-news-box-item-full-img">
                         <h3 class="nk-news-box-item-title">{{$new->title}}</h3>
 
                         <span class="nk-news-box-item-categories">
@@ -78,7 +90,7 @@
         </div>
     </div>
 
-    <div class="nk-gap-2"></div>
+    <!-- <div class="nk-gap-2"></div>
     <div class="nk-blog-grid">
         <div class="row">
             @foreach($postList as $post)
@@ -88,9 +100,9 @@
                         <img src="{{ asset('public/images/'.$post->image) }}" alt="{{$post->title}}">
                     </a>
                     <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="blog-article.html">{{$post->title}}</a></h2>
+                    <h2 class="nk-post-title h4"><a  class="max-2-line" href="blog-article.html">{{$post->title}}</a></h2>
                     <div class="nk-post-text">
-                        <p>{{$post->shortContent}}</p>
+                        <p class="max-4-line">{{$post->shortContent}}</p>
                     </div>
                     <div class="nk-gap"></div>
                     <a href="blog-article.html" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Read More </a>
@@ -100,7 +112,7 @@
             @endforeach
 
         </div>
-    </div>
+    </div> -->
 
     <!-- END: Latest News -->
 

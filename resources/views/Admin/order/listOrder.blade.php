@@ -71,8 +71,8 @@
                             <tr class="row_order_{{$order->id}}">
                                 <td>{{$loop->index + 1}}</td>
                                 <td class="td_email">{{$order->email}}</td>
-                                <td class="td_idProduct">{{$order->product->id}}</td>
-                                <td class="td_nameProduct">{{$order->product->title}}</td>
+                                <td class="td_idProduct">@if($order->product){{$order->product->id}}@else Deleted @endif</td>
+                                <td class="td_nameProduct">@if($order->product){{$order->product->title}}@else Deleted @endif</td>
                                 <td class="td_quantity">{{$order->quantity}}</td>
                                 <td class="td_totalPrice">{{$order->totalPrice}}</td>
                                 <td class="td_created_at">{{$order->created_at}}</td>

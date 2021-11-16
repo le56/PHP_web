@@ -25,12 +25,12 @@ class AdminController extends Controller
        $admin_name = Session::get('admin_name');
        if($admin_name){   
            $products = products::all();
-           $revenue =  0;
-           foreach($products as $product) {
-            $rev = ((int)$product->selled * (float)$product->price) - ((int)$product->selled * (float)$product->priceImport);
-            $revenue += $rev;
-           }
-           return view('Admin.dashboard',["totalUser"=>User::count(),"totalOrder"=> Order::count(),"totalProductRemain"=>products::count(),"revenue"=>$revenue]);
+        //    $revenue =  0;
+        //    foreach($products as $product) {
+        //     $rev = ((int)$product->selled * (float)$product->price) - ((int)$product->selled * (float)$product->priceImport);
+        //     $revenue += $rev;
+        //    }
+           return view('Admin.dashboard',["totalUser"=>User::count(),"totalOrder"=> Order::count(),"totalProductRemain"=>products::count(),"revenue"=>Order::sum("totalPrice")]);
        }
        return view('admin_login');
     }

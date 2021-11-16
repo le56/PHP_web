@@ -67,7 +67,7 @@
                     @foreach($recents as $recent)
                     <div class="nk-widget-post">
                         <a href="{{URL::to('/blog')}}/{{$recent->id}}" class="nk-post-image">
-                            <img src="{{ asset('public/images/'.$recent->image) }}" alt="">
+                            <img src="{{ asset('public/assets/images/'.$recent->image) }}" alt="">
                         </a>
                         <h3 class="nk-post-title"><a href="{{URL::to('/blog')}}/{{$recent->id}}">{{$recent->title}}</a></h3>
                         <div class="nk-post-date"><i class="fas fa-calendar-alt"></i>
