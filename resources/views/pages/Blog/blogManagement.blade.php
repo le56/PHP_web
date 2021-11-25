@@ -86,7 +86,7 @@
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="#">{{$blog->title}}</a></h2>
                             <div class="nk-post-by">
-                                <img src="{{$blog->User->avatar}}" alt="Hitman" class="rounded-circle" width="30"> by <a href="#">{{$blog->User->name}}</a> {{$blog->created_at}}
+                                <img style="object-fit: cover; border-radius:50%;width: 30px;height:30px;" src="<?php if(strpos(auth()->user()->avatar,"https://lh3") === false) echo asset('/public/images')."/".auth()->user()->avatar; else echo auth()->user()->avatar;  ?>" alt="Hitman" class="rounded-circle" width="30"> by <a href="#">{{$blog->User->name}}</a> {{$blog->created_at}}
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">

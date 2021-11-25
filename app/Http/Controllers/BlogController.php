@@ -41,6 +41,7 @@ class BlogController extends Controller
    
     public function showBlogDetail($id) {
         $post = Blog::find($id);
+        if(!$post) return redirect("/");
         if($post->display == 0) {
             if(Session::put("admin_id")) return view('pages.Blog.blog',["blog" => $post]);
             else return redirect("/");

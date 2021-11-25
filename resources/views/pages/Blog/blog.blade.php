@@ -55,7 +55,9 @@
                         if($blog->admin===1) {
                             echo $blog->Admin->admin_avatar;
                         }
-                        else echo $blog->user->avatar;
+                        else {
+                            if(strpos($blog->user->avatar,"https://lh3") === false) echo asset('/public/images')."/".$blog->user->avatar; else echo $blog->user->avatar;
+                        }
                         ?>" 
                         alt="Witch Murder" class="rounded-circle" width="30"> by <a href="#"><?php echo$blog->admin===1? $blog->Admin->admin_name:$blog->user->name ?></a> {{$blog->created_at}}
 
