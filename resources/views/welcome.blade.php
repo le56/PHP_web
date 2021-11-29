@@ -62,6 +62,9 @@
     <script src="{{URL::asset('public/assets/vendor/jquery/dist/jquery.min.js')}}"></script>
 
     <style>
+        body{
+            background-image: url("{{asset('public/images/background-sprite.png')}}");
+        }
         #header-user-option {
             position: relative;
             cursor: pointer;

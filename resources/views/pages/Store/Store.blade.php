@@ -136,8 +136,9 @@
                         @endif
                         @endfor</div>
                 <div class="nk-gap-1"></div>
-                {{$product->content}}
-                <div class="nk-gap-2"></div>
+                <div style="min-height:110px; max-height: 110px;  overflow: hidden;-webkit-mask-image: linear-gradient(black 50%, transparent 100%);">
+                    {{$product->content}}
+                </div>
                 <div class="nk-product-price">€ {{$product->price}}</div>
                 <div class="nk-gap-1"></div>
                 <button data-add-product-cart="{{$product->id}}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</button>
@@ -179,8 +180,6 @@
         </div>
     </div>
     @endforeach
-
-
     <!-- END: Most Popular -->
 </div>
 

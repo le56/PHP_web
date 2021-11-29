@@ -5,17 +5,19 @@
         height: 100% !important;
         object-fit: cover;
     }
+
     .max-2-line {
         overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
     }
+
     .max-4-line {
         overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
     }
 </style>
 <div class="nk-gap-2"></div>
@@ -29,65 +31,12 @@
 
     <!-- START: Latest News -->
     <div class="nk-gap-2"></div>
-    <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Latest</span> News</span></h3>
+    <h3 class="nk-decorated-h-2" style="font-weight: none"><span><span class="text-main-1">Hot</span> News</span></h3>
     <div class="nk-gap"></div>
-
-    <div class="nk-news-box">
-        <div class="nk-news-box-list">
-            <div class="nano has-scrollbar">
-                <div class="nano-content" tabindex="0" style="right: -17px;">
-                    @foreach($newLatest as $new)
-                    <div class="nk-news-box-item @if($new->id==1)nk-news-box-item-active @endif">
-                        <div class="nk-news-box-item-img">
-                            <img src="{{ asset('public/assets/images/'.$new->image) }}" alt="{{$new->title}}">
-                        </div>
-                        <img src="{{ asset('public/assets/images/'.$new->image) }}" alt="{{$new->title}}" class="nk-news-box-item-full-img">
-                        <h3 class="nk-news-box-item-title">{{$new->title}}</h3>
-
-                        <span class="nk-news-box-item-categories">
-                            <span class="bg-main-5">{{$new->category}}</span>
-                        </span>
-
-                        <div class="nk-news-box-item-text">
-                            <p>{{$new->shortContent}}</p>
-                        </div>
-                        <a href="blog-article.html" class="nk-news-box-item-url">Read More</a>
-                        <div class="nk-news-box-item-date"><i class="fas fa-calendar-alt"></i>
-                            <path fill="currentColor" d="M436 160H12c-6.6 0-12-5.4-12-12v-36c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48v36c0 6.6-5.4 12-12 12zM12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm116 204c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40z"></path>
-                            </svg>{{date('d-m-Y', strtotime($new->created_at))}}
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-                <div class="nano-pane">
-                    <div class="nano-slider" style="height: 269px; transform: translate(0px, 0px);"></div>
-                </div>
-            </div>
-        </div>
-        <div class="nk-news-box-each-info">
-            <div class="nano has-scrollbar">
-                <div class="nano-content" tabindex="0" style="right: -17px;">
-                    <!-- There will be inserted info about selected news-->
-                    <div class="nk-news-box-item-image">
-                        <img src="{{asset('/public/assets/images/post-1.jpg')}}" alt="Smell magic in the air. Or maybe barbecue">
-                        <span class="nk-news-box-item-categories">
-                            <span class="bg-main-4">MMO</span>
-                        </span>
-                    </div>
-                    <h3 class="nk-news-box-item-title">Smell magic in the air. Or maybe barbecue</h3>
-                    <div class="nk-news-box-item-text">
-                        <p>With what mingled joy and sorrow do I take up the pen to write to my dearest friend! Oh, what a change between to-day and yesterday! Now I am friendless and alone...</p>
-                    </div>
-                    <a href="blog-article.html" class="nk-news-box-item-more">Read More</a>
-                    <div class="nk-news-box-item-date"><svg class="svg-inline--fa fa-calendar-alt fa-w-14" aria-hidden="true" data-prefix="fa" data-icon="calendar-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
-                            <path fill="currentColor" d="M436 160H12c-6.6 0-12-5.4-12-12v-36c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48v36c0 6.6-5.4 12-12 12zM12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm116 204c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40z"></path>
-                        </svg><!-- <span class="fa fa-calendar"></span> --> Sep 18, 2018</div>
-                </div>
-                <div class="nano-pane" style="display: none;">
-                    <div class="nano-slider" style="height: 407px; transform: translate(0px, 0px);"></div>
-                </div>
-            </div>
-        </div>
+    
+    <div style="position: relative; display: flex;">
+        <img style="width: 40%; height: auto; position: absolute; left: -50px;" src="{{ asset('public/images/Jett_-_Full_body.png') }}" alt="">
+        <x-card-of-new></x-card-of-new>
     </div>
 
     <!-- <div class="nk-gap-2"></div>
@@ -117,17 +66,19 @@
     <!-- END: Latest News -->
 
     <div class="nk-gap-2"></div>
+
+
     <div class="row vertical-gap">
         <div class="col-lg-8">
 
             <!-- START: Latest Posts -->
-            <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Latest</span> Posts</span></h3>
+          <!--   <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Latest</span> Posts</span></h3>
             <div class="nk-gap"></div>
             <div class="nk-blog-grid">
                 <div class="row">
                     @foreach($lastpost as $post)
                     <div class="col-md-6">
-                        <!-- START: Post -->
+                   
                         <div class="nk-blog-post">
                             <a href="blog-article.html" class="nk-post-img">
                                 <img src="{{ asset('public/images/'.$post->image) }}" alt="{{$post->title}}">
@@ -136,7 +87,9 @@
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="blog-article.html">{{$post->title}}</a></h2>
                             <div class="nk-post-by">
-                                <img src="<?php if($post->admin) echo $post->Admin->admin_avatar; else echo $post->User->avatar;   ?>" alt="Wolfenstein" class="rounded-circle" width="35"> By <a href="#"><?php if($post->admin) echo $post->Admin->admin_name; else echo $post->User->name;   ?></a> in {{date('d-m-Y', strtotime($post->created_at))}}
+                                <img src="<?php if ($post->admin) echo $post->Admin->admin_avatar;
+                                            else echo $post->User->avatar;   ?>" alt="Wolfenstein" class="rounded-circle" width="35"> By <a href="#"><?php if ($post->admin) echo $post->Admin->admin_name;
+                                                                                                                                                        else echo $post->User->name;   ?></a> in {{date('d-m-Y', strtotime($post->created_at))}}
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">
@@ -145,15 +98,14 @@
                             <div class="nk-gap"></div>
                             <a href="blog-article.html" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Read More</a>
                         </div>
-                        <!-- END: Post -->
+                     
                     </div>
                     @endforeach
                 </div>
-            </div>
+            </div> -->
             <!-- END: Latest Posts -->
 
             <!-- START: Latest Matches -->
-            <div class="nk-gap-2"></div>
             <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Latest</span> Matches</span></h3>
             <div class="nk-gap"></div>
             <div class="row">

@@ -18,7 +18,9 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->json('images');
             $table->string('content');
+            $table->string('description');
             $table->integer('rate');
+            $table->float('priceImport');
             $table->float('price');
             $table->integer('category');
             $table->integer('selled');
