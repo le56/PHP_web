@@ -84,12 +84,12 @@
                                 <span class="nk-post-comments-count">0</span>
                             </a>
                             <div class="nk-gap"></div>
-                            <h2 class="nk-post-title h4"><a href="#">{{$blog->title}}</a></h2>
+                            <h2 class="nk-post-title h4"><a href="#"  style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;overflow: hidden;">{{$blog->title}}</a></h2>
                             <div class="nk-post-by">
                                 <img style="object-fit: cover; border-radius:50%;width: 30px;height:30px;" src="<?php if(strpos(auth()->user()->avatar,"https://lh3") === false) echo asset('/public/images')."/".auth()->user()->avatar; else echo auth()->user()->avatar;  ?>" alt="Hitman" class="rounded-circle" width="30"> by <a href="#">{{$blog->User->name}}</a> {{$blog->created_at}}
                             </div>
                             <div class="nk-gap"></div>
-                            <div class="nk-post-text">
+                            <div class="nk-post-text" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;overflow: hidden;">
                                 <p>{{$blog->shortContent}}</p>
                             </div>
                             <div class="nk-gap"></div>

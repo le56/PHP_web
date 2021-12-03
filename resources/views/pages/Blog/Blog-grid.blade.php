@@ -46,13 +46,13 @@
                                 <span class="nk-post-comments-count">0</span>
                             </a>
                             <div class="nk-gap"></div>
-                            <h2 class="nk-post-title h4"><a href="{{URL::to('/blog')}}/{{$blog->id}}">{{$blog->title}}</a></h2>
+                            <h2 class="nk-post-title h4"><a href="{{URL::to('/blog')}}/{{$blog->id}}"  style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;overflow: hidden;">{{$blog->title}}</a></h2>
                             <div class="nk-post-by">
-                                <img src="<?php if($blog->admin) echo $blog->Admin->admin_avatar; else echo $blog->User->avatar;   ?>" alt="Hitman" class="rounded-circle" width="30"> by <a href="#"><?php if($blog->admin) echo $blog->Admin->admin_name; else echo $blog->User->name;   ?></a> {{$blog->created_at}}
+                                <img src="<?php if($blog->admin) echo $blog->Admin->admin_avatar; else if(strpos($blog->user->avatar,"https://lh3") === false) echo asset('/public/images')."/".$blog->user->avatar; else echo $blog->user->avatar;   ?>" alt="Hitman" class="rounded-circle" style="width:30px;height:30px;object-fit: cover"> by <a href="#"><?php if($blog->admin) echo $blog->Admin->admin_name; else echo $blog->User->name;   ?></a> {{$blog->created_at}}
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">
-                                <p>{{$blog->shortContent}}</p>
+                                <p style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;overflow: hidden;">{{$blog->shortContent}}</p>
                             </div>
                             <div class="nk-gap"></div>
                             <a href="{{URL::to('/blog')}}/{{$blog->id}}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Read More</a>

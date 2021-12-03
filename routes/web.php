@@ -105,9 +105,9 @@ Route::prefix('/blog')->group(function () {
     Route::get('/create',[blogController::class,'showCreateBlogUser']);
     Route::post('/create',[blogController::class,'addBlogUser'])->middleware('validation_blog',"validation_image");
     Route::get('/getByID/{id}', [blogController::class, 'getOnePostUser']); 
-    Route::get('/my/manage',[blogController::class,'getBlogByIDUser']);
-    Route::put('/update/{id}',[blogController::class,'updateBlogUser'])->middleware('validation_blog');
-    Route::delete('/delete/{id}',[blogController::class,'deletePostUser']);
+    Route::get('/my/manage',[blogController::class,'getBlogByIDUser'])->middleware('authen');
+    Route::put('/update/{id}',[blogController::class,'updateBlogUser'])->middleware('authen');
+    Route::delete('/delete/{id}',[blogController::class,'deletePostUser'])->middleware('authen');
     Route::get('/{id}',[blogController::class,'showBlogDetail']);
     Route::get('/',[blogController::class,'showBlog']);
 });

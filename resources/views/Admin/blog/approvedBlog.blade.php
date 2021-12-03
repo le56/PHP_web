@@ -45,9 +45,10 @@
                     </table>
                
         <script>
-            $('#btn_display_blog').click({status : 1},approved)
-            $('#btn_hidden_blog').click({status : 0},approved)
+            $('#listAllBlog').delegate("#btn_display_blog","click",{status : 1},approved)
+            $('#listAllBlog').delegate("#btn_hidden_blog","click",{status : 0},approved)
             function approved(e) {
+                
                let id = $(this).attr('data-id');
                $.ajax({
                 type: "PATCH",

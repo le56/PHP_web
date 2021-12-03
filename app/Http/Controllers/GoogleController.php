@@ -93,6 +93,7 @@ class GoogleController extends Controller
             $user->email = $data->email;
             $user->provider_id = $data->id;
             $user->avatar = $data->avatar;
+            $user->active = 1;
             $user->save();
         }
         Auth::login($user);

@@ -54,7 +54,7 @@
            </div>
             <br />
     <br/>
-    <div ><button class="btn btn-primary" type="submit">Create post</button></div>
+    <div ><button class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1" type="submit">Create post</button></div>
         </form>
       
     </div>

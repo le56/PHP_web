@@ -53,7 +53,7 @@
                             </div>
 
                             <div class="nk-post-by">
-                                <img src="<?php if($blog->admin) echo $blog->Admin->admin_avatar; else echo $blog->User->avatar;   ?>"
+                                <img src="<?php if($blog->admin) echo $blog->Admin->admin_avatar; else if(strpos(auth()->user()->avatar,"https://lh3") === false) echo asset('/public/images')."/".auth()->user()->avatar; else echo auth()->user()->avatar;   ?>"
                                  alt="Hitman" class="rounded-circle" width="35"> by <a href="#"><?php if($blog->admin) echo $blog->Admin->admin_name; else echo $blog->User->name;   ?></a> {{$blog->created_at}}
                             </div>
                         </div>
