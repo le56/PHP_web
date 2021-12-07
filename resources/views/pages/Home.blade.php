@@ -87,9 +87,7 @@
                             <div class="nk-gap"></div>
                             <h2 class="nk-post-title h4"><a href="blog-article.html">{{$post->title}}</a></h2>
                             <div class="nk-post-by">
-                                <img src="<?php if ($post->admin) echo $post->Admin->admin_avatar;
-                                            else echo $post->User->avatar;   ?>" alt="Wolfenstein" class="rounded-circle" width="35"> By <a href="#"><?php if ($post->admin) echo $post->Admin->admin_name;
-                                                                                                                                                        else echo $post->User->name;   ?></a> in {{date('d-m-Y', strtotime($post->created_at))}}
+                                <img src="" alt="Wolfenstein" class="rounded-circle" width="35"> By <a href="#"></a> in {{date('d-m-Y', strtotime($post->created_at))}}
                             </div>
                             <div class="nk-gap"></div>
                             <div class="nk-post-text">

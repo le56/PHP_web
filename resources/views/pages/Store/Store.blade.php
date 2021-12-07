@@ -94,14 +94,14 @@
             <div class="pl-5 pr-5">
                 <div class="nk-product-cat-3">
                     <a class="nk-product-image" href="product/{{$product->id}}">
-                        <img src="{{ asset('public/images/'.$product->image0) }}" alt="{{$product->title}}">
+                        <img src="{{ asset('public/images/'.$product->image0) }}" alt="{{$product->title}}" >
                     </a>
-                    <div class="nk-product-cont">
+                   <!--  <div class="nk-product-cont">
                         <div class="nk-gap-1"></div>
                         <h3 class="nk-product-title h5"><a href="product/{{$product->id}}">{{$product->title}}</a></h3>
                         <div class="nk-gap-1"></div>
                         <div class="nk-product-price">€ {{$product->price}}</div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

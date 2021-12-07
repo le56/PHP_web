@@ -15,9 +15,7 @@
   }
 
   @media screen and (max-width: 1000px) and (min-width: 700px) {
-    .plx-card.bronze {
-      
-    }
+    .plx-card.bronze {}
   }
 
   @media screen and (min-width: 700px) {
@@ -521,13 +519,17 @@
     justify-content: space-around;
     align-items: center;
   }
+
+  .duong-pro:hover {
+    color: #dc3545;
+  }
 </style>
 <div style="width: 70%;margin-left: 30%;">
   <div class="plx-card gold">
     <div class="pxc-bg" style="background-image:url('https://cdn.shazoo.ru/311466_cUGr3H41ts_1_dw5ta12zvk8im5gle_grbg.jpg')"> </div>
     <div class="pxc-avatar"></div>
     <div class="pxc-subcard">
-      <div class="pxc-title" style="cursor: pointer;">Dreams & Nightmares Contest Winners</div>
+      <div class="pxc-title"><a class="duong-pro" style="color: white; text-decoration: none;" href="{{URL::to('/blog/28')}}">Dreams & Nightmares Contest Winners</a></div>
       <div class="pxc-sub"> Back in July we announced the Dreams & Nightmares Workshop Contest</div>
       <div class="pxc-feats">
         The CS:GO team reviewed the amazing work from artists and teams from all parts of the globe, and decided that ten winners wouldn’t be enough. So, an additional seven winning submissions were selected (17 winning entries total) for a grand total prize pool of $1.7 million.
