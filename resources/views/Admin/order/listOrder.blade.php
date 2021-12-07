@@ -133,6 +133,11 @@
                     success: function (data) {
                         $(`.row_order_${data}`).remove()
                         $('#delete_order').modal('hide')
+
+                        toastMessage({
+                        text : "Delete order successfully !",
+                        status : true
+                    })
                     }
                 });
             })

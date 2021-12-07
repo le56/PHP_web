@@ -515,6 +515,10 @@
                                         </div>
                                     </div>
                     `)
+                    toastMessage({
+                        text : "Add comment !",
+                        status : true
+                    })
                 }
                 });
 

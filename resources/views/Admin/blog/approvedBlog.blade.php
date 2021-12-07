@@ -57,6 +57,10 @@
                 success: function(data)
                 {
                     $(`.row_blog_${data}`).remove();
+                    toastMessage({
+                        text : "Approved blog successfully !",
+                        status : true
+                    })
                 }
                 });
            }

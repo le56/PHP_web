@@ -38,6 +38,9 @@
                 }
             reader.readAsDataURL(file)
             }
-            else return alert('File is not support !')
+            else return toastMessage({
+                text : "File is not supported !",
+                status : false
+            })
         }
 </script>

@@ -1,3 +1,4 @@
+
 <script>
 // add cart all page
 $("button[data-add-product-cart]").click(function(e) {
@@ -58,7 +59,10 @@ function createOrUpdateCart(quantity = 1,element,attrData,checkIsCartPage) {
             $("#quantity-cart-header").text((index, currentcontent) => {
                 return parseInt(currentcontent) + 1;
             });
-            alert("Added to cart !");
+            toastMessage({
+                text : "Add to cart list successfully !",
+                status : true
+            })
            }
            else {
             $(`div[item-delete-cart-header="${cart.id}"] .nk-product-quantity`).text(cart.quantity)
@@ -66,7 +70,10 @@ function createOrUpdateCart(quantity = 1,element,attrData,checkIsCartPage) {
                 $(`tr[item-delete-cart="${cart.id}"] .total-price-item`).text("$ "+cart.totalPrice)
                 setTotalPrice(data.totalPrice)
             }
-            alert("Updated to cart !");
+            toastMessage({
+                text : "Update to cart list successfully !",
+                status : true
+            })
            }
            if($('#quantity-remain-contain')) {
                if(cart.product.quantityRemain === 0) {
@@ -78,7 +85,10 @@ function createOrUpdateCart(quantity = 1,element,attrData,checkIsCartPage) {
            }
         }
     ).fail(function (err) {
-        if(err.responseJSON.overError) return alert(err.responseJSON.overError)
+        if(err.responseJSON.overError) return   toastMessage({
+                text : "Server error !",
+                status : false
+            })
         alert("Please login  to continue !");
         $('#btn-login').trigger('click');
     });
@@ -108,10 +118,13 @@ function deleteFromCart(id,checkIsCartPage,checkIsOrderPage) {
                 </h3>
                 `)
             }
-            alert("Deleted from cart !");
+            toastMessage({
+                text : "Delele from cart list successfully !",
+                status : true
+            })
         },
         error: function (error) {
-            alert(error);
+            console.log(error);
         },
     });
 }

@@ -34,6 +34,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!-- //font-awesome icons -->
     <!-- table  -->
+
+     <!-- toast    -->
+     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   
   
     <!-- jquery -->
@@ -567,7 +572,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
     <script src="{{asset('public/admin_assets/js/jquery.scrollTo.js')}}"></script>
     <!-- morris JavaScript -->
-
+     
+    <x-toast/>
     
     <script>
         // handle input range
@@ -587,6 +593,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         let displayElement = parent.getElementsByClassName("rangeValues")[0];
         displayElement.innerHTML = "$" + slide1 + " - $" + slide2;
     }
+
+
 
     window.onload = function () {
         // Initialize Sliders

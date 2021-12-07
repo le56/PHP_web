@@ -219,6 +219,11 @@
                     success: function (data) {
                         $('#delete_blog').modal('hide')
                         $(`.row_blog_${data}`).remove()
+
+                        toastMessage({
+                        text : "Delete blog successfully !",
+                        status : true
+                    })
                     }
                 });
             })
@@ -257,6 +262,11 @@
                         $(`.row_blog_${data.id} .td_image img`).attr('src', `{{asset('/public/images/')}}/${data.image}`)
                         resetInputFile()
                         $('#update_blog').modal('hide')
+
+                        toastMessage({
+                        text : "Update blog successfully !",
+                        status : true
+                    })
                     },
                     error: function (err) {
                         console.log(err)

@@ -55,7 +55,10 @@
     <link href="http://fonts.cdnfonts.com/css/batman-forever" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+    <!-- toast    -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!-- END: Styles -->
     <!-- jQuery -->
@@ -509,6 +512,8 @@
         if(errorAuthen) alert(errorAuthen);
     </script>
 
+    <!-- toast common script  -->
+    <x-toast/>
     <!-- START: Scripts -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 

@@ -132,6 +132,11 @@
                     success: function (data) {
                         $(`.row_user_${data}`).remove()
                         $('#delete_user').modal('hide')
+
+                        toastMessage({
+                        text : "Delete user successfully !",
+                        status : true
+                    })
                     }
                 });
             })
@@ -147,6 +152,10 @@
                     },
                     success: function (data) {
                         $(`.row_user_${data.id} .td_active`).html(`<button data-id="${data.id}" class="btn btn-sm btn_toggle_active ${data.active ? 'btn-success' : 'btn-danger'} ">${data.active ? 'Active' : 'Block'}</button>`)
+                        toastMessage({
+                        text : `Change to ${data.active ? "active" : "disabled"} successfully !`,
+                        status : true
+                    })
                     }
                 });
             })  

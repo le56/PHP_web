@@ -265,6 +265,11 @@
                     success: function (data) {
                         $('#delete_product').modal('hide')
                         $(`.row_product_${data}`).remove()
+
+                        toastMessage({
+                        text : "Delete product successfully !",
+                        status : true
+                    })
                     }
                 });
             })
@@ -308,6 +313,11 @@
                         $(`.row_product_${data.id} .td_image img`).attr('src', `{{asset('/public/images/')}}/${data.image0}`)
                         get_images_name_product = [];
                         $('#update_product').modal('hide')
+
+                        toastMessage({
+                        text : "Update product successfully !",
+                        status : true
+                    })
                     },
                     error: function (err) {
                         console.log(err)
